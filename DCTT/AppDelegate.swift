@@ -9,13 +9,20 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegate{
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow (frame: UIScreen.main.bounds)
+        window?.backgroundColor = UIColor.white
+        let tabBarController = BaseTabbarController()
+        tabBarController.delegate = self
+        window?.rootViewController =  tabBarController
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
@@ -41,6 +48,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
+    
+    //MARK:
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController.tabBarItem.tag == 2 {
+            //
+            print("pop")
+            
+            return false
+        }
+        return true
+    }
 
 }
 

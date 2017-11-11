@@ -12,35 +12,33 @@ class BaseTabbarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
         initTabar()
-        
     }
 
     func initTabar() {
         tabBar.barTintColor = UIColor.white //kBartintColor
         
         let itemtitleArr = [
-            "Airplane Selector",
-            "Publications",
-            "TOC",
-            "Viewer",
-            "History",
-            "Bookmarks",
-            "Manager"]
-        let itemimg = [
-            "tabicon_airplane_selector",
-            "tabicon_publications",
-            "tabicon_toc",
-            "tabicon_viewer",
-            "tabicon_history",
-            "tabicon_bookmarks",
-            "tabicon_manager"]
+            "最新",
+            "找人",
+            "",
+            "宝典",
+            "我的"]
+
+        let icon_normal:Array = [
+            "tabbar_icon_home",
+            "tabbar_icon_friend",
+            "tabbar_icon_publish" ,
+            "tabbar_icon_all",
+            "tabbar_icon_me" ]
+        let icon_selected = [
+            "tabbar_icon_home_selected",
+            "tabbar_icon_friend_selected",
+            "tabbar_icon_publish" ,
+            "tabbar_icon_all_selected",
+            "tabbar_icon_me_selected" ]
         
-        let vcname =
-            [
+        let vcname = [
                 "HomeViewController",
                 "FriendsViewController",
                 "PublishViewController",
@@ -48,21 +46,25 @@ class BaseTabbarController: UITabBarController {
                 "MeViewController"]
         
         var viewControllerArr:Array = [UIViewController]()
-
-        for i in 0...vcname.count{
+        for i in 0..<vcname.count{
             let appname = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
             let cls  =  NSClassFromString(appname + "." + vcname[i]) as! BaseViewController.Type
             let vc = cls.init()
             
-            vc.tabBarItem = UITabBarItem (title: itemtitleArr[i], image: UIImage (named: itemimg[i]), tag: 0)
+            let barItem = UITabBarItem (title: itemtitleArr[i], image: UIImage (named: icon_normal[i])?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage (named: icon_selected[i])?.withRenderingMode(.alwaysOriginal))
+            barItem.tag = i
+            if i == 2 {
+                barItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0)
+            }
+            
+            barItem.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.black], for: .selected)
+            vc.tabBarItem = barItem
             let navigationvc = BaseNavigationController(rootViewController:vc)
             viewControllerArr.append(navigationvc)
         }
 
-        
         viewControllers = viewControllerArr
     }
-    
     
     
     override func didReceiveMemoryWarning() {
