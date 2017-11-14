@@ -10,7 +10,7 @@ import UIKit
 
 class BaseTableViewController: UITableViewController {
 
-    var dataArray = [Any]()
+    var dataArray = [String]()
     
     
     
@@ -22,12 +22,16 @@ class BaseTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
+        tableView.showsVerticalScrollIndicator = false
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
 
     // MARK: - Table view data source
 
@@ -43,10 +47,10 @@ class BaseTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier:  String (describing: UITableViewCell.self), for: indexPath)
 
-        // Configure the cell...
-
+        cell.textLabel?.text = dataArray[indexPath.row]
+        
         return cell
     }
     
@@ -57,6 +61,7 @@ class BaseTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil
         return {
             let v = UIView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 30))
             v.backgroundColor = kTableview_headView_bgColor
@@ -70,7 +75,7 @@ class BaseTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 0
     }
     
     
