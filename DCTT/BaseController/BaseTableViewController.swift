@@ -18,7 +18,11 @@ class BaseTableViewController: UITableViewController {
         super.viewDidLoad()
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
-        //tableView.showsVerticalScrollIndicator = false
+        tableView.showsVerticalScrollIndicator = false
+        
+        for n in 0..<30 {
+            dataArray.append("\(n + 1)")
+        }
         
     }
 
@@ -27,6 +31,14 @@ class BaseTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        tableView.showsVerticalScrollIndicator = true
+    }
+    
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        tableView.showsVerticalScrollIndicator = false
+    }
 
     // MARK: - Table view data source
 

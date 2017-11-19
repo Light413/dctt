@@ -17,33 +17,15 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         
         for _ in 0..<5 {
             let v = BaseTableViewController();
-            var ds = [String]()
             v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 49)
-            
-            for n in 0..<30 {
-                ds.append("\(n + 1)")
-            }
-            v.dataArray = ds
-            
+ 
+            self.addChildViewController(v)
             vcArr.append(v)
         }
         
         initSubview()
     }
 
-    func createVc() -> UIViewController {
-        let v = BaseTableViewController();
-        var ds = [String]()
-        v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 49)
-        
-        for n in 0..<30 {
-            ds.append("\(n + 1)")
-        }
-        v.dataArray = ds
-
-        return v
-    }
-    
     
     func initSubview() {
         let _layout = UICollectionViewFlowLayout()
@@ -73,11 +55,12 @@ class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String (describing: UICollectionViewCell.self), for: indexPath)
 
         let v = vcArr[indexPath.row]
-        for _v in cell.subviews{
+        for _v in cell.contentView.subviews{
             _v.removeFromSuperview();
         }
         
-        cell.addSubview(v.view)
+    
+        cell.contentView.addSubview(v.view)
         return cell
     }
     
