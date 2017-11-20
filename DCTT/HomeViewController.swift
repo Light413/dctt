@@ -8,61 +8,52 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHeadTitleClickDelegate{
     var vcArr = [BaseTableViewController]()
+    let pagevc = TTPageViewController()
+    var topview : TTHeadTitleView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false;
+
+        _init()
+    }
+
+    func _init() {
+        //head
+        topview = TTHeadTitleView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 40))
+        topview.titles = ["关注","推荐","热点","科技","视频"]
+        topview.delegate  = self
+        view.addSubview(topview)
         
+        ////pagevc
+        let _h = kCurrentScreenHeight - 64 - 49 - 40
         for _ in 0..<5 {
             let v = BaseTableViewController();
-            v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 49)
- 
-            self.addChildViewController(v)
+            v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h)
             vcArr.append(v)
         }
         
-        initSubview()
-    }
-
-    
-    func initSubview() {
-        let _layout = UICollectionViewFlowLayout()
-        _layout.itemSize = CGSize (width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 49)
-        _layout.minimumInteritemSpacing = 0
-        _layout.minimumLineSpacing = 0
-        _layout.scrollDirection = .horizontal
+        pagevc.viewControllers = vcArr
+        pagevc.delegate = self
+        pagevc.view.frame =  CGRect (x: 0, y: 40, width: kCurrentScreenWidth, height: _h)
         
-        let _collectionview = UICollectionView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 49), collectionViewLayout: _layout)
-        _collectionview.delegate  = self
-        _collectionview.dataSource = self
-        _collectionview.register(UICollectionViewCell.self, forCellWithReuseIdentifier: String (describing: UICollectionViewCell.self))
-        _collectionview.backgroundColor  = UIColor.white
-        _collectionview.isPagingEnabled = true
-        _collectionview.showsHorizontalScrollIndicator = false
-        _collectionview.showsVerticalScrollIndicator = false
-        
-        view.addSubview(_collectionview)
+        self.addChildViewController(pagevc)
+        view.addSubview(pagevc.view)
     }
     
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+    
+    //MARK: -
+    func titleClickedAtIndex(_ index: Int) {
+        pagevc.scrollToPageAtIndex(index)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String (describing: UICollectionViewCell.self), for: indexPath)
-
-        let v = vcArr[indexPath.row]
-        for _v in cell.contentView.subviews{
-            _v.removeFromSuperview();
-        }
-        
-    
-        cell.contentView.addSubview(v.view)
-        return cell
+    func pageViewControllerScrollTo(_ index: Int) {
+        topview.scrollToPageAtIndex(index);
     }
+    
+    
     
     
     override func didReceiveMemoryWarning() {

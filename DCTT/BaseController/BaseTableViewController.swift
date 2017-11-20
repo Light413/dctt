@@ -19,13 +19,19 @@ class BaseTableViewController: UITableViewController {
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
         tableView.showsVerticalScrollIndicator = false
+        tableView.backgroundColor = kTableviewBackgroundColor
         
-        for n in 0..<30 {
+        for n in 0..<20 {
             dataArray.append("\(n + 1)")
         }
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .none, animated: false)
+        //print(#function)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -67,22 +73,10 @@ class BaseTableViewController: UITableViewController {
     }
     
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
-        return {
-            let v = UIView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 30))
-            v.backgroundColor = kTableview_headView_bgColor
-            return v
-            }()
-    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
         return 64;
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
     }
     
     

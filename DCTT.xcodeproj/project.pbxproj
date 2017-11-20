@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1CA80F2AEDAEB16E4EC071EF /* Pods_DCTT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2D79CD06F43F25725B0AC5 /* Pods_DCTT.framework */; };
+		A1DE189F1FC270F300562130 /* TTPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DE189E1FC270F300562130 /* TTPageViewController.swift */; };
+		A1DE18A11FC2A0D000562130 /* TTHeadTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */; };
 		A1DFE70B1FB97045001C1905 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DFE70A1FB97045001C1905 /* RecentViewController.swift */; };
 		AD10332C1FB6CD4E0017E81C /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10331D1FB6CD4E0017E81C /* common.swift */; };
 		AD10332D1FB6CD4E0017E81C /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10331E1FB6CD4E0017E81C /* constant.swift */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		55B69D6DCD87607BEB534DEA /* Pods-DCTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCTT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DCTT/Pods-DCTT.debug.xcconfig"; sourceTree = "<group>"; };
 		604BC239A7045558390DF0BE /* Pods-DCTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCTT.release.xcconfig"; path = "Pods/Target Support Files/Pods-DCTT/Pods-DCTT.release.xcconfig"; sourceTree = "<group>"; };
+		A1DE189E1FC270F300562130 /* TTPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPageViewController.swift; sourceTree = "<group>"; };
+		A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTHeadTitleView.swift; sourceTree = "<group>"; };
 		A1DFE70A1FB97045001C1905 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		AC2D79CD06F43F25725B0AC5 /* Pods_DCTT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DCTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD10331D1FB6CD4E0017E81C /* common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 				AD10333B1FB6CD920017E81C /* BaseTableViewController.swift */,
 				AD10333C1FB6CD920017E81C /* BaseViewController.swift */,
 				AD10333D1FB6CD920017E81C /* BaseViewControllerWithTable.swift */,
+				A1DE189E1FC270F300562130 /* TTPageViewController.swift */,
+				A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */,
 			);
 			path = BaseController;
 			sourceTree = "<group>";
@@ -329,7 +335,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		DC35A96028B5B831E98C95EE /* [CP] Copy Pods Resources */ = {
@@ -370,12 +376,14 @@
 				AD10334B1FB6D0D90017E81C /* PublishViewController.swift in Sources */,
 				AD8D66861FC1615A00E7D0C0 /* TTScrollViewController.swift in Sources */,
 				AD10333F1FB6CD920017E81C /* BaseTabbarController.swift in Sources */,
+				A1DE189F1FC270F300562130 /* TTPageViewController.swift in Sources */,
 				A1DFE70B1FB97045001C1905 /* RecentViewController.swift in Sources */,
 				AD1033441FB6CE560017E81C /* HomeViewController.swift in Sources */,
 				AD1033371FB6CD4E0017E81C /* url.swift in Sources */,
 				AD1033341FB6CD4E0017E81C /* NetHelper.swift in Sources */,
 				AD1033421FB6CD920017E81C /* BaseViewControllerWithTable.swift in Sources */,
 				AD10332D1FB6CD4E0017E81C /* constant.swift in Sources */,
+				A1DE18A11FC2A0D000562130 /* TTHeadTitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
