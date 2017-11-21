@@ -19,7 +19,7 @@ class BaseTabbarController: UITabBarController {
         tabBar.barTintColor = UIColor.white //kBartintColor
         
         let itemtitleArr = [
-            "最新",
+            "首页",
             "找人",
             "",
             "宝典",

@@ -17,14 +17,15 @@ class BaseTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
+        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
         tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = kTableviewBackgroundColor
+        tableView.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
         
         for n in 0..<20 {
             dataArray.append("\(n + 1)")
         }
-        
+        tableView.register(UINib (nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCellReuseIdentifierId")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,9 +61,9 @@ class BaseTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:  String (describing: UITableViewCell.self), for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier:  "HomeCellReuseIdentifierId", for: indexPath) as! HomeCell
 
-        cell.textLabel?.text = dataArray[indexPath.row]
+        //cell.textLabel?.text = dataArray[indexPath.row]
         
         return cell
     }
@@ -76,7 +77,7 @@ class BaseTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        return 64;
+        return 80;
     }
     
     

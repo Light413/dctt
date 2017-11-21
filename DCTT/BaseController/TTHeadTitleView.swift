@@ -8,21 +8,31 @@
 
 import UIKit
 
-protocol TTHeadTitleClickDelegate {
+protocol TTHeadTitleDelegate {
     func titleClickedAtIndex(_ index:Int);
 
 }
 
 
 class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
-    var  titles :[String]!
+    var  _titles :[String]!
     var currentIndex: Int = 0//当前显示索引
     var _collectionView:UICollectionView!
-    var delegate:TTHeadTitleClickDelegate?
+    var _delegate:TTHeadTitleDelegate?
     
     private let _item_width:CGFloat = 50
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = UIColor.init(colorLiteralRed: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha: 1)
+        _collectionView = colleciontView(frame: CGRect (x: 0, y: 0, width: frame.width, height: frame.height - 1))
+        self.addSubview(_collectionView)
+    }
+    
+    init(frame:CGRect,titles:[String],delegate:TTHeadTitleDelegate? = nil) {
+        super.init(frame:frame)
+        
+        _titles = titles
+        _delegate = delegate
         self.backgroundColor = UIColor.init(colorLiteralRed: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha: 1)
         _collectionView = colleciontView(frame: CGRect (x: 0, y: 0, width: frame.width, height: frame.height - 1))
         self.addSubview(_collectionView)
@@ -33,8 +43,6 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
     }
     
     fileprivate func colleciontView(frame:CGRect) -> UICollectionView {
-        print(frame)
-        
         let _layout = UICollectionViewFlowLayout()
         _layout.itemSize = CGSize (width: _item_width, height: frame.height)
         _layout.minimumInteritemSpacing = 0
@@ -55,21 +63,22 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
         return collectionview
     }
     
-    func scrollToPageAtIndex(_ index:Int) {
+    func scrollToItemAtIndex(_ index:Int) {
         currentIndex = index
         _collectionView.reloadData()
+        _collectionView.scrollToItem(at: IndexPath (row: index, section: 0), at: .left, animated: true)
     }
 
     
     
     //MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return titles.count
+        return _titles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String (describing: UICollectionViewCell.self), for: indexPath)
-        let v = titles[indexPath.row]
+        let v = _titles[indexPath.row]
         
         for _v in cell.contentView.subviews{
             _v.removeFromSuperview();
@@ -91,7 +100,7 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
         collectionView.reloadData()
         
         //delegate
-        if let delegate = delegate {
+        if let delegate = _delegate {
             delegate.titleClickedAtIndex(index)
         }
     }

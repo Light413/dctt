@@ -8,9 +8,9 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHeadTitleClickDelegate{
+class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHeadTitleDelegate{
     var vcArr = [BaseTableViewController]()
-    let pagevc = TTPageViewController()
+    var pagevc :TTPageViewController!
     var topview : TTHeadTitleView!
     
     override func viewDidLoad() {
@@ -22,23 +22,20 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
 
     func _init() {
         //head
-        topview = TTHeadTitleView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 40))
-        topview.titles = ["关注","推荐","热点","科技","视频"]
-        topview.delegate  = self
+        let titles = ["关注","推荐","热点","科技","视频","段子","问答","社会","国际"]
+        topview  = TTHeadTitleView (frame: CGRect (x: 10, y: 0, width: kCurrentScreenWidth - 20, height: 40), titles: titles, delegate: self)
         view.addSubview(topview)
         
         ////pagevc
         let _h = kCurrentScreenHeight - 64 - 49 - 40
-        for _ in 0..<5 {
+        for _ in 0..<titles.count {
             let v = BaseTableViewController();
             v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h)
             vcArr.append(v)
         }
         
-        pagevc.viewControllers = vcArr
-        pagevc.delegate = self
-        pagevc.view.frame =  CGRect (x: 0, y: 40, width: kCurrentScreenWidth, height: _h)
-        
+        let rec = CGRect (x: 0, y: 40, width: kCurrentScreenWidth, height: _h)
+        pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)
         self.addChildViewController(pagevc)
         view.addSubview(pagevc.view)
     }
@@ -50,7 +47,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
     }
     
     func pageViewControllerScrollTo(_ index: Int) {
-        topview.scrollToPageAtIndex(index);
+        topview.scrollToItemAtIndex(index);
     }
     
     

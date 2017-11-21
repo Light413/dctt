@@ -9,24 +9,35 @@
 import UIKit
 protocol TTPageViewControllerDelegate {
     func pageViewControllerScrollTo(_ index:Int)
-
 }
 
 class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource{
-    var viewControllers :[UITableViewController]!
+    var _viewControllers :[UITableViewController]!
     var currentIndex: Int = 0//当前显示索引
-    var delegate:TTPageViewControllerDelegate?    
+    var _delegate:TTPageViewControllerDelegate?    
     var _collectionView:UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //automaticallyAdjustsScrollViewInsets = false
-        _collectionView = self.colleciontView()
-        view.addSubview(_collectionView)
+
+
     }
 
 
-
+    init(controllers:[UITableViewController], frame viewFrame:CGRect,delegate:TTPageViewControllerDelegate? = nil) {
+        super.init(nibName: nil, bundle: nil)
+        
+        _viewControllers = controllers
+        _delegate = delegate
+        view.frame = viewFrame
+        
+        _collectionView = self.colleciontView()
+        view.addSubview(_collectionView)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     
@@ -37,9 +48,7 @@ class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollect
     
 
     fileprivate func colleciontView() -> UICollectionView {
-        let rect = view.frame
-        print(rect)
-        
+        let rect = CGRect (x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         let _layout = UICollectionViewFlowLayout()
         _layout.itemSize = rect.size
         _layout.minimumInteritemSpacing = 0
@@ -58,18 +67,18 @@ class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollect
     }
     
     func scrollToPageAtIndex(_ index:Int) {
-        _collectionView.scrollToItem(at: IndexPath.init(row: index, section: 0), at: .right, animated: true)
+        _collectionView.scrollToItem(at: IndexPath.init(row: index, section: 0), at: .right, animated: false)
     }
     
     
     //MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewControllers.count
+        return _viewControllers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String (describing: UICollectionViewCell.self), for: indexPath)
-        let v = viewControllers[indexPath.row]
+        let v = _viewControllers[indexPath.row]
         for _v in cell.contentView.subviews{
             _v.removeFromSuperview();
         }
@@ -86,7 +95,7 @@ class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollect
         guard i != currentIndex else{ return }
         currentIndex = i
         
-        if let delegate = delegate {
+        if let delegate = _delegate {
             delegate.pageViewControllerScrollTo(i)
         }
 

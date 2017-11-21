@@ -1,23 +1,20 @@
 //
-//  AllViewController.swift
+//  FPersonDetailController.swift
 //  DCTT
 //
-//  Created by wyg on 2017/11/11.
+//  Created by gener on 17/11/21.
 //  Copyright © 2017年 Light.W. All rights reserved.
 //
 
 import UIKit
 
-class AllViewController: BaseViewController {
+class FPersonDetailController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        automaticallyAdjustsScrollViewInsets = false;
 
+        // Do any additional setup after loading the view.
     }
-    
-
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
