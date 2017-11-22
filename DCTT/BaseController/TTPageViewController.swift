@@ -90,6 +90,15 @@ class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollect
     
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+
+        _scroll(scrollView);
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        _scroll(scrollView);
+    }
+
+    func _scroll(_ scrollView: UIScrollView) {
         let index = scrollView.contentOffset.x / scrollView.frame.width
         let i = lrintf(Float(index))
         guard i != currentIndex else{ return }
@@ -98,9 +107,8 @@ class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollect
         if let delegate = _delegate {
             delegate.pageViewControllerScrollTo(i)
         }
-
     }
     
-
-
+    
+    
 }
