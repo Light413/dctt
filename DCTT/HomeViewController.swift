@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import RxSwift
 
-class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHeadTitleDelegate{
+class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHeadTitleDelegate,UITextFieldDelegate{
     var vcArr = [BaseTableViewController]()
     var pagevc :TTPageViewController!
     var topview : TTHeadTitleView!
+    let _logo_title = "今日头条"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +24,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
 
     func _init() {
         //head
-        let titles = ["关注","推荐","热点","科技","视频","段子","问答","社会","国际"]
+        let titles = ["关注","最新","热门","问答","段子","科技","视频","社会","国际"]
         topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 40), titles: titles, delegate: self)
         view.addSubview(topview)
         
@@ -38,6 +40,31 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)
         self.addChildViewController(pagevc)
         view.addSubview(pagevc.view)
+        
+        //navigationbar item
+        let logo_lable = UILabel (frame: CGRect (x: 0, y: 0, width: 80, height: 30))
+        logo_lable.text = _logo_title
+        logo_lable.font = UIFont .boldSystemFont(ofSize: 18)
+        logo_lable.textColor = UIColor.white
+        let left_item = UIBarButtonItem.init(customView: logo_lable)
+        navigationItem.leftBarButtonItem = left_item
+        
+        //search
+        let tf = UITextField (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth - 150, height: 30))
+        tf.backgroundColor = UIColor.white
+        tf.borderStyle = .roundedRect
+        tf.text = "请输入搜索关键字"
+        tf.textColor = UIColor.darkGray
+        tf.font = UIFont .systemFont(ofSize: 14)
+        tf.delegate = self
+        tf.leftViewMode = .always
+        let leftview = UIView (frame: CGRect (x: 0, y: 0, width: 25, height: 20))
+        let img = UIImageView (image: UIImage (named: "search_subscibe_titilebar_press_night"))
+        img.frame = CGRect (x: 10, y: 4, width: 12, height: 12)
+        leftview.addSubview(img)
+        tf.leftView = leftview
+        
+        navigationItem.titleView = tf
     }
     
     
@@ -50,7 +77,13 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         topview.scrollToItemAtIndex(index);
     }
     
-    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        let vc = HomeSearchViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        return false
+    }
     
     
     override func didReceiveMemoryWarning() {

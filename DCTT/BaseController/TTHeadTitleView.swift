@@ -71,10 +71,10 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
         
         let item_width = (_collectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize.width
         var offset = item_width * (CGFloat(index) + 0.5) - _collectionView.frame.width / 2
-        let max = _collectionView.contentSize.width - _collectionView.frame.width
+        let max = _collectionView.contentSize.width - _collectionView.frame.width + _collectionView.contentInset.left
         
         if offset < 0 {
-            offset = 0;
+            offset = -_collectionView.contentInset.left;
         }
         
         if offset > max {

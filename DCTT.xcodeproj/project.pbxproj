@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1CA80F2AEDAEB16E4EC071EF /* Pods_DCTT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2D79CD06F43F25725B0AC5 /* Pods_DCTT.framework */; };
+		A1A642D41FC54FA40058F63B /* AppIcon-News29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A642CD1FC54FA40058F63B /* AppIcon-News29x29.png */; };
+		A1A642D51FC54FA40058F63B /* AppIcon-News29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A642CE1FC54FA40058F63B /* AppIcon-News29x29@2x.png */; };
+		A1A642D61FC54FA40058F63B /* AppIcon-News29x29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A642CF1FC54FA40058F63B /* AppIcon-News29x29@3x.png */; };
+		A1A642D71FC54FA40058F63B /* AppIcon-News40x40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A642D01FC54FA40058F63B /* AppIcon-News40x40@2x.png */; };
+		A1A642D81FC54FA40058F63B /* AppIcon-News40x40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A642D11FC54FA40058F63B /* AppIcon-News40x40@3x.png */; };
+		A1A642D91FC54FA40058F63B /* AppIcon-News60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A642D21FC54FA40058F63B /* AppIcon-News60x60@2x.png */; };
+		A1A642DA1FC54FA40058F63B /* AppIcon-News60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A642D31FC54FA40058F63B /* AppIcon-News60x60@3x.png */; };
+		A1A642DC1FC567CB0058F63B /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A642DB1FC567CA0058F63B /* HomeSearchViewController.swift */; };
 		A1B5A6431FC4174400871676 /* ymtimg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1B5A6421FC4174400871676 /* ymtimg2.jpg */; };
 		A1B5A6451FC41F2200871676 /* sunrise.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1B5A6441FC41F2200871676 /* sunrise.jpg */; };
 		A1CE83931FC3C0AC00DAF90F /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE83911FC3C0AC00DAF90F /* HomeCell.swift */; };
@@ -55,6 +63,14 @@
 /* Begin PBXFileReference section */
 		55B69D6DCD87607BEB534DEA /* Pods-DCTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCTT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DCTT/Pods-DCTT.debug.xcconfig"; sourceTree = "<group>"; };
 		604BC239A7045558390DF0BE /* Pods-DCTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCTT.release.xcconfig"; path = "Pods/Target Support Files/Pods-DCTT/Pods-DCTT.release.xcconfig"; sourceTree = "<group>"; };
+		A1A642CD1FC54FA40058F63B /* AppIcon-News29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-News29x29.png"; sourceTree = "<group>"; };
+		A1A642CE1FC54FA40058F63B /* AppIcon-News29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-News29x29@2x.png"; sourceTree = "<group>"; };
+		A1A642CF1FC54FA40058F63B /* AppIcon-News29x29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-News29x29@3x.png"; sourceTree = "<group>"; };
+		A1A642D01FC54FA40058F63B /* AppIcon-News40x40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-News40x40@2x.png"; sourceTree = "<group>"; };
+		A1A642D11FC54FA40058F63B /* AppIcon-News40x40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-News40x40@3x.png"; sourceTree = "<group>"; };
+		A1A642D21FC54FA40058F63B /* AppIcon-News60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-News60x60@2x.png"; sourceTree = "<group>"; };
+		A1A642D31FC54FA40058F63B /* AppIcon-News60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-News60x60@3x.png"; sourceTree = "<group>"; };
+		A1A642DB1FC567CA0058F63B /* HomeSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
 		A1B5A6421FC4174400871676 /* ymtimg2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ymtimg2.jpg; sourceTree = "<group>"; };
 		A1B5A6441FC41F2200871676 /* sunrise.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunrise.jpg; sourceTree = "<group>"; };
 		A1CE83911FC3C0AC00DAF90F /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
@@ -115,6 +131,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1A642CC1FC54FA40058F63B /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				A1A642CD1FC54FA40058F63B /* AppIcon-News29x29.png */,
+				A1A642CE1FC54FA40058F63B /* AppIcon-News29x29@2x.png */,
+				A1A642CF1FC54FA40058F63B /* AppIcon-News29x29@3x.png */,
+				A1A642D01FC54FA40058F63B /* AppIcon-News40x40@2x.png */,
+				A1A642D11FC54FA40058F63B /* AppIcon-News40x40@3x.png */,
+				A1A642D21FC54FA40058F63B /* AppIcon-News60x60@2x.png */,
+				A1A642D31FC54FA40058F63B /* AppIcon-News60x60@3x.png */,
+			);
+			path = icon;
+			sourceTree = "<group>";
+		};
 		A1CE83901FC3C05500DAF90F /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +159,7 @@
 		A1CE83951FC3CD3600DAF90F /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				A1A642CC1FC54FA40058F63B /* icon */,
 				A1B5A6421FC4174400871676 /* ymtimg2.jpg */,
 				A1CE83A01FC4122D00DAF90F /* 11.png */,
 				A1CE83A11FC4122D00DAF90F /* 12.png */,
@@ -236,6 +267,7 @@
 				AD10331C1FB6CD4E0017E81C /* com */,
 				AD1033381FB6CD920017E81C /* BaseController */,
 				AD1033431FB6CE560017E81C /* HomeViewController.swift */,
+				A1A642DB1FC567CA0058F63B /* HomeSearchViewController.swift */,
 				A1CE83981FC3F6AA00DAF90F /* HomeDetailController.swift */,
 				A1DFE70A1FB97045001C1905 /* RecentViewController.swift */,
 				AD1033481FB6CF070017E81C /* FriendsViewController.swift */,
@@ -329,17 +361,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1CE83A71FC4122D00DAF90F /* 14.png in Resources */,
+				A1A642D91FC54FA40058F63B /* AppIcon-News60x60@2x.png in Resources */,
 				A1CE83941FC3C0AC00DAF90F /* HomeCell.xib in Resources */,
+				A1A642DA1FC54FA40058F63B /* AppIcon-News60x60@3x.png in Resources */,
 				AD1033331FB6CD4E0017E81C /* success@2x.png in Resources */,
 				ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */,
 				AD1033321FB6CD4E0017E81C /* success.png in Resources */,
 				AD1033301FB6CD4E0017E81C /* error@2x.png in Resources */,
+				A1A642D81FC54FA40058F63B /* AppIcon-News40x40@3x.png in Resources */,
+				A1A642D41FC54FA40058F63B /* AppIcon-News29x29.png in Resources */,
+				A1A642D51FC54FA40058F63B /* AppIcon-News29x29@2x.png in Resources */,
 				A1CE83A61FC4122D00DAF90F /* 13.png in Resources */,
 				A1CE83A41FC4122D00DAF90F /* 11.png in Resources */,
 				ADEAE50B1FB6C8F50048F876 /* Assets.xcassets in Resources */,
+				A1A642D71FC54FA40058F63B /* AppIcon-News40x40@2x.png in Resources */,
 				A1B5A6431FC4174400871676 /* ymtimg2.jpg in Resources */,
 				A1CE83A51FC4122D00DAF90F /* 12.png in Resources */,
 				A1B5A6451FC41F2200871676 /* sunrise.jpg in Resources */,
+				A1A642D61FC54FA40058F63B /* AppIcon-News29x29@3x.png in Resources */,
 				A1CE839F1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib in Resources */,
 				AD10332F1FB6CD4E0017E81C /* error.png in Resources */,
 			);
@@ -437,6 +476,7 @@
 				A1CE83931FC3C0AC00DAF90F /* HomeCell.swift in Sources */,
 				AD8D66861FC1615A00E7D0C0 /* TTScrollViewController.swift in Sources */,
 				AD10333F1FB6CD920017E81C /* BaseTabbarController.swift in Sources */,
+				A1A642DC1FC567CB0058F63B /* HomeSearchViewController.swift in Sources */,
 				A1DE189F1FC270F300562130 /* TTPageViewController.swift in Sources */,
 				A1DFE70B1FB97045001C1905 /* RecentViewController.swift in Sources */,
 				AD1033441FB6CE560017E81C /* HomeViewController.swift in Sources */,
@@ -562,7 +602,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55B69D6DCD87607BEB534DEA /* Pods-DCTT.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8R29X3H9MY;
 				INFOPLIST_FILE = DCTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -578,7 +617,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 604BC239A7045558390DF0BE /* Pods-DCTT.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8R29X3H9MY;
 				INFOPLIST_FILE = DCTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

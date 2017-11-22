@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseNavigationController: UINavigationController {
+class BaseNavigationController: UINavigationController,UINavigationControllerDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         get{
             return .lightContent
@@ -28,6 +28,21 @@ class BaseNavigationController: UINavigationController {
 //        navigationBar.setBackgroundImage(UIImage (named: "navigationbar_bg"), for: .default)
         //UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent;
 
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if self.viewControllers.count > 1 {
+            viewController.hidesBottomBarWhenPushed = true
+        }
+    }
+    
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        super.pushViewController(viewController, animated: animated)
+        
+//        if self.viewControllers.count > 1 {
+//            viewController.hidesBottomBarWhenPushed = true
+//        }
+        
     }
 
     override func didReceiveMemoryWarning() {
