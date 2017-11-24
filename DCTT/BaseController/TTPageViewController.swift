@@ -33,6 +33,10 @@ class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollect
         
         _collectionView = self.colleciontView()
         view.addSubview(_collectionView)
+        
+        for vc in controllers {
+            self.addChildViewController(vc)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

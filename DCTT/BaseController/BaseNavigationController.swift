@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseNavigationController: UINavigationController,UINavigationControllerDelegate {
+class BaseNavigationController: KLTNavigationController,UINavigationControllerDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         get{
             return .lightContent
@@ -20,7 +20,7 @@ class BaseNavigationController: UINavigationController,UINavigationControllerDel
         super.viewDidLoad()
 
         navigationBar.barTintColor = ttBarColor //kBartintColor
-        navigationBar.isTranslucent = false
+        //navigationBar.isTranslucent = false
         navigationBar.tintColor = UIColor.white
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white,NSFontAttributeName:UIFont.boldSystemFont(ofSize: 18)]
 
@@ -30,20 +30,7 @@ class BaseNavigationController: UINavigationController,UINavigationControllerDel
 
     }
     
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        if self.viewControllers.count > 1 {
-            viewController.hidesBottomBarWhenPushed = true
-        }
-    }
-    
-    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        super.pushViewController(viewController, animated: animated)
-        
-//        if self.viewControllers.count > 1 {
-//            viewController.hidesBottomBarWhenPushed = true
-//        }
-        
-    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

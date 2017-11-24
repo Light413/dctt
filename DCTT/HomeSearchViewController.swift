@@ -17,17 +17,24 @@ class HomeSearchViewController: BaseViewController {
         view.backgroundColor = kTableviewBackgroundColor
         
         //hidesBottomBarWhenPushed = true
+        let leftitem = UIBarButtonItem.init(title: "<返回", style: .plain, target: self, action: nil)
+        navigationItem.leftBarButtonItem = leftitem
+    
+        let _v = UIView .init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 64))
+        _v.backgroundColor = UIColor.white
+        view.addSubview(_v)
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setToolbarHidden(true, animated: animated)
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: animated)
         super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        
     }
+
     
     
     

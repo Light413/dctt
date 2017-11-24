@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1CA80F2AEDAEB16E4EC071EF /* Pods_DCTT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2D79CD06F43F25725B0AC5 /* Pods_DCTT.framework */; };
+		A117530B1FC7B0DF00888516 /* AnimationContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = A11753081FC7B0DF00888516 /* AnimationContoller.m */; };
+		A117530C1FC7B0DF00888516 /* KLTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A117530A1FC7B0DF00888516 /* KLTNavigationController.m */; };
 		A1A642D41FC54FA40058F63B /* AppIcon-News29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A642CD1FC54FA40058F63B /* AppIcon-News29x29.png */; };
 		A1A642D51FC54FA40058F63B /* AppIcon-News29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A642CE1FC54FA40058F63B /* AppIcon-News29x29@2x.png */; };
 		A1A642D61FC54FA40058F63B /* AppIcon-News29x29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A642CF1FC54FA40058F63B /* AppIcon-News29x29@3x.png */; };
@@ -63,6 +65,10 @@
 /* Begin PBXFileReference section */
 		55B69D6DCD87607BEB534DEA /* Pods-DCTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCTT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DCTT/Pods-DCTT.debug.xcconfig"; sourceTree = "<group>"; };
 		604BC239A7045558390DF0BE /* Pods-DCTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCTT.release.xcconfig"; path = "Pods/Target Support Files/Pods-DCTT/Pods-DCTT.release.xcconfig"; sourceTree = "<group>"; };
+		A11753071FC7B0DF00888516 /* AnimationContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationContoller.h; sourceTree = "<group>"; };
+		A11753081FC7B0DF00888516 /* AnimationContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationContoller.m; sourceTree = "<group>"; };
+		A11753091FC7B0DF00888516 /* KLTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLTNavigationController.h; sourceTree = "<group>"; };
+		A117530A1FC7B0DF00888516 /* KLTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLTNavigationController.m; sourceTree = "<group>"; };
 		A1A642CD1FC54FA40058F63B /* AppIcon-News29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-News29x29.png"; sourceTree = "<group>"; };
 		A1A642CE1FC54FA40058F63B /* AppIcon-News29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-News29x29@2x.png"; sourceTree = "<group>"; };
 		A1A642CF1FC54FA40058F63B /* AppIcon-News29x29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-News29x29@3x.png"; sourceTree = "<group>"; };
@@ -86,6 +92,7 @@
 		A1DE189E1FC270F300562130 /* TTPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPageViewController.swift; sourceTree = "<group>"; };
 		A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTHeadTitleView.swift; sourceTree = "<group>"; };
 		A1DFE70A1FB97045001C1905 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
+		A1E853D21FC6924100E8DB85 /* DCTT-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DCTT-Bridging-Header.h"; sourceTree = "<group>"; };
 		AC2D79CD06F43F25725B0AC5 /* Pods_DCTT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DCTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD10331D1FB6CD4E0017E81C /* common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
 		AD10331E1FB6CD4E0017E81C /* constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
@@ -170,6 +177,18 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		A1E853C81FC690E100E8DB85 /* KLTAnimateNav */ = {
+			isa = PBXGroup;
+			children = (
+				A11753071FC7B0DF00888516 /* AnimationContoller.h */,
+				A11753081FC7B0DF00888516 /* AnimationContoller.m */,
+				A11753091FC7B0DF00888516 /* KLTNavigationController.h */,
+				A117530A1FC7B0DF00888516 /* KLTNavigationController.m */,
+				A1E853D21FC6924100E8DB85 /* DCTT-Bridging-Header.h */,
+			);
+			path = KLTAnimateNav;
+			sourceTree = "<group>";
+		};
 		AD10331C1FB6CD4E0017E81C /* com */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +229,7 @@
 		AD1033381FB6CD920017E81C /* BaseController */ = {
 			isa = PBXGroup;
 			children = (
+				A1E853C81FC690E100E8DB85 /* KLTAnimateNav */,
 				AD1033391FB6CD920017E81C /* BaseNavigationController.swift */,
 				AD10333A1FB6CD920017E81C /* BaseTabbarController.swift */,
 				AD10333B1FB6CD920017E81C /* BaseTableViewController.swift */,
@@ -474,6 +494,7 @@
 				AD10333E1FB6CD920017E81C /* BaseNavigationController.swift in Sources */,
 				AD10334B1FB6D0D90017E81C /* PublishViewController.swift in Sources */,
 				A1CE83931FC3C0AC00DAF90F /* HomeCell.swift in Sources */,
+				A117530B1FC7B0DF00888516 /* AnimationContoller.m in Sources */,
 				AD8D66861FC1615A00E7D0C0 /* TTScrollViewController.swift in Sources */,
 				AD10333F1FB6CD920017E81C /* BaseTabbarController.swift in Sources */,
 				A1A642DC1FC567CB0058F63B /* HomeSearchViewController.swift in Sources */,
@@ -483,6 +504,7 @@
 				A1CE839B1FC3F6D900DAF90F /* FPersonDetailController.swift in Sources */,
 				AD1033371FB6CD4E0017E81C /* url.swift in Sources */,
 				A1CE839E1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift in Sources */,
+				A117530C1FC7B0DF00888516 /* KLTNavigationController.m in Sources */,
 				AD1033341FB6CD4E0017E81C /* NetHelper.swift in Sources */,
 				AD1033421FB6CD920017E81C /* BaseViewControllerWithTable.swift in Sources */,
 				AD10332D1FB6CD4E0017E81C /* constant.swift in Sources */,
@@ -608,6 +630,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gener-tech.DCTT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "DCTT/BaseController/KLTAnimateNav/DCTT-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -623,6 +647,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gener-tech.DCTT";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "DCTT/BaseController/KLTAnimateNav/DCTT-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

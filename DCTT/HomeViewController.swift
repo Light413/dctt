@@ -20,12 +20,25 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         automaticallyAdjustsScrollViewInsets = false;
 
         _init()
+        //self.fd_prefersNavigationBarHidden = true
     }
 
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+//    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+//        
+//    }
+    
     func _init() {
+
+        
         //head
         let titles = ["关注","最新","热门","问答","段子","科技","视频","社会","国际"]
-        topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 40), titles: titles, delegate: self)
+        topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 64, width: kCurrentScreenWidth, height: 40), titles: titles, delegate: self)
         view.addSubview(topview)
         
         ////pagevc
@@ -36,7 +49,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
             vcArr.append(v)
         }
         
-        let rec = CGRect (x: 0, y: 40, width: kCurrentScreenWidth, height: _h)
+        let rec = CGRect (x: 0, y: topview.frame.maxY, width: kCurrentScreenWidth, height: _h)
         pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)
         self.addChildViewController(pagevc)
         view.addSubview(pagevc.view)
