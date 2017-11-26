@@ -30,8 +30,25 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
 
     }
     
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        
+        if self.viewControllers.count > 0 {
+        let backbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 25, height: 25))
+            backbtn.setImage(UIImage (named: "trans-navi-left-button"), for: .normal)
+            backbtn.addTarget(self, action: #selector(navigationBackButtonAction), for: .touchUpInside)
+            let leftitem = UIBarButtonItem.init(customView: backbtn)
+            viewController.navigationItem.leftBarButtonItem = leftitem
+        }
+        
+        super.pushViewController(viewController, animated: animated)
+    }
 
-
+    
+    func navigationBackButtonAction() {
+        self.popViewController(animated: true)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

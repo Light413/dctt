@@ -18,14 +18,14 @@ class HomeSearchViewController: BaseViewController {
         
         //hidesBottomBarWhenPushed = true
         let leftitem = UIBarButtonItem.init(title: "<返回", style: .plain, target: self, action: nil)
-        navigationItem.leftBarButtonItem = leftitem
+        //navigationItem.leftBarButtonItem = leftitem
     
         let _v = UIView .init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 64))
         _v.backgroundColor = UIColor.white
-        view.addSubview(_v)
+        //view.addSubview(_v)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    /*override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
@@ -33,7 +33,7 @@ class HomeSearchViewController: BaseViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         
-    }
+    }*/
 
     
     
