@@ -14,6 +14,7 @@ class HomeDetailController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        t_barTintColor = UIColor.orange
     }
 
     override func didReceiveMemoryWarning() {

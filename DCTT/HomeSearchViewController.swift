@@ -9,21 +9,17 @@
 import UIKit
 
 class HomeSearchViewController: BaseViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = kTableviewBackgroundColor
-        
-        //hidesBottomBarWhenPushed = true
-        let leftitem = UIBarButtonItem.init(title: "<返回", style: .plain, target: self, action: nil)
-        //navigationItem.leftBarButtonItem = leftitem
-    
+
         let _v = UIView .init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 64))
         _v.backgroundColor = UIColor.white
         //view.addSubview(_v)
+        
     }
+    
 
     /*override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

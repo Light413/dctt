@@ -11,41 +11,53 @@ import UIKit
 class BaseNavigationController: KLTNavigationController,UINavigationControllerDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         get{
-            return .lightContent
+            return .default
         }
     }
     
-    let ttBarColor = UIColor (red: 212/255.0, green: 61/255.0, blue: 61/255.0, alpha: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.barTintColor = ttBarColor //kBartintColor
-        //navigationBar.isTranslucent = false
-        navigationBar.tintColor = UIColor.white
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white,NSFontAttributeName:UIFont.boldSystemFont(ofSize: 18)]
+        navigationBar.barTintColor = tt_BarColor //kBartintColor
+        navigationBar.isTranslucent = false
+        //navigationBar.tintColor = UIColor.white
+        navigationBar.barStyle = .black
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black,NSFontAttributeName:UIFont.systemFont(ofSize: 16)]
 
-//        UINavigationBar.appearance().tintColor = UIColor.white
 //        navigationBar.setBackgroundImage(UIImage (named: "navigationbar_bg"), for: .default)
         //UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent;
 
     }
     
+    
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        
         if self.viewControllers.count > 0 {
-        let backbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 25, height: 25))
-            backbtn.setImage(UIImage (named: "trans-navi-left-button"), for: .normal)
+        let backbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
+            backbtn.setImage(UIImage (named: "leftbackicon_sdk_login"), for: .normal)
+            backbtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10)
             backbtn.addTarget(self, action: #selector(navigationBackButtonAction), for: .touchUpInside)
             let leftitem = UIBarButtonItem.init(customView: backbtn)
             viewController.navigationItem.leftBarButtonItem = leftitem
         }
-        
+
+        self.navigationBar.barTintColor = (viewController.value(forKey: "t_barTintColor") as? UIColor ) ?? tt_BarColor
         super.pushViewController(viewController, animated: animated)
     }
 
     
+    override func popViewController(animated: Bool) -> UIViewController? {
+        let cnt = self.viewControllers.count
+        let last = self.viewControllers[cnt - 2]
+        self.navigationBar.barTintColor = (last.value(forKey: "t_barTintColor") as? UIColor ) ?? tt_BarColor
+
+        return super.popViewController(animated: animated)
+        
+    }
+    
+    
     func navigationBackButtonAction() {
-        self.popViewController(animated: true)
+       _ = self.popViewController(animated: true)
     }
     
     

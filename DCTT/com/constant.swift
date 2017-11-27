@@ -40,53 +40,10 @@ let Dismiss = {HUD.dismiss()}
 
 
 //MARK: - 全局变量
-//数据源更新状态
-enum DSStatus:Int{
-    case wait_update    = 1
-    case downloading    = 2
-    case will_unzip     = 3
-    case unzipping      = 4
-    case will_update    = 5
-    case completed      = 6
-    
-}
-
 //Notification
 let knotification_airplane_changed = Notification.Name(rawValue: "knotification_airplane_changed")
 let knotification_publication_changed = Notification.Name(rawValue: "knotification_publication_changed")
 let knotification_segment_changed = Notification.Name(rawValue: "knotification_segment_changed")
-
-//
-var kUnzipprogress: UIProgressView!
-var kUnzipProgressStatus:Float = 0.0
-
-
-///PATH
-/*
- "/var/mobile/Containers/Data/Application/E2F03F14-9FA2-415A-87F6-E46B68A03E2A/Library/TDLibrary
- /CCA/
- CCAA320CCAAIPC20161101/aipc"
- */
-let DocumentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-
-let LibraryPath = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)[0]
-let ROOTPATH = LibraryPath.appending("/TDLibrary")
-let HTMLPATH = LibraryPath.appending("/HTML")
-let ROOTSUBPATH = "/CCA/" //待确定唯一性?
-
-let PATH = ROOTPATH + ROOTSUBPATH
-
-//sub
-let APLISTJSONPATH = "/resources/apList.json"
-let APMODELMAPJSPATH = ROOTPATH + ROOTSUBPATH + "apModelMap.js"//与MSN字段关联飞机手册
-
-
-//dataSource
-var kDataSourceLocations = [String]()
-let kpackage_info = "package_info.json"
-let ksync_manifest = "sync_manifest.json"
-let ktdafactorymobilebaseline = "tdafactorymobilebaseline.json"
-
 
 ///////////
 #if !DEBUG

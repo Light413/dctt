@@ -1,5 +1,5 @@
 //
-//  FPersonDetailController.swift
+//  FriendsDetailController.swift
 //  DCTT
 //
 //  Created by gener on 17/11/21.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FPersonDetailController: BaseViewController {
+class FriendsDetailController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -20,7 +20,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         automaticallyAdjustsScrollViewInsets = false;
 
         _init()
-        //self.fd_prefersNavigationBarHidden = true
+
     }
 
 //    override func viewWillAppear(_ animated: Bool) {
@@ -37,8 +37,8 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
 
         
         //head
-        let titles = ["关注","最新","热门","问答","段子","科技","视频","社会","国际"]
-        topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 64, width: kCurrentScreenWidth, height: 40), titles: titles, delegate: self)
+        let titles = ["关注","最新","热门","问答","段子","数码"]
+        topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 40), titles: titles, delegate: self)
         view.addSubview(topview)
         
         ////pagevc

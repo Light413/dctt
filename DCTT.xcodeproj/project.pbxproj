@@ -10,6 +10,8 @@
 		1CA80F2AEDAEB16E4EC071EF /* Pods_DCTT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2D79CD06F43F25725B0AC5 /* Pods_DCTT.framework */; };
 		A117530B1FC7B0DF00888516 /* AnimationContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = A11753081FC7B0DF00888516 /* AnimationContoller.m */; };
 		A117530C1FC7B0DF00888516 /* KLTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A117530A1FC7B0DF00888516 /* KLTNavigationController.m */; };
+		A1783C031FCC128F00E4AB06 /* AllCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1783C011FCC128F00E4AB06 /* AllCategoryCell.swift */; };
+		A1783C041FCC128F00E4AB06 /* AllCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1783C021FCC128F00E4AB06 /* AllCategoryCell.xib */; };
 		A1A642D41FC54FA40058F63B /* AppIcon-News29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A642CD1FC54FA40058F63B /* AppIcon-News29x29.png */; };
 		A1A642D51FC54FA40058F63B /* AppIcon-News29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A642CE1FC54FA40058F63B /* AppIcon-News29x29@2x.png */; };
 		A1A642D61FC54FA40058F63B /* AppIcon-News29x29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1A642CF1FC54FA40058F63B /* AppIcon-News29x29@3x.png */; };
@@ -23,7 +25,7 @@
 		A1CE83931FC3C0AC00DAF90F /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE83911FC3C0AC00DAF90F /* HomeCell.swift */; };
 		A1CE83941FC3C0AC00DAF90F /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1CE83921FC3C0AC00DAF90F /* HomeCell.xib */; };
 		A1CE83991FC3F6AA00DAF90F /* HomeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE83981FC3F6AA00DAF90F /* HomeDetailController.swift */; };
-		A1CE839B1FC3F6D900DAF90F /* FPersonDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE839A1FC3F6D900DAF90F /* FPersonDetailController.swift */; };
+		A1CE839B1FC3F6D900DAF90F /* FriendsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE839A1FC3F6D900DAF90F /* FriendsDetailController.swift */; };
 		A1CE839E1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE839C1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift */; };
 		A1CE839F1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1CE839D1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib */; };
 		A1CE83A41FC4122D00DAF90F /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = A1CE83A01FC4122D00DAF90F /* 11.png */; };
@@ -56,7 +58,6 @@
 		AD10334B1FB6D0D90017E81C /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10334A1FB6D0D90017E81C /* PublishViewController.swift */; };
 		AD10334D1FB6D1A40017E81C /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10334C1FB6D1A40017E81C /* AllViewController.swift */; };
 		AD1490B41FCB08750053FD31 /* trans-navi-left-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1490B31FCB08750053FD31 /* trans-navi-left-button@2x.png */; };
-		AD8D66861FC1615A00E7D0C0 /* TTScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8D66851FC1615A00E7D0C0 /* TTScrollViewController.swift */; };
 		ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */; };
 		ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5051FB6C8F50048F876 /* ViewController.swift */; };
 		ADEAE50B1FB6C8F50048F876 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADEAE50A1FB6C8F50048F876 /* Assets.xcassets */; };
@@ -70,6 +71,8 @@
 		A11753081FC7B0DF00888516 /* AnimationContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationContoller.m; sourceTree = "<group>"; };
 		A11753091FC7B0DF00888516 /* KLTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLTNavigationController.h; sourceTree = "<group>"; };
 		A117530A1FC7B0DF00888516 /* KLTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLTNavigationController.m; sourceTree = "<group>"; };
+		A1783C011FCC128F00E4AB06 /* AllCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCategoryCell.swift; sourceTree = "<group>"; };
+		A1783C021FCC128F00E4AB06 /* AllCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCategoryCell.xib; sourceTree = "<group>"; };
 		A1A642CD1FC54FA40058F63B /* AppIcon-News29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-News29x29.png"; sourceTree = "<group>"; };
 		A1A642CE1FC54FA40058F63B /* AppIcon-News29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-News29x29@2x.png"; sourceTree = "<group>"; };
 		A1A642CF1FC54FA40058F63B /* AppIcon-News29x29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-News29x29@3x.png"; sourceTree = "<group>"; };
@@ -83,7 +86,7 @@
 		A1CE83911FC3C0AC00DAF90F /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		A1CE83921FC3C0AC00DAF90F /* HomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		A1CE83981FC3F6AA00DAF90F /* HomeDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailController.swift; sourceTree = "<group>"; };
-		A1CE839A1FC3F6D900DAF90F /* FPersonDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPersonDetailController.swift; sourceTree = "<group>"; };
+		A1CE839A1FC3F6D900DAF90F /* FriendsDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDetailController.swift; sourceTree = "<group>"; };
 		A1CE839C1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsCollectonViewCell.swift; sourceTree = "<group>"; };
 		A1CE839D1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsCollectonViewCell.xib; sourceTree = "<group>"; };
 		A1CE83A01FC4122D00DAF90F /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
@@ -119,7 +122,6 @@
 		AD10334A1FB6D0D90017E81C /* PublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
 		AD10334C1FB6D1A40017E81C /* AllViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
 		AD1490B31FCB08750053FD31 /* trans-navi-left-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trans-navi-left-button@2x.png"; sourceTree = "<group>"; };
-		AD8D66851FC1615A00E7D0C0 /* TTScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTScrollViewController.swift; sourceTree = "<group>"; };
 		ADEAE5001FB6C8F50048F876 /* DCTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADEAE5051FB6C8F50048F876 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,8 @@
 				A1CE83921FC3C0AC00DAF90F /* HomeCell.xib */,
 				A1CE839C1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift */,
 				A1CE839D1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib */,
+				A1783C011FCC128F00E4AB06 /* AllCategoryCell.swift */,
+				A1783C021FCC128F00E4AB06 /* AllCategoryCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -203,7 +207,6 @@
 				AD1033271FB6CD4E0017E81C /* Reachability */,
 				AD10332A1FB6CD4E0017E81C /* themeColor.swift */,
 				AD10332B1FB6CD4E0017E81C /* url.swift */,
-				AD8D66851FC1615A00E7D0C0 /* TTScrollViewController.swift */,
 			);
 			path = com;
 			sourceTree = "<group>";
@@ -294,7 +297,7 @@
 				A1CE83981FC3F6AA00DAF90F /* HomeDetailController.swift */,
 				A1DFE70A1FB97045001C1905 /* RecentViewController.swift */,
 				AD1033481FB6CF070017E81C /* FriendsViewController.swift */,
-				A1CE839A1FC3F6D900DAF90F /* FPersonDetailController.swift */,
+				A1CE839A1FC3F6D900DAF90F /* FriendsDetailController.swift */,
 				AD10334A1FB6D0D90017E81C /* PublishViewController.swift */,
 				AD10334C1FB6D1A40017E81C /* AllViewController.swift */,
 				AD1033461FB6CEA00017E81C /* MeViewController.swift */,
@@ -400,6 +403,7 @@
 				ADEAE50B1FB6C8F50048F876 /* Assets.xcassets in Resources */,
 				A1A642D71FC54FA40058F63B /* AppIcon-News40x40@2x.png in Resources */,
 				A1B5A6431FC4174400871676 /* ymtimg2.jpg in Resources */,
+				A1783C041FCC128F00E4AB06 /* AllCategoryCell.xib in Resources */,
 				A1CE83A51FC4122D00DAF90F /* 12.png in Resources */,
 				A1B5A6451FC41F2200871676 /* sunrise.jpg in Resources */,
 				A1A642D61FC54FA40058F63B /* AppIcon-News29x29@3x.png in Resources */,
@@ -460,7 +464,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		DC35A96028B5B831E98C95EE /* [CP] Copy Pods Resources */ = {
@@ -485,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1783C031FCC128F00E4AB06 /* AllCategoryCell.swift in Sources */,
 				AD1033471FB6CEA00017E81C /* MeViewController.swift in Sources */,
 				AD10332E1FB6CD4E0017E81C /* Extension.swift in Sources */,
 				ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */,
@@ -501,13 +506,12 @@
 				AD10334B1FB6D0D90017E81C /* PublishViewController.swift in Sources */,
 				A1CE83931FC3C0AC00DAF90F /* HomeCell.swift in Sources */,
 				A117530B1FC7B0DF00888516 /* AnimationContoller.m in Sources */,
-				AD8D66861FC1615A00E7D0C0 /* TTScrollViewController.swift in Sources */,
 				AD10333F1FB6CD920017E81C /* BaseTabbarController.swift in Sources */,
 				A1A642DC1FC567CB0058F63B /* HomeSearchViewController.swift in Sources */,
 				A1DE189F1FC270F300562130 /* TTPageViewController.swift in Sources */,
 				A1DFE70B1FB97045001C1905 /* RecentViewController.swift in Sources */,
 				AD1033441FB6CE560017E81C /* HomeViewController.swift in Sources */,
-				A1CE839B1FC3F6D900DAF90F /* FPersonDetailController.swift in Sources */,
+				A1CE839B1FC3F6D900DAF90F /* FriendsDetailController.swift in Sources */,
 				AD1033371FB6CD4E0017E81C /* url.swift in Sources */,
 				A1CE839E1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift in Sources */,
 				A117530C1FC7B0DF00888516 /* KLTNavigationController.m in Sources */,

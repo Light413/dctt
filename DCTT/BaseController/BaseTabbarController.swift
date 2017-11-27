@@ -20,7 +20,7 @@ class BaseTabbarController: UITabBarController {
         
         let itemtitleArr = [
             "首页",
-            "找人",
+            "朋友圈",
             "",
             "宝典",
             "我的"]
@@ -59,6 +59,8 @@ class BaseTabbarController: UITabBarController {
             
             barItem.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.black], for: .selected)
             vc.tabBarItem = barItem
+            vc.title = itemtitleArr[i]
+            
             let navigationvc = BaseNavigationController(rootViewController:vc)
             viewControllerArr.append(navigationvc)
         }
