@@ -8,29 +8,46 @@
 
 import UIKit
 
-class HomeSearchViewController: BaseViewController {
+class HomeSearchViewController: BaseViewController ,TTSearchBarDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-
-        let _v = UIView .init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 64))
-        _v.backgroundColor = UIColor.white
-        //view.addSubview(_v)
+        let _topBg = UIView .init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 64))
+        _topBg.backgroundColor = UIColor.white
+        view.addSubview(_topBg)
+        
+        //search
+        let search = TTSearchBarView (frame: CGRect (x: 15, y: 27, width: _topBg.frame.width - 20, height: 30))
+        search.delegate = self
+        _topBg.addSubview(search)
         
     }
-    
 
-    /*override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         
-    }*/
+    }
 
+    
+    ////TTSearchBarDelegate
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print(textField.text)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) {
+        
+    }
+    
+    func cancle() {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
     
     
     

@@ -10,10 +10,18 @@ import UIKit
 
 class AllViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource{
 
+    var dataArray = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false;
 
+        let path = Bundle.main.path(forResource: "all_category_item", ofType: "plist")
+        let _arr = NSArray.init(contentsOfFile: path!) as? [String]
+        if let arr = _arr {
+            dataArray = dataArray + arr;
+        }
+        
         _init()
     }
     
@@ -32,9 +40,12 @@ class AllViewController: BaseViewController,UICollectionViewDelegate,UICollectio
     
 
     fileprivate func colleciontView(_ frame:CGRect) -> UICollectionView {
+        let offset:CGFloat = 10
+        let _width = (kCurrentScreenWidth - offset *  2 - 10) / 3.0
+        
         let _layout = UICollectionViewFlowLayout()
-        _layout.itemSize = CGSize (width: 100, height: 100)
-        _layout.minimumInteritemSpacing = 5
+        _layout.itemSize = CGSize (width: _width, height: _width * 0.7)
+        _layout.minimumInteritemSpacing = 2
         _layout.minimumLineSpacing = 5
         _layout.scrollDirection = .vertical
         
@@ -45,18 +56,19 @@ class AllViewController: BaseViewController,UICollectionViewDelegate,UICollectio
         collectionview.backgroundColor  = UIColor.white
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = true
-        
+        collectionview.contentInset = UIEdgeInsetsMake(15, offset, 0, offset)
         return collectionview
     }
     
     
     //MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return dataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllCategoryCellReuseIdentifierId", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllCategoryCellReuseIdentifierId", for: indexPath) as! AllCategoryCell
+        cell.title.text = dataArray[indexPath.row]
         
         return cell
     }

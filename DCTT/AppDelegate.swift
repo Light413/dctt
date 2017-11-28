@@ -54,10 +54,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController.tabBarItem.tag == 2 {
             //
-            print("pop")
+            let vc = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+            let action1 = UIAlertAction.init(title: "action1", style: .default, handler: { (action) in
+                
+            })
+            let action2 = UIAlertAction.init(title: "action2", style: .default, handler: { (action) in
+                
+            })
+
+            let action3 = UIAlertAction.init(title: "action3", style: .cancel, handler: { (action) in
+                
+            })
+            vc.addAction(action1)
+            vc.addAction(action2)
+            vc.addAction(action3)
+            
+            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
             
             return false
         }
+        
         return true
     }
 

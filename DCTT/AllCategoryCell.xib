@@ -8,28 +8,34 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AllCategoryCellReuseIdentifierId" id="2q9-aG-kKe" customClass="AllCategoryCell" customModule="DCTT" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+            <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item_010" translatesAutoresizingMaskIntoConstraints="NO" id="rLk-as-P62"/>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rLk-as-P62"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5x-zO-lag">
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="rLk-as-P62" firstAttribute="top" secondItem="2q9-aG-kKe" secondAttribute="top" constant="0.20000000000000001" id="9yr-qt-adA"/>
-                <constraint firstItem="rLk-as-P62" firstAttribute="centerX" secondItem="2q9-aG-kKe" secondAttribute="centerX" id="OuH-QY-tg2"/>
-                <constraint firstAttribute="bottom" secondItem="rLk-as-P62" secondAttribute="bottom" constant="0.20000000000000001" id="Qg1-EF-1CA"/>
-                <constraint firstItem="rLk-as-P62" firstAttribute="leading" secondItem="2q9-aG-kKe" secondAttribute="leading" constant="0.20000000000000001" id="ovs-dk-hRj"/>
-                <constraint firstAttribute="trailing" secondItem="rLk-as-P62" secondAttribute="trailing" constant="0.20000000000000001" id="qms-x1-eHm"/>
+                <constraint firstItem="rLk-as-P62" firstAttribute="top" secondItem="2q9-aG-kKe" secondAttribute="top" id="9yr-qt-adA"/>
+                <constraint firstAttribute="bottom" secondItem="rLk-as-P62" secondAttribute="bottom" id="Qg1-EF-1CA"/>
+                <constraint firstAttribute="trailing" secondItem="S5x-zO-lag" secondAttribute="trailing" id="QgJ-hI-Zt0"/>
+                <constraint firstItem="S5x-zO-lag" firstAttribute="leading" secondItem="2q9-aG-kKe" secondAttribute="leading" id="SrS-fZ-eFW"/>
+                <constraint firstAttribute="bottom" secondItem="S5x-zO-lag" secondAttribute="bottom" id="gav-EC-94U"/>
+                <constraint firstItem="rLk-as-P62" firstAttribute="leading" secondItem="2q9-aG-kKe" secondAttribute="leading" id="ovs-dk-hRj"/>
+                <constraint firstAttribute="trailing" secondItem="rLk-as-P62" secondAttribute="trailing" id="qms-x1-eHm"/>
+                <constraint firstItem="S5x-zO-lag" firstAttribute="top" secondItem="2q9-aG-kKe" secondAttribute="top" id="tZe-G7-wcO"/>
             </constraints>
             <connections>
                 <outlet property="img" destination="rLk-as-P62" id="kjq-Nm-QRm"/>
+                <outlet property="title" destination="S5x-zO-lag" id="fg5-Qi-XaK"/>
             </connections>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="item_010" width="50" height="50"/>
-    </resources>
 </document>

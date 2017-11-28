@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MJRefresh
 
 class BaseTableViewController: UITableViewController {
 
@@ -26,6 +27,20 @@ class BaseTableViewController: UITableViewController {
             dataArray.append("\(n + 1)")
         }
         tableView.register(UINib (nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCellReuseIdentifierId")
+        
+        //test  refresh
+        let header = MJRefreshNormalHeader.init(refreshingBlock: {
+            print("refresh start...")
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                print("refresh end...")
+                self.tableView.mj_header.endRefreshing()
+            }
+            
+        })
+        
+        header?.lastUpdatedTimeLabel.isHidden = true
+        tableView.mj_header = header;
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {

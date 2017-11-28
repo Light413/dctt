@@ -23,19 +23,8 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
 
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-//    }
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-//        
-//    }
-    
-    func _init() {
 
-        
+    func _init() {
         //head
         let titles = ["关注","最新","热门","问答","段子","数码"]
         topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 40), titles: titles, delegate: self)
@@ -93,6 +82,8 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         let vc = HomeSearchViewController()
         vc.hidesBottomBarWhenPushed = true
+        vc.t_barTintColor = UIColor.white
+        
         self.navigationController?.pushViewController(vc, animated: true)
         
         return false

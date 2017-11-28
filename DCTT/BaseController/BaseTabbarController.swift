@@ -22,7 +22,7 @@ class BaseTabbarController: UITabBarController {
             "首页",
             "朋友圈",
             "",
-            "宝典",
+            "生活服务",
             "我的"]
 
         let icon_normal:Array = [

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MJRefresh
+
 class FriendsViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource{
 
     override func viewDidLoad() {
@@ -21,6 +23,23 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
         let _colloectionview = colleciontView(frame)
         _colloectionview.delegate = self
         _colloectionview.dataSource = self
+        
+        let header = MJRefreshNormalHeader.init(refreshingBlock: {
+            print("refresh start...")
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                print("refresh end...")
+                _colloectionview.mj_header.endRefreshing()
+            }
+
+        })
+        
+        header?.lastUpdatedTimeLabel.isHidden = true
+
+        
+        _colloectionview.mj_header = header
+        
+        //_colloectionview.mj_header.beginRefreshing()
+        
         view.addSubview(_colloectionview);
 
         t_barTintColor = UIColor.white
