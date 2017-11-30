@@ -41,7 +41,7 @@ class AllViewController: BaseViewController,UICollectionViewDelegate,UICollectio
 
     fileprivate func colleciontView(_ frame:CGRect) -> UICollectionView {
         let offset:CGFloat = 10
-        let _width = (kCurrentScreenWidth - offset *  2 - 10) / 3.0
+        let _width = (kCurrentScreenWidth - offset *  2 - 8) / 3.0
         
         let _layout = UICollectionViewFlowLayout()
         _layout.itemSize = CGSize (width: _width, height: _width * 0.7)
@@ -56,7 +56,7 @@ class AllViewController: BaseViewController,UICollectionViewDelegate,UICollectio
         collectionview.backgroundColor  = UIColor.white
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = true
-        collectionview.contentInset = UIEdgeInsetsMake(15, offset, 0, offset)
+        collectionview.contentInset = UIEdgeInsetsMake(15, offset, 10, offset)
         return collectionview
     }
     
@@ -68,8 +68,9 @@ class AllViewController: BaseViewController,UICollectionViewDelegate,UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllCategoryCellReuseIdentifierId", for: indexPath) as! AllCategoryCell
-        cell.title.text = dataArray[indexPath.row]
-        
+        let str = dataArray[indexPath.row]
+        cell.title.text = str
+
         return cell
     }
     

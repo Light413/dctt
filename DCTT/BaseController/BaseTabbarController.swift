@@ -46,10 +46,16 @@ class BaseTabbarController: UITabBarController {
                 "MeViewController"]
         
         var viewControllerArr:Array = [UIViewController]()
-        for i in 0..<vcname.count{
+        for i in 0..<vcname.count {
             let appname = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
             let cls  =  NSClassFromString(appname + "." + vcname[i]) as! BaseViewController.Type
-            let vc = cls.init()
+            var vc:UIViewController!
+            
+            if i < vcname.count {
+                vc = cls.init()
+            }else{
+                vc = UIStoryboard.init(name: "me", bundle: nil).instantiateViewController(withIdentifier: "me_stroryboar_identity")
+            }
             
             let barItem = UITabBarItem (title: itemtitleArr[i], image: UIImage (named: icon_normal[i])?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage (named: icon_selected[i])?.withRenderingMode(.alwaysOriginal))
             barItem.tag = i
@@ -65,6 +71,7 @@ class BaseTabbarController: UITabBarController {
             viewControllerArr.append(navigationvc)
         }
 
+        
         viewControllers = viewControllerArr
     }
     
@@ -73,16 +80,6 @@ class BaseTabbarController: UITabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
