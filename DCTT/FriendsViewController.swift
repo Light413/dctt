@@ -11,6 +11,8 @@ import MJRefresh
 
 class FriendsViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource{
 
+    var _dataArrayCnt = 10
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false
@@ -24,21 +26,29 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
         _colloectionview.delegate = self
         _colloectionview.dataSource = self
         
-        let header = MJRefreshNormalHeader.init(refreshingBlock: {
-            print("refresh start...")
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                print("refresh end...")
-                _colloectionview.mj_header.endRefreshing()
-            }
-
-        })
-        
-        header?.lastUpdatedTimeLabel.isHidden = true
-
+        let header = TTRefreshHeader.init {
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                            self._dataArrayCnt =  5
+                            _colloectionview.reloadData()
+                            _colloectionview.mj_header.endRefreshing()
+                        }
+        }
         
         _colloectionview.mj_header = header
         
         //_colloectionview.mj_header.beginRefreshing()
+        
+        let footer = TTRefreshFooter.init{
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                self._dataArrayCnt = self._dataArrayCnt + 5
+                _colloectionview.reloadData()
+                
+                _colloectionview.mj_footer.endRefreshing()
+            }
+
+        }
+        
+        _colloectionview.mj_footer = footer
         
         view.addSubview(_colloectionview);
 
@@ -92,7 +102,7 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
     
     //MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return _dataArrayCnt
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

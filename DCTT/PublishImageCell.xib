@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PublishImageCellIdentifier" id="gTV-IL-0wX" customClass="PublishImageCell" customModule="DCTT" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ymtimg2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="uNV-08-4g1"/>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="uNV-08-4g1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6Dq-Xz-Ac5"/>
+                <constraint firstAttribute="trailing" secondItem="uNV-08-4g1" secondAttribute="trailing" id="Jn0-5U-jbN"/>
+                <constraint firstAttribute="bottom" secondItem="uNV-08-4g1" secondAttribute="bottom" id="Z2A-Du-WnW"/>
+                <constraint firstItem="uNV-08-4g1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="oC8-ez-zN1"/>
+            </constraints>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ymtimg2.jpg" width="160" height="190"/>
+    </resources>
+</document>

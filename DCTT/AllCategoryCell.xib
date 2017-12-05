@@ -21,29 +21,22 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBm-N3-8Le">
-                        <color key="backgroundColor" red="0.87058823529999996" green="0.3411764706" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="a89-R3-FJM"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="5"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                        </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="rLk-as-P62" firstAttribute="top" secondItem="2q9-aG-kKe" secondAttribute="top" id="9yr-qt-adA"/>
-                <constraint firstAttribute="bottom" secondItem="fBm-N3-8Le" secondAttribute="bottom" constant="5" id="Gvd-6o-Wqn"/>
+                <constraint firstAttribute="bottom" secondItem="fBm-N3-8Le" secondAttribute="bottom" constant="2" id="Gvd-6o-Wqn"/>
                 <constraint firstAttribute="bottom" secondItem="rLk-as-P62" secondAttribute="bottom" id="Qg1-EF-1CA"/>
                 <constraint firstAttribute="trailing" secondItem="S5x-zO-lag" secondAttribute="trailing" constant="2" id="QgJ-hI-Zt0"/>
                 <constraint firstItem="S5x-zO-lag" firstAttribute="leading" secondItem="2q9-aG-kKe" secondAttribute="leading" constant="2" id="SrS-fZ-eFW"/>
-                <constraint firstAttribute="trailing" secondItem="fBm-N3-8Le" secondAttribute="trailing" constant="8" id="cQH-jG-6dD"/>
+                <constraint firstItem="fBm-N3-8Le" firstAttribute="centerX" secondItem="2q9-aG-kKe" secondAttribute="centerX" id="bbH-WT-jqN"/>
                 <constraint firstAttribute="bottom" secondItem="S5x-zO-lag" secondAttribute="bottom" id="gav-EC-94U"/>
                 <constraint firstItem="rLk-as-P62" firstAttribute="leading" secondItem="2q9-aG-kKe" secondAttribute="leading" id="ovs-dk-hRj"/>
                 <constraint firstAttribute="trailing" secondItem="rLk-as-P62" secondAttribute="trailing" id="qms-x1-eHm"/>
@@ -51,6 +44,7 @@
             </constraints>
             <connections>
                 <outlet property="img" destination="rLk-as-P62" id="kjq-Nm-QRm"/>
+                <outlet property="numberLab" destination="fBm-N3-8Le" id="4b1-Jv-qEk"/>
                 <outlet property="title" destination="S5x-zO-lag" id="fg5-Qi-XaK"/>
             </connections>
         </collectionViewCell>

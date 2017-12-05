@@ -41,7 +41,7 @@ class BaseTabbarController: UITabBarController {
         let vcname = [
                 "HomeViewController",
                 "FriendsViewController",
-                "PublishViewController",
+                "BaseViewController",
                 "AllViewController",
                 "MeViewController"]
         

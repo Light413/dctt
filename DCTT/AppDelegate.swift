@@ -49,12 +49,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
     }
 
     
+    var pop:TTPublishView!
     
     //MARK:
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController.tabBarItem.tag == 2 {
             //
-            let vc = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+            /*let vc = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
             let action1 = UIAlertAction.init(title: "action1", style: .default, handler: { (action) in
                 
             })
@@ -69,7 +70,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
             vc.addAction(action2)
             vc.addAction(action3)
             
-            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
+            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)*/
+            
+            TTPublishView.show({ (index) in
+                switch index {
+                    case 1:
+                        let vc = PublishViewController()
+                        let nav = BaseNavigationController (rootViewController:vc)
+                        UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
+                        
+                        break;
+                    case 2:
+                        
+                        break;
+                    case 3:
+                        
+                        break;
+                    default:break;
+                    
+                }
+                
+                
+            })
+
             
             return false
         }

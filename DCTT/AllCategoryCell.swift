@@ -14,6 +14,9 @@ class AllCategoryCell: UICollectionViewCell {
     
     @IBOutlet weak var title: UILabel!
     
+    @IBOutlet weak var numberLab: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

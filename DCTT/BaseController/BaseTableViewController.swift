@@ -29,7 +29,7 @@ class BaseTableViewController: UITableViewController {
         tableView.register(UINib (nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCellReuseIdentifierId")
         
         //test  refresh
-        let header = MJRefreshNormalHeader.init(refreshingBlock: {
+        let header = TTRefreshHeader.init(refreshingBlock: {
             print("refresh start...")
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                 print("refresh end...")
@@ -38,7 +38,6 @@ class BaseTableViewController: UITableViewController {
             
         })
         
-        header?.lastUpdatedTimeLabel.isHidden = true
         tableView.mj_header = header;
         
     }
