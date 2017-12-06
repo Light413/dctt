@@ -30,3 +30,6 @@ let kAirplaneSubCell_bg_color = UIColorFromHex(rgbValue: 0xf1f1f2)
 let kAirplaneSubCell_text_color = UIColorFromHex(rgbValue: 0x666666)
 
 let tt_BarColor = UIColor (red: 212/255.0, green: 61/255.0, blue: 61/255.0, alpha: 1)
+
+
+let tt_defafault_barColor = UIColor (red: 250/255.0, green: 251/255.0, blue: 253/255.0, alpha: 1)

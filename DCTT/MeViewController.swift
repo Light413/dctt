@@ -16,6 +16,9 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        self.navigationController?.navigationBar.setBackgroundImage(image(UIColor.init(colorLiteralRed: 0.5, green: 0.5, blue: 0.5, alpha: 0)), for: .default)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         _init()
     }
 
@@ -24,8 +27,6 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         _tableView = UITableView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 49), style: .grouped);
         _tableView.delegate = self
         _tableView.dataSource = self
-        
-        //_tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MeViewControllerCellIdentifier")
         _tableView.register(UINib (nibName: "MePersonInfoCell", bundle: nil), forCellReuseIdentifier: "MePersonInfoCellReuseIdentifier")
         
         _tableView.sectionHeaderHeight = 0
@@ -44,7 +45,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         _tableView.tableFooterView = logoutBtn
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    /*override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
@@ -52,6 +53,23 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }*/
+
+    
+    func image(_ color:UIColor) -> UIImage {
+        let rect = CGRect (x: 0, y: 0, width: 1, height: 1)
+        
+        UIGraphicsBeginImageContext(rect.size)
+        
+        let ctx = UIGraphicsGetCurrentContext()
+
+        ctx?.setFillColor(color.cgColor)
+        
+        ctx?.fill(rect)
+        
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        
+        return img!
     }
     
     //MARK: 
@@ -104,8 +122,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = BaseViewController()
-        vc.hidesBottomBarWhenPushed = true
-        vc.t_barTintColor = UIColor.white
+
         self.navigationController?.pushViewController(vc, animated: true)
 
     }

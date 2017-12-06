@@ -52,9 +52,6 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
         
         view.addSubview(_colloectionview);
 
-        t_barTintColor = UIColor.white
-        self.navigationController?.navigationBar.barTintColor = t_barTintColor
-        
         _topHeadView()
     }
     
@@ -113,9 +110,7 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = FriendsDetailController()
-        vc.hidesBottomBarWhenPushed = true
-        vc.t_barTintColor = UIColor.white
-        
+
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

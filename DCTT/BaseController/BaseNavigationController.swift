@@ -19,7 +19,7 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.barTintColor = tt_BarColor //kBartintColor
+        //navigationBar.barTintColor = tt_BarColor //kBartintColor
         navigationBar.isTranslucent = false
         //navigationBar.tintColor = UIColor.white
         navigationBar.barStyle = .black
@@ -39,9 +39,11 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
             backbtn.addTarget(self, action: #selector(navigationBackButtonAction), for: .touchUpInside)
             let leftitem = UIBarButtonItem.init(customView: backbtn)
             viewController.navigationItem.leftBarButtonItem = leftitem
+            
+            viewController.hidesBottomBarWhenPushed = true
         }
 
-        self.navigationBar.barTintColor = (viewController.value(forKey: "t_barTintColor") as? UIColor ) ?? tt_BarColor
+        self.navigationBar.barTintColor = (viewController.value(forKey: "t_barTintColor") as? UIColor ) ?? tt_defafault_barColor
         super.pushViewController(viewController, animated: animated)
     }
 
@@ -49,7 +51,7 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
     override func popViewController(animated: Bool) -> UIViewController? {
         let cnt = self.viewControllers.count
         let last = self.viewControllers[cnt - 2]
-        self.navigationBar.barTintColor = (last.value(forKey: "t_barTintColor") as? UIColor ) ?? tt_BarColor
+        self.navigationBar.barTintColor = (last.value(forKey: "t_barTintColor") as? UIColor ) ?? tt_defafault_barColor
 
         return super.popViewController(animated: animated)
         

@@ -15,13 +15,15 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hgl-Mv-U6o">
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Hgl-Mv-U6o" secondAttribute="bottom" constant="8" id="P1O-46-evR"/>
+                <constraint firstAttribute="bottom" secondItem="Hgl-Mv-U6o" secondAttribute="bottom" id="P1O-46-evR"/>
                 <constraint firstItem="Hgl-Mv-U6o" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="W1A-QA-Ddk"/>
                 <constraint firstAttribute="trailing" secondItem="Hgl-Mv-U6o" secondAttribute="trailing" id="Xrp-Uo-0mf"/>
                 <constraint firstItem="Hgl-Mv-U6o" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kdN-gP-7ip"/>

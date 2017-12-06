@@ -85,8 +85,7 @@ class BaseTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = HomeSearchViewController()
-        vc.hidesBottomBarWhenPushed = true
-        vc.t_barTintColor = UIColor.white
+
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

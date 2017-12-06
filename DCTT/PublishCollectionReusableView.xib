@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PublishCollectionReusableViewIdentifier" id="U6b-Vx-4bR" customClass="PublishCollectionReusableView" customModule="DCTT" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="city_native" translatesAutoresizingMaskIntoConstraints="NO" id="qrU-Qv-DWc">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="15" id="KOk-J8-SeK"/>
+                        <constraint firstAttribute="height" constant="20" id="Xqp-1V-vyo"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海市 静安区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUh-oc-I28">
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like_arrow_textpage_press" translatesAutoresizingMaskIntoConstraints="NO" id="Hoh-eP-e3S">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="286-lW-npP"/>
+                        <constraint firstAttribute="width" constant="25" id="EKt-YY-kRq"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LM-sH-0Fo">
+                    <connections>
+                        <action selector="selectLocationAction:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="IhJ-Qj-Rc4"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="0LM-sH-0Fo" secondAttribute="bottom" id="8WH-Ns-2WG"/>
+                <constraint firstItem="0LM-sH-0Fo" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="AWw-2r-bhC"/>
+                <constraint firstItem="0LM-sH-0Fo" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="DyO-9A-qta"/>
+                <constraint firstItem="QUh-oc-I28" firstAttribute="centerY" secondItem="qrU-Qv-DWc" secondAttribute="centerY" id="K3a-5s-93a"/>
+                <constraint firstAttribute="trailing" secondItem="0LM-sH-0Fo" secondAttribute="trailing" id="SYZ-2q-Oqd"/>
+                <constraint firstItem="qrU-Qv-DWc" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="UMC-Mv-XiW"/>
+                <constraint firstItem="qrU-Qv-DWc" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="16" id="j0J-5U-heN"/>
+                <constraint firstAttribute="trailing" secondItem="Hoh-eP-e3S" secondAttribute="trailing" constant="15" id="js9-vd-ZEs"/>
+                <constraint firstItem="Hoh-eP-e3S" firstAttribute="centerY" secondItem="QUh-oc-I28" secondAttribute="centerY" id="p2H-Kd-OD4"/>
+                <constraint firstItem="QUh-oc-I28" firstAttribute="leading" secondItem="qrU-Qv-DWc" secondAttribute="trailing" constant="10" id="tMx-NG-4qc"/>
+            </constraints>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="city_native" width="12" height="12"/>
+        <image name="like_arrow_textpage_press" width="16" height="16"/>
+    </resources>
+</document>

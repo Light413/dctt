@@ -76,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
                 switch index {
                     case 1:
                         let vc = PublishViewController()
-                        let nav = BaseNavigationController (rootViewController:vc)
+                        let nav = UINavigationController (rootViewController:vc)
                         UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
                         
                         break;

@@ -19,6 +19,9 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false;
 
+        t_barTintColor = tt_BarColor
+        self.navigationController?.navigationBar.barTintColor = t_barTintColor
+        
         _init()
 
     }
@@ -81,9 +84,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         let vc = HomeSearchViewController()
-        vc.hidesBottomBarWhenPushed = true
-        vc.t_barTintColor = UIColor.white
-        
+
         self.navigationController?.pushViewController(vc, animated: true)
         
         return false
