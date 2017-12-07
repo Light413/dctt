@@ -23,6 +23,9 @@
                 <constraint firstAttribute="bottom" secondItem="uNV-08-4g1" secondAttribute="bottom" id="Z2A-Du-WnW"/>
                 <constraint firstItem="uNV-08-4g1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="oC8-ez-zN1"/>
             </constraints>
+            <connections>
+                <outlet property="igv" destination="uNV-08-4g1" id="hVM-CS-2pI"/>
+            </connections>
         </collectionViewCell>
     </objects>
     <resources>

@@ -10,6 +10,8 @@ import UIKit
 
 class PublishViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
+    var imgDataArr = [UIImage]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor.white
@@ -17,8 +19,11 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
         
         let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - 0);
         let _colloectionview = colleciontView(frame)
-        
         view.addSubview(_colloectionview)
+        
+        ///....test
+        imgDataArr.append(UIImage())
+
     }
 
     
@@ -51,18 +56,19 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
         let collectionview = UICollectionView (frame: frame, collectionViewLayout: _layout)
         collectionview.delegate  = self
         collectionview.dataSource = self
+        
         collectionview.register(UINib (nibName: "PublishTextCell", bundle: nil), forCellWithReuseIdentifier: "PublishTextCellIdentifier")
         collectionview.register(UINib (nibName: "PublishImageCell", bundle: nil), forCellWithReuseIdentifier: "PublishImageCellIdentifier")
+        collectionview.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "PublishAddIconCellIdentifier")
+        
         
         collectionview.register(UINib (nibName: "PublishCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "PublishCollectionReusableViewIdentifier")
         collectionview.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: String (describing: UICollectionReusableView.self))
         
         collectionview.backgroundColor  = UIColor.white
-
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = true
         collectionview.alwaysBounceVertical = true
-        
         return collectionview
     }
     
@@ -79,7 +85,7 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:return 1;
-        case 1:return 6;
+        case 1:return imgDataArr.count + 1 > 9 ? 9 : imgDataArr.count + 1;
         case 2:return 0;
         default:return 0;
         }
@@ -87,18 +93,36 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let identifier = (indexPath.section == 0) ? "PublishTextCellIdentifier":"PublishImageCellIdentifier"
-        
+        let identifier = (indexPath.section == 0) ? "PublishTextCellIdentifier": imgDataArr.count == indexPath.row ? "PublishAddIconCellIdentifier":"PublishImageCellIdentifier"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-
-        cell.backgroundColor = UIColor.white
+        
+        if indexPath.section == 1 && imgDataArr.count == indexPath.row{
+            for _v in cell.contentView.subviews {
+                _v.removeFromSuperview();
+            }
+            
+            let igv = UIImageView (frame: CGRect (x: (cell.frame.width - 30)/2, y: (cell.frame.height - 30)/2, width: 30, height: 30))
+            igv.image = UIImage (named: "addicon_repost")
+            cell.contentView.addSubview(igv)
+            cell.backgroundColor = UIColor (colorLiteralRed: 244/255.0, green: 245/255.0, blue: 246/255.0, alpha: 1)
+        }else{
+            cell.backgroundColor = UIColor.white;
+        }
+        
+        
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let vc = PublishViewController();
-//        self.navigationController?.present(vc, animated: true, completion: nil)
+        if imgDataArr.count == indexPath.row {
+            let vc = TTImagePickerViewController()
+            let nav = UINavigationController(rootViewController:vc)
+            self.navigationController?.present(nav, animated: true, completion: nil)
+        }else{//...大图显示
+            
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
