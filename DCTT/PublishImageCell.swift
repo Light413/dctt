@@ -11,6 +11,12 @@ import Photos
 class PublishImageCell: UICollectionViewCell {
 
     @IBOutlet weak var igv: UIImageView!
+
+    @IBOutlet weak var btn: UIButton!
+    
+    var cellType:ImageCellTpye!
+
+    var cellSelectedHandler:((Bool) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,9 +24,29 @@ class PublishImageCell: UICollectionViewCell {
         igv.contentMode = .scaleAspectFill
         
     }
+    
+    
+    override func prepareForReuse() {
+        btn.isSelected = false
+    }
+    
+    @IBAction func badgeButtonAction(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+
+        if let handler = cellSelectedHandler {
+            handler(sender.isSelected);
+        }
+        
+    }
 
     
-    func setImage(_ asset:PHAsset) {
+    /// - parameter asset:      所指向的图片资源
+    /// - parameter type:       cell类型
+    /// - parameter isSelected: 是否选中确定角标icon
+    func setImage(_ asset:PHAsset , type:ImageCellTpye , isSelected:Bool? = false) {
+        cellType = type
+        
+        //获取相册图片
         let requestOption = PHImageRequestOptions.init()
         //requestOption.isSynchronous = true
         requestOption.resizeMode = .fast
@@ -28,12 +54,24 @@ class PublishImageCell: UICollectionViewCell {
         let size = CGSize(width: 400, height: 400)
          PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .aspectFit, options: requestOption, resultHandler: { [weak self ](img, dic) in
             
-         guard let strongSelf = self else{return}
-         if let ig = img {
-            strongSelf.igv.image = ig;
-         }
-         
+             guard let strongSelf = self else{return}
+             if let ig = img {
+                strongSelf.igv.image = ig;
+             }
          })
+        
+        //设置角标
+        if type == .album {
+            btn.setImage(UIImage (named: "ImgPic_select_album"), for: .normal);
+            btn.setImage(UIImage (named: "ImgPic_select_ok_album"), for: .selected)
+        } else {
+            btn.setImage(UIImage (named: "ImgPic_close"), for: .normal);
+            btn.setImage(UIImage (named: "ImgPic_close"), for: .selected)
+        }
+        
+        btn.isSelected = isSelected!
+        
+        
     }
     
     

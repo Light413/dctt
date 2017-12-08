@@ -15,20 +15,34 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ymtimg2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="uNV-08-4g1"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRG-Eo-vte">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="kEO-OU-gnq"/>
+                            <constraint firstAttribute="height" constant="24" id="rdz-gN-zea"/>
+                        </constraints>
+                        <state key="normal" image="ImgPic_select_album"/>
+                        <connections>
+                            <action selector="badgeButtonAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="PwG-ex-kwr"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="cRG-Eo-vte" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="2nQ-yD-Dcs"/>
                 <constraint firstItem="uNV-08-4g1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6Dq-Xz-Ac5"/>
                 <constraint firstAttribute="trailing" secondItem="uNV-08-4g1" secondAttribute="trailing" id="Jn0-5U-jbN"/>
                 <constraint firstAttribute="bottom" secondItem="uNV-08-4g1" secondAttribute="bottom" id="Z2A-Du-WnW"/>
+                <constraint firstAttribute="trailing" secondItem="cRG-Eo-vte" secondAttribute="trailing" constant="2" id="b0H-j4-iLU"/>
                 <constraint firstItem="uNV-08-4g1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="oC8-ez-zN1"/>
             </constraints>
             <connections>
+                <outlet property="btn" destination="cRG-Eo-vte" id="SDv-bZ-Yt9"/>
                 <outlet property="igv" destination="uNV-08-4g1" id="hVM-CS-2pI"/>
             </connections>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="ImgPic_select_album" width="24" height="24"/>
         <image name="ymtimg2.jpg" width="160" height="190"/>
     </resources>
 </document>

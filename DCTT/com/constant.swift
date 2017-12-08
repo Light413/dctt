@@ -52,7 +52,11 @@ let knotification_segment_changed = Notification.Name(rawValue: "knotification_s
 
 #endif
 
-
+enum ImageCellTpye {
+    case album
+    
+    case publish
+}
 
 
 

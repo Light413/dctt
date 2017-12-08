@@ -58,6 +58,8 @@
 		A1DE189F1FC270F300562130 /* TTPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DE189E1FC270F300562130 /* TTPageViewController.swift */; };
 		A1DE18A11FC2A0D000562130 /* TTHeadTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */; };
 		A1DFE70B1FB97045001C1905 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DFE70A1FB97045001C1905 /* RecentViewController.swift */; };
+		A1E1B02D1FDA7AEF002D6BDC /* TTImagePreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E1B02C1FDA7AEE002D6BDC /* TTImagePreviewController.swift */; };
+		A1E1B02F1FDA90E8002D6BDC /* TTImageBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E1B02E1FDA90E8002D6BDC /* TTImageBaseViewController.swift */; };
 		A1E61D1D1FCE8F560080A12D /* back_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A1E61D1C1FCE8F560080A12D /* back_bg.png */; };
 		A1E61D201FCE93E30080A12D /* MePersonInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E61D1E1FCE93E30080A12D /* MePersonInfoCell.swift */; };
 		A1E61D211FCE93E30080A12D /* MePersonInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E61D1F1FCE93E30080A12D /* MePersonInfoCell.xib */; };
@@ -145,6 +147,8 @@
 		A1DE189E1FC270F300562130 /* TTPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPageViewController.swift; sourceTree = "<group>"; };
 		A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTHeadTitleView.swift; sourceTree = "<group>"; };
 		A1DFE70A1FB97045001C1905 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
+		A1E1B02C1FDA7AEE002D6BDC /* TTImagePreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImagePreviewController.swift; sourceTree = "<group>"; };
+		A1E1B02E1FDA90E8002D6BDC /* TTImageBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImageBaseViewController.swift; sourceTree = "<group>"; };
 		A1E61D1C1FCE8F560080A12D /* back_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_bg.png; sourceTree = "<group>"; };
 		A1E61D1E1FCE93E30080A12D /* MePersonInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MePersonInfoCell.swift; sourceTree = "<group>"; };
 		A1E61D1F1FCE93E30080A12D /* MePersonInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MePersonInfoCell.xib; sourceTree = "<group>"; };
@@ -334,7 +338,9 @@
 				AD10333D1FB6CD920017E81C /* BaseViewControllerWithTable.swift */,
 				A1DE189E1FC270F300562130 /* TTPageViewController.swift */,
 				A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */,
+				A1E1B02E1FDA90E8002D6BDC /* TTImageBaseViewController.swift */,
 				A133A97E1FD8DE6200793D57 /* TTImagePickerViewController.swift */,
+				A1E1B02C1FDA7AEE002D6BDC /* TTImagePreviewController.swift */,
 			);
 			path = BaseController;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 			files = (
 				A1783C031FCC128F00E4AB06 /* AllCategoryCell.swift in Sources */,
 				AD1033471FB6CEA00017E81C /* MeViewController.swift in Sources */,
+				A1E1B02D1FDA7AEF002D6BDC /* TTImagePreviewController.swift in Sources */,
 				AD10332E1FB6CD4E0017E81C /* Extension.swift in Sources */,
 				A148A2AF1FD687DD0052DDF3 /* PublishImageCell.swift in Sources */,
 				ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */,
@@ -606,6 +613,7 @@
 				A1A047B51FD549660057CC17 /* HomeCellMoreImage.swift in Sources */,
 				A1A047AD1FD53C910057CC17 /* TTRefreshHeader.swift in Sources */,
 				A1C172091FD631E2006BAAA0 /* TTPublishView.swift in Sources */,
+				A1E1B02F1FDA90E8002D6BDC /* TTImageBaseViewController.swift in Sources */,
 				AD1033311FB6CD4E0017E81C /* HUD.swift in Sources */,
 				A148A2AB1FD687B40052DDF3 /* PublishTextCell.swift in Sources */,
 				AD10332C1FB6CD4E0017E81C /* common.swift in Sources */,

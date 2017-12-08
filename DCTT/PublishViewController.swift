@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class PublishViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
@@ -106,6 +107,11 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
             cell.contentView.addSubview(igv)
             cell.backgroundColor = UIColor (colorLiteralRed: 244/255.0, green: 245/255.0, blue: 246/255.0, alpha: 1)
         }else{
+//            if indexPath.section > 0 {
+//                let cell = cell as! PublishImageCell
+//                cell.setImage(PHAsset.init(), type: .publish)
+//            }
+            
             cell.backgroundColor = UIColor.white;
         }
         

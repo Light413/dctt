@@ -16,7 +16,13 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
 //            return true;
 //        }
 //    }
+    
+
+    
     var imgDataArr = [PHAsset]()
+    
+    var hasSelectedIndex = [Int]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,22 +36,9 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
         //...
         let cameraRoll:PHAssetCollection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil).lastObject!
         
-        let requestOption = PHImageRequestOptions.init()
-        requestOption.isSynchronous = true
-        requestOption.resizeMode = .fast
-        
         let assets:PHFetchResult<PHAsset> = PHAsset.fetchAssets(in: cameraRoll, options: nil)
     
         assets.enumerateObjects({ [weak self ] (a, index, _b) in
-            /*let size = CGSize(width: 400, height: 400)
-            PHImageManager.default().requestImage(for: a, targetSize: size, contentMode: .aspectFit, options: requestOption, resultHandler: { [weak self ](img, dic) in
-                guard let strongSelf = self else{return}
-                if let ig = img {
-                    strongSelf.imgDataArr.insert(ig, at: 0);
-                }
-                
-            })*/
-            
             guard let strongSelf = self else{return}
 
             strongSelf.imgDataArr.insert(a, at: 0);
@@ -54,11 +47,14 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
         })
         
         _colloectionview.reloadData()
+        
+        self.title = cameraRoll.localizedTitle
     }
 
     deinit {
         print("----")
     }
+    
     fileprivate func colleciontView(_ frame:CGRect) -> UICollectionView {
         let _layout = UICollectionViewFlowLayout()
         let _w = (frame.width - 5) / 4
@@ -97,7 +93,7 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
         self.dismiss(animated: true, completion: nil)
     }
 
-    
+    //MARK:
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imgDataArr.count
         
@@ -106,11 +102,34 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let identifier = "PublishImageCellIdentifier"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PublishImageCell
-        cell.setImage(imgDataArr[indexPath.row]) 
+        
+        cell.cellSelectedHandler = {[weak self] bool in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            let _b = strongSelf.hasSelectedIndex.contains(indexPath.row);
+            if _b {
+                strongSelf.hasSelectedIndex.remove(at: strongSelf.hasSelectedIndex.index(of: indexPath.row)!);
+            }else{
+                strongSelf.hasSelectedIndex.append(indexPath.row);
+            }
+        }
+        
+        let _b = hasSelectedIndex.contains(indexPath.row)
+        cell.setImage(imgDataArr[indexPath.row],type:.album,isSelected: _b)
         
         return cell
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = TTImagePreviewController();
+        
+        self.navigationController?.present(vc, animated: false, completion: nil)
+
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
