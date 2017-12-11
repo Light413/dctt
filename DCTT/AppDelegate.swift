@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegate,CLLocationManagerDelegate{
 
     var window: UIWindow?
-
+    let _locationManager = CLLocationManager.init();
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -23,9 +24,88 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         window?.rootViewController =  tabBarController
         window?.makeKeyAndVisible()
         
+        _initLocationServices()
+        _initNotification()
+        
         return true
     }
 
+    
+    //开启定位
+    func _initLocationServices() {
+        if CLLocationManager.locationServicesEnabled() {
+            if CLLocationManager.authorizationStatus() == .denied {
+                let vc = UIAlertController.init(title: nil, message: nil, preferredStyle: .alert)
+                let action1 = UIAlertAction.init(title: "取消", style: .default, handler: nil)
+                vc.title = "请在设置-定位中允许访问位置信息"
+                let action2 = UIAlertAction.init(title: "去设置", style: .default, handler: { (action) in
+                    let url = URL.init(string: UIApplicationOpenSettingsURLString);
+                    if  UIApplication.shared.canOpenURL(url!){
+                        UIApplication.shared.openURL(url!)
+                    }
+                })
+                
+                vc.addAction(action1)
+                vc.addAction(action2)
+                UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil);
+                return
+            }
+            
+            _locationManager.delegate  = self
+            _locationManager.desiredAccuracy = 10.0
+            _locationManager.distanceFilter = kCLLocationAccuracyHundredMeters
+            //_locationManager.allowsBackgroundLocationUpdates = true
+            
+            _locationManager.requestWhenInUseAuthorization();
+            _locationManager.startUpdatingLocation()
+
+        }else{
+                let vc = UIAlertController.init(title: nil, message: nil, preferredStyle: .alert)
+                let action1 = UIAlertAction.init(title: "取消", style: .default, handler: nil)
+                vc.title = "请在系统设置中开启定位功能"
+                let action2 = UIAlertAction.init(title: "去设置", style: .default, handler: { (action) in
+                    let url = URL.init(string: "prefs:root=LOCATION_SERVICES");
+                    if  UIApplication.shared.canOpenURL(url!){
+                        UIApplication.shared.openURL(url!)
+                    }
+                })
+                
+                vc.addAction(action1)
+                vc.addAction(action2)
+                UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil);
+            }
+            
+    }
+ 
+    func _initNotification() {
+        UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings.init(types: [.alert,.sound,.badge], categories: nil))
+    }
+    
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+        print(#function)
+        
+        application.registerForRemoteNotifications()
+    }
+ 
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print(#function)
+        //AEFD81A8308B15169F992900A85C9CBCA29BF8E8549A154955765A94BE947E99
+        let token = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        
+        print(token)
+        
+
+    }
+ 
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        print("didReceiveRemoteNotification: \(userInfo)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(#function)
+    }
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -48,30 +128,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    
-    var pop:TTPublishView!
-    
+
     //MARK:
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController.tabBarItem.tag == 2 {
-            //
-            /*let vc = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-            let action1 = UIAlertAction.init(title: "action1", style: .default, handler: { (action) in
-                
-            })
-            let action2 = UIAlertAction.init(title: "action2", style: .default, handler: { (action) in
-                
-            })
-
-            let action3 = UIAlertAction.init(title: "action3", style: .cancel, handler: { (action) in
-                
-            })
-            vc.addAction(action1)
-            vc.addAction(action2)
-            vc.addAction(action3)
-            
-            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)*/
-            
             TTPublishView.show({ (index) in
                 switch index {
                     case 1:
@@ -100,5 +160,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         return true
     }
 
+    
+    
+    //MARK: - CLLocationManagerDelegate
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(#function)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(locations.last)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+            case .authorizedWhenInUse:
+                print("authorizedWhenInUse")
+                break
+            case .notDetermined:
+                print("notDetermined")
+                break
+            case .restricted :
+                print("restricted")
+                break
+            default:break
+        }
+    }
+    
+    
 }
 
