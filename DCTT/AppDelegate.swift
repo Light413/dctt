@@ -24,8 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         window?.rootViewController =  tabBarController
         window?.makeKeyAndVisible()
         
-        _initLocationServices()
-        _initNotification()
+        //application.applicationIconBadgeNumber = 0
+        
+        //_initLocationServices()
+        //_initNotification()
         
         return true
     }

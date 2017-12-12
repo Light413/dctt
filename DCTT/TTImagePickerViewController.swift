@@ -124,6 +124,8 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = TTImagePreviewController();
+        vc.dataArry = imgDataArr
+        vc.index = indexPath.row
         
         self.navigationController?.present(vc, animated: false, completion: nil)
 

@@ -1,42 +1,19 @@
 //
-//  PublishImageCell.swift
+//  TTImagePreviewCell.swift
 //  DCTT
 //
-//  Created by gener on 2017/12/5.
+//  Created by gener on 2017/12/12.
 //  Copyright © 2017年 Light.W. All rights reserved.
 //
 
 import UIKit
 import Photos
-class PublishImageCell: UICollectionViewCell {
 
-    @IBOutlet weak var igv: UIImageView!
+class TTImagePreviewCell: UICollectionViewCell {
 
-    @IBOutlet weak var btn: UIButton!
-    
-    var cellType:ImageCellTpye!
-
-    var cellSelectedHandler:((Bool) -> Void)?
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        igv.contentMode = .scaleAspectFill
-        
-    }
-    
-    
-    override func prepareForReuse() {
-        btn.isSelected = false
-    }
-    
-    @IBAction func badgeButtonAction(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-
-        if let handler = cellSelectedHandler {
-            handler(sender.isSelected);
-        }
-        
     }
 
     
@@ -44,7 +21,6 @@ class PublishImageCell: UICollectionViewCell {
     /// - parameter type:       cell类型
     /// - parameter isSelected: 是否选中确定角标icon
     func setImage(_ asset:PHAsset , type:ImageCellTpye , isSelected:Bool? = false) {
-        cellType = type
         
         //获取相册图片
         let requestOption = PHImageRequestOptions.init()
@@ -52,16 +28,16 @@ class PublishImageCell: UICollectionViewCell {
         requestOption.resizeMode = .fast
         
         let size = CGSize(width: 400, height: 400)
-         PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .aspectFit, options: requestOption, resultHandler: { [weak self ](img, dic) in
+        PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .aspectFit, options: requestOption, resultHandler: { [weak self ](img, dic) in
             
-             guard let strongSelf = self else{return}
-             if let ig = img {
+            guard let strongSelf = self else{return}
+            if let ig = img {
                 strongSelf.igv.image = ig;
-             }
-         })
+            }
+            })
         
         //设置角标
-        if type == .album {
+        /*if type == .album {
             btn.setImage(UIImage (named: "ImgPic_select_album"), for: .normal);
             btn.setImage(UIImage (named: "ImgPic_select_ok_album"), for: .selected)
         } else if type == .publish {
@@ -71,10 +47,12 @@ class PublishImageCell: UICollectionViewCell {
             btn.isHidden = true
         }
         
-        btn.isSelected = isSelected!
+        btn.isSelected = isSelected!*/
         
         
     }
+    
+    
     
     
 }
