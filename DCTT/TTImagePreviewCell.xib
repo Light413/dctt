@@ -14,17 +14,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ymtimg2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sLC-ij-XNe"/>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="u4I-Un-IYx">
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ymtimg2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sLC-ij-XNe"/>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="sLC-ij-XNe" secondAttribute="trailing" id="6IG-EA-fXC"/>
+                            <constraint firstItem="sLC-ij-XNe" firstAttribute="centerY" secondItem="u4I-Un-IYx" secondAttribute="centerY" id="7yF-ID-r4A"/>
+                            <constraint firstAttribute="bottom" secondItem="sLC-ij-XNe" secondAttribute="bottom" id="CZW-9Y-jQP"/>
+                            <constraint firstItem="sLC-ij-XNe" firstAttribute="centerX" secondItem="u4I-Un-IYx" secondAttribute="centerX" id="NIO-sb-HWK"/>
+                            <constraint firstItem="sLC-ij-XNe" firstAttribute="leading" secondItem="u4I-Un-IYx" secondAttribute="leading" id="UKs-pJ-kRI"/>
+                            <constraint firstItem="sLC-ij-XNe" firstAttribute="top" secondItem="u4I-Un-IYx" secondAttribute="top" id="hIn-Bp-iwY"/>
+                        </constraints>
+                    </scrollView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="sLC-ij-XNe" secondAttribute="trailing" id="ORN-2O-GvU"/>
-                <constraint firstItem="sLC-ij-XNe" firstAttribute="top" secondItem="LhT-og-txg" secondAttribute="top" id="ZUy-k7-0Ra"/>
-                <constraint firstAttribute="bottom" secondItem="sLC-ij-XNe" secondAttribute="bottom" id="nCb-tJ-4kR"/>
-                <constraint firstItem="sLC-ij-XNe" firstAttribute="leading" secondItem="LhT-og-txg" secondAttribute="leading" id="oFx-dF-jYa"/>
+                <constraint firstItem="u4I-Un-IYx" firstAttribute="top" secondItem="LhT-og-txg" secondAttribute="top" id="MG0-6T-Q2A"/>
+                <constraint firstItem="u4I-Un-IYx" firstAttribute="leading" secondItem="LhT-og-txg" secondAttribute="leading" id="VIe-5a-zfC"/>
+                <constraint firstAttribute="trailing" secondItem="u4I-Un-IYx" secondAttribute="trailing" id="jNW-g3-yma"/>
+                <constraint firstAttribute="bottom" secondItem="u4I-Un-IYx" secondAttribute="bottom" id="jdh-nB-b0J"/>
             </constraints>
             <connections>
-                <outlet property="igv" destination="sLC-ij-XNe" id="wtF-EZ-QJ1"/>
+                <outlet property="igv" destination="sLC-ij-XNe" id="LO4-xA-lV3"/>
+                <outlet property="scrollview" destination="u4I-Un-IYx" id="36x-j7-Eub"/>
             </connections>
         </collectionViewCell>
     </objects>

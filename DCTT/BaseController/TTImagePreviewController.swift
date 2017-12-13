@@ -32,13 +32,13 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
         let _colloectionview = colleciontView(frame)
         view.addSubview(_colloectionview)
 
-        _topBar = UIToolbar.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 50))
+        _topBar = UIToolbar.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 70))
         _topBar.barStyle = .black
         _topBar.isTranslucent = true
-        _topBar.setBackgroundImage(imageWithColor(UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.01)), forToolbarPosition: .any , barMetrics: .default)
+        _topBar.setBackgroundImage(imageWithColor(UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.05)), forToolbarPosition: .any , barMetrics: .default)
         view.addSubview(_topBar)
         
-        let backbtn = UIButton (frame: CGRect (x: 15, y: 5, width: 40, height: 40))
+        let backbtn = UIButton (frame: CGRect (x: 15, y: (_topBar.frame.height - 50)/2, width: 40, height: 40))
         backbtn.setImage(UIImage (named: "photo_detail_titlebar_close"), for: .normal)
         backbtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10)
         backbtn.addTarget(self, action: #selector(_dismiss), for: .touchUpInside)
@@ -85,9 +85,11 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
         collectionview.dataSource = self
         
         
-        collectionview.register(UINib (nibName: "TTImagePreviewCell", bundle: nil), forCellWithReuseIdentifier: "TTImagePreviewCellIdentifier")
+        //collectionview.register(UINib (nibName: "TTImagePreviewCell", bundle: nil), forCellWithReuseIdentifier: "TTImagePreviewCellIdentifier")
         
-        collectionview.backgroundColor  = UIColor.black
+        collectionview.register(TTImagePreviewCell2.self, forCellWithReuseIdentifier: "TTImagePreviewCellIdentifier")
+        
+        collectionview.backgroundColor  = UIColor.red
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = false
         collectionview.alwaysBounceVertical = false
@@ -122,7 +124,7 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TTImagePreviewCellIdentifier", for: indexPath) as! TTImagePreviewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TTImagePreviewCellIdentifier", for: indexPath) as! TTImagePreviewCell2
         
         cell.setImage(dataArry[indexPath.row], type: .preview, isSelected: true)
         

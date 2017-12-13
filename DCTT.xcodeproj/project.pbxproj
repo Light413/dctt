@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1CA80F2AEDAEB16E4EC071EF /* Pods_DCTT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2D79CD06F43F25725B0AC5 /* Pods_DCTT.framework */; };
 		A1026C251FDE1EAA002DE354 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1026C241FDE1EAA002DE354 /* CoreLocation.framework */; };
+		A10CB8EB1FE0FD340043391D /* TTImagePreviewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10CB8EA1FE0FD340043391D /* TTImagePreviewCell2.swift */; };
 		A117530B1FC7B0DF00888516 /* AnimationContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = A11753081FC7B0DF00888516 /* AnimationContoller.m */; };
 		A117530C1FC7B0DF00888516 /* KLTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A117530A1FC7B0DF00888516 /* KLTNavigationController.m */; };
 		A133A97F1FD8DE6200793D57 /* TTImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A133A97E1FD8DE6200793D57 /* TTImagePickerViewController.swift */; };
@@ -100,6 +101,7 @@
 		604BC239A7045558390DF0BE /* Pods-DCTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCTT.release.xcconfig"; path = "Pods/Target Support Files/Pods-DCTT/Pods-DCTT.release.xcconfig"; sourceTree = "<group>"; };
 		A1026C241FDE1EAA002DE354 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A1026C261FDE89B3002DE354 /* DCTT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DCTT.entitlements; sourceTree = "<group>"; };
+		A10CB8EA1FE0FD340043391D /* TTImagePreviewCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImagePreviewCell2.swift; sourceTree = "<group>"; };
 		A11753071FC7B0DF00888516 /* AnimationContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationContoller.h; sourceTree = "<group>"; };
 		A11753081FC7B0DF00888516 /* AnimationContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationContoller.m; sourceTree = "<group>"; };
 		A11753091FC7B0DF00888516 /* KLTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLTNavigationController.h; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				A148A2B11FD6A0B70052DDF3 /* PublishCollectionReusableView.swift */,
 				A148A2B21FD6A0B70052DDF3 /* PublishCollectionReusableView.xib */,
 				A1C854BF1FDFD72E00AC03E5 /* TTImagePreviewCell.swift */,
+				A10CB8EA1FE0FD340043391D /* TTImagePreviewCell2.swift */,
 				A1C854C01FDFD72E00AC03E5 /* TTImagePreviewCell.xib */,
 			);
 			name = view;
@@ -642,6 +645,7 @@
 				A1A047B11FD5493C0057CC17 /* HomeCellSingleImage.swift in Sources */,
 				AD1033491FB6CF070017E81C /* FriendsViewController.swift in Sources */,
 				A148A2B31FD6A0B70052DDF3 /* PublishCollectionReusableView.swift in Sources */,
+				A10CB8EB1FE0FD340043391D /* TTImagePreviewCell2.swift in Sources */,
 				AD10333E1FB6CD920017E81C /* BaseNavigationController.swift in Sources */,
 				AD10334B1FB6D0D90017E81C /* PublishViewController.swift in Sources */,
 				A1CE83931FC3C0AC00DAF90F /* HomeCell.swift in Sources */,
