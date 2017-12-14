@@ -15,46 +15,44 @@ class TTImagePreviewCell: UICollectionViewCell ,UIScrollViewDelegate{
 
     @IBOutlet weak var scrollview: UIScrollView!
     
+    var imageClickedHandler:((Void) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         igv.contentMode = .scaleAspectFit
         
         scrollview.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer (target: self, action: #selector(imageTapAction))
+        igv.addGestureRecognizer(tapGesture)
     }
 
-    override func layoutSubviews() {
-       super.layoutSubviews()
-        
+
+    func imageTapAction() {
+        if let tap = imageClickedHandler {
+            tap();
+        }
     }
     
+    //MARK: - UIScrollViewDelegate
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return igv
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-//        print(#function)
-//        var _h:CGFloat = 0
-//        let rect = igv.frame
-//        
-//        if (igv.image?.size.height)!  < igv.frame.height {
-//            _h = (igv.image?.size.height)!;
-//        }else{
-//            _h = rect.height;
-//        }
-//        
-//        igv.frame = CGRect (x: rect.minX, y: rect.minY, width: rect.width, height: _h)
-//        igv.center = self.center
-//        
-//        print("2-------------------")
+        setIgvCenter(scrollView)
     }
     
-    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        view?.frame = UIScreen.main.bounds
+    fileprivate func setIgvCenter(_ scrollView:UIScrollView) {
+        var _x = scrollView.center.x , _y = scrollView.center.y
+        _x = scrollView.contentSize.width > scrollView.frame.width ? scrollView.contentSize.width / 2 : _x
+        _y = scrollView.contentSize.height > scrollView.frame.height ? scrollView.contentSize.height / 2 : _y
+        
+        igv.center = CGPoint (x: _x, y: _y)
     }
     
-    
-    
+    //MARK:
     
     override func prepareForReuse() {
         scrollview.zoomScale = 1
@@ -76,27 +74,23 @@ class TTImagePreviewCell: UICollectionViewCell ,UIScrollViewDelegate{
             
             guard let strongSelf = self else{return}
             if let ig = img {
-                strongSelf.igv.image = ig;
+                strongSelf._initWithImage(ig)
             }
             })
-        
-        //设置角标
-        /*if type == .album {
-            btn.setImage(UIImage (named: "ImgPic_select_album"), for: .normal);
-            btn.setImage(UIImage (named: "ImgPic_select_ok_album"), for: .selected)
-        } else if type == .publish {
-            btn.setImage(UIImage (named: "ImgPic_close"), for: .normal);
-            btn.setImage(UIImage (named: "ImgPic_close"), for: .selected)
-        }else {
-            btn.isHidden = true
-        }
-        
-        btn.isSelected = isSelected!*/
-        
-        
     }
     
     
-    
+    fileprivate func _initWithImage(_ image:UIImage) {
+        igv.image = image
+        
+        //igv frame
+        let _h = image.size.height * kCurrentScreenWidth / image.size.width
+        igv.frame = CGRect (x: -10, y: 0, width: kCurrentScreenWidth, height: _h)
+        
+        scrollview.contentSize = igv.frame.size
+        
+        setIgvCenter(scrollview)
+        
+    }
     
 }

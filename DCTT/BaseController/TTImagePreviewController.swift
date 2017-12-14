@@ -20,18 +20,16 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
     var _topBar:UIToolbar!
     var _bottomBar:UIToolbar!
     var _imgNumber:UILabel!
-    
+    var _selectButton:UIButton!
     var _toolBarIsHiden = false
     
     var dataArry = [PHAsset]()
+    var selectedDataArr = [PHAsset]()
     var index:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        addNavigationItem()
-        
         let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight);
         let _colloectionview = colleciontView(frame)
         view.addSubview(_colloectionview)
@@ -53,7 +51,7 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
         _imgNumber = UILabel.init(frame: CGRect (x: (_topBar.frame.width - 120)/2, y: (_topBar.frame.height - 40)/2, width: 120, height: 40))
         _imgNumber.textAlignment = .center
         _imgNumber.textColor = UIColor.white
-        _imgNumber.font = UIFont.systemFont(ofSize: 14)
+        _imgNumber.font = UIFont.systemFont(ofSize: 15)
         _topBar.addSubview(_imgNumber)
         _imgNumber.text = "已选择 1/9 张"
         
@@ -125,49 +123,27 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
     
     fileprivate func colleciontView(_ frame:CGRect) -> UICollectionView {
         let _layout = UICollectionViewFlowLayout()
-
-        _layout.itemSize = frame.size
+        _layout.itemSize = CGSize (width: frame.width + 10, height: frame.height)
         _layout.minimumInteritemSpacing = 0
         _layout.minimumLineSpacing = 0
         _layout.scrollDirection = .horizontal
         
-        let collectionview = UICollectionView (frame: frame, collectionViewLayout: _layout)
+        let collectionview = UICollectionView (frame: CGRect (x: frame.minX, y: frame.minY, width: frame.width + 10, height: frame.height), collectionViewLayout: _layout)
         collectionview.delegate  = self
         collectionview.dataSource = self
         
-        
         //collectionview.register(UINib (nibName: "TTImagePreviewCell", bundle: nil), forCellWithReuseIdentifier: "TTImagePreviewCellIdentifier")
-        
         collectionview.register(TTImagePreviewCell2.self, forCellWithReuseIdentifier: "TTImagePreviewCellIdentifier")
         
         collectionview.backgroundColor  = UIColor.black
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = false
         collectionview.alwaysBounceVertical = false
-        
         collectionview.isPagingEnabled = true
-        
         return collectionview
     }
     
-    func addNavigationItem() {
-        let _topBg = UIView .init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 50))
-        _topBg.backgroundColor = tt_defafault_barColor
-        view.addSubview(_topBg)
-        
-        let leftbtn = UIButton (frame: CGRect (x: 15, y: 10, width: 35, height: 35))
-        leftbtn.setImage(UIImage (named: "close_night"), for: .normal)
-        
-        leftbtn.addTarget(self, action: #selector(navigationBackButtonAction), for: .touchUpInside)
 
-        _topBg.addSubview(leftbtn)
-        
-    }
-    
-    func navigationBackButtonAction() {
-        self.dismiss(animated: false, completion: nil)
-    }
-    
     //MARK:
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArry.count
