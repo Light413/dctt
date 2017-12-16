@@ -11,27 +11,29 @@ import Photos
 
 class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,UICollectionViewDataSource {
 
-//    override var prefersStatusBarHidden: Bool {
-//        get{
-//            return true;
-//        }
-//    }
+    var imageSelectedCompletionHandler:(([PHAsset]) -> Void)?
     
-
-    
-    var imgDataArr = [PHAsset]()
-    
-    var hasSelectedIndex = [Int]()
-    
+    /*private variable*/
+    private var imgDataArr = [PHAsset]()
+    private var hasSelectedImageAsset = [PHAsset]()
+    private var hasSelectNumber:UILabel!
+    private var preViewBtn:UIButton!
+    private var finishedBtn:UIButton!
+    private var _colloectionview:UICollectionView!
+    private let _barBtnColor:(disable:UIColor,enbale:UIColor) = (UIColor.lightGray,UIColor.black)
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         addNavigationItem()
-        let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - 0);
-        let _colloectionview = colleciontView(frame)
+        let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - 50);
+        _colloectionview = colleciontView(frame)
         view.addSubview(_colloectionview)
+        
+        let bottomBtn = addBottomBar()
+        preViewBtn = bottomBtn.preview
+        finishedBtn = bottomBtn.finished
         
         //...
         let cameraRoll:PHAssetCollection = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil).lastObject!
@@ -55,6 +57,7 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
         print("----")
     }
     
+    //MARK:-
     fileprivate func colleciontView(_ frame:CGRect) -> UICollectionView {
         let _layout = UICollectionViewFlowLayout()
         let _w = (frame.width - 5) / 4
@@ -68,13 +71,13 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
         collectionview.delegate  = self
         collectionview.dataSource = self
         
-
         collectionview.register(UINib (nibName: "PublishImageCell", bundle: nil), forCellWithReuseIdentifier: "PublishImageCellIdentifier")
 
         collectionview.backgroundColor  = UIColor.white
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = true
         collectionview.alwaysBounceVertical = true
+        collectionview.contentInset = UIEdgeInsetsMake(5, 0, 0, 0)
         return collectionview
     }
     
@@ -82,17 +85,108 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
     func addNavigationItem() {
         let leftbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
         leftbtn.setImage(UIImage (named: "close_night"), for: .normal)
-
+        
         leftbtn.addTarget(self, action: #selector(navigationBackButtonAction), for: .touchUpInside)
         let leftitem = UIBarButtonItem.init(customView: leftbtn)
         navigationItem.leftBarButtonItem = leftitem
         
+        let numberLable = UILabel (frame: CGRect (x: 0, y: 0, width: 20, height: 20))
+        numberLable.textColor = UIColor.white
+        numberLable.font = UIFont.systemFont(ofSize: 15)
+        numberLable.textAlignment = .center
+        numberLable.layer.cornerRadius = numberLable.frame.width/2
+        numberLable.layer.masksToBounds = true
+        numberLable.backgroundColor = kAirplaneCell_head_selected_color
+        
+        let rightitem = UIBarButtonItem.init(customView: numberLable)
+        
+        let fixed = UIBarButtonItem  (barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        fixed.width = 10
+        
+        navigationItem.rightBarButtonItems = [fixed,rightitem]
+        hasSelectNumber = numberLable
+        hasSelectNumber.isHidden = true
     }
     
     func navigationBackButtonAction() {
         self.dismiss(animated: true, completion: nil)
     }
 
+    func addBottomBar() -> (preview:UIButton,finished:UIButton) {
+        //bottomBar
+        let _bottomBar = UIToolbar.init(frame: CGRect (x: 0, y: kCurrentScreenHeight - 50, width: kCurrentScreenWidth, height: 50))
+        _bottomBar.barStyle = .default
+        _bottomBar.isTranslucent = true
+        _bottomBar.setShadowImage(UIImage(), forToolbarPosition: .bottom)
+        view.addSubview(_bottomBar)
+        
+        let previewbtn = UIButton (frame: CGRect (x: kCurrentScreenWidth - 50, y: 0, width: 40, height: 40))
+        previewbtn.addTarget(self, action: #selector(previewBtnAction(_:)), for: .touchUpInside)
+        previewbtn.setTitle("预览", for: .normal)
+        previewbtn.setTitleColor(_barBtnColor.disable, for: .normal)
+        previewbtn.isEnabled  = false
+        previewbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        _bottomBar.addSubview(previewbtn)
+        
+        let okbutton = UIButton (frame: CGRect (x: 0, y: 0, width: 60, height: 40))
+        _bottomBar.addSubview(okbutton)
+        okbutton.setTitle("完成", for: .normal)
+        okbutton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        okbutton.setTitleColor(_barBtnColor.disable, for: .normal)
+        okbutton.isEnabled = false
+        okbutton.addTarget(self, action: #selector(finished), for: .touchUpInside)
+        
+        return (previewbtn,okbutton)
+    }
+    
+    func previewBtnAction( _ button:UIButton) {
+        showPreviewController(0)
+    }
+    
+    func finished()  {
+        if let handler = imageSelectedCompletionHandler {
+            handler(hasSelectedImageAsset)
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: -
+    func showPreviewController(_ index:Int , isPreview:Bool = true) {
+        let vc = TTImagePreviewController();
+        vc.dataArry = isPreview ? hasSelectedImageAsset : imgDataArr
+        vc.selectedDataArr = hasSelectedImageAsset
+        vc.index = index
+        vc.closeHandler = {[weak self] selected in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            //重新刷新数据及状态
+            strongSelf.hasSelectedImageAsset.removeAll()
+            strongSelf.hasSelectedImageAsset = strongSelf.hasSelectedImageAsset + selected
+            strongSelf._colloectionview.reloadData()
+            strongSelf.setStatus()
+        }
+        
+        self.navigationController?.present(vc, animated: false, completion: nil)
+    }
+
+    //设置按钮使能状态，已选中数字
+    func setStatus()  {
+        let bool = hasSelectedImageAsset.count > 0
+        preViewBtn.setTitleColor(bool ? _barBtnColor.enbale : _barBtnColor.disable, for: .normal)
+        preViewBtn.isEnabled = bool
+        finishedBtn.setTitleColor(bool ? _barBtnColor.enbale : _barBtnColor.disable, for: .normal)
+        finishedBtn.isEnabled = bool
+        
+        hasSelectNumber.isHidden = !bool
+        hasSelectNumber.text = "\(hasSelectedImageAsset.count)"
+    }
+    
+    
+
+    
     //MARK:
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imgDataArr.count
@@ -103,32 +197,31 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
         let identifier = "PublishImageCellIdentifier"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PublishImageCell
         
+        let asset = imgDataArr[indexPath.row]
+        
         cell.cellSelectedHandler = {[weak self] bool in
             guard let strongSelf = self else {
                 return
             }
             
-            let _b = strongSelf.hasSelectedIndex.contains(indexPath.row);
+            let _b = strongSelf.hasSelectedImageAsset.contains(asset);
             if _b {
-                strongSelf.hasSelectedIndex.remove(at: strongSelf.hasSelectedIndex.index(of: indexPath.row)!);
+                strongSelf.hasSelectedImageAsset.remove(at: strongSelf.hasSelectedImageAsset.index(of: asset)!);
             }else{
-                strongSelf.hasSelectedIndex.append(indexPath.row);
+                strongSelf.hasSelectedImageAsset.append(asset);
             }
+            
+            strongSelf.setStatus()
         }
         
-        let _b = hasSelectedIndex.contains(indexPath.row)
-        cell.setImage(imgDataArr[indexPath.row],type:.album,isSelected: _b)
+        let _b = hasSelectedImageAsset.contains(asset)
+        cell.setImage(asset,type:.album,isSelected: _b)
         
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = TTImagePreviewController();
-        vc.dataArry = imgDataArr
-        vc.index = indexPath.row
-        
-        self.navigationController?.present(vc, animated: false, completion: nil)
-
+        showPreviewController(indexPath.row , isPreview: false)
     }
     
     

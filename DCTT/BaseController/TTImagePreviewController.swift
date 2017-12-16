@@ -17,21 +17,26 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
         }
     }
     
-    var _topBar:UIToolbar!
-    var _bottomBar:UIToolbar!
-    var _imgNumber:UILabel!
-    var _selectButton:UIButton!
-    var _toolBarIsHiden = false
-    
     var dataArry = [PHAsset]()
     var selectedDataArr = [PHAsset]()
     var index:Int = 0
+    var closeHandler:(([PHAsset]) -> Void)? //关闭视图前，选择结果处理的回调
+    
+    //privita variable
+    private var _colloectionview:UICollectionView!
+    private var _topBar:UIToolbar!
+    private var _bottomBar:UIToolbar!
+    private var _imgNumber:UILabel!
+    private var _selectButton:UIButton!
+    private var _toolBarIsHiden = false
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight);
-        let _colloectionview = colleciontView(frame)
+        _colloectionview = colleciontView(frame)
         view.addSubview(_colloectionview)
 
         addTooBar()
@@ -53,12 +58,12 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
         _imgNumber.textColor = UIColor.white
         _imgNumber.font = UIFont.systemFont(ofSize: 15)
         _topBar.addSubview(_imgNumber)
-        _imgNumber.text = "已选择 1/9 张"
+        _imgNumber.text = "已选择\(selectedDataArr.count)张"
         
         
-        let backbtn = UIButton (frame: CGRect (x: 20, y: 10 + (_topBar.frame.height - 60)/2, width: 40, height: 40))
+        let backbtn = UIButton (frame: CGRect (x: 15, y: 10 + (_topBar.frame.height - 60)/2, width: 50, height: 50))
         backbtn.setImage(UIImage (named: "photo_detail_titlebar_close"), for: .normal)
-        backbtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10)
+        backbtn.imageEdgeInsets = UIEdgeInsetsMake(-5, -10, 5, 10)
         backbtn.addTarget(self, action: #selector(_dismiss), for: .touchUpInside)
         _topBar.addSubview(backbtn)
         
@@ -78,6 +83,7 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
         selectbtn.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
         selectbtn.addTarget(self, action: #selector(_selectImage(_:)), for: .touchUpInside)
         _bottomBar.addSubview(selectbtn)
+        _selectButton = selectbtn
         
         let okbutton = UIButton (frame: CGRect (x: 0, y: 0, width: 60, height: 40))
         _bottomBar.addSubview(okbutton)
@@ -90,15 +96,37 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
     
     //MARK: - EVENT
     func _dismiss() {
-        self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false) { [weak self] in
+            guard let strongSelf = self else {return}
+            if let handler = strongSelf.closeHandler {
+                handler(strongSelf.selectedDataArr);
+            }
+        }
     }
     
     func _selectImage(_ btn:UIButton) {
         btn.isSelected = !btn.isSelected
+        
+        guard let _index = _colloectionview.indexPathsForVisibleItems.last?.row else {return}
+        
+        print(_index)
+        
+        let asset = dataArry[_index]
+        
+        let _b = selectedDataArr.contains(asset);
+        if _b {
+            selectedDataArr.remove(at: selectedDataArr.index(of: asset)!);
+        }else{
+            selectedDataArr.append(asset);
+        }
+        
+        _imgNumber.text = "已选择\(selectedDataArr.count)张"
     }
     
     func finished()  {
-        self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false, completion: {
+        
+        })
     }
     
     
@@ -153,7 +181,8 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TTImagePreviewCellIdentifier", for: indexPath) as! TTImagePreviewCell2
         
-        cell.setImage(dataArry[indexPath.row], type: .preview, isSelected: true)
+        let asset = dataArry[indexPath.row]
+        cell.setImage(asset, type: .preview, isSelected: true)
         cell.imageClickedHandler = {
             UIView.animate(withDuration: 0.2, animations: { [weak self] in
                 guard let strongSelf = self else {return}
@@ -171,6 +200,12 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
             }
         }
         
+        if index == indexPath.row{
+            let _b = selectedDataArr.count > 0 ? selectedDataArr.contains(asset) : false
+            _selectButton.isSelected = _b
+        }
+
+        
         return cell
     }
     
@@ -185,8 +220,20 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
             self._toolBarIsHiden = !self._toolBarIsHiden
         }
     }
+
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let i = lroundf(Float(scrollView.contentOffset.x / (kCurrentScreenWidth + 10)))
+        
+        if index != i {
+            index = i
+            let asset = dataArry[i]
+            _selectButton.isSelected = selectedDataArr.count > 0 ? selectedDataArr.contains(asset) : false
+        }
+        
+    }
     
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

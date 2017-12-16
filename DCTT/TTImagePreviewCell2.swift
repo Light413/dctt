@@ -23,6 +23,8 @@ class TTImagePreviewCell2: UICollectionViewCell,UIScrollViewDelegate {
         scrollview.delegate = self
         scrollview.minimumZoomScale = 1
         scrollview.maximumZoomScale = 2
+        scrollview.showsVerticalScrollIndicator = false
+        scrollview.showsHorizontalScrollIndicator = false
         self.addSubview(scrollview)
         
         igv = UIImageView (frame: scrollview.frame)

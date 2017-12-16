@@ -11,7 +11,9 @@ import Photos
 
 class PublishViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
-    var imgDataArr = [UIImage]()
+    var imgDataArr = [PHAsset]()
+    
+    var _colloectionview:UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +21,8 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
         addNavigationItem()
         
         let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - 0);
-        let _colloectionview = colleciontView(frame)
+        _colloectionview = colleciontView(frame)
         view.addSubview(_colloectionview)
-        
-        ///....test
-        imgDataArr.append(UIImage())
 
     }
 
@@ -107,10 +106,18 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
             cell.contentView.addSubview(igv)
             cell.backgroundColor = UIColor (colorLiteralRed: 244/255.0, green: 245/255.0, blue: 246/255.0, alpha: 1)
         }else{
-//            if indexPath.section > 0 {
-//                let cell = cell as! PublishImageCell
-//                cell.setImage(PHAsset.init(), type: .publish)
-//            }
+            if indexPath.section > 0 {
+                let cell = cell as! PublishImageCell
+                cell.cellSelectedHandler = {[weak self] b in
+                 guard let strongSelf = self else {return}
+                    strongSelf.imgDataArr.remove(at: indexPath.row)
+                    strongSelf._colloectionview.reloadData()
+                
+                }
+                
+                let asset = imgDataArr[indexPath.row]
+                cell.setImage(asset, type: .publish)
+            }
             
             cell.backgroundColor = UIColor.white;
         }
@@ -120,9 +127,21 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
         return cell
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if imgDataArr.count == indexPath.row {
             let vc = TTImagePickerViewController()
+            //最大选择的数
+            
+            vc.imageSelectedCompletionHandler = {[weak self]  images in
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                strongSelf.imgDataArr = strongSelf.imgDataArr + images
+                strongSelf._colloectionview.reloadSections(IndexSet.init(integer: 1))
+            }
+            
             let nav = UINavigationController(rootViewController:vc)
             self.navigationController?.present(nav, animated: true, completion: nil)
         }else{//...大图显示

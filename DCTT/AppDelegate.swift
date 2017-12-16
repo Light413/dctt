@@ -24,14 +24,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         window?.rootViewController =  tabBarController
         window?.makeKeyAndVisible()
         
-        //application.applicationIconBadgeNumber = 0
-        
-        //_initLocationServices()
-        //_initNotification()
-        
+        _initSys()
         return true
     }
 
+    //MARK:- init
+    func _initSys()  {
+        HUD.config()
+
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
+        //_initLocationServices()
+        //_initNotification()
+
+    }
+    
+    
     
     //开启定位
     func _initLocationServices() {
