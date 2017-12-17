@@ -16,7 +16,7 @@ class PublishImageCell: UICollectionViewCell {
     
     var cellType:ImageCellTpye!
 
-    var cellSelectedHandler:((Bool) -> Void)?
+    var cellSelectedHandler:((Bool) -> Bool)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +34,10 @@ class PublishImageCell: UICollectionViewCell {
         sender.isSelected = !sender.isSelected
 
         if let handler = cellSelectedHandler {
-            handler(sender.isSelected);
+           let _b =  handler(sender.isSelected);
+            if !_b {
+            sender.isSelected = !sender.isSelected
+            }
         }
         
     }
@@ -65,8 +68,9 @@ class PublishImageCell: UICollectionViewCell {
             btn.setImage(UIImage (named: "ImgPic_select_album"), for: .normal);
             btn.setImage(UIImage (named: "ImgPic_select_ok_album"), for: .selected)
         } else if type == .publish {
-            btn.setImage(UIImage (named: "ImgPic_close"), for: .normal);
-            btn.setImage(UIImage (named: "ImgPic_close"), for: .selected)
+            btn.setImage(UIImage (named: "revoke_icon"), for: .normal);
+            btn.setImage(UIImage (named: "revoke_icon"), for: .selected)
+            btn.imageEdgeInsets = UIEdgeInsetsMake(3, 15, 15, 3)
         }else {
             btn.isHidden = true
         }

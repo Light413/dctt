@@ -12,6 +12,7 @@ import Photos
 class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,UICollectionViewDataSource {
 
     var imageSelectedCompletionHandler:(([PHAsset]) -> Void)?
+    var maxImagesNumber:Int = 0
     
     /*private variable*/
     private var imgDataArr = [PHAsset]()
@@ -22,12 +23,14 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
     private var _colloectionview:UICollectionView!
     private let _barBtnColor:(disable:UIColor,enbale:UIColor) = (UIColor.lightGray,UIColor.black)
     
+    private let kBottomBarHeight:CGFloat = 45
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         addNavigationItem()
-        let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - 50);
+        let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - kBottomBarHeight);
         _colloectionview = colleciontView(frame)
         view.addSubview(_colloectionview)
         
@@ -54,7 +57,7 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
     }
 
     deinit {
-        print("----")
+        print("\(self.self) deinit")
     }
     
     //MARK:-
@@ -114,7 +117,7 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
 
     func addBottomBar() -> (preview:UIButton,finished:UIButton) {
         //bottomBar
-        let _bottomBar = UIToolbar.init(frame: CGRect (x: 0, y: kCurrentScreenHeight - 50, width: kCurrentScreenWidth, height: 50))
+        let _bottomBar = UIToolbar.init(frame: CGRect (x: 0, y: kCurrentScreenHeight - kBottomBarHeight, width: kCurrentScreenWidth, height: kBottomBarHeight))
         _bottomBar.barStyle = .default
         _bottomBar.isTranslucent = true
         _bottomBar.setShadowImage(UIImage(), forToolbarPosition: .bottom)
@@ -157,6 +160,7 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
         vc.dataArry = isPreview ? hasSelectedImageAsset : imgDataArr
         vc.selectedDataArr = hasSelectedImageAsset
         vc.index = index
+        vc.maxImagesNumber = maxImagesNumber
         vc.closeHandler = {[weak self] selected in
             guard let strongSelf = self else {
                 return
@@ -169,7 +173,7 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
             strongSelf.setStatus()
         }
         
-        self.navigationController?.present(vc, animated: false, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: false)//(vc, animated: false, completion: nil)
     }
 
     //设置按钮使能状态，已选中数字
@@ -185,8 +189,6 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
     }
     
     
-
-    
     //MARK:
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imgDataArr.count
@@ -198,29 +200,50 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PublishImageCell
         
         let asset = imgDataArr[indexPath.row]
-        
-        cell.cellSelectedHandler = {[weak self] bool in
-            guard let strongSelf = self else {
-                return
-            }
-            
+        cell.cellSelectedHandler = {[weak self] bool -> Bool in
+            guard let strongSelf = self else {return false}
             let _b = strongSelf.hasSelectedImageAsset.contains(asset);
             if _b {
                 strongSelf.hasSelectedImageAsset.remove(at: strongSelf.hasSelectedImageAsset.index(of: asset)!);
             }else{
-                strongSelf.hasSelectedImageAsset.append(asset);
+                if strongSelf.hasSelectedImageAsset.count < strongSelf.maxImagesNumber {
+                    strongSelf.hasSelectedImageAsset.append(asset);
+                }else{
+                    HUD.show(info: "最多只能选择 \(strongSelf.maxImagesNumber) 张图片!")
+                    return false
+                }
+                
             }
             
-            strongSelf.setStatus()
+            strongSelf.setStatus();return true
         }
         
         let _b = hasSelectedImageAsset.contains(asset)
         cell.setImage(asset,type:.album,isSelected: _b)
         
+        /*cell.viewWithTag(100)?.removeFromSuperview();
+        
+        let _mask = UIView (frame: cell.frame)
+        _mask.backgroundColor = UIColor.black
+        //_mask.alpha = 1
+        _mask.tag = 100
+        cell.addSubview(_mask)*/
+        
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard self.hasSelectedImageAsset.count < self.maxImagesNumber else {
+            let a = imgDataArr[indexPath.row]
+            if hasSelectedImageAsset.contains(a) {
+                showPreviewController(0 , isPreview: true)
+            }else{
+                HUD.show(info: "最多只能选择 \(self.maxImagesNumber) 张图片!");
+            }
+            
+            return
+        }
+        
         showPreviewController(indexPath.row , isPreview: false)
     }
     

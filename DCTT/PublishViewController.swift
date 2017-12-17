@@ -15,6 +15,10 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
     
     var _colloectionview:UICollectionView!
     
+    private let kMaxImagesNumber:Int = 9
+    private var presentViewController:UINavigationController!
+    
+    //MARK:
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor.white
@@ -24,8 +28,21 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
         _colloectionview = colleciontView(frame)
         view.addSubview(_colloectionview)
 
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(selectImageCompletionNotification(_ :)), name: NSNotification.Name (rawValue: "notification_selectedimage_completion"), object: nil)
     }
 
+    func selectImageCompletionNotification(_ notification:Notification)  {
+        presentViewController.dismiss(animated: true) { 
+            
+        }
+        if let igs = notification.userInfo?["images"] as? [PHAsset] {
+            self.imgDataArr = self.imgDataArr + igs
+            self._colloectionview.reloadSections(IndexSet.init(integer: 1))
+        }
+
+    }
+    
     
     func addNavigationItem() {
         let leftbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
@@ -108,15 +125,16 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
         }else{
             if indexPath.section > 0 {
                 let cell = cell as! PublishImageCell
-                cell.cellSelectedHandler = {[weak self] b in
-                 guard let strongSelf = self else {return}
+                cell.cellSelectedHandler = {[weak self] b -> Bool in
+                 guard let strongSelf = self else {return false}
                     strongSelf.imgDataArr.remove(at: indexPath.row)
                     strongSelf._colloectionview.reloadData()
-                
+                    return true
                 }
                 
                 let asset = imgDataArr[indexPath.row]
                 cell.setImage(asset, type: .publish)
+
             }
             
             cell.backgroundColor = UIColor.white;
@@ -132,6 +150,7 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
         if imgDataArr.count == indexPath.row {
             let vc = TTImagePickerViewController()
             //最大选择的数
+            vc.maxImagesNumber = kMaxImagesNumber - imgDataArr.count
             
             vc.imageSelectedCompletionHandler = {[weak self]  images in
                 guard let strongSelf = self else {
@@ -142,8 +161,8 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
                 strongSelf._colloectionview.reloadSections(IndexSet.init(integer: 1))
             }
             
-            let nav = UINavigationController(rootViewController:vc)
-            self.navigationController?.present(nav, animated: true, completion: nil)
+            presentViewController = UINavigationController(rootViewController:vc)
+            self.navigationController?.present(presentViewController, animated: true, completion: nil)
         }else{//...大图显示
             
         }

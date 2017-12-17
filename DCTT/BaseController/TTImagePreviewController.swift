@@ -20,6 +20,7 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
     var dataArry = [PHAsset]()
     var selectedDataArr = [PHAsset]()
     var index:Int = 0
+    var maxImagesNumber:Int = 0
     var closeHandler:(([PHAsset]) -> Void)? //关闭视图前，选择结果处理的回调
     
     //privita variable
@@ -30,11 +31,10 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
     private var _selectButton:UIButton!
     private var _toolBarIsHiden = false
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight);
         _colloectionview = colleciontView(frame)
         view.addSubview(_colloectionview)
@@ -105,28 +105,28 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
     }
     
     func _selectImage(_ btn:UIButton) {
-        btn.isSelected = !btn.isSelected
-        
         guard let _index = _colloectionview.indexPathsForVisibleItems.last?.row else {return}
-        
-        print(_index)
-        
+
         let asset = dataArry[_index]
         
         let _b = selectedDataArr.contains(asset);
         if _b {
             selectedDataArr.remove(at: selectedDataArr.index(of: asset)!);
         }else{
+            guard selectedDataArr.count < maxImagesNumber else {
+                HUD.show(info: "最多只能选择 \(self.maxImagesNumber) 张图片!");
+                return;
+            }
+            
             selectedDataArr.append(asset);
         }
         
         _imgNumber.text = "已选择\(selectedDataArr.count)张"
+        btn.isSelected = !btn.isSelected
     }
     
     func finished()  {
-        self.dismiss(animated: false, completion: {
-        
-        })
+        NotificationCenter.default.post(name: NSNotification.Name (rawValue: "notification_selectedimage_completion"), object: nil, userInfo: ["images":selectedDataArr])
     }
     
     
