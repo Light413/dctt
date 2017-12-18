@@ -93,6 +93,25 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
         self.dismiss(animated: true, completion: nil)
     }
     
+    ///显示相册视图
+    func showImagePicker()  {
+        let vc = TTImagePickerViewController()
+        //最大选择的数
+        vc.maxImagesNumber = kMaxImagesNumber - imgDataArr.count
+        
+        vc.imageSelectedCompletionHandler = {[weak self]  images in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            strongSelf.imgDataArr = strongSelf.imgDataArr + images
+            strongSelf._colloectionview.reloadSections(IndexSet.init(integer: 1))
+        }
+        
+        presentViewController = UINavigationController(rootViewController:vc)
+        self.navigationController?.present(presentViewController, animated: true, completion: nil)
+    }
+    
     
     //MARK:
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -150,21 +169,23 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if imgDataArr.count == indexPath.row {
-            let vc = TTImagePickerViewController()
-            //最大选择的数
-            vc.maxImagesNumber = kMaxImagesNumber - imgDataArr.count
+            let alertViewContronller = UIAlertController.init(title: "添加照片", message: nil, preferredStyle: .actionSheet)
+            let action1 = UIAlertAction.init(title: "从相册选择", style: .default, handler: { [weak self] (action) in
+                guard let strongSelf = self else {return}
+                strongSelf.showImagePicker()
+            })
             
-            vc.imageSelectedCompletionHandler = {[weak self]  images in
-                guard let strongSelf = self else {
-                    return
-                }
+            let action2 = UIAlertAction.init(title: "拍照", style: .default, handler: { (action) in
                 
-                strongSelf.imgDataArr = strongSelf.imgDataArr + images
-                strongSelf._colloectionview.reloadSections(IndexSet.init(integer: 1))
-            }
+            })
+
+            let action3 = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
+
+            alertViewContronller.addAction(action1)
+            alertViewContronller.addAction(action2)
+            alertViewContronller.addAction(action3)
             
-            presentViewController = UINavigationController(rootViewController:vc)
-            self.navigationController?.present(presentViewController, animated: true, completion: nil)
+            self.navigationController?.present(alertViewContronller, animated: true, completion: nil)
         }else{//...大图显示
             
         }

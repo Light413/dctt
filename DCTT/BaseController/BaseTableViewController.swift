@@ -27,6 +27,8 @@ class BaseTableViewController: UITableViewController {
             dataArray.append("\(n + 1)")
         }
         tableView.register(UINib (nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCellReuseIdentifierId")
+        tableView.register(UINib (nibName: "HomeCellWithImage", bundle: nil), forCellReuseIdentifier: "HomeCellWithImageIdentifierId")
+        tableView.register(UINib (nibName: "HomeCellWithImages", bundle: nil), forCellReuseIdentifier: "HomeCellWithImagesIdentifierId")
         
         //test  refresh
         let header = TTRefreshHeader.init(refreshingBlock: {
@@ -75,7 +77,20 @@ class BaseTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:  "HomeCellReuseIdentifierId", for: indexPath) as! HomeCell
+        var identifier :String = "HomeCellReuseIdentifierId"
+        switch indexPath.row % 3 {
+        case 0:
+            identifier = "HomeCellReuseIdentifierId"
+            break
+        case 1:
+            identifier = "HomeCellWithImageIdentifierId"
+            break
+        case 2:identifier = "HomeCellWithImagesIdentifierId"
+            break
+        default:break
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath) //as! HomeCell
 
         //cell.textLabel?.text = dataArray[indexPath.row]
         
@@ -93,7 +108,14 @@ class BaseTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        return 80;
+        switch indexPath.row % 3 {
+        case 0:return 80;break;
+        case 1:return 100;break
+        case 2:return 150;break
+
+        default:return 80; break
+        }
+
     }
     
     
