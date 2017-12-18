@@ -46,6 +46,12 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    
     func addTooBar() {
         let _alpha:Float = 0.5
         _topBar = UIToolbar.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 60))
@@ -96,12 +102,11 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
     
     //MARK: - EVENT
     func _dismiss() {
-        self.dismiss(animated: false) { [weak self] in
-            guard let strongSelf = self else {return}
-            if let handler = strongSelf.closeHandler {
-                handler(strongSelf.selectedDataArr);
-            }
+        if let handler = self.closeHandler {
+            handler(self.selectedDataArr);
         }
+
+        _ = self.navigationController?.popViewController(animated: false)
     }
     
     func _selectImage(_ btn:UIButton) {

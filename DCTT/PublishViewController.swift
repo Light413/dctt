@@ -113,20 +113,14 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
         let identifier = (indexPath.section == 0) ? "PublishTextCellIdentifier": imgDataArr.count == indexPath.row ? "PublishAddIconCellIdentifier":"PublishImageCellIdentifier"
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
         
-        if indexPath.section == 1 && imgDataArr.count == indexPath.row{
-            for _v in cell.contentView.subviews {
-                _v.removeFromSuperview();
-            }
-            
-            let igv = UIImageView (frame: CGRect (x: (cell.frame.width - 30)/2, y: (cell.frame.height - 30)/2, width: 30, height: 30))
-            igv.image = UIImage (named: "addicon_repost")
-            cell.contentView.addSubview(igv)
-            cell.backgroundColor = UIColor (colorLiteralRed: 244/255.0, green: 245/255.0, blue: 246/255.0, alpha: 1)
-        }else{
-            if indexPath.section > 0 {
+        let section = indexPath.section
+        if section == 0 {
+        
+        }else if section == 1 {
+            if indexPath.row < imgDataArr.count {
                 let cell = cell as! PublishImageCell
                 cell.cellSelectedHandler = {[weak self] b -> Bool in
-                 guard let strongSelf = self else {return false}
+                    guard let strongSelf = self else {return false}
                     strongSelf.imgDataArr.remove(at: indexPath.row)
                     strongSelf._colloectionview.reloadData()
                     return true
@@ -134,12 +128,20 @@ class PublishViewController: BaseViewController,UICollectionViewDelegate,UIColle
                 
                 let asset = imgDataArr[indexPath.row]
                 cell.setImage(asset, type: .publish)
-
+                cell.backgroundColor = UIColor.white;
+            }else{
+                for _v in cell.contentView.subviews {
+                    _v.removeFromSuperview();
+                }
+                
+                let igv = UIImageView (frame: CGRect (x: (cell.frame.width - 30)/2, y: (cell.frame.height - 30)/2, width: 30, height: 30))
+                igv.image = UIImage (named: "addicon_repost")
+                cell.contentView.addSubview(igv)
+                cell.backgroundColor = UIColor (colorLiteralRed: 244/255.0, green: 245/255.0, blue: 246/255.0, alpha: 1)
             }
-            
+        }else{
             cell.backgroundColor = UIColor.white;
         }
-        
         
         
         return cell
