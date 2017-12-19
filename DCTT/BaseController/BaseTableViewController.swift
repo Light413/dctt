@@ -42,6 +42,9 @@ class BaseTableViewController: UITableViewController {
         
         tableView.mj_header = header;
         
+        //...
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -78,7 +81,7 @@ class BaseTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var identifier :String = "HomeCellReuseIdentifierId"
-        switch indexPath.row % 3 {
+        switch indexPath.row % 2 {
         case 0:
             identifier = "HomeCellReuseIdentifierId"
             break
@@ -106,7 +109,7 @@ class BaseTableViewController: UITableViewController {
     
     
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    /*override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
         switch indexPath.row % 3 {
         case 0:return 80;break;
@@ -116,7 +119,7 @@ class BaseTableViewController: UITableViewController {
         default:return 80; break
         }
 
-    }
+    }*/
     
     
     
