@@ -10,11 +10,12 @@ import UIKit
 
 class HomeDetailController: BaseViewController {
 
+    var _tableview:UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        t_barTintColor = UIColor.orange
+    
     }
 
     override func didReceiveMemoryWarning() {

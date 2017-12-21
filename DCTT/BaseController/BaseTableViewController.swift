@@ -10,11 +10,7 @@ import UIKit
 import MJRefresh
 
 class BaseTableViewController: UITableViewController {
-
     var dataArray = [String]()
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,28 +19,7 @@ class BaseTableViewController: UITableViewController {
         tableView.backgroundColor = kTableviewBackgroundColor
         tableView.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
         
-        for n in 0..<20 {
-            dataArray.append("\(n + 1)")
-        }
-        tableView.register(UINib (nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCellReuseIdentifierId")
-        tableView.register(UINib (nibName: "HomeCellWithImage", bundle: nil), forCellReuseIdentifier: "HomeCellWithImageIdentifierId")
-        tableView.register(UINib (nibName: "HomeCellWithImages", bundle: nil), forCellReuseIdentifier: "HomeCellWithImagesIdentifierId")
-        
-        //test  refresh
-        let header = TTRefreshHeader.init(refreshingBlock: {
-            print("refresh start...")
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                print("refresh end...")
-                self.tableView.mj_header.endRefreshing()
-            }
-            
-        })
-        
-        tableView.mj_header = header;
-        
-        //...
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -80,22 +55,8 @@ class BaseTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var identifier :String = "HomeCellReuseIdentifierId"
-        switch indexPath.row % 2 {
-        case 0:
-            identifier = "HomeCellReuseIdentifierId"
-            break
-        case 1:
-            identifier = "HomeCellWithImageIdentifierId"
-            break
-        case 2:identifier = "HomeCellWithImagesIdentifierId"
-            break
-        default:break
-        }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath) //as! HomeCell
-
-        //cell.textLabel?.text = dataArray[indexPath.row]
+        let identifier :String = "HomeCellReuseIdentifierId"
+        let cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
         
         return cell
     }

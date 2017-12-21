@@ -36,7 +36,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         ////pagevc
         let _h = kCurrentScreenHeight - 64 - 49 - 40
         for _ in 0..<titles.count {
-            let v = BaseTableViewController();
+            let v = HomerListViewController();
             v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h)
             vcArr.append(v)
         }

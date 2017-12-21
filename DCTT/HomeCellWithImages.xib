@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,18 +15,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gfC-ez-z31" id="GnR-Wy-flo">
-                <frame key="frameInset" width="320" height="149"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用swift3.0写项目且又没熟读官方API文档的小朋友，在基于控制器。档的小朋友，在基于控制器。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hV9-nH-RoG">
-                        <constraints>
-                            <constraint firstAttribute="height" constant="45" id="Oso-qB-HCR"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用swift3.0写项目且又没熟读官方API" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hV9-nH-RoG">
+                        <rect key="frame" x="13" y="8" width="299" height="46"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小丸子" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ma0-hF-Ntn">
+                        <rect key="frame" x="13" y="124" width="37" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14.5" id="wjo-9m-FO8"/>
                         </constraints>
@@ -32,6 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3No-zZ-lUs">
+                        <rect key="frame" x="60" y="124" width="39.5" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14.5" id="glh-bL-Yp7"/>
                         </constraints>
@@ -40,6 +43,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-12-19 22:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gN-dD-xTk">
+                        <rect key="frame" x="109.5" y="124" width="99.5" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="HX5-Ks-5vi"/>
                         </constraints>
@@ -48,16 +52,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_cell_1.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="8Vg-6U-xde">
+                        <rect key="frame" x="13" y="56" width="97.5" height="60"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="UWf-ek-Qcx"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_cell_3.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="5Gy-ij-cCw">
+                        <rect key="frame" x="214.5" y="56" width="97.5" height="60"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="d2s-DT-GIq"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_cell_2.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="MJt-y9-5Jv">
+                        <rect key="frame" x="113.5" y="56" width="98" height="60"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="AwW-2J-JT6"/>
                         </constraints>
@@ -76,6 +83,7 @@
                     <constraint firstItem="3No-zZ-lUs" firstAttribute="centerY" secondItem="Ma0-hF-Ntn" secondAttribute="centerY" id="OSq-Ko-3Ya"/>
                     <constraint firstItem="5Gy-ij-cCw" firstAttribute="trailing" secondItem="hV9-nH-RoG" secondAttribute="trailing" id="Wug-XP-MRk"/>
                     <constraint firstItem="Ma0-hF-Ntn" firstAttribute="leading" secondItem="hV9-nH-RoG" secondAttribute="leading" id="ZuZ-UT-0qx"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Ma0-hF-Ntn" secondAttribute="bottom" constant="3" id="bfO-1S-943"/>
                     <constraint firstItem="Ma0-hF-Ntn" firstAttribute="top" secondItem="8Vg-6U-xde" secondAttribute="bottom" constant="8" id="fHV-1e-Zr9"/>
                     <constraint firstItem="hV9-nH-RoG" firstAttribute="leading" secondItem="GnR-Wy-flo" secondAttribute="leadingMargin" constant="5" id="hVc-Jy-UTr"/>
                     <constraint firstItem="6gN-dD-xTk" firstAttribute="centerY" secondItem="Ma0-hF-Ntn" secondAttribute="centerY" id="jnE-2L-Fm5"/>

@@ -92,6 +92,7 @@
 		AD14CC601FE8027A003FBE0B /* HomeCellWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD14CC5E1FE8027A003FBE0B /* HomeCellWithImage.xib */; };
 		AD14CC631FE802B6003FBE0B /* HomeCellWithImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD14CC611FE802B6003FBE0B /* HomeCellWithImages.swift */; };
 		AD14CC641FE802B6003FBE0B /* HomeCellWithImages.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD14CC621FE802B6003FBE0B /* HomeCellWithImages.xib */; };
+		AD1B54EA1FEC01FE00B2F985 /* HomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */; };
 		ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */; };
 		ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5051FB6C8F50048F876 /* ViewController.swift */; };
 		ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEAE50C1FB6C8F50048F876 /* LaunchScreen.storyboard */; };
@@ -192,6 +193,7 @@
 		AD14CC611FE802B6003FBE0B /* HomeCellWithImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCellWithImages.swift; sourceTree = "<group>"; };
 		AD14CC621FE802B6003FBE0B /* HomeCellWithImages.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCellWithImages.xib; sourceTree = "<group>"; };
 		AD14CC651FE8094E003FBE0B /* DCTT.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = DCTT.entitlements; path = DCTT/DCTT.entitlements; sourceTree = "<group>"; };
+		AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomerListViewController.swift; sourceTree = "<group>"; };
 		ADEAE5001FB6C8F50048F876 /* DCTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADEAE5051FB6C8F50048F876 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				AD10331C1FB6CD4E0017E81C /* com */,
 				AD1033381FB6CD920017E81C /* BaseController */,
 				AD1033431FB6CE560017E81C /* HomeViewController.swift */,
+				AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */,
 				A1A642DB1FC567CA0058F63B /* HomeSearchViewController.swift */,
 				A1CE83981FC3F6AA00DAF90F /* HomeDetailController.swift */,
 				A1DFE70A1FB97045001C1905 /* RecentViewController.swift */,
@@ -601,7 +604,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DC35A96028B5B831E98C95EE /* [CP] Copy Pods Resources */ = {
@@ -626,6 +629,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD1B54EA1FEC01FE00B2F985 /* HomerListViewController.swift in Sources */,
 				A1783C031FCC128F00E4AB06 /* AllCategoryCell.swift in Sources */,
 				AD1033471FB6CEA00017E81C /* MeViewController.swift in Sources */,
 				A1E1B02D1FDA7AEF002D6BDC /* TTImagePreviewController.swift in Sources */,
