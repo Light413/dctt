@@ -22,7 +22,7 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
     private var _currentIndex: Int = 0//当前显示索引
     private var _collectionView:UICollectionView!
     private var _delegate:TTHeadTitleDelegate?
-    private let _item_width:CGFloat = 50
+    private let _item_width:CGFloat = 60
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -61,7 +61,7 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
         collectionview.showsVerticalScrollIndicator = false
         collectionview.backgroundView = nil
         collectionview.backgroundColor = UIColor.white
-        collectionview.contentInset = UIEdgeInsetsMake(0, 15, 0, 15)
+        collectionview.contentInset = UIEdgeInsetsMake(0, 0, 0, 15)
         return collectionview
     }
     
@@ -77,11 +77,12 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
             offset = -_collectionView.contentInset.left;
         }
         
-        if offset > max {
+        if offset > 0 && max > 0 && offset > max {
             offset = max;
         }
 
-        _collectionView.setContentOffset(CGPoint (x: offset, y: 0), animated: true)
+        //...有待完善
+        //_collectionView.setContentOffset(CGPoint (x: offset, y: 0), animated: true)
     }
 
     

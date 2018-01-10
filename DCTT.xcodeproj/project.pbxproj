@@ -40,6 +40,8 @@
 		A1A642DC1FC567CB0058F63B /* HomeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A642DB1FC567CA0058F63B /* HomeSearchViewController.swift */; };
 		A1B5A6431FC4174400871676 /* ymtimg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1B5A6421FC4174400871676 /* ymtimg2.jpg */; };
 		A1B5A6451FC41F2200871676 /* sunrise.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1B5A6441FC41F2200871676 /* sunrise.jpg */; };
+		A1B8E492200603B1001E156E /* HomeDetailHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8E491200603B1001E156E /* HomeDetailHeadView.swift */; };
+		A1B8E4942006066F001E156E /* HomeDetailHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B8E4932006066F001E156E /* HomeDetailHeadView.xib */; };
 		A1C172091FD631E2006BAAA0 /* TTPublishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C172081FD631E2006BAAA0 /* TTPublishView.swift */; };
 		A1C402351FCCF41F005BAA9A /* all_category_item.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1C402341FCCF41F005BAA9A /* all_category_item.plist */; };
 		A1C4023B1FCCF9A6005BAA9A /* cell_background.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C4023A1FCCF9A6005BAA9A /* cell_background.png */; };
@@ -135,6 +137,8 @@
 		A1A642DB1FC567CA0058F63B /* HomeSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSearchViewController.swift; sourceTree = "<group>"; };
 		A1B5A6421FC4174400871676 /* ymtimg2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ymtimg2.jpg; sourceTree = "<group>"; };
 		A1B5A6441FC41F2200871676 /* sunrise.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunrise.jpg; sourceTree = "<group>"; };
+		A1B8E491200603B1001E156E /* HomeDetailHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailHeadView.swift; sourceTree = "<group>"; };
+		A1B8E4932006066F001E156E /* HomeDetailHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailHeadView.xib; sourceTree = "<group>"; };
 		A1C172081FD631E2006BAAA0 /* TTPublishView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPublishView.swift; sourceTree = "<group>"; };
 		A1C402341FCCF41F005BAA9A /* all_category_item.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = all_category_item.plist; sourceTree = "<group>"; };
 		A1C4023A1FCCF9A6005BAA9A /* cell_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cell_background.png; sourceTree = "<group>"; };
@@ -242,6 +246,27 @@
 				A1A642D31FC54FA40058F63B /* AppIcon-News60x60@3x.png */,
 			);
 			path = icon;
+			sourceTree = "<group>";
+		};
+		A1C46D742005E12200E02635 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A1C46D752005E14A00E02635 /* view */,
+				AD1033431FB6CE560017E81C /* HomeViewController.swift */,
+				AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */,
+				A1A642DB1FC567CA0058F63B /* HomeSearchViewController.swift */,
+				A1CE83981FC3F6AA00DAF90F /* HomeDetailController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		A1C46D752005E14A00E02635 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A1B8E491200603B1001E156E /* HomeDetailHeadView.swift */,
+				A1B8E4932006066F001E156E /* HomeDetailHeadView.xib */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 		A1CE83901FC3C05500DAF90F /* view */ = {
@@ -405,10 +430,7 @@
 				A1CE83901FC3C05500DAF90F /* view */,
 				AD10331C1FB6CD4E0017E81C /* com */,
 				AD1033381FB6CD920017E81C /* BaseController */,
-				AD1033431FB6CE560017E81C /* HomeViewController.swift */,
-				AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */,
-				A1A642DB1FC567CA0058F63B /* HomeSearchViewController.swift */,
-				A1CE83981FC3F6AA00DAF90F /* HomeDetailController.swift */,
+				A1C46D742005E12200E02635 /* Home */,
 				A1DFE70A1FB97045001C1905 /* RecentViewController.swift */,
 				AD1033481FB6CF070017E81C /* FriendsViewController.swift */,
 				A1CE839A1FC3F6D900DAF90F /* FriendsDetailController.swift */,
@@ -474,13 +496,13 @@
 					ADEAE4FF1FB6C8F50048F876 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 8R29X3H9MY;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -531,6 +553,7 @@
 				A189DEFE1FCFABCD007911D2 /* area.plist in Resources */,
 				A148A2A61FD649570052DDF3 /* publish_write@2x.png in Resources */,
 				A1C4023B1FCCF9A6005BAA9A /* cell_background.png in Resources */,
+				A1B8E4942006066F001E156E /* HomeDetailHeadView.xib in Resources */,
 				AD14CC5B1FE800E0003FBE0B /* home_cell_3.JPG in Resources */,
 				A1A642D71FC54FA40058F63B /* AppIcon-News40x40@2x.png in Resources */,
 				A1B5A6431FC4174400871676 /* ymtimg2.jpg in Resources */,
@@ -604,7 +627,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		DC35A96028B5B831E98C95EE /* [CP] Copy Pods Resources */ = {
@@ -641,6 +664,7 @@
 				ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */,
 				AD10334D1FB6D1A40017E81C /* AllViewController.swift in Sources */,
 				A1A047AC1FD53C910057CC17 /* TTRefreshFooter.swift in Sources */,
+				A1B8E492200603B1001E156E /* HomeDetailHeadView.swift in Sources */,
 				AD1033411FB6CD920017E81C /* BaseViewController.swift in Sources */,
 				A1A047AD1FD53C910057CC17 /* TTRefreshHeader.swift in Sources */,
 				A1C172091FD631E2006BAAA0 /* TTPublishView.swift in Sources */,
@@ -802,7 +826,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55B69D6DCD87607BEB534DEA /* Pods-DCTT.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = DCTT/DCTT.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 8R29X3H9MY;
 				INFOPLIST_FILE = DCTT/Info.plist;
@@ -810,8 +833,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gener-tech.dcttwithpush";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "ebd521e8-e8a9-4bdb-8d9d-109ac0bdaf74";
+				PROVISIONING_PROFILE_SPECIFIER = "wygtest-dev";
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DCTT/BaseController/KLTAnimateNav/DCTT-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -823,9 +846,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 604BC239A7045558390DF0BE /* Pods-DCTT.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = DCTT/DCTT.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8R29X3H9MY;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DCTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
