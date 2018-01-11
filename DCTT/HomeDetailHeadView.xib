@@ -1,49 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HomeDetailHeadView" customModule="DCTT" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HU4-aD-i6o">
-                    <frame key="frameInset" minX="266" minY="17" width="46" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HU4-aD-i6o">
+                    <rect key="frame" x="245" y="20" width="60" height="30"/>
                     <color key="backgroundColor" red="0.066666666669999999" green="0.52941176469999995" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="PrI-lF-3uF"/>
+                        <constraint firstAttribute="width" constant="60" id="sif-Yq-T4L"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="Button">
+                    <state key="normal" title="关注">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="watchButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="CbZ-CE-rM9"/>
+                    </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="小蚊子" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hK-Su-kGr">
-                    <frame key="frameInset" minX="57" minY="7" width="52" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小蚊子爱吃鱼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hK-Su-kGr">
+                    <rect key="frame" x="63" y="17" width="92" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ymtimg2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZVu-n9-czi">
-                    <frame key="frameInset" minX="4" minY="5" width="43" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ymtimg2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ZVu-n9-czi">
+                    <rect key="frame" x="15" y="15" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="1bE-E1-5LS"/>
+                        <constraint firstAttribute="height" constant="40" id="LBR-6A-Rq5"/>
+                    </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2018 -01 -10 17:39" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vO3-bn-7gt">
-                    <frame key="frameInset" minX="57" minY="32" width="122" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018 -01 -10 17:39" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vO3-bn-7gt">
+                    <rect key="frame" x="63" y="41" width="107" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="HU4-aD-i6o" secondAttribute="trailing" constant="15" id="6SW-K9-8pf"/>
+                <constraint firstItem="ZVu-n9-czi" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7Li-3w-Egu"/>
+                <constraint firstItem="HU4-aD-i6o" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MBQ-iJ-Brs"/>
+                <constraint firstItem="vO3-bn-7gt" firstAttribute="top" secondItem="7hK-Su-kGr" secondAttribute="bottom" constant="6" id="ZSm-aT-AmU"/>
+                <constraint firstItem="vO3-bn-7gt" firstAttribute="leading" secondItem="7hK-Su-kGr" secondAttribute="leading" id="dfa-NQ-h6a"/>
+                <constraint firstItem="ZVu-n9-czi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="hSD-Z0-LwG"/>
+                <constraint firstItem="7hK-Su-kGr" firstAttribute="top" secondItem="ZVu-n9-czi" secondAttribute="top" constant="2" id="kHC-TW-ai5"/>
+                <constraint firstItem="7hK-Su-kGr" firstAttribute="leading" secondItem="ZVu-n9-czi" secondAttribute="trailing" constant="8" id="stI-aM-wLr"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dateLable" destination="vO3-bn-7gt" id="AKj-Nb-WbV"/>
+                <outlet property="iconImg" destination="ZVu-n9-czi" id="gui-sO-NWI"/>
+                <outlet property="nameLable" destination="7hK-Su-kGr" id="xaJ-WX-dBy"/>
+            </connections>
             <point key="canvasLocation" x="26" y="-185"/>
         </view>
     </objects>

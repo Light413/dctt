@@ -10,6 +10,35 @@ import UIKit
 
 class HomeDetailHeadView: UIView {
 
+    @IBOutlet weak var iconImg: UIImageView!
+    
+    @IBOutlet weak var nameLable: UILabel!
+    
+    @IBOutlet weak var dateLable: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        
+        iconImg.layer.cornerRadius = 20
+        iconImg.layer.masksToBounds = true
+        
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(tapIconAction))
+        iconImg.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    func tapIconAction()  {
+        print("jump to user profile")
+    }
+    
+    
+    //点击关注
+    @IBAction func watchButtonAction(_ sender: Any) {
+    }
+    
+    
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
