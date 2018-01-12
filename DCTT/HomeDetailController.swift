@@ -11,6 +11,7 @@ import UIKit
 class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewDataSource{
 
     var _tableview:UITableView!
+    var _titleView:UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +22,10 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
 
     //MARK: -
     func initSubview()  {
-        _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 0), style: .plain)
+        _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 40), style: .plain)
         _tableview.delegate = self
         _tableview.dataSource = self
+        _tableview.contentInset = UIEdgeInsetsMake(0, 0, 5, 0)
         
         //Register Cell
         _tableview.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCellReuseIdentifier")
@@ -39,7 +41,112 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         let headview = Bundle.main.loadNibNamed("HomeDetailHeadView", owner: nil, options: nil)?.last as! HomeDetailHeadView
         _tableview.tableHeaderView = headview
         
+        
+        //titleview
+        _titleView = titleView()
+        _titleView.isHidden = true
+        navigationItem.titleView = _titleView
+        
+        //bottom comment btn
+        addBottomBar()
+        
     }
+    
+    //toolBar
+    func addBottomBar()  {
+        let toolBar = UIToolbar.init(frame: CGRect (x: 0, y: _tableview.frame.maxY, width: kCurrentScreenWidth, height: 40))
+
+        let writeBtn = UIButton (frame: CGRect (x: 0, y: 5, width: 100, height: 30))
+        writeBtn.setTitle("写评论", for: .normal)
+        writeBtn.setTitleColor(UIColor.darkGray, for: .normal)
+        writeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        writeBtn.layer.cornerRadius = 15
+        writeBtn.layer.borderColor = UIColor.lightGray.cgColor
+        writeBtn.layer.borderWidth = 0.5
+        writeBtn.layer.masksToBounds = true
+        writeBtn.setImage(UIImage (named: "comment"), for: .normal)
+        writeBtn.imageEdgeInsets = UIEdgeInsetsMake(10, -10, 7, 0)
+        writeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 6, 0, 0)
+        writeBtn.backgroundColor = kTableviewBackgroundColor
+        writeBtn.tag = 100
+        writeBtn.addTarget(self, action: #selector(toolBarButtonClicked(_ :)), for: .touchUpInside)
+        let writeItem = UIBarButtonItem (customView: writeBtn)
+        
+        //收藏
+        let scBtn = UIButton (frame: CGRect (x: 0, y: 5, width: 40, height: 30))
+        scBtn.setImage(UIImage (named: "product_comment"), for: .normal)
+        scBtn.setImage(UIImage (named: "product_comment_click"), for: .selected)
+        scBtn.imageEdgeInsets = UIEdgeInsetsMake(5, 10, 5, 10)
+        scBtn.tag = 101
+        scBtn.addTarget(self, action: #selector(toolBarButtonClicked(_ :)), for: .touchUpInside)
+        let scItem = UIBarButtonItem (customView: scBtn)
+        
+        let flex = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        //举报
+        let jbBtn = UIButton (frame: CGRect (x: 0, y: 5, width: 50, height: 30))
+        jbBtn.setTitle("举报", for: .normal)
+        jbBtn.setTitleColor(UIColor.lightGray, for: .normal)
+        jbBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        jbBtn.tag = 102
+        jbBtn.addTarget(self, action: #selector(toolBarButtonClicked(_ :)), for: .touchUpInside)
+        let jcItem = UIBarButtonItem (customView: jbBtn)
+        
+
+        
+        toolBar.items = [writeItem,flex,scItem,flex,jcItem]
+        
+        view.addSubview(toolBar)
+    }
+    
+    func toolBarButtonClicked(_ button:UIButton) {
+        button.isSelected = !button.isSelected
+        
+        switch button.tag {
+        case 100://写评论
+            break
+        case 101://收藏
+            break
+        case 102://举报
+            break
+        default:break
+        }
+    }
+    
+    
+    func titleView() -> UIView {
+        let _bgview = UIView (frame: CGRect (x: 0, y: 0, width: 100, height: 25))
+
+        let icon = UIImageView (frame: CGRect (x: 0, y: 0, width: _bgview.frame.height, height: _bgview.frame.height))
+        icon.image = UIImage (named: "ymtimg2.jpg")
+        icon.layer.cornerRadius = _bgview.frame.height / 2
+        icon.layer.masksToBounds = true
+        _bgview.addSubview(icon)
+        
+        let btn = UIButton (frame: CGRect (x: icon.frame.maxX + 10, y: 0, width: 60, height: 25))
+        btn.backgroundColor = UIColor (red: 17/255.0, green: 135/255.0, blue: 212/255.0, alpha: 1)
+        btn.setTitle("关注", for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        btn.layer.cornerRadius = 5
+        btn.layer.masksToBounds = true
+        btn.addTarget(self, action: #selector(watchBtnAction), for: .touchUpInside)
+        _bgview.addSubview(btn)
+        
+        return _bgview
+    }
+    
+    func watchBtnAction() {
+        //关注
+        
+    }
+    
+    
+    //MARK: - 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        _titleView.isHidden = !(scrollView.contentOffset.y > 60)
+    
+    }
+    
     
     
     //MARK: - UITableViewDelegate
@@ -79,20 +186,17 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
              cell = tableView.dequeueReusableCell(withIdentifier: "HomeDetailCommentCellIdentifier", for: indexPath)
         }
         
-        
 
-        
-        
         cell.selectionStyle = .none
         
         return cell
     }
     
     
-    let _h:CGFloat = 80
+    let _footerHeight:CGFloat = 80
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let _v = UIView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h))
+        let _v = UIView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _footerHeight))
         
         ////
         let zanbtn = UIButton (frame: CGRect (x: (kCurrentScreenWidth - 200 - 50)/2, y: 10, width: 100, height: 30))
@@ -112,12 +216,12 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         lovebtn.layer.borderWidth = 0.5
         lovebtn.layer.borderColor = UIColor.lightGray.cgColor
         
-        lovebtn.setImage(UIImage (named: "like_heart_textpage_press_night"), for: .normal)
-        lovebtn.setImage(UIImage (named: "like_heart_textpage_press_night"), for: .highlighted)
+        lovebtn.setImage(UIImage (named: "step"), for: .normal)
+        lovebtn.setImage(UIImage (named: "step"), for: .highlighted)
         _v.addSubview(lovebtn)
         
         ////
-        let commentLable =  UILabel (frame: CGRect (x: 10, y: _h - 25, width: 60, height: 20))
+        let commentLable =  UILabel (frame: CGRect (x: 10, y: _footerHeight - 25, width: 60, height: 20))
         commentLable.textColor = UIColor.darkGray
         commentLable.font = UIFont.systemFont(ofSize: 13)
         commentLable.text = "评论(20)"
@@ -128,7 +232,7 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 0 ? _h : 0
+        return section == 0 ? _footerHeight : 0
     }
     
     
