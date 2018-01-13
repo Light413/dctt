@@ -22,16 +22,20 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
 
     //MARK: -
     func initSubview()  {
-        _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 40), style: .plain)
+        _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 40), style: .grouped)
         _tableview.delegate = self
         _tableview.dataSource = self
         _tableview.contentInset = UIEdgeInsetsMake(0, 0, 5, 0)
+        
+        _tableview.separatorStyle = .none
         
         //Register Cell
         _tableview.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCellReuseIdentifier")
         view.addSubview(_tableview)
         
         _tableview.register(UINib (nibName: "HomeDetailCommentCell", bundle: nil), forCellReuseIdentifier: "HomeDetailCommentCellIdentifier")
+        
+        _tableview.register(UINib (nibName: "HomeDetailImgCell", bundle: nil), forCellReuseIdentifier: "HomeDetailImgCellIdentifier")
         
         //计算Cell高度
         _tableview.estimatedRowHeight = 70
@@ -156,7 +160,7 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 1 // + pic 个数
+            return 1 + 2 // + pic 个数
         }else{
         
         return 5 //评论数
@@ -168,20 +172,25 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         var cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCellReuseIdentifier", for: indexPath)
         
         if indexPath.section == 0 {
-            let _text = "在具体使用的使用向WizDataBaseManager请求一个WizDataBase，然后使用。在这特意提一下一种常见的数据库应用场景，就是在使用MVC的使用模型控制器从数据库中读取数据然后去更新UI。读取数据库当然是一个很费事的操作，如果让主线程一直忙于读取数据库的话，将会降低UI的响应"
-            
-            cell.textLabel?.numberOfLines = 0
-            cell.textLabel?.textColor = UIColor.darkGray
-            
-            let paragraphStyle = NSMutableParagraphStyle.init()
-            paragraphStyle.lineSpacing = 8
-            paragraphStyle.lineBreakMode = .byCharWrapping
-            paragraphStyle.firstLineHeadIndent = 20
-            
-            let dic:[String:Any] = [NSFontAttributeName:UIFont.systemFont(ofSize: 16) , NSParagraphStyleAttributeName:paragraphStyle,NSKernAttributeName:2]
-            let attriStr = NSAttributedString.init(string: _text, attributes: dic)
-            cell.textLabel?.attributedText = attriStr
-            
+            if indexPath.row == 0 {
+                let _text = "在具体使用的使用向WizDataBaseManager请求一个WizDataBase，然后使用。在这特意提一下一种常见的数据库应用场景，就是在使用MVC的使用模型控制器从数据库中读取数据然后去更新UI。读取数据库当然是一个很费事的操作，如果让主线程一直忙于读取数据库的话，将会降低UI的响应"
+                
+                cell.textLabel?.numberOfLines = 0
+                cell.textLabel?.textColor = UIColor.darkGray
+                
+                let paragraphStyle = NSMutableParagraphStyle.init()
+                paragraphStyle.lineSpacing = 5
+                paragraphStyle.lineBreakMode = .byCharWrapping
+                paragraphStyle.firstLineHeadIndent = 20
+                
+                let dic:[String:Any] = [NSFontAttributeName:UIFont.systemFont(ofSize: 16) , NSParagraphStyleAttributeName:paragraphStyle,NSKernAttributeName:1]
+                let attriStr = NSAttributedString.init(string: _text, attributes: dic)
+                cell.textLabel?.attributedText = attriStr
+            }else{//带有图的cell
+                cell = tableView.dequeueReusableCell(withIdentifier: "HomeDetailImgCellIdentifier", for: indexPath)
+                
+            }
+
         }else{
              cell = tableView.dequeueReusableCell(withIdentifier: "HomeDetailCommentCellIdentifier", for: indexPath)
         }
@@ -196,6 +205,10 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     let _footerHeight:CGFloat = 80
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard section == 0 else {
+            return nil
+        }
+        
         let _v = UIView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _footerHeight))
         
         ////
@@ -232,10 +245,12 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 0 ? _footerHeight : 0
+        return section == 0 ? _footerHeight : 0.01
     }
     
-    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.01
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

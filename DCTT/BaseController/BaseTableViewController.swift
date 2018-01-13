@@ -24,9 +24,12 @@ class BaseTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .none, animated: false)
+        //tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: .none, animated: false)
         //print(#function)
+        
+        tableView.showsVerticalScrollIndicator = false
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

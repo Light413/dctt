@@ -16,13 +16,13 @@ protocol TTHeadTitleDelegate {
 
 class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     var textSelectedColor:UIColor = UIColor.red //选中是字体颜色,默认红色
-    var textDefaultColor:UIColor = UIColor.black //默认字体颜色，黑色
+    var textDefaultColor:UIColor = UIColor.darkGray //默认字体颜色，黑色
     
     private var _titles :[String]!
     private var _currentIndex: Int = 0//当前显示索引
     private var _collectionView:UICollectionView!
     private var _delegate:TTHeadTitleDelegate?
-    private let _item_width:CGFloat = 60
+    private let _item_width:CGFloat = 50
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -61,7 +61,7 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
         collectionview.showsVerticalScrollIndicator = false
         collectionview.backgroundView = nil
         collectionview.backgroundColor = UIColor.white
-        collectionview.contentInset = UIEdgeInsetsMake(0, 0, 0, 15)
+        collectionview.contentInset = UIEdgeInsetsMake(0, 15, 0, 15)
         return collectionview
     }
     
@@ -82,7 +82,7 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
         }
 
         //...有待完善
-        //_collectionView.setContentOffset(CGPoint (x: offset, y: 0), animated: true)
+        _collectionView.setContentOffset(CGPoint (x: offset, y: 0), animated: true)
     }
 
     

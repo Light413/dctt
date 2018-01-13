@@ -29,7 +29,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
 
     func _init() {
         //head
-        let titles = ["最新","热门","问答","段子"]
+        let titles = ["最新","热门","问答","段子","美食","商家","娱乐"]
         topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 40), titles: titles, delegate: self)
         view.addSubview(topview)
         
