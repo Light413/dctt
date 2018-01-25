@@ -36,6 +36,33 @@ class BaseViewController: UIViewController {
     }
 
 
+    //more_toolbar_press
+     func addRightNavigationItem()  {
+        let backbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 40, height: 30))
+        backbtn.setImage(UIImage (named: "more_toolbar_press"), for: .normal)
+        backbtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        backbtn.addTarget(self, action: #selector(_rightItemAction) , for: .touchUpInside)
+        let leftitem = UIBarButtonItem.init(customView: backbtn)
+        navigationItem.rightBarButtonItem = leftitem
+    }
+    
+    func _rightItemAction()  {
+        let alertViewContronller = UIAlertController.init(title: "是否举报该作者发布的这条动态?", message: nil, preferredStyle: .actionSheet)
+
+        
+        let action2 = UIAlertAction.init(title: "举报", style: .default, handler: { (action) in
+            
+        })
+        
+        let action3 = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
+        
+        alertViewContronller.addAction(action2)
+        alertViewContronller.addAction(action3)
+        
+        self.navigationController?.present(alertViewContronller, animated: true, completion: nil)
+    }
+    
+    
     
     
     override func didReceiveMemoryWarning() {

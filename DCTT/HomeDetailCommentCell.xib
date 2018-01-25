@@ -62,8 +62,8 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018 -01 -10 17:39" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="844-gx-LH1">
-                        <rect key="frame" x="56" y="77" width="107" height="14.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-01-10 17:39" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="844-gx-LH1">
+                        <rect key="frame" x="56" y="77" width="100.5" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14.5" id="nrg-Zd-F3P"/>
                         </constraints>
@@ -71,6 +71,17 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sev-Bw-cRc">
+                        <rect key="frame" x="171.5" y="69" width="35" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="00y-MM-4lA"/>
+                            <constraint firstAttribute="height" constant="30" id="cpp-eb-017"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="回复">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="KLO-lq-Tab" firstAttribute="leading" secondItem="9V5-pM-2st" secondAttribute="leading" id="7ol-RR-Van"/>
@@ -78,12 +89,14 @@
                     <constraint firstAttribute="bottom" secondItem="844-gx-LH1" secondAttribute="bottom" constant="8" id="EdX-OD-Dnp"/>
                     <constraint firstItem="844-gx-LH1" firstAttribute="top" secondItem="KLO-lq-Tab" secondAttribute="bottom" constant="8" id="FEe-qc-xvV"/>
                     <constraint firstItem="KLO-lq-Tab" firstAttribute="top" secondItem="9V5-pM-2st" secondAttribute="bottom" constant="8" id="FiE-zp-ESe"/>
+                    <constraint firstItem="sev-Bw-cRc" firstAttribute="centerY" secondItem="844-gx-LH1" secondAttribute="centerY" id="PBk-SB-Fxd"/>
                     <constraint firstItem="LTY-f1-Nyq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Wva-re-4Bb"/>
                     <constraint firstItem="844-gx-LH1" firstAttribute="leading" secondItem="9V5-pM-2st" secondAttribute="leading" id="ZnI-Qd-lh7"/>
                     <constraint firstItem="9V5-pM-2st" firstAttribute="leading" secondItem="LTY-f1-Nyq" secondAttribute="trailing" constant="8" id="bAf-M2-dDF"/>
                     <constraint firstItem="WtI-vn-kbo" firstAttribute="top" secondItem="9V5-pM-2st" secondAttribute="top" constant="-2" id="egn-kG-c1w"/>
                     <constraint firstAttribute="trailingMargin" secondItem="WtI-vn-kbo" secondAttribute="trailing" constant="10" id="fnq-Ag-qTX"/>
                     <constraint firstItem="9V5-pM-2st" firstAttribute="top" secondItem="LTY-f1-Nyq" secondAttribute="top" constant="2" id="wB5-Ct-mhD"/>
+                    <constraint firstItem="sev-Bw-cRc" firstAttribute="leading" secondItem="844-gx-LH1" secondAttribute="trailing" constant="15" id="xGr-nU-wKf"/>
                     <constraint firstItem="LTY-f1-Nyq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="xsJ-nr-Z5E"/>
                 </constraints>
             </tableViewCellContentView>

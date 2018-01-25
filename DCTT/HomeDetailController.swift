@@ -18,8 +18,11 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
 
         initSubview()
     
+        addRightNavigationItem()
     }
 
+    
+    
     //MARK: -
     func initSubview()  {
         _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 40), style: .grouped)
@@ -71,7 +74,7 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         writeBtn.setImage(UIImage (named: "comment"), for: .normal)
         writeBtn.imageEdgeInsets = UIEdgeInsetsMake(10, -10, 7, 0)
         writeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 6, 0, 0)
-        writeBtn.backgroundColor = kTableviewBackgroundColor
+        //writeBtn.backgroundColor = UIColor.lightGray //kTableviewBackgroundColor
         writeBtn.tag = 100
         writeBtn.addTarget(self, action: #selector(toolBarButtonClicked(_ :)), for: .touchUpInside)
         let writeItem = UIBarButtonItem (customView: writeBtn)
@@ -87,18 +90,7 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         
         let flex = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
-        //举报
-        let jbBtn = UIButton (frame: CGRect (x: 0, y: 5, width: 50, height: 30))
-        jbBtn.setTitle("举报", for: .normal)
-        jbBtn.setTitleColor(UIColor.lightGray, for: .normal)
-        jbBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        jbBtn.tag = 102
-        jbBtn.addTarget(self, action: #selector(toolBarButtonClicked(_ :)), for: .touchUpInside)
-        let jcItem = UIBarButtonItem (customView: jbBtn)
-        
-
-        
-        toolBar.items = [writeItem,flex,scItem,flex,jcItem]
+        toolBar.items = [writeItem,flex,scItem]
         
         view.addSubview(toolBar)
     }
@@ -202,35 +194,30 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     }
     
     
-    let _footerHeight:CGFloat = 80
+    let _footerHeight:CGFloat = 100
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard section == 0 else {
             return nil
         }
         
+        guard let v = Bundle.main.loadNibNamed("HomeDetailFooterView", owner: nil, options: nil)?.last as? HomeDetailFooterView else{return nil}
+        
+        return v
+        
+        
         let _v = UIView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _footerHeight))
         
-        ////
-        let zanbtn = UIButton (frame: CGRect (x: (kCurrentScreenWidth - 200 - 50)/2, y: 10, width: 100, height: 30))
-        zanbtn.layer.cornerRadius = 15
-        zanbtn.layer.masksToBounds = true
-        zanbtn.layer.borderWidth = 0.5
-        zanbtn.layer.borderColor = UIColor.lightGray.cgColor
-        
-        zanbtn.setImage(UIImage (named: "comment_like_icon_night"), for: .normal)
-        zanbtn.setImage(UIImage (named: "comment_like_icon_night"), for: .highlighted)
-        _v.addSubview(zanbtn)
         
         ////
-        let lovebtn = UIButton (frame: CGRect (x: zanbtn.frame.maxX + 50, y: 10, width: 100, height: 30))
+        let lovebtn = UIButton (frame: CGRect (x: tableView.frame.width - 100, y: 15, width: 80, height: 30))
         lovebtn.layer.cornerRadius = 15
         lovebtn.layer.masksToBounds = true
         lovebtn.layer.borderWidth = 0.5
         lovebtn.layer.borderColor = UIColor.lightGray.cgColor
         
-        lovebtn.setImage(UIImage (named: "step"), for: .normal)
-        lovebtn.setImage(UIImage (named: "step"), for: .highlighted)
+        lovebtn.setImage(UIImage (named: "comment_like_icon_night"), for: .normal)
+        lovebtn.setImage(UIImage (named: "comment_like_icon_night"), for: .highlighted)
         _v.addSubview(lovebtn)
         
         ////
@@ -249,7 +236,7 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.01
+        return  0.01
     }
     
     override func didReceiveMemoryWarning() {
@@ -258,14 +245,6 @@ class HomeDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

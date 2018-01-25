@@ -106,6 +106,8 @@
 		AD1B54EA1FEC01FE00B2F985 /* HomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */; };
 		AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */; };
 		AD4200222007AFCA00096CF7 /* HomeDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */; };
+		AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */; };
+		AD6A983C201A12CB00E7C5AE /* HomeDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */; };
 		ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */; };
 		ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5051FB6C8F50048F876 /* ViewController.swift */; };
 		ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEAE50C1FB6C8F50048F876 /* LaunchScreen.storyboard */; };
@@ -220,6 +222,8 @@
 		AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomerListViewController.swift; sourceTree = "<group>"; };
 		AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailCommentCell.swift; sourceTree = "<group>"; };
 		AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailCommentCell.xib; sourceTree = "<group>"; };
+		AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailFooterView.swift; sourceTree = "<group>"; };
+		AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailFooterView.xib; sourceTree = "<group>"; };
 		ADEAE5001FB6C8F50048F876 /* DCTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADEAE5051FB6C8F50048F876 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +295,8 @@
 				AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */,
 				AD0BD4EB2009FE980088D5E7 /* HomeDetailImgCell.swift */,
 				AD0BD4EC2009FE980088D5E7 /* HomeDetailImgCell.xib */,
+				AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */,
+				AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -583,6 +589,7 @@
 				A1CE83A71FC4122D00DAF90F /* 14.png in Resources */,
 				A1A642D91FC54FA40058F63B /* AppIcon-News60x60@2x.png in Resources */,
 				A1E61D211FCE93E30080A12D /* MePersonInfoCell.xib in Resources */,
+				AD6A983C201A12CB00E7C5AE /* HomeDetailFooterView.xib in Resources */,
 				A1CE83941FC3C0AC00DAF90F /* HomeCell.xib in Resources */,
 				A1A642DA1FC54FA40058F63B /* AppIcon-News60x60@3x.png in Resources */,
 				A149D2DC1FCE45310072FFE1 /* me.storyboard in Resources */,
@@ -684,7 +691,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DC35A96028B5B831E98C95EE /* [CP] Copy Pods Resources */ = {
@@ -740,6 +747,7 @@
 				A1E61D201FCE93E30080A12D /* MePersonInfoCell.swift in Sources */,
 				A117530B1FC7B0DF00888516 /* AnimationContoller.m in Sources */,
 				AD10333F1FB6CD920017E81C /* BaseTabbarController.swift in Sources */,
+				AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */,
 				A1A642DC1FC567CB0058F63B /* HomeSearchViewController.swift in Sources */,
 				A133A97F1FD8DE6200793D57 /* TTImagePickerViewController.swift in Sources */,
 				A1DE189F1FC270F300562130 /* TTPageViewController.swift in Sources */,
