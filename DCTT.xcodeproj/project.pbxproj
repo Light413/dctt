@@ -63,6 +63,7 @@
 		A1E61D201FCE93E30080A12D /* MePersonInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E61D1E1FCE93E30080A12D /* MePersonInfoCell.swift */; };
 		A1E61D211FCE93E30080A12D /* MePersonInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E61D1F1FCE93E30080A12D /* MePersonInfoCell.xib */; };
 		A1E741AD1FD90F1600942219 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1E741AF1FD90F1600942219 /* Localizable.strings */; };
+		AD00B9B9201B6EB90015A876 /* BaseDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD00B9B8201B6EB90015A876 /* BaseDetailController.swift */; };
 		AD0BD4ED2009FE980088D5E7 /* HomeDetailImgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0BD4EB2009FE980088D5E7 /* HomeDetailImgCell.swift */; };
 		AD0BD4EE2009FE980088D5E7 /* HomeDetailImgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0BD4EC2009FE980088D5E7 /* HomeDetailImgCell.xib */; };
 		AD0BD4F1200A05160088D5E7 /* ly001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD0BD4EF200A05160088D5E7 /* ly001.jpg */; };
@@ -177,6 +178,7 @@
 		A1E741B01FD90F2A00942219 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A1E853D21FC6924100E8DB85 /* DCTT-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DCTT-Bridging-Header.h"; path = "../BaseController/KLTAnimateNav/DCTT-Bridging-Header.h"; sourceTree = "<group>"; };
 		AC2D79CD06F43F25725B0AC5 /* Pods_DCTT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DCTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD00B9B8201B6EB90015A876 /* BaseDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDetailController.swift; sourceTree = "<group>"; };
 		AD0BD4EB2009FE980088D5E7 /* HomeDetailImgCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailImgCell.swift; sourceTree = "<group>"; };
 		AD0BD4EC2009FE980088D5E7 /* HomeDetailImgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailImgCell.xib; sourceTree = "<group>"; };
 		AD0BD4EF200A05160088D5E7 /* ly001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ly001.jpg; path = icon/ly001.jpg; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */,
 				A1A642DB1FC567CA0058F63B /* HomeSearchViewController.swift */,
 				A1CE83981FC3F6AA00DAF90F /* HomeDetailController.swift */,
+				AD00B9B8201B6EB90015A876 /* BaseDetailController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -746,6 +749,7 @@
 				A1CE83931FC3C0AC00DAF90F /* HomeCell.swift in Sources */,
 				A1E61D201FCE93E30080A12D /* MePersonInfoCell.swift in Sources */,
 				A117530B1FC7B0DF00888516 /* AnimationContoller.m in Sources */,
+				AD00B9B9201B6EB90015A876 /* BaseDetailController.swift in Sources */,
 				AD10333F1FB6CD920017E81C /* BaseTabbarController.swift in Sources */,
 				AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */,
 				A1A642DC1FC567CB0058F63B /* HomeSearchViewController.swift in Sources */,
