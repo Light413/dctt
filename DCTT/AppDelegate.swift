@@ -143,23 +143,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController.tabBarItem.tag == 2 {
             TTPublishView.show({ (index) in
+                var vc:UIViewController
+                
                 switch index {
                     case 1:
-                        let vc = PublishViewController()
-                        let nav = UINavigationController (rootViewController:vc)
-                        UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
+                         vc = PublishViewController()
                         
                         break;
                     case 2:
-                        
+                        vc = PublishFriendController()
                         break;
                     case 3:
-                        
+                        vc = PublishServerController()
                         break;
-                    default:break;
+                default:return;//break;
                     
                 }
                 
+                let nav = UINavigationController (rootViewController:vc)
+                UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
                 
             })
 

@@ -33,3 +33,12 @@ let tt_BarColor = UIColor (red: 212/255.0, green: 61/255.0, blue: 61/255.0, alph
 
 
 let tt_defafault_barColor = UIColor (red: 250/255.0, green: 251/255.0, blue: 253/255.0, alpha: 1)
+
+
+
+
+
+
+
+
+

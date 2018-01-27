@@ -95,6 +95,13 @@
 		AD1033491FB6CF070017E81C /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1033481FB6CF070017E81C /* FriendsViewController.swift */; };
 		AD10334B1FB6D0D90017E81C /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10334A1FB6D0D90017E81C /* PublishViewController.swift */; };
 		AD10334D1FB6D1A40017E81C /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10334C1FB6D1A40017E81C /* AllViewController.swift */; };
+		AD128C6A201C702D00A9EDBE /* TTBasePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD128C69201C702D00A9EDBE /* TTBasePickerView.swift */; };
+		AD128C6C201C747E00A9EDBE /* TTDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD128C6B201C747E00A9EDBE /* TTDatePickerView.swift */; };
+		AD128C6E201C748D00A9EDBE /* TTDataPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD128C6D201C748D00A9EDBE /* TTDataPickerView.swift */; };
+		AD128C70201CC53700A9EDBE /* PublishFriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD128C6F201CC53700A9EDBE /* PublishFriendController.swift */; };
+		AD128C72201CC57200A9EDBE /* PublishServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD128C71201CC57200A9EDBE /* PublishServerController.swift */; };
+		AD128C76201CCD9500A9EDBE /* PubFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD128C74201CCD9500A9EDBE /* PubFriendCell.swift */; };
+		AD128C77201CCD9500A9EDBE /* PubFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD128C75201CCD9500A9EDBE /* PubFriendCell.xib */; };
 		AD1490B41FCB08750053FD31 /* trans-navi-left-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1490B31FCB08750053FD31 /* trans-navi-left-button@2x.png */; };
 		AD14CC591FE800E0003FBE0B /* home_cell_1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = AD14CC551FE800E0003FBE0B /* home_cell_1.JPG */; };
 		AD14CC5A1FE800E0003FBE0B /* home_cell_2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = AD14CC561FE800E0003FBE0B /* home_cell_2.JPG */; };
@@ -211,6 +218,13 @@
 		AD1033481FB6CF070017E81C /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		AD10334A1FB6D0D90017E81C /* PublishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
 		AD10334C1FB6D1A40017E81C /* AllViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
+		AD128C69201C702D00A9EDBE /* TTBasePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TTBasePickerView.swift; path = DCTT/TTBasePickerView.swift; sourceTree = SOURCE_ROOT; };
+		AD128C6B201C747E00A9EDBE /* TTDatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TTDatePickerView.swift; path = DCTT/TTDatePickerView.swift; sourceTree = SOURCE_ROOT; };
+		AD128C6D201C748D00A9EDBE /* TTDataPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TTDataPickerView.swift; path = DCTT/TTDataPickerView.swift; sourceTree = SOURCE_ROOT; };
+		AD128C6F201CC53700A9EDBE /* PublishFriendController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishFriendController.swift; sourceTree = "<group>"; };
+		AD128C71201CC57200A9EDBE /* PublishServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishServerController.swift; sourceTree = "<group>"; };
+		AD128C74201CCD9500A9EDBE /* PubFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubFriendCell.swift; sourceTree = "<group>"; };
+		AD128C75201CCD9500A9EDBE /* PubFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PubFriendCell.xib; sourceTree = "<group>"; };
 		AD1490B31FCB08750053FD31 /* trans-navi-left-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trans-navi-left-button@2x.png"; sourceTree = "<group>"; };
 		AD14CC551FE800E0003FBE0B /* home_cell_1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = home_cell_1.JPG; path = icon/home_cell_1.JPG; sourceTree = "<group>"; };
 		AD14CC561FE800E0003FBE0B /* home_cell_2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = home_cell_2.JPG; path = icon/home_cell_2.JPG; sourceTree = "<group>"; };
@@ -258,6 +272,9 @@
 		A1A047AE1FD540320057CC17 /* PickerView */ = {
 			isa = PBXGroup;
 			children = (
+				AD128C69201C702D00A9EDBE /* TTBasePickerView.swift */,
+				AD128C6B201C747E00A9EDBE /* TTDatePickerView.swift */,
+				AD128C6D201C748D00A9EDBE /* TTDataPickerView.swift */,
 			);
 			path = PickerView;
 			sourceTree = "<group>";
@@ -320,7 +337,6 @@
 				A19C4B621FCD2AD600E9DE59 /* TTSearchBarView.swift */,
 				A1E61D1E1FCE93E30080A12D /* MePersonInfoCell.swift */,
 				A1E61D1F1FCE93E30080A12D /* MePersonInfoCell.xib */,
-				A1C172081FD631E2006BAAA0 /* TTPublishView.swift */,
 				A148A2A91FD687B40052DDF3 /* PublishTextCell.swift */,
 				A148A2AA1FD687B40052DDF3 /* PublishTextCell.xib */,
 				A148A2AD1FD687DD0052DDF3 /* PublishImageCell.swift */,
@@ -464,6 +480,41 @@
 			name = src;
 			sourceTree = "<group>";
 		};
+		AD128C67201C6A6E00A9EDBE /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				AD128C73201CCD7100A9EDBE /* view */,
+				A1C172081FD631E2006BAAA0 /* TTPublishView.swift */,
+				AD10334A1FB6D0D90017E81C /* PublishViewController.swift */,
+				AD128C6F201CC53700A9EDBE /* PublishFriendController.swift */,
+				AD128C71201CC57200A9EDBE /* PublishServerController.swift */,
+			);
+			name = Publish;
+			sourceTree = "<group>";
+		};
+		AD128C68201C6DDB00A9EDBE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD1033381FB6CD920017E81C /* BaseController */,
+				A1C46D742005E12200E02635 /* Home */,
+				AD0BD4FF200A33A40088D5E7 /* Friend */,
+				AD128C67201C6A6E00A9EDBE /* Publish */,
+				A1DFE70A1FB97045001C1905 /* RecentViewController.swift */,
+				AD10334C1FB6D1A40017E81C /* AllViewController.swift */,
+				AD1033461FB6CEA00017E81C /* MeViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AD128C73201CCD7100A9EDBE /* view */ = {
+			isa = PBXGroup;
+			children = (
+				AD128C74201CCD9500A9EDBE /* PubFriendCell.swift */,
+				AD128C75201CCD9500A9EDBE /* PubFriendCell.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
 		ADEAE4F71FB6C8F50048F876 = {
 			isa = PBXGroup;
 			children = (
@@ -488,13 +539,7 @@
 			children = (
 				A1CE83901FC3C05500DAF90F /* view */,
 				AD10331C1FB6CD4E0017E81C /* com */,
-				AD1033381FB6CD920017E81C /* BaseController */,
-				A1C46D742005E12200E02635 /* Home */,
-				AD0BD4FF200A33A40088D5E7 /* Friend */,
-				AD10334A1FB6D0D90017E81C /* PublishViewController.swift */,
-				A1DFE70A1FB97045001C1905 /* RecentViewController.swift */,
-				AD10334C1FB6D1A40017E81C /* AllViewController.swift */,
-				AD1033461FB6CEA00017E81C /* MeViewController.swift */,
+				AD128C68201C6DDB00A9EDBE /* ViewControllers */,
 				AD1033451FB6CE620017E81C /* src */,
 			);
 			path = DCTT;
@@ -631,6 +676,7 @@
 				A148A2A41FD6494B0052DDF3 /* publish_image@2x.png in Resources */,
 				AD14CC5A1FE800E0003FBE0B /* home_cell_2.JPG in Resources */,
 				A1CE839F1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib in Resources */,
+				AD128C77201CCD9500A9EDBE /* PubFriendCell.xib in Resources */,
 				AD0BD4EE2009FE980088D5E7 /* HomeDetailImgCell.xib in Resources */,
 				AD14CC641FE802B6003FBE0B /* HomeCellWithImages.xib in Resources */,
 				AD10332F1FB6CD4E0017E81C /* error.png in Resources */,
@@ -719,6 +765,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD128C72201CC57200A9EDBE /* PublishServerController.swift in Sources */,
 				AD1B54EA1FEC01FE00B2F985 /* HomerListViewController.swift in Sources */,
 				A1783C031FCC128F00E4AB06 /* AllCategoryCell.swift in Sources */,
 				AD1033471FB6CEA00017E81C /* MeViewController.swift in Sources */,
@@ -739,9 +786,11 @@
 				A1E1B02F1FDA90E8002D6BDC /* TTImageBaseViewController.swift in Sources */,
 				AD1033311FB6CD4E0017E81C /* HUD.swift in Sources */,
 				A148A2AB1FD687B40052DDF3 /* PublishTextCell.swift in Sources */,
+				AD128C6E201C748D00A9EDBE /* TTDataPickerView.swift in Sources */,
 				AD10332C1FB6CD4E0017E81C /* common.swift in Sources */,
 				AD1033361FB6CD4E0017E81C /* themeColor.swift in Sources */,
 				AD1033491FB6CF070017E81C /* FriendsViewController.swift in Sources */,
+				AD128C70201CC53700A9EDBE /* PublishFriendController.swift in Sources */,
 				A148A2B31FD6A0B70052DDF3 /* PublishCollectionReusableView.swift in Sources */,
 				A10CB8EB1FE0FD340043391D /* TTImagePreviewCell2.swift in Sources */,
 				AD10333E1FB6CD920017E81C /* BaseNavigationController.swift in Sources */,
@@ -756,6 +805,7 @@
 				A133A97F1FD8DE6200793D57 /* TTImagePickerViewController.swift in Sources */,
 				A1DE189F1FC270F300562130 /* TTPageViewController.swift in Sources */,
 				A1DFE70B1FB97045001C1905 /* RecentViewController.swift in Sources */,
+				AD128C76201CCD9500A9EDBE /* PubFriendCell.swift in Sources */,
 				AD14CC631FE802B6003FBE0B /* HomeCellWithImages.swift in Sources */,
 				AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */,
 				AD1033441FB6CE560017E81C /* HomeViewController.swift in Sources */,
@@ -769,9 +819,11 @@
 				AD10332D1FB6CD4E0017E81C /* constant.swift in Sources */,
 				AD14CC5F1FE8027A003FBE0B /* HomeCellWithImage.swift in Sources */,
 				A1DE18A11FC2A0D000562130 /* TTHeadTitleView.swift in Sources */,
+				AD128C6C201C747E00A9EDBE /* TTDatePickerView.swift in Sources */,
 				A19C4B631FCD2AD600E9DE59 /* TTSearchBarView.swift in Sources */,
 				A1CE83991FC3F6AA00DAF90F /* HomeDetailController.swift in Sources */,
 				A1C854C11FDFD72E00AC03E5 /* TTImagePreviewCell.swift in Sources */,
+				AD128C6A201C702D00A9EDBE /* TTBasePickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -95,6 +95,10 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
     
     func searchAction() {
         print("click")
+        
+
+        
+    
     }
     
     //MARK: - UICollectionViewDataSource

@@ -121,9 +121,26 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = BaseViewController()
+        if indexPath.row == 0{
+            TTDatePickerView.show { (age) in
+                print(age)
+            }
+            
+        } else if indexPath.row == 1{
+        TTDataPickerView.show({ (str) in
+            print(str)
+        })
+            
+            
+        }else{
+            let vc = BaseViewController()
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        
+        
 
-        self.navigationController?.pushViewController(vc, animated: true)
 
     }
     
