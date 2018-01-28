@@ -57,14 +57,21 @@ class PublishFriendController: BaseViewController ,UITableViewDelegate,UITableVi
         view.addSubview(tableview)
         
         tableview.register(UINib (nibName: "PubFriendCell", bundle: nil), forCellReuseIdentifier: PubFriendCellReuseIdentifier)
+        tableview.register(UINib (nibName: "PubWriteCell", bundle: nil), forCellReuseIdentifier: "PubWriteCellReuseIdentifier")
+        tableview.register(UINib (nibName: "PubCityCell", bundle: nil), forCellReuseIdentifier: "PubCityCellIdentifier")
+        
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCellReuseIdentifier")
         
+        tableview.separatorStyle = .none
+        
         //////
-        let rightbtn = UIButton (frame: CGRect (x: 0, y: kCurrentScreenHeight - 50, width: kCurrentScreenWidth, height: 50))
+        let rightbtn = UIButton (frame: CGRect (x: 0, y: kCurrentScreenHeight - 45, width: kCurrentScreenWidth, height: 45))
         rightbtn.setTitle("发布", for: .normal)
-        rightbtn.backgroundColor = tt_BarColor
+        rightbtn.backgroundColor = UIColor (red: 212/255.0, green: 61/255.0, blue: 61/255.0, alpha: 0.8)//tt_BarColor
+        //rightbtn.setBackgroundImage(UIImage (named: "loginbutton_drawer_press"), for: .normal)
+        
         rightbtn.setTitleColor(UIColor.white, for: .normal)
-        rightbtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        rightbtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         rightbtn.addTarget(self, action: #selector(navigationBackButtonAction), for: .touchUpInside)
         
         view.addSubview(rightbtn)
@@ -72,21 +79,22 @@ class PublishFriendController: BaseViewController ,UITableViewDelegate,UITableVi
     
     //MARK:-
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return section == 0 ? 1 : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = indexPath.section == 0 ? PubFriendCellReuseIdentifier :"UITableViewCellReuseIdentifier"
+        let identifier = indexPath.section == 0 ? PubFriendCellReuseIdentifier : (indexPath.section == 1 ? "PubWriteCellReuseIdentifier" : "PubCityCellIdentifier")
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
         if indexPath.section == 1 {
-            cell.textLabel?.text = "给朋友们说句话吧^_^"
-            cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
-            cell.textLabel?.textColor = UIColor.darkGray
-            cell.backgroundColor = UIColor.clear
+
+        }else if indexPath.section == 2 {
+
         }
         
         cell.selectionStyle = .none
@@ -96,12 +104,12 @@ class PublishFriendController: BaseViewController ,UITableViewDelegate,UITableVi
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.section == 0 ? 300 : 50
+        return indexPath.section == 0 ? 280 : 48
     }
     
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return  8
+        return  10
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

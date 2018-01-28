@@ -109,6 +109,12 @@ class HomeDetailController: BaseDetailController{
     }
     
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = HomeDetailController()
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

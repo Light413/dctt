@@ -15,6 +15,9 @@ class HomerListViewController: BaseTableViewController {
         super.viewDidLoad()
 
         //....test
+        //self.edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
+        //self.automaticallyAdjustsScrollViewInsets = false
+        //self.tableView.autoresizingMask = .flexibleHeight
         
         for n in 0..<20 {
             dataArray.append("\(n + 1)")
@@ -23,6 +26,8 @@ class HomerListViewController: BaseTableViewController {
         tableView.register(UINib (nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCellReuseIdentifierId")
         tableView.register(UINib (nibName: "HomeCellWithImage", bundle: nil), forCellReuseIdentifier: "HomeCellWithImageIdentifierId")
         tableView.register(UINib (nibName: "HomeCellWithImages", bundle: nil), forCellReuseIdentifier: "HomeCellWithImagesIdentifierId")
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCellReuseIdentifier")
         
         //test  refresh
         let header = TTRefreshHeader.init(refreshingBlock: {[weak self] in
@@ -85,9 +90,10 @@ class HomerListViewController: BaseTableViewController {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath) //as! HomeCell
+        //cell.backgroundColor = UIColor.red
         
         //cell.textLabel?.text = dataArray[indexPath.row]
-        
+        cell.selectionStyle = .default
         return cell
     }
     
@@ -98,8 +104,6 @@ class HomerListViewController: BaseTableViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
