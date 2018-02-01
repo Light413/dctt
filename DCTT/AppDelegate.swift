@@ -142,6 +142,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
     //MARK:
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController.tabBarItem.tag == 2 {
+            #if true
+                
+            let typevc = PubSelectTypeController()
+                
+            UIApplication.shared.keyWindow?.rootViewController?.present(typevc, animated: false, completion: nil)
+                
+            #else
             TTPublishView.show({ (index) in
                 var vc:UIViewController
                 
@@ -165,7 +172,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
                 
             })
 
-            
+            #endif
+ 
             return false
         }
         

@@ -82,6 +82,8 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
         }
 
         //...有待完善
+        guard CGFloat.init(_titles.count) * _item_width > self.frame.width else {return }
+        
         _collectionView.setContentOffset(CGPoint (x: offset, y: 0), animated: true)
     }
 

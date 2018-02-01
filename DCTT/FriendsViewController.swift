@@ -58,7 +58,9 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
     
     fileprivate func colleciontView(_ frame:CGRect) -> UICollectionView {
         let _layout = UICollectionViewFlowLayout()
-        _layout.itemSize = CGSize (width: 160, height: 220)
+        let _w = (kCurrentScreenWidth - 1) / 2.0
+        
+        _layout.itemSize = CGSize (width: _w, height: _w * 1.2)
         _layout.minimumInteritemSpacing = 0
         _layout.minimumLineSpacing = 0
         _layout.scrollDirection = .vertical

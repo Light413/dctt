@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>最新公告</string>
+	<string>促销专场</string>
+	<string>商家店铺</string>
+	<string>生活超市</string>
+	<string>发现美食</string>
+	<string>休闲娱乐</string>
+	<string>品牌专柜</string>
+	<string>相亲交友</string>
+	<string>求职招聘</string>
+	<string>房屋租售</string>
+	<string>校园天地</string>
+	<string>顺风车</string>
+	<string>数码广场</string>
+	<string>批发零售</string>
+	<string>二手市场</string>
+	<string>问题讨论</string>
+	<string>微商频道</string>
+	<string>拉货帮</string>
+	<string>婚庆服务</string>
+	<string>装饰家居</string>
+	<string>学校</string>
+	<string>粮食收购</string>
+	<string>水电安装</string>
+	<string>技术培训/服务</string>
+	<string>美容美发</string>
+	<string>情感/婚恋</string>
+	<string>游戏吧</string>
+	<string>维修服务</string>
+	<string>宠物家园</string>
+</array>
+</plist>

@@ -115,6 +115,8 @@
 		AD14CC601FE8027A003FBE0B /* HomeCellWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD14CC5E1FE8027A003FBE0B /* HomeCellWithImage.xib */; };
 		AD14CC631FE802B6003FBE0B /* HomeCellWithImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD14CC611FE802B6003FBE0B /* HomeCellWithImages.swift */; };
 		AD14CC641FE802B6003FBE0B /* HomeCellWithImages.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD14CC621FE802B6003FBE0B /* HomeCellWithImages.xib */; };
+		AD1633C520235D4900B2D009 /* PubSelectTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1633C320235D4900B2D009 /* PubSelectTypeController.swift */; };
+		AD1633C620235D4900B2D009 /* PubSelectTypeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD1633C420235D4900B2D009 /* PubSelectTypeController.xib */; };
 		AD1B54EA1FEC01FE00B2F985 /* HomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */; };
 		AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */; };
 		AD4200222007AFCA00096CF7 /* HomeDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */; };
@@ -243,6 +245,8 @@
 		AD14CC611FE802B6003FBE0B /* HomeCellWithImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCellWithImages.swift; sourceTree = "<group>"; };
 		AD14CC621FE802B6003FBE0B /* HomeCellWithImages.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCellWithImages.xib; sourceTree = "<group>"; };
 		AD14CC651FE8094E003FBE0B /* DCTT.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = DCTT.entitlements; path = DCTT/DCTT.entitlements; sourceTree = "<group>"; };
+		AD1633C320235D4900B2D009 /* PubSelectTypeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubSelectTypeController.swift; sourceTree = "<group>"; };
+		AD1633C420235D4900B2D009 /* PubSelectTypeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PubSelectTypeController.xib; sourceTree = "<group>"; };
 		AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomerListViewController.swift; sourceTree = "<group>"; };
 		AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailCommentCell.swift; sourceTree = "<group>"; };
 		AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailCommentCell.xib; sourceTree = "<group>"; };
@@ -496,6 +500,8 @@
 				AD10334A1FB6D0D90017E81C /* PublishViewController.swift */,
 				AD128C6F201CC53700A9EDBE /* PublishFriendController.swift */,
 				AD128C71201CC57200A9EDBE /* PublishServerController.swift */,
+				AD1633C320235D4900B2D009 /* PubSelectTypeController.swift */,
+				AD1633C420235D4900B2D009 /* PubSelectTypeController.xib */,
 			);
 			name = Publish;
 			sourceTree = "<group>";
@@ -685,6 +691,7 @@
 				AD00300B201DF9C500A72A16 /* PubWriteCell.xib in Resources */,
 				A1A642D61FC54FA40058F63B /* AppIcon-News29x29@3x.png in Resources */,
 				A1C402351FCCF41F005BAA9A /* all_category_item.plist in Resources */,
+				AD1633C620235D4900B2D009 /* PubSelectTypeController.xib in Resources */,
 				A184F9031FD7D19D004504D9 /* Assets.xcassets in Resources */,
 				A148A2A81FD658180052DDF3 /* video_allshare@2x.png in Resources */,
 				A148A2A41FD6494B0052DDF3 /* publish_image@2x.png in Resources */,
@@ -790,6 +797,7 @@
 				AD1033401FB6CD920017E81C /* BaseTableViewController.swift in Sources */,
 				AD1033351FB6CD4E0017E81C /* Reachability.m in Sources */,
 				ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */,
+				AD1633C520235D4900B2D009 /* PubSelectTypeController.swift in Sources */,
 				AD10334D1FB6D1A40017E81C /* AllViewController.swift in Sources */,
 				A1A047AC1FD53C910057CC17 /* TTRefreshFooter.swift in Sources */,
 				A1B8E492200603B1001E156E /* HomeDetailHeadView.swift in Sources */,
