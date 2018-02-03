@@ -15,7 +15,8 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
             return true;
         }
     }
-
+    
+    
     @IBOutlet weak var collectionview: UICollectionView!
    
     var dataArray = [String]()
@@ -33,12 +34,16 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
 //        if let arr = _arr {
 //            dataArray = dataArray + arr;
 //        }
-        dataArray = dataArray + ["动态","朋友圈","提问","商家信息","吃喝玩乐","相亲交友","求职招聘","房租租售","拼车出行","发布闲置"]
+        dataArray = dataArray + ["新鲜事","朋友圈","提问","商家信息","吃喝玩乐","相亲交友","求职招聘","房租租售","拼车出行","发布闲置"]
         // Do any additional setup after loading the view.
         _init()
         
         view.backgroundColor = UIColor.white
         
+    }
+
+    deinit {
+        print("\(self.self) deinit")
     }
 
     func _init() {
@@ -70,12 +75,22 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
     
     
     @IBAction func cancleBtnAction(_ sender: Any) {
-        self.dismiss(animated: false) {
-            
-        }
-        
-        
+        self.dismiss(animated: false, completion: nil)
     }
+    
+    func _dismiss(completionHandler : ((Void) -> Void)? = nil) {
+        HUD.show()
+        
+        self.dismiss(animated: false) {
+            if let handler = completionHandler {
+                handler();
+                HUD.dismiss()
+            }
+        }
+
+    }
+    
+    
     
     //MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -98,13 +113,33 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         _t.text = str
         _t.textAlignment = .center
         _t.font = UIFont.systemFont(ofSize: 15)
-        _t.textColor = UIColor.darkGray
+        //_t.textColor = UIColor.darkGray
         
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1).cgColor
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = indexPath.row
+        
+
+        _dismiss {
+            var vc : UIViewController
+            
+            switch index {
+            case 0: vc = PublishViewController(); break;
+            case 1: vc = PublishFriendViewController(); break;
+            default:return
+            }
+            
+            let nav = BaseNavigationController (rootViewController:vc)
+            UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
+        }
+    }
+    
+    
     
     
     override func didReceiveMemoryWarning() {

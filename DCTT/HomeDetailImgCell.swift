@@ -10,6 +10,8 @@ import UIKit
 
 class HomeDetailImgCell: UITableViewCell {
 
+    @IBOutlet weak var igv: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

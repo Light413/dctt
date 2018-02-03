@@ -33,6 +33,9 @@
                     <constraint firstItem="247-Up-9qT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="sbD-6e-CGH"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="igv" destination="247-Up-9qT" id="FcY-Cz-dVX"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

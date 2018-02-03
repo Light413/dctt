@@ -10,7 +10,13 @@ import UIKit
 
 class HomeDetailController: BaseDetailController{
 
-    var _titleView:UIView!
+    var isPreview:Bool = false //是否处于预览状态
+    
+    ////....test
+    var pre_text:String!
+    var pre_imgs = [UIImage]()
+    
+    private var _titleView:UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Sxm-jg-Al5">
-                    <rect key="frame" x="0.0" y="82" width="375" height="525"/>
+                    <rect key="frame" x="0.0" y="66" width="375" height="541"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hwF-QO-bh6">
                         <size key="itemSize" width="50" height="50"/>
@@ -43,8 +43,8 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择要发布的内容类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHr-Fc-SKN">
-                    <rect key="frame" x="116" y="60" width="143" height="17"/>
-                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                    <rect key="frame" x="111" y="40" width="153" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -56,9 +56,9 @@
                 <constraint firstItem="Sxm-jg-Al5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Dly-R9-gr7"/>
                 <constraint firstItem="V85-7X-qST" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EnP-9U-Mzx"/>
                 <constraint firstAttribute="bottom" secondItem="V85-7X-qST" secondAttribute="bottom" constant="20" id="Wil-fu-Ccc"/>
-                <constraint firstItem="Sxm-jg-Al5" firstAttribute="top" secondItem="KHr-Fc-SKN" secondAttribute="bottom" constant="5" id="jbG-wl-ZCE"/>
+                <constraint firstItem="Sxm-jg-Al5" firstAttribute="top" secondItem="KHr-Fc-SKN" secondAttribute="bottom" constant="8" id="jbG-wl-ZCE"/>
                 <constraint firstItem="V85-7X-qST" firstAttribute="top" secondItem="Sxm-jg-Al5" secondAttribute="bottom" id="ltX-jT-6ap"/>
-                <constraint firstItem="KHr-Fc-SKN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="zgK-8k-7fd"/>
+                <constraint firstItem="KHr-Fc-SKN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="zgK-8k-7fd"/>
             </constraints>
             <point key="canvasLocation" x="84.5" y="53.5"/>
         </view>

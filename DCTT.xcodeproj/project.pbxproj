@@ -118,6 +118,8 @@
 		AD1633C520235D4900B2D009 /* PubSelectTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1633C320235D4900B2D009 /* PubSelectTypeController.swift */; };
 		AD1633C620235D4900B2D009 /* PubSelectTypeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD1633C420235D4900B2D009 /* PubSelectTypeController.xib */; };
 		AD1B54EA1FEC01FE00B2F985 /* HomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */; };
+		AD2C1EE520260C4E00E48245 /* BasePublishController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2C1EE420260C4E00E48245 /* BasePublishController.swift */; };
+		AD2C1EE72026137900E48245 /* PublishFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2C1EE62026137900E48245 /* PublishFriendViewController.swift */; };
 		AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */; };
 		AD4200222007AFCA00096CF7 /* HomeDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */; };
 		AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */; };
@@ -248,6 +250,8 @@
 		AD1633C320235D4900B2D009 /* PubSelectTypeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubSelectTypeController.swift; sourceTree = "<group>"; };
 		AD1633C420235D4900B2D009 /* PubSelectTypeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PubSelectTypeController.xib; sourceTree = "<group>"; };
 		AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomerListViewController.swift; sourceTree = "<group>"; };
+		AD2C1EE420260C4E00E48245 /* BasePublishController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePublishController.swift; sourceTree = "<group>"; };
+		AD2C1EE62026137900E48245 /* PublishFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishFriendViewController.swift; sourceTree = "<group>"; };
 		AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailCommentCell.swift; sourceTree = "<group>"; };
 		AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailCommentCell.xib; sourceTree = "<group>"; };
 		AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailFooterView.swift; sourceTree = "<group>"; };
@@ -496,8 +500,9 @@
 			isa = PBXGroup;
 			children = (
 				AD128C73201CCD7100A9EDBE /* view */,
-				A1C172081FD631E2006BAAA0 /* TTPublishView.swift */,
+				AD2C1EE420260C4E00E48245 /* BasePublishController.swift */,
 				AD10334A1FB6D0D90017E81C /* PublishViewController.swift */,
+				AD2C1EE62026137900E48245 /* PublishFriendViewController.swift */,
 				AD128C6F201CC53700A9EDBE /* PublishFriendController.swift */,
 				AD128C71201CC57200A9EDBE /* PublishServerController.swift */,
 				AD1633C320235D4900B2D009 /* PubSelectTypeController.swift */,
@@ -523,6 +528,7 @@
 		AD128C73201CCD7100A9EDBE /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A1C172081FD631E2006BAAA0 /* TTPublishView.swift */,
 				AD128C74201CCD9500A9EDBE /* PubFriendCell.swift */,
 				AD128C75201CCD9500A9EDBE /* PubFriendCell.xib */,
 				AD003008201DF9C500A72A16 /* PubWriteCell.swift */,
@@ -831,6 +837,7 @@
 				AD14CC631FE802B6003FBE0B /* HomeCellWithImages.swift in Sources */,
 				AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */,
 				AD1033441FB6CE560017E81C /* HomeViewController.swift in Sources */,
+				AD2C1EE520260C4E00E48245 /* BasePublishController.swift in Sources */,
 				A1CE839B1FC3F6D900DAF90F /* FriendsDetailController.swift in Sources */,
 				AD1033371FB6CD4E0017E81C /* url.swift in Sources */,
 				A1CE839E1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift in Sources */,
@@ -847,6 +854,7 @@
 				A19C4B631FCD2AD600E9DE59 /* TTSearchBarView.swift in Sources */,
 				A1CE83991FC3F6AA00DAF90F /* HomeDetailController.swift in Sources */,
 				A1C854C11FDFD72E00AC03E5 /* TTImagePreviewCell.swift in Sources */,
+				AD2C1EE72026137900E48245 /* PublishFriendViewController.swift in Sources */,
 				AD128C6A201C702D00A9EDBE /* TTBasePickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
