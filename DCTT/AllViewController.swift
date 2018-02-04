@@ -38,12 +38,13 @@ class AllViewController: BaseViewController,UICollectionViewDelegate,UICollectio
 
     fileprivate func colleciontView(_ frame:CGRect) -> UICollectionView {
         let offset:CGFloat = 10
-        let _width = (kCurrentScreenWidth - offset *  2 - 8) / 3.0
+        //let _width = (kCurrentScreenWidth - offset *  2 - 8) / 3.0
+        let _width = (kCurrentScreenWidth - offset *  2 - 5) / 2.0
         
         let _layout = UICollectionViewFlowLayout()
-        _layout.itemSize = CGSize (width: _width, height: _width * 0.7)
+        _layout.itemSize = CGSize (width: _width, height: _width * 0.5)
         _layout.minimumInteritemSpacing = 2
-        _layout.minimumLineSpacing = 5
+        _layout.minimumLineSpacing = 8
         _layout.scrollDirection = .vertical
         
         let collectionview = UICollectionView (frame: frame, collectionViewLayout: _layout)

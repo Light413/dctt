@@ -52,12 +52,12 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         collectionview.dataSource = self
         
         let offset:CGFloat = 10
-        let _width = (kCurrentScreenWidth - offset *  2 - 20) / 3.0
+        let _width = (kCurrentScreenWidth - offset *  2 - 10) / 3.0
         
         let _layout = UICollectionViewFlowLayout()
-        _layout.itemSize = CGSize (width: _width, height: _width * 0.6)
+        _layout.itemSize = CGSize (width: _width, height: _width * 0.7)
         _layout.minimumInteritemSpacing = 2
-        _layout.minimumLineSpacing = 15
+        _layout.minimumLineSpacing = 10
         _layout.scrollDirection = .vertical
         
         collectionview.collectionViewLayout = _layout;
@@ -131,6 +131,10 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
             switch index {
             case 0: vc = PublishViewController(); break;
             case 1: vc = PublishFriendViewController(); break;
+            case 2:
+                vc =  BaseVCWithTableView() //UIStoryboard.init(name: "publish", bundle: nil).instantiateViewController(withIdentifier: "pub_question_id")
+                
+                break
             default:return
             }
             
