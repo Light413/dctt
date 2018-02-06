@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PubSelectTypeController" customModule="DCTT" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
             <connections>
                 <outlet property="collectionview" destination="Sxm-jg-Al5" id="khz-KA-oNv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Sxm-jg-Al5">
-                    <rect key="frame" x="0.0" y="66" width="375" height="541"/>
+                    <rect key="frame" x="10" y="68" width="355" height="549"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hwF-QO-bh6">
                         <size key="itemSize" width="50" height="50"/>
@@ -30,7 +30,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V85-7X-qST">
-                    <rect key="frame" x="152.5" y="607" width="70" height="40"/>
+                    <rect key="frame" x="152.5" y="617" width="70" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="3vM-i4-l9j"/>
                         <constraint firstAttribute="height" constant="40" id="uEC-R5-kbL"/>
@@ -45,18 +45,18 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择要发布的内容类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHr-Fc-SKN">
                     <rect key="frame" x="111" y="40" width="153" height="18"/>
                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="KHr-Fc-SKN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4D4-zU-iEd"/>
-                <constraint firstAttribute="trailing" secondItem="Sxm-jg-Al5" secondAttribute="trailing" id="BVh-NQ-Kjk"/>
-                <constraint firstItem="Sxm-jg-Al5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Dly-R9-gr7"/>
+                <constraint firstAttribute="trailing" secondItem="Sxm-jg-Al5" secondAttribute="trailing" constant="10" id="BVh-NQ-Kjk"/>
+                <constraint firstItem="Sxm-jg-Al5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Dly-R9-gr7"/>
                 <constraint firstItem="V85-7X-qST" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EnP-9U-Mzx"/>
-                <constraint firstAttribute="bottom" secondItem="V85-7X-qST" secondAttribute="bottom" constant="20" id="Wil-fu-Ccc"/>
-                <constraint firstItem="Sxm-jg-Al5" firstAttribute="top" secondItem="KHr-Fc-SKN" secondAttribute="bottom" constant="8" id="jbG-wl-ZCE"/>
+                <constraint firstAttribute="bottom" secondItem="V85-7X-qST" secondAttribute="bottom" constant="10" id="Wil-fu-Ccc"/>
+                <constraint firstItem="Sxm-jg-Al5" firstAttribute="top" secondItem="KHr-Fc-SKN" secondAttribute="bottom" constant="10" id="jbG-wl-ZCE"/>
                 <constraint firstItem="V85-7X-qST" firstAttribute="top" secondItem="Sxm-jg-Al5" secondAttribute="bottom" id="ltX-jT-6ap"/>
                 <constraint firstItem="KHr-Fc-SKN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="zgK-8k-7fd"/>
             </constraints>
