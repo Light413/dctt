@@ -77,6 +77,8 @@
 		AD0BD4FE200A07310088D5E7 /* WechatIMG6.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD0BD4F8200A07310088D5E7 /* WechatIMG6.jpeg */; };
 		AD0BD502200A34270088D5E7 /* FriendHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0BD501200A34270088D5E7 /* FriendHeadView.swift */; };
 		AD0BD504200A34350088D5E7 /* FriendHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0BD503200A34350088D5E7 /* FriendHeadView.xib */; };
+		AD0FAFA020444C0A008A386E /* CategoryItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0FAF9E20444C0A008A386E /* CategoryItemsCell.swift */; };
+		AD0FAFA120444C0A008A386E /* CategoryItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0FAF9F20444C0A008A386E /* CategoryItemsCell.xib */; };
 		AD10332C1FB6CD4E0017E81C /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10331D1FB6CD4E0017E81C /* common.swift */; };
 		AD10332D1FB6CD4E0017E81C /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10331E1FB6CD4E0017E81C /* constant.swift */; };
 		AD10332E1FB6CD4E0017E81C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10331F1FB6CD4E0017E81C /* Extension.swift */; };
@@ -215,6 +217,8 @@
 		AD0BD4F8200A07310088D5E7 /* WechatIMG6.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = WechatIMG6.jpeg; path = icon/WechatIMG6.jpeg; sourceTree = "<group>"; };
 		AD0BD501200A34270088D5E7 /* FriendHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendHeadView.swift; sourceTree = "<group>"; };
 		AD0BD503200A34350088D5E7 /* FriendHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendHeadView.xib; sourceTree = "<group>"; };
+		AD0FAF9E20444C0A008A386E /* CategoryItemsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryItemsCell.swift; sourceTree = "<group>"; };
+		AD0FAF9F20444C0A008A386E /* CategoryItemsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryItemsCell.xib; sourceTree = "<group>"; };
 		AD10331D1FB6CD4E0017E81C /* common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
 		AD10331E1FB6CD4E0017E81C /* constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constant.swift; sourceTree = "<group>"; };
 		AD10331F1FB6CD4E0017E81C /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -432,6 +436,32 @@
 			name = view;
 			sourceTree = "<group>";
 		};
+		AD0FAFA2204461F1008A386E /* Categorys */ = {
+			isa = PBXGroup;
+			children = (
+				AD0FAFA420446272008A386E /* view */,
+				AD10334C1FB6D1A40017E81C /* AllViewController.swift */,
+			);
+			name = Categorys;
+			sourceTree = "<group>";
+		};
+		AD0FAFA320446243008A386E /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				AD1033461FB6CEA00017E81C /* MeViewController.swift */,
+			);
+			name = Me;
+			sourceTree = "<group>";
+		};
+		AD0FAFA420446272008A386E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				AD0FAF9E20444C0A008A386E /* CategoryItemsCell.swift */,
+				AD0FAF9F20444C0A008A386E /* CategoryItemsCell.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
 		AD10331C1FB6CD4E0017E81C /* com */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,8 +561,8 @@
 				AD0BD4FF200A33A40088D5E7 /* Friend */,
 				AD128C67201C6A6E00A9EDBE /* Publish */,
 				A1DFE70A1FB97045001C1905 /* RecentViewController.swift */,
-				AD10334C1FB6D1A40017E81C /* AllViewController.swift */,
-				AD1033461FB6CEA00017E81C /* MeViewController.swift */,
+				AD0FAFA2204461F1008A386E /* Categorys */,
+				AD0FAFA320446243008A386E /* Me */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -727,6 +757,7 @@
 				A1C402351FCCF41F005BAA9A /* all_category_item.plist in Resources */,
 				AD1633C620235D4900B2D009 /* PubSelectTypeController.xib in Resources */,
 				A184F9031FD7D19D004504D9 /* Assets.xcassets in Resources */,
+				AD0FAFA120444C0A008A386E /* CategoryItemsCell.xib in Resources */,
 				A148A2A81FD658180052DDF3 /* video_allshare@2x.png in Resources */,
 				A148A2A41FD6494B0052DDF3 /* publish_image@2x.png in Resources */,
 				AD14CC5A1FE800E0003FBE0B /* home_cell_2.JPG in Resources */,
@@ -860,6 +891,7 @@
 				AD00B9B9201B6EB90015A876 /* BaseDetailController.swift in Sources */,
 				AD10333F1FB6CD920017E81C /* BaseTabbarController.swift in Sources */,
 				AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */,
+				AD0FAFA020444C0A008A386E /* CategoryItemsCell.swift in Sources */,
 				A1A642DC1FC567CB0058F63B /* HomeSearchViewController.swift in Sources */,
 				AD21DF6520275A8B002FE181 /* TableViewCellSwitch.swift in Sources */,
 				A133A97F1FD8DE6200793D57 /* TTImagePickerViewController.swift in Sources */,

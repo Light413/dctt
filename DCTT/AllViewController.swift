@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AllViewController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource{
+class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
 
     var dataArray = [String]()
     
@@ -27,16 +27,54 @@ class AllViewController: BaseViewController,UICollectionViewDelegate,UICollectio
     
     func _init() {
         let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - 64 - 49);
-        let _colloectionview = colleciontView(frame)
-        _colloectionview.delegate = self
-        _colloectionview.dataSource = self
-        view.addSubview(_colloectionview);
+        let _tableview = UITableView (frame: frame, style: .grouped)
+        
+        _tableview.delegate = self
+        _tableview.dataSource = self
+        view.addSubview(_tableview);
  
-//        _topHeadView()
+        _tableview.register(UINib (nibName: "CategoryItemsCell", bundle: nil), forCellReuseIdentifier: "CategoryItemsCellReuseIdentifier")
+        
+        _tableview.register(UINib (nibName: "HomeCellWithImages", bundle: nil), forCellReuseIdentifier: "HomeCellWithImagesIdentifierId")
+        
+//        _tableview.rowHeight = UITableViewAutomaticDimension
+//        _tableview.estimatedRowHeight = 100
+
     }
     
 
-    fileprivate func colleciontView(_ frame:CGRect) -> UICollectionView {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let identifier = indexPath.row > 0 ? "HomeCellWithImagesIdentifierId":"CategoryItemsCellReuseIdentifier"
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        
+        return cell
+        
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 200;
+        }
+        
+        return 150
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
+    
+    /*fileprivate func colleciontView(_ frame:CGRect) -> UICollectionView {
         let offset:CGFloat = 10
         //let _width = (kCurrentScreenWidth - offset *  2 - 8) / 3.0
         let _width = (kCurrentScreenWidth - offset *  2 - 5) / 2.0
@@ -45,7 +83,7 @@ class AllViewController: BaseViewController,UICollectionViewDelegate,UICollectio
         _layout.itemSize = CGSize (width: _width, height: _width * 0.5)
         _layout.minimumInteritemSpacing = 2
         _layout.minimumLineSpacing = 8
-        _layout.scrollDirection = .vertical
+        _layout.scrollDirection = .horizontal
         
         let collectionview = UICollectionView (frame: frame, collectionViewLayout: _layout)
         collectionview.delegate  = self
@@ -55,6 +93,8 @@ class AllViewController: BaseViewController,UICollectionViewDelegate,UICollectio
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = true
         collectionview.contentInset = UIEdgeInsetsMake(15, offset, 10, offset)
+        collectionview.isPagingEnabled = true
+        
         return collectionview
     }
     
@@ -76,7 +116,7 @@ class AllViewController: BaseViewController,UICollectionViewDelegate,UICollectio
         let vc = FriendsDetailController()
         
         self.navigationController?.pushViewController(vc, animated: true)
-    }
+    }*/
     
     
 
