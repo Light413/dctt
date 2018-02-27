@@ -42,13 +42,16 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
 
     }
     
-
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return section > 0 ? 10 : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = indexPath.row > 0 ? "HomeCellWithImagesIdentifierId":"CategoryItemsCellReuseIdentifier"
+        let identifier = indexPath.section > 0 ? "HomeCellWithImagesIdentifierId":"CategoryItemsCellReuseIdentifier"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
         return cell
@@ -57,20 +60,27 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             return 200;
         }
         
         return 150
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section > 0 else {return nil}
+        
+        let v = CategorySectionHeaderView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: 40))
+        
+        return v
+    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 5
+        return section > 0 ? 40 : 0.01
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.01
+        return section == 0 ? 5 : 0.01
     }
     
     

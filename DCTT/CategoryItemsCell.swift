@@ -35,7 +35,7 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
         let _width = (kCurrentScreenWidth - offset *  2)
         
         let _layout = UICollectionViewFlowLayout()
-        _layout.itemSize = CGSize (width: _width, height: self.frame.height - 20)
+        _layout.itemSize = CGSize (width: _width, height: self.frame.height - 21)
         _layout.minimumInteritemSpacing = 0
         _layout.minimumLineSpacing = 0
         _layout.scrollDirection = .horizontal
