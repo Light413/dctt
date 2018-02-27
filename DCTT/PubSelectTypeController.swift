@@ -20,7 +20,7 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
     @IBOutlet weak var collectionview: UICollectionView!
    
     var dataArray = [[String]]()
-    let _head_section_titles = ["动态","生活服务"]
+    let _head_section_titles = ["发布新动态","发布生活服务"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +28,14 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         //view.alpha = 0.8
         automaticallyAdjustsScrollViewInsets = false;
         
-//        let path = Bundle.main.path(forResource: "all_category_item", ofType: "plist")
-//        let _arr = NSArray.init(contentsOfFile: path!) as? [String]
-//        if let arr = _arr {
-//            dataArray = dataArray + arr;
-//        }
-        dataArray = dataArray + [["新鲜事","朋友圈","提问","吐槽","搞笑段子","校园"],
-                                 ["商家店铺","吃喝玩乐","相亲交友","求职招聘","房租租售","拼车出行","发布闲置","数码电子"]
-        ]
+        let dt = ["新鲜事","朋友圈","提问","吐槽","搞笑段子","校园"]
+        dataArray.append(dt)
+        
+        let path = Bundle.main.path(forResource: "all_category_item", ofType: "plist")
+        let _arr = NSArray.init(contentsOfFile: path!) as? [String]
+        if let arr = _arr {
+            dataArray.append(arr)
+        }
         
         // Do any additional setup after loading the view.
         _init()
@@ -54,12 +54,12 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         collectionview.dataSource = self
         
         let offset:CGFloat = 10
-        let _width = (kCurrentScreenWidth - offset *  2 - 30) / 3.0
+        let _width = (kCurrentScreenWidth - offset *  2 - 10) / 3.0
         
         let _layout = UICollectionViewFlowLayout()
-        _layout.itemSize = CGSize (width: _width, height: 60)
+        _layout.itemSize = CGSize (width: _width, height: 50)
         _layout.minimumInteritemSpacing = 2
-        _layout.minimumLineSpacing = 10
+        _layout.minimumLineSpacing = 8
         _layout.scrollDirection = .vertical        
         collectionview.collectionViewLayout = _layout;
         
@@ -69,11 +69,13 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         collectionview.register(UINib (nibName: "PubTypeCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PubTypeCollectionReusableViewIdentifier")
         
         collectionview.showsHorizontalScrollIndicator = false
-        collectionview.showsVerticalScrollIndicator = false
-        collectionview.contentInset = UIEdgeInsetsMake(15, offset, 10, offset)
+        //collectionview.showsVerticalScrollIndicator = false
+        collectionview.contentInset = UIEdgeInsetsMake(5, offset, 10, offset)
         
-        collectionview.layer.borderWidth = 1
-        collectionview.layer.borderColor = kTableviewBackgroundColor.cgColor //UIColor.lightGray.cgColor
+//        collectionview.layer.borderWidth = 2
+//        collectionview.layer.borderColor = kTableviewBackgroundColor.cgColor //UIColor.lightGray.cgColor
+//        collectionview.layer.cornerRadius = 5
+//        collectionview.layer.masksToBounds = true
     }
     
     
@@ -120,11 +122,11 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         cell.contentView.addSubview(_t)
         _t.text = str
         _t.textAlignment = .center
-        _t.font = UIFont.systemFont(ofSize: 14)
-        _t.textColor = UIColor.darkGray
+        _t.font = UIFont.systemFont(ofSize: 13)
+        //_t.textColor = UIColor.darkGray
         
         cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1).cgColor
+        cell.layer.borderColor = UIColor (red: 236/255.0, green: 236/255.0, blue: 236/255.0, alpha: 1).cgColor
         
         return cell
     }
@@ -170,7 +172,7 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize (width: collectionview.frame.width, height: section == 0 ? 30 : 50)
+        return CGSize (width: collectionview.frame.width, height: section == 0 ? 50 : 50)
     }
     
     

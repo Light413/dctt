@@ -17,11 +17,24 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="动态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGR-0o-BRQ">
                     <rect key="frame" x="5" y="24" width="27" height="16"/>
                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ov-5N-z1g">
+                    <rect key="frame" x="0.0" y="13" width="320" height="1"/>
+                    <color key="backgroundColor" red="0.92538958787918091" green="0.92554813623428345" blue="0.92537957429885864" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="SNL-bi-uT5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="7Ov-5N-z1g" secondAttribute="trailing" id="5Gn-SV-O0j"/>
+                <constraint firstItem="hGR-0o-BRQ" firstAttribute="top" secondItem="7Ov-5N-z1g" secondAttribute="bottom" constant="10" id="BpO-vv-Ujt"/>
+                <constraint firstItem="7Ov-5N-z1g" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="IQY-A7-ntB"/>
                 <constraint firstItem="hGR-0o-BRQ" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="5" id="Vxb-qM-RqX"/>
                 <constraint firstAttribute="bottom" secondItem="hGR-0o-BRQ" secondAttribute="bottom" constant="10" id="oVe-uU-6Zx"/>
             </constraints>

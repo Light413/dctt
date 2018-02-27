@@ -8,8 +8,15 @@
 	<string>相亲交友</string>
 	<string>求职招聘</string>
 	<string>房屋租售</string>
-	<string>顺风车</string>
-	<string>物品置换</string>
-	<string>系统公告</string>
+	<string>打车出行</string>
+	<string>打听个事</string>
+	<string>吐槽曝光</string>
+	<string>二手交易</string>
+	<string>摄影婚庆</string>
+	<string>母婴亲子</string>
+	<string>数码</string>
+	<string>家居装饰</string>
+	<string>货运出租</string>
+	<string>其他便民信息</string>
 </array>
 </plist>

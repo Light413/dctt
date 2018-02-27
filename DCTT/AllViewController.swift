@@ -37,8 +37,8 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         
         _tableview.register(UINib (nibName: "HomeCellWithImages", bundle: nil), forCellReuseIdentifier: "HomeCellWithImagesIdentifierId")
         
-//        _tableview.rowHeight = UITableViewAutomaticDimension
-//        _tableview.estimatedRowHeight = 100
+        _tableview.rowHeight = UITableViewAutomaticDimension
+        _tableview.estimatedRowHeight = 100
 
     }
     
@@ -59,13 +59,13 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 200;
-        }
-        
-        return 150
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.section == 0 {
+//            return 180;
+//        }
+//        
+//        return 150
+//    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard section > 0 else {return nil}

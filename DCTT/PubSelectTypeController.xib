@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Sxm-jg-Al5">
-                    <rect key="frame" x="10" y="68" width="355" height="549"/>
+                    <rect key="frame" x="0.0" y="63" width="375" height="554"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hwF-QO-bh6">
                         <size key="itemSize" width="50" height="50"/>
@@ -30,12 +30,13 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V85-7X-qST">
-                    <rect key="frame" x="152.5" y="617" width="70" height="40"/>
+                    <rect key="frame" x="0.0" y="622" width="375" height="45"/>
+                    <color key="backgroundColor" red="0.97857362029999995" green="0.34759736060000002" blue="0.3231709599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="70" id="3vM-i4-l9j"/>
-                        <constraint firstAttribute="height" constant="40" id="uEC-R5-kbL"/>
+                        <constraint firstAttribute="height" constant="45" id="uEC-R5-kbL"/>
                     </constraints>
-                    <state key="normal" image="close_night">
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="取消">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -43,8 +44,18 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择要发布的内容类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHr-Fc-SKN">
-                    <rect key="frame" x="111" y="40" width="153" height="18"/>
-                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                    <rect key="frame" x="111" y="30" width="153" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gvr-4M-cf4">
+                    <rect key="frame" x="0.0" y="62" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.92538958790000003" green="0.92554813619999998" blue="0.92537957429999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="90o-zb-xAQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -52,18 +63,19 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="KHr-Fc-SKN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4D4-zU-iEd"/>
-                <constraint firstAttribute="trailing" secondItem="Sxm-jg-Al5" secondAttribute="trailing" constant="10" id="BVh-NQ-Kjk"/>
-                <constraint firstItem="Sxm-jg-Al5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Dly-R9-gr7"/>
+                <constraint firstAttribute="trailing" secondItem="Gvr-4M-cf4" secondAttribute="trailing" id="5ox-qR-iOy"/>
+                <constraint firstAttribute="trailing" secondItem="Sxm-jg-Al5" secondAttribute="trailing" id="BVh-NQ-Kjk"/>
+                <constraint firstItem="Sxm-jg-Al5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Dly-R9-gr7"/>
                 <constraint firstItem="V85-7X-qST" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EnP-9U-Mzx"/>
-                <constraint firstAttribute="bottom" secondItem="V85-7X-qST" secondAttribute="bottom" constant="10" id="Wil-fu-Ccc"/>
-                <constraint firstItem="Sxm-jg-Al5" firstAttribute="top" secondItem="KHr-Fc-SKN" secondAttribute="bottom" constant="10" id="jbG-wl-ZCE"/>
-                <constraint firstItem="V85-7X-qST" firstAttribute="top" secondItem="Sxm-jg-Al5" secondAttribute="bottom" id="ltX-jT-6ap"/>
-                <constraint firstItem="KHr-Fc-SKN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="zgK-8k-7fd"/>
+                <constraint firstItem="Gvr-4M-cf4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="W7h-sh-7Ux"/>
+                <constraint firstAttribute="bottom" secondItem="V85-7X-qST" secondAttribute="bottom" id="Wil-fu-Ccc"/>
+                <constraint firstItem="Sxm-jg-Al5" firstAttribute="top" secondItem="Gvr-4M-cf4" secondAttribute="bottom" id="XCg-Rf-WVp"/>
+                <constraint firstItem="V85-7X-qST" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Y7y-2j-Nuu"/>
+                <constraint firstItem="Sxm-jg-Al5" firstAttribute="top" secondItem="KHr-Fc-SKN" secondAttribute="bottom" constant="15" id="jbG-wl-ZCE"/>
+                <constraint firstItem="V85-7X-qST" firstAttribute="top" secondItem="Sxm-jg-Al5" secondAttribute="bottom" constant="5" id="ltX-jT-6ap"/>
+                <constraint firstItem="KHr-Fc-SKN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="zgK-8k-7fd"/>
             </constraints>
             <point key="canvasLocation" x="84.5" y="53.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="close_night" width="24" height="24"/>
-    </resources>
 </document>

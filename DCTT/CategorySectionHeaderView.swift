@@ -26,9 +26,9 @@ class CategorySectionHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let w :CGFloat = 120 //frame.width / 2.0
+        let w :CGFloat = frame.width / 2.0
         let h = frame.height
-        let _titles = ["最新发布","TOP100"]
+        let _titles = ["最新发布","最热"]
         
         for i in 0..<2 {
             let btn = UIButton (frame: CGRect (x: i == 0 ? 0 : w, y: 0, width: w, height: h - line_h));
@@ -36,7 +36,7 @@ class CategorySectionHeaderView: UIView {
             btn.setTitle(_titles[i], for: .normal)
             btn.setTitleColor(tt_BarColor, for: .selected)
             btn.setTitleColor(UIColor.darkGray, for: .normal)
-            btn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
             
             btn.addTarget(self, action: #selector(clickedAction(_:)), for: .touchUpInside)
             btn.tag = 100 + i
