@@ -19,7 +19,7 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
     
     @IBOutlet weak var collectionview: UICollectionView!
    
-    var dataArray = [[String]]()
+    var dataArray = [[[String:String]]]()
     let _head_section_titles = ["发布新动态","发布生活服务"]
     
     override func viewDidLoad() {
@@ -28,13 +28,13 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         //view.alpha = 0.8
         automaticallyAdjustsScrollViewInsets = false;
         
-        let dt = ["新鲜事","朋友圈","提问","吐槽","搞笑段子","校园"]
-        dataArray.append(dt)
+        //let dt = ["新鲜事","朋友圈","提问","吐槽","搞笑段子","校园"]
+        //dataArray.append(dt)
         
         let path = Bundle.main.path(forResource: "all_category_item", ofType: "plist")
-        let _arr = NSArray.init(contentsOfFile: path!) as? [String]
+        let _arr = NSArray.init(contentsOfFile: path!) as? [[[String:String]]]
         if let arr = _arr {
-            dataArray.append(arr)
+            dataArray = dataArray + arr
         }
         
         // Do any additional setup after loading the view.
@@ -110,7 +110,8 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UICollectionViewCellIdentifier", for: indexPath)
         
-        let str = dataArray[indexPath.section][indexPath.row]
+        let d = dataArray[indexPath.section][indexPath.row]
+        let str = d["item_title"]
         
         for _v in cell.contentView.subviews{
             if _v is UILabel {
@@ -131,17 +132,20 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         return cell
     }
     
+    let vc = ["id001":PublishViewController()]
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let index = indexPath.row
+        let d = dataArray[indexPath.section][indexPath.row]
+        let item_id = d["item_id"]!
         
 
         _dismiss {
             var vc : UIViewController
             
-            switch index {
-            case 0: vc = PublishViewController(); break;
-            case 1: vc = PublishFriendViewController(); break;
-            case 2:
+            switch item_id {
+            case "id001": vc = PublishViewController(); break;
+            case "id002": vc = PublishFriendViewController(); break;
+            case "id003"://问答
                 vc =  BaseVCWithTableView() //UIStoryboard.init(name: "publish", bundle: nil).instantiateViewController(withIdentifier: "pub_question_id")
                 
                 break

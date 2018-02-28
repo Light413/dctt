@@ -13,7 +13,7 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
     @IBOutlet weak var _collectionView: UICollectionView!
     
     @IBOutlet weak var pageCtr: UIPageControl!
-    var dataArray = [String]()
+    var dataArray = [[String:String]]()
     
     var numberOfItem = 0
     
@@ -28,8 +28,8 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
     
     func _init() {
         let path = Bundle.main.path(forResource: "all_category_item", ofType: "plist")
-        let _arr = NSArray.init(contentsOfFile: path!) as? [String]
-        if let arr = _arr {
+        let _arr = NSArray.init(contentsOfFile: path!) as? [[[String:String]]]
+        if let arr = _arr?.last {
             dataArray = dataArray + arr;
         }
 
@@ -116,7 +116,12 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
             let btn = UIButton (frame: CGRect (x: w * CGFloat(_col), y: h * CGFloat(_row), width: w, height: h))
             
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-            btn.setTitle(dataArray[i + row * 8 ], for: .normal)
+            
+            let d = dataArray[i + row * 8]
+            let str = d["item_title"]
+            btn.setTitle(str!, for: .normal)
+            
+            //btn.setTitle(dataArray[i + row * 8 ], for: .normal)
             btn.setTitleColor(UIColor.darkGray, for: .normal)
             btn.setImage(UIImage.init(named: "item_0\(i + 1)"), for: .normal)
             
