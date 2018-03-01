@@ -23,7 +23,7 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
         navigationBar.isTranslucent = false
         //navigationBar.tintColor = UIColor.white
         navigationBar.barStyle = .black
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black,NSFontAttributeName:UIFont.systemFont(ofSize: 16)]
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black,NSFontAttributeName:UIFont.systemFont(ofSize: 15)]
 
 //        navigationBar.setBackgroundImage(UIImage (named: "navigationbar_bg"), for: .default)
         //UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent;

@@ -25,6 +25,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         
         let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - 64 - 45);
         _colloectionview = colleciontView(frame)
+        _colloectionview.contentInset = UIEdgeInsetsMake(0, 0, 20, 0)
         view.addSubview(_colloectionview)
         view.backgroundColor = UIColor.red
         

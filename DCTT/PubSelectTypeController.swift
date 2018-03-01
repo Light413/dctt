@@ -146,7 +146,8 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
             case "id001": vc = PublishViewController(); break;
             case "id002": vc = PublishFriendViewController(); break;
             case "id003"://问答
-                vc =  BaseVCWithTableView() //UIStoryboard.init(name: "publish", bundle: nil).instantiateViewController(withIdentifier: "pub_question_id")
+                vc =  //BaseVCWithTableView() //
+                    UIStoryboard.init(name: "Publish", bundle: nil).instantiateViewController(withIdentifier: "pub_question_id")
                 
                 break
             default:return

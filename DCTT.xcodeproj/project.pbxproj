@@ -120,10 +120,12 @@
 		AD14CC641FE802B6003FBE0B /* HomeCellWithImages.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD14CC621FE802B6003FBE0B /* HomeCellWithImages.xib */; };
 		AD1633C520235D4900B2D009 /* PubSelectTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1633C320235D4900B2D009 /* PubSelectTypeController.swift */; };
 		AD1633C620235D4900B2D009 /* PubSelectTypeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD1633C420235D4900B2D009 /* PubSelectTypeController.xib */; };
+		AD16EDA4204848C60072A266 /* PubBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD16EDA3204848C60072A266 /* PubBaseTableViewController.swift */; };
+		AD16EDA620485C030072A266 /* PubQuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD16EDA520485C030072A266 /* PubQuestionController.swift */; };
 		AD1B54EA1FEC01FE00B2F985 /* HomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */; };
 		AD1BEC012029EF6B003E334C /* PubTypeCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BEBFF2029EF6B003E334C /* PubTypeCollectionReusableView.swift */; };
 		AD1BEC022029EF6B003E334C /* PubTypeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD1BEC002029EF6B003E334C /* PubTypeCollectionReusableView.xib */; };
-		AD21DF5C20274461002FE181 /* publish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD21DF5B20274461002FE181 /* publish.storyboard */; };
+		AD21DF5C20274461002FE181 /* Publish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD21DF5B20274461002FE181 /* Publish.storyboard */; };
 		AD21DF5E20274DC7002FE181 /* BaseVCWithTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21DF5D20274DC7002FE181 /* BaseVCWithTableView.swift */; };
 		AD21DF61202750FD002FE181 /* TableViewCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21DF5F202750FD002FE181 /* TableViewCellTextView.swift */; };
 		AD21DF62202750FD002FE181 /* TableViewCellTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD21DF60202750FD002FE181 /* TableViewCellTextView.xib */; };
@@ -263,10 +265,12 @@
 		AD14CC651FE8094E003FBE0B /* DCTT.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = DCTT.entitlements; path = DCTT/DCTT.entitlements; sourceTree = "<group>"; };
 		AD1633C320235D4900B2D009 /* PubSelectTypeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubSelectTypeController.swift; sourceTree = "<group>"; };
 		AD1633C420235D4900B2D009 /* PubSelectTypeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PubSelectTypeController.xib; sourceTree = "<group>"; };
+		AD16EDA3204848C60072A266 /* PubBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubBaseTableViewController.swift; sourceTree = "<group>"; };
+		AD16EDA520485C030072A266 /* PubQuestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubQuestionController.swift; sourceTree = "<group>"; };
 		AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomerListViewController.swift; sourceTree = "<group>"; };
 		AD1BEBFF2029EF6B003E334C /* PubTypeCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubTypeCollectionReusableView.swift; sourceTree = "<group>"; };
 		AD1BEC002029EF6B003E334C /* PubTypeCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PubTypeCollectionReusableView.xib; sourceTree = "<group>"; };
-		AD21DF5B20274461002FE181 /* publish.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = publish.storyboard; sourceTree = "<group>"; };
+		AD21DF5B20274461002FE181 /* Publish.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Publish.storyboard; sourceTree = "<group>"; };
 		AD21DF5D20274DC7002FE181 /* BaseVCWithTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVCWithTableView.swift; sourceTree = "<group>"; };
 		AD21DF5F202750FD002FE181 /* TableViewCellTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellTextView.swift; sourceTree = "<group>"; };
 		AD21DF60202750FD002FE181 /* TableViewCellTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCellTextView.xib; sourceTree = "<group>"; };
@@ -551,7 +555,9 @@
 				AD128C71201CC57200A9EDBE /* PublishServerController.swift */,
 				AD1633C320235D4900B2D009 /* PubSelectTypeController.swift */,
 				AD1633C420235D4900B2D009 /* PubSelectTypeController.xib */,
-				AD21DF5B20274461002FE181 /* publish.storyboard */,
+				AD16EDA3204848C60072A266 /* PubBaseTableViewController.swift */,
+				AD16EDA520485C030072A266 /* PubQuestionController.swift */,
+				AD21DF5B20274461002FE181 /* Publish.storyboard */,
 			);
 			name = Publish;
 			sourceTree = "<group>";
@@ -735,7 +741,7 @@
 				AD00300F201DF9D900A72A16 /* PubCityCell.xib in Resources */,
 				AD14CC601FE8027A003FBE0B /* HomeCellWithImage.xib in Resources */,
 				AD1033301FB6CD4E0017E81C /* error@2x.png in Resources */,
-				AD21DF5C20274461002FE181 /* publish.storyboard in Resources */,
+				AD21DF5C20274461002FE181 /* Publish.storyboard in Resources */,
 				A1E61D1D1FCE8F560080A12D /* back_bg.png in Resources */,
 				A1A642D81FC54FA40058F63B /* AppIcon-News40x40@3x.png in Resources */,
 				A1A642D41FC54FA40058F63B /* AppIcon-News29x29.png in Resources */,
@@ -875,6 +881,7 @@
 				A1A047AD1FD53C910057CC17 /* TTRefreshHeader.swift in Sources */,
 				AD0BD502200A34270088D5E7 /* FriendHeadView.swift in Sources */,
 				A1C172091FD631E2006BAAA0 /* TTPublishView.swift in Sources */,
+				AD16EDA4204848C60072A266 /* PubBaseTableViewController.swift in Sources */,
 				A1E1B02F1FDA90E8002D6BDC /* TTImageBaseViewController.swift in Sources */,
 				AD1033311FB6CD4E0017E81C /* HUD.swift in Sources */,
 				A148A2AB1FD687B40052DDF3 /* PublishTextCell.swift in Sources */,
@@ -918,6 +925,7 @@
 				AD14CC5F1FE8027A003FBE0B /* HomeCellWithImage.swift in Sources */,
 				A1DE18A11FC2A0D000562130 /* TTHeadTitleView.swift in Sources */,
 				AD00300E201DF9D900A72A16 /* PubCityCell.swift in Sources */,
+				AD16EDA620485C030072A266 /* PubQuestionController.swift in Sources */,
 				AD128C6C201C747E00A9EDBE /* TTDatePickerView.swift in Sources */,
 				A19C4B631FCD2AD600E9DE59 /* TTSearchBarView.swift in Sources */,
 				A1CE83991FC3F6AA00DAF90F /* HomeDetailController.swift in Sources */,
