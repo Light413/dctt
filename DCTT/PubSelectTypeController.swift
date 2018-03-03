@@ -132,7 +132,6 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         return cell
     }
     
-    let vc = ["id001":PublishViewController()]
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let d = dataArray[indexPath.section][indexPath.row]
@@ -143,13 +142,37 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
             var vc : UIViewController
             
             switch item_id {
-            case "id001": vc = PublishViewController(); break;
-            case "id002": vc = PublishFriendViewController(); break;
+            case "id001"://发布新鲜事
+                vc = PublishViewController(); break;
+                
+            case "id002"://朋友圈
+                vc = PublishFriendViewController(); break;
+                
             case "id003"://问答
                 vc =  //BaseVCWithTableView() //
-                    UIStoryboard.init(name: "Publish", bundle: nil).instantiateViewController(withIdentifier: "pub_question_id")
-                
+                self.controllerWith(identifierId: "pub_question_id")
                 break
+                
+            case "id004"://商家信息
+                
+                return; break
+                
+            case "id005"://交友
+                
+                return; break
+                
+            case "id006"://求职招聘
+                
+                return; break
+                
+            case "id007"://打车出行
+                
+                return; break
+                
+            case "id008"://快递物流
+                
+                return; break
+                
             default:return
             }
             
@@ -180,7 +203,12 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         return CGSize (width: collectionview.frame.width, height: section == 0 ? 50 : 50)
     }
     
-    
+    //MARK: - 
+    func controllerWith(_ storyboarName:String = "Publish" , identifierId:String) -> UIViewController {
+        let v = UIStoryboard.init(name: storyboarName, bundle: nil).instantiateViewController(withIdentifier: identifierId)
+        
+        return v
+    }
     
     
     override func didReceiveMemoryWarning() {

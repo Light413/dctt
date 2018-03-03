@@ -13,10 +13,12 @@ protocol TTHeadTitleDelegate {
 
 }
 
+let textSelectedColor:UIColor = tt_BarColor //选中是字体颜色,默认红色
+let textDefaultColor:UIColor = UIColor.darkGray //默认字体颜色，黑色
+let textSelectedFontSize:CGFloat = 16
+let textDefaultFontSize:CGFloat = 15
 
 class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
-    var textSelectedColor:UIColor = UIColor.red //选中是字体颜色,默认红色
-    var textDefaultColor:UIColor = UIColor.darkGray //默认字体颜色，黑色
     
     private var _titles :[String]!
     private var _currentIndex: Int = 0//当前显示索引
@@ -102,7 +104,7 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
             _v.removeFromSuperview();
         }
         let l = UILabel.init(frame: CGRect (x: 0, y: 0, width: _item_width, height: self.frame.height))
-        l.font = UIFont.systemFont(ofSize: _currentIndex == indexPath.row ? 17:16)
+        l.font = UIFont.systemFont(ofSize: _currentIndex == indexPath.row ? textSelectedFontSize:textDefaultFontSize)
         l.textAlignment = .center
         l.text = v
         l.textColor = _currentIndex == indexPath.row ? textSelectedColor:textDefaultColor

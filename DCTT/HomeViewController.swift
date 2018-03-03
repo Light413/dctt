@@ -49,7 +49,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         //navigationbar item
         let logo_lable = UILabel (frame: CGRect (x: 0, y: 0, width: 80, height: 30))
         logo_lable.text = _logo_title
-        logo_lable.font = UIFont .boldSystemFont(ofSize: 18)
+        logo_lable.font = UIFont .systemFont(ofSize: 18)
         logo_lable.textColor = UIColor.white
         let left_item = UIBarButtonItem.init(customView: logo_lable)
         navigationItem.leftBarButtonItem = left_item

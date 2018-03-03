@@ -442,13 +442,13 @@
 			name = view;
 			sourceTree = "<group>";
 		};
-		AD0FAFA2204461F1008A386E /* Categorys */ = {
+		AD0FAFA2204461F1008A386E /* Servers */ = {
 			isa = PBXGroup;
 			children = (
 				AD0FAFA420446272008A386E /* view */,
 				AD10334C1FB6D1A40017E81C /* AllViewController.swift */,
 			);
-			name = Categorys;
+			name = Servers;
 			sourceTree = "<group>";
 		};
 		AD0FAFA320446243008A386E /* Me */ = {
@@ -570,7 +570,7 @@
 				AD0BD4FF200A33A40088D5E7 /* Friend */,
 				AD128C67201C6A6E00A9EDBE /* Publish */,
 				A1DFE70A1FB97045001C1905 /* RecentViewController.swift */,
-				AD0FAFA2204461F1008A386E /* Categorys */,
+				AD0FAFA2204461F1008A386E /* Servers */,
 				AD0FAFA320446243008A386E /* Me */,
 			);
 			name = ViewControllers;
