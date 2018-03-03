@@ -11,6 +11,9 @@ import UIKit
 class PubBaseTableViewController: UITableViewController {
     override func awakeFromNib() {
         //tableView.contentInset = UIEdgeInsetsMake(10, 10, 10, -10)
+        
+        title = kPublish_type_info["item_title"]
+        
     }
     
     

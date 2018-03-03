@@ -1,7 +1,7 @@
 //
 //  PublishViewController.swift
 //  DCTT
-//
+//  发布动态
 //  Created by wyg on 2017/11/11.
 //  Copyright © 2017年 Light.W. All rights reserved.
 //

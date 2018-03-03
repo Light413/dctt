@@ -13,7 +13,7 @@ protocol TTHeadTitleDelegate {
 
 }
 
-let textSelectedColor:UIColor = tt_BarColor //选中是字体颜色,默认红色
+let textSelectedColor:UIColor = tt_HomeBarColor //选中是字体颜色,默认红色
 let textDefaultColor:UIColor = UIColor.darkGray //默认字体颜色，黑色
 let textSelectedFontSize:CGFloat = 16
 let textDefaultFontSize:CGFloat = 15

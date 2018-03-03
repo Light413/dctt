@@ -136,9 +136,10 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let d = dataArray[indexPath.section][indexPath.row]
         let item_id = d["item_id"]!
-        
+        kPublish_type_info = d
 
-        _dismiss {
+        _dismiss { [weak self]  in
+            guard let strongSelf = self else {return }
             var vc : UIViewController
             
             switch item_id {
@@ -148,30 +149,30 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
             case "id002"://朋友圈
                 vc = PublishFriendViewController(); break;
                 
-            case "id003"://问答
+            case "id003"://房屋信息 - 问答
                 vc =  //BaseVCWithTableView() //
-                self.controllerWith(identifierId: "pub_question_id")
+                strongSelf.controllerWith(identifierId: "pub_fangwu_id")
                 break
                 
-            case "id004"://商家信息
-                
-                return; break
+            case "id004","id008"://商家信息
+                vc = strongSelf.controllerWith(identifierId: "pub_shangjia_id")
+                break
                 
             case "id005"://交友
-                
-                return; break
+                vc = strongSelf.controllerWith(identifierId: "pub_jiaoyou_id")
+                break
                 
             case "id006"://求职招聘
-                
-                return; break
+                vc = strongSelf.controllerWith(identifierId: "pub_qiuzhi_id")
+                break
                 
             case "id007"://打车出行
+                vc = strongSelf.controllerWith(identifierId: "pub_dache_id")
+                break
                 
-                return; break
-                
-            case "id008"://快递物流
-                
-                return; break
+            /*case "id008"://快递物流 通商家信息
+                vc = strongSelf.controllerWith(identifierId: "pub_jiaoyou_id")
+                return; break*/
                 
             default:return
             }

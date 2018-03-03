@@ -22,6 +22,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor.white
+        title = kPublish_type_info["item_title"]
         
         let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - 64 - 45);
         _colloectionview = colleciontView(frame)

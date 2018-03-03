@@ -13,13 +13,13 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
     var vcArr = [BaseTableViewController]()
     var pagevc :TTPageViewController!
     var topview : TTHeadTitleView!
-    let _logo_title = "今日头条"
+    let _logo_title = "郸城头条-老家人自己的头条"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false;
 
-        t_barTintColor = tt_BarColor
+        t_barTintColor = tt_HomeBarColor
         self.navigationController?.navigationBar.barTintColor = t_barTintColor
         
         _init()
@@ -47,12 +47,14 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         view.addSubview(pagevc.view)
         
         //navigationbar item
-        let logo_lable = UILabel (frame: CGRect (x: 0, y: 0, width: 80, height: 30))
+        let logo_lable = UILabel (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 30))
         logo_lable.text = _logo_title
-        logo_lable.font = UIFont .systemFont(ofSize: 18)
+        logo_lable.font = UIFont.boldSystemFont(ofSize: 18)
         logo_lable.textColor = UIColor.white
+        logo_lable.textAlignment = .center
+        
         let left_item = UIBarButtonItem.init(customView: logo_lable)
-        navigationItem.leftBarButtonItem = left_item
+        //navigationItem.leftBarButtonItem = left_item
         
         //search
         let tf = UITextField (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth - 150, height: 30))
@@ -69,7 +71,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         leftview.addSubview(img)
         tf.leftView = leftview
         
-        navigationItem.titleView = tf
+        navigationItem.titleView = logo_lable
     }
     
     
