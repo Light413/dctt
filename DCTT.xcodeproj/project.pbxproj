@@ -57,7 +57,6 @@
 		A1CE83A71FC4122D00DAF90F /* 14.png in Resources */ = {isa = PBXBuildFile; fileRef = A1CE83A31FC4122D00DAF90F /* 14.png */; };
 		A1DE189F1FC270F300562130 /* TTPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DE189E1FC270F300562130 /* TTPageViewController.swift */; };
 		A1DE18A11FC2A0D000562130 /* TTHeadTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */; };
-		A1DFE70B1FB97045001C1905 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DFE70A1FB97045001C1905 /* RecentViewController.swift */; };
 		A1E1B02D1FDA7AEF002D6BDC /* TTImagePreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E1B02C1FDA7AEE002D6BDC /* TTImagePreviewController.swift */; };
 		A1E1B02F1FDA90E8002D6BDC /* TTImageBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E1B02E1FDA90E8002D6BDC /* TTImageBaseViewController.swift */; };
 		A1E61D1D1FCE8F560080A12D /* back_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A1E61D1C1FCE8F560080A12D /* back_bg.png */; };
@@ -125,6 +124,12 @@
 		AD1B54EA1FEC01FE00B2F985 /* HomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */; };
 		AD1BEC012029EF6B003E334C /* PubTypeCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BEBFF2029EF6B003E334C /* PubTypeCollectionReusableView.swift */; };
 		AD1BEC022029EF6B003E334C /* PubTypeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD1BEC002029EF6B003E334C /* PubTypeCollectionReusableView.xib */; };
+		AD202751204C385A00E538CD /* PubShangJiaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD202750204C385900E538CD /* PubShangJiaController.swift */; };
+		AD202753204C388100E538CD /* PubJiaoYouController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD202752204C388100E538CD /* PubJiaoYouController.swift */; };
+		AD202755204C389500E538CD /* PubQiuzhiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD202754204C389500E538CD /* PubQiuzhiViewController.swift */; };
+		AD202757204C38A400E538CD /* PubFangwuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD202756204C38A400E538CD /* PubFangwuViewController.swift */; };
+		AD202759204C38B000E538CD /* PubDacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD202758204C38B000E538CD /* PubDacheViewController.swift */; };
+		AD20275B204C453000E538CD /* PubBaseTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD20275A204C453000E538CD /* PubBaseTextViewCell.swift */; };
 		AD21DF5C20274461002FE181 /* Publish.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD21DF5B20274461002FE181 /* Publish.storyboard */; };
 		AD21DF5E20274DC7002FE181 /* BaseVCWithTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21DF5D20274DC7002FE181 /* BaseVCWithTableView.swift */; };
 		AD21DF61202750FD002FE181 /* TableViewCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21DF5F202750FD002FE181 /* TableViewCellTextView.swift */; };
@@ -196,7 +201,6 @@
 		A1CE83A31FC4122D00DAF90F /* 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 14.png; sourceTree = "<group>"; };
 		A1DE189E1FC270F300562130 /* TTPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPageViewController.swift; sourceTree = "<group>"; };
 		A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTHeadTitleView.swift; sourceTree = "<group>"; };
-		A1DFE70A1FB97045001C1905 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		A1E1B02C1FDA7AEE002D6BDC /* TTImagePreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImagePreviewController.swift; sourceTree = "<group>"; };
 		A1E1B02E1FDA90E8002D6BDC /* TTImageBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImageBaseViewController.swift; sourceTree = "<group>"; };
 		A1E61D1C1FCE8F560080A12D /* back_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_bg.png; sourceTree = "<group>"; };
@@ -270,6 +274,12 @@
 		AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomerListViewController.swift; sourceTree = "<group>"; };
 		AD1BEBFF2029EF6B003E334C /* PubTypeCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubTypeCollectionReusableView.swift; sourceTree = "<group>"; };
 		AD1BEC002029EF6B003E334C /* PubTypeCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PubTypeCollectionReusableView.xib; sourceTree = "<group>"; };
+		AD202750204C385900E538CD /* PubShangJiaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubShangJiaController.swift; sourceTree = "<group>"; };
+		AD202752204C388100E538CD /* PubJiaoYouController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubJiaoYouController.swift; sourceTree = "<group>"; };
+		AD202754204C389500E538CD /* PubQiuzhiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubQiuzhiViewController.swift; sourceTree = "<group>"; };
+		AD202756204C38A400E538CD /* PubFangwuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubFangwuViewController.swift; sourceTree = "<group>"; };
+		AD202758204C38B000E538CD /* PubDacheViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubDacheViewController.swift; sourceTree = "<group>"; };
+		AD20275A204C453000E538CD /* PubBaseTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubBaseTextViewCell.swift; sourceTree = "<group>"; };
 		AD21DF5B20274461002FE181 /* Publish.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Publish.storyboard; sourceTree = "<group>"; };
 		AD21DF5D20274DC7002FE181 /* BaseVCWithTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVCWithTableView.swift; sourceTree = "<group>"; };
 		AD21DF5F202750FD002FE181 /* TableViewCellTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellTextView.swift; sourceTree = "<group>"; };
@@ -556,6 +566,11 @@
 				AD1633C320235D4900B2D009 /* PubSelectTypeController.swift */,
 				AD1633C420235D4900B2D009 /* PubSelectTypeController.xib */,
 				AD16EDA3204848C60072A266 /* PubBaseTableViewController.swift */,
+				AD202750204C385900E538CD /* PubShangJiaController.swift */,
+				AD202752204C388100E538CD /* PubJiaoYouController.swift */,
+				AD202754204C389500E538CD /* PubQiuzhiViewController.swift */,
+				AD202756204C38A400E538CD /* PubFangwuViewController.swift */,
+				AD202758204C38B000E538CD /* PubDacheViewController.swift */,
 				AD16EDA520485C030072A266 /* PubQuestionController.swift */,
 				AD21DF5B20274461002FE181 /* Publish.storyboard */,
 			);
@@ -565,11 +580,11 @@
 		AD128C68201C6DDB00A9EDBE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AD20275C204C4C2200E538CD /* Login */,
 				AD1033381FB6CD920017E81C /* BaseController */,
 				A1C46D742005E12200E02635 /* Home */,
 				AD0BD4FF200A33A40088D5E7 /* Friend */,
 				AD128C67201C6A6E00A9EDBE /* Publish */,
-				A1DFE70A1FB97045001C1905 /* RecentViewController.swift */,
 				AD0FAFA2204461F1008A386E /* Servers */,
 				AD0FAFA320446243008A386E /* Me */,
 			);
@@ -598,8 +613,16 @@
 				AD21DF6420275A8B002FE181 /* TableViewCellSwitch.xib */,
 				AD1BEBFF2029EF6B003E334C /* PubTypeCollectionReusableView.swift */,
 				AD1BEC002029EF6B003E334C /* PubTypeCollectionReusableView.xib */,
+				AD20275A204C453000E538CD /* PubBaseTextViewCell.swift */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		AD20275C204C4C2200E538CD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		ADEAE4F71FB6C8F50048F876 = {
@@ -865,14 +888,18 @@
 				A1783C031FCC128F00E4AB06 /* AllCategoryCell.swift in Sources */,
 				AD1033471FB6CEA00017E81C /* MeViewController.swift in Sources */,
 				A1E1B02D1FDA7AEF002D6BDC /* TTImagePreviewController.swift in Sources */,
+				AD202755204C389500E538CD /* PubQiuzhiViewController.swift in Sources */,
+				AD202759204C38B000E538CD /* PubDacheViewController.swift in Sources */,
 				A1C1E82120454EBC003D1F07 /* CategorySectionHeaderView.swift in Sources */,
 				AD10332E1FB6CD4E0017E81C /* Extension.swift in Sources */,
 				A148A2AF1FD687DD0052DDF3 /* PublishImageCell.swift in Sources */,
 				ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */,
 				AD1033401FB6CD920017E81C /* BaseTableViewController.swift in Sources */,
+				AD202753204C388100E538CD /* PubJiaoYouController.swift in Sources */,
 				AD1033351FB6CD4E0017E81C /* Reachability.m in Sources */,
 				ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */,
 				AD21DF5E20274DC7002FE181 /* BaseVCWithTableView.swift in Sources */,
+				AD20275B204C453000E538CD /* PubBaseTextViewCell.swift in Sources */,
 				AD1633C520235D4900B2D009 /* PubSelectTypeController.swift in Sources */,
 				AD10334D1FB6D1A40017E81C /* AllViewController.swift in Sources */,
 				A1A047AC1FD53C910057CC17 /* TTRefreshFooter.swift in Sources */,
@@ -890,6 +917,7 @@
 				AD1BEC012029EF6B003E334C /* PubTypeCollectionReusableView.swift in Sources */,
 				AD1033361FB6CD4E0017E81C /* themeColor.swift in Sources */,
 				AD1033491FB6CF070017E81C /* FriendsViewController.swift in Sources */,
+				AD202751204C385A00E538CD /* PubShangJiaController.swift in Sources */,
 				AD128C70201CC53700A9EDBE /* PublishFriendController.swift in Sources */,
 				A148A2B31FD6A0B70052DDF3 /* PublishCollectionReusableView.swift in Sources */,
 				A10CB8EB1FE0FD340043391D /* TTImagePreviewCell2.swift in Sources */,
@@ -907,7 +935,6 @@
 				AD21DF6520275A8B002FE181 /* TableViewCellSwitch.swift in Sources */,
 				A133A97F1FD8DE6200793D57 /* TTImagePickerViewController.swift in Sources */,
 				A1DE189F1FC270F300562130 /* TTPageViewController.swift in Sources */,
-				A1DFE70B1FB97045001C1905 /* RecentViewController.swift in Sources */,
 				AD128C76201CCD9500A9EDBE /* PubFriendCell.swift in Sources */,
 				AD14CC631FE802B6003FBE0B /* HomeCellWithImages.swift in Sources */,
 				AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */,
@@ -927,6 +954,7 @@
 				AD00300E201DF9D900A72A16 /* PubCityCell.swift in Sources */,
 				AD16EDA620485C030072A266 /* PubQuestionController.swift in Sources */,
 				AD128C6C201C747E00A9EDBE /* TTDatePickerView.swift in Sources */,
+				AD202757204C38A400E538CD /* PubFangwuViewController.swift in Sources */,
 				A19C4B631FCD2AD600E9DE59 /* TTSearchBarView.swift in Sources */,
 				A1CE83991FC3F6AA00DAF90F /* HomeDetailController.swift in Sources */,
 				A1C854C11FDFD72E00AC03E5 /* TTImagePreviewCell.swift in Sources */,

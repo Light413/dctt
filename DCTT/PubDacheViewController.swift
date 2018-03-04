@@ -1,20 +1,24 @@
 //
-//  RecentViewController.swift
+//  PubDacheViewController.swift
 //  DCTT
 //
-//  Created by gener on 17/11/13.
-//  Copyright © 2017年 Light.W. All rights reserved.
+//  Created by wyg on 2018/3/4.
+//  Copyright © 2018年 Light.W. All rights reserved.
 //
 
 import UIKit
 
-class RecentViewController: UIViewController {
+class PubDacheViewController: PubBaseTableViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor  = UIColor.red
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCellReuseIdentifier")
+        
     }
 
     override func didReceiveMemoryWarning() {

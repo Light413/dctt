@@ -8,13 +8,17 @@
 
 import UIKit
 
-class PubBaseTableViewController: UITableViewController {
+class PubBaseTableViewController: UITableViewController ,UICollectionViewDelegate,UICollectionViewDataSource {
+    
+    var t_barTintColor:UIColor?
+    
     override func awakeFromNib() {
         //tableView.contentInset = UIEdgeInsetsMake(10, 10, 10, -10)
         
         title = kPublish_type_info["item_title"]
         
     }
+    
     
     
     override func viewDidLoad() {
@@ -30,6 +34,7 @@ class PubBaseTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = leftNavigationItem()
         navigationItem.rightBarButtonItem = rightNavigationItem()
 
+        ///////
         
     }
 
@@ -62,6 +67,30 @@ class PubBaseTableViewController: UITableViewController {
     
     func previewAction() {}
     func submintBtnAction(){}
+    
+    
+    //MARK: - 
+    //MARK:
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UICollectionViewCellReuseIdentifier", for: indexPath)
+        
+        for _v in cell.contentView.subviews {
+            _v.removeFromSuperview();
+        }
+        
+        let igv = UIImageView (frame: CGRect (x: (cell.frame.width - 30)/2, y: (cell.frame.height - 30)/2, width: 30, height: 30))
+        igv.image = UIImage (named: "addicon_repost")
+        cell.contentView.addSubview(igv)
+        cell.backgroundColor = UIColor (colorLiteralRed: 244/255.0, green: 245/255.0, blue: 246/255.0, alpha: 1)
+        
+        
+        return cell
+    }
+    
     
     
     
