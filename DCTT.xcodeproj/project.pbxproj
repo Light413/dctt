@@ -145,6 +145,11 @@
 		ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */; };
 		ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5051FB6C8F50048F876 /* ViewController.swift */; };
 		ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEAE50C1FB6C8F50048F876 /* LaunchScreen.storyboard */; };
+		ADFC9E022053EDCC00449767 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADFC9E012053EDCC00449767 /* Login.storyboard */; };
+		ADFC9E042053F72500449767 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFC9E032053F72500449767 /* LoginViewController.swift */; };
+		ADFC9E062053F73D00449767 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFC9E052053F73D00449767 /* RegisterViewController.swift */; };
+		ADFC9E082053F75B00449767 /* FindPwdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFC9E072053F75B00449767 /* FindPwdController.swift */; };
+		ADFC9E0A2053F7D400449767 /* UserAgreementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFC9E092053F7D400449767 /* UserAgreementController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -297,6 +302,11 @@
 		ADEAE5051FB6C8F50048F876 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ADEAE50D1FB6C8F50048F876 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADEAE50F1FB6C8F50048F876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADFC9E012053EDCC00449767 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		ADFC9E032053F72500449767 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ADFC9E052053F73D00449767 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		ADFC9E072053F75B00449767 /* FindPwdController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPwdController.swift; sourceTree = "<group>"; };
+		ADFC9E092053F7D400449767 /* UserAgreementController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAgreementController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -621,6 +631,11 @@
 		AD20275C204C4C2200E538CD /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				ADFC9E012053EDCC00449767 /* Login.storyboard */,
+				ADFC9E032053F72500449767 /* LoginViewController.swift */,
+				ADFC9E052053F73D00449767 /* RegisterViewController.swift */,
+				ADFC9E072053F75B00449767 /* FindPwdController.swift */,
+				ADFC9E092053F7D400449767 /* UserAgreementController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -752,6 +767,7 @@
 				A1CE83941FC3C0AC00DAF90F /* HomeCell.xib in Resources */,
 				A1A642DA1FC54FA40058F63B /* AppIcon-News60x60@3x.png in Resources */,
 				A149D2DC1FCE45310072FFE1 /* me.storyboard in Resources */,
+				ADFC9E022053EDCC00449767 /* Login.storyboard in Resources */,
 				AD1033331FB6CD4E0017E81C /* success@2x.png in Resources */,
 				ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */,
 				AD14CC5C1FE800E0003FBE0B /* home_cell_4.JPG in Resources */,
@@ -907,6 +923,7 @@
 				AD1033411FB6CD920017E81C /* BaseViewController.swift in Sources */,
 				A1A047AD1FD53C910057CC17 /* TTRefreshHeader.swift in Sources */,
 				AD0BD502200A34270088D5E7 /* FriendHeadView.swift in Sources */,
+				ADFC9E042053F72500449767 /* LoginViewController.swift in Sources */,
 				A1C172091FD631E2006BAAA0 /* TTPublishView.swift in Sources */,
 				AD16EDA4204848C60072A266 /* PubBaseTableViewController.swift in Sources */,
 				A1E1B02F1FDA90E8002D6BDC /* TTImageBaseViewController.swift in Sources */,
@@ -916,6 +933,9 @@
 				AD10332C1FB6CD4E0017E81C /* common.swift in Sources */,
 				AD1BEC012029EF6B003E334C /* PubTypeCollectionReusableView.swift in Sources */,
 				AD1033361FB6CD4E0017E81C /* themeColor.swift in Sources */,
+				ADFC9E082053F75B00449767 /* FindPwdController.swift in Sources */,
+				ADFC9E0A2053F7D400449767 /* UserAgreementController.swift in Sources */,
+				ADFC9E062053F73D00449767 /* RegisterViewController.swift in Sources */,
 				AD1033491FB6CF070017E81C /* FriendsViewController.swift in Sources */,
 				AD202751204C385A00E538CD /* PubShangJiaController.swift in Sources */,
 				AD128C70201CC53700A9EDBE /* PublishFriendController.swift in Sources */,

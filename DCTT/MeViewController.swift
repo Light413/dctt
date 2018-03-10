@@ -121,6 +121,18 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            let vc = UIStoryboard.init(name: "Login", bundle: nil).instantiateInitialViewController()
+            
+            self.navigationController?.present(vc!, animated: true, completion: nil)
+            
+            //UIApplication.shared.keyWindow?.rootViewController?.present(vc!, animated: true, completion: nil)
+            
+            return
+        }
+        
+        
+        
         if indexPath.row == 0{
             TTDatePickerView.show { (age) in
                 print(age)

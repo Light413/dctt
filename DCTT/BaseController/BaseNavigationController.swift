@@ -22,7 +22,7 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
         //navigationBar.barTintColor = tt_BarColor //kBartintColor
         navigationBar.isTranslucent = false
         //navigationBar.tintColor = UIColor.white
-        navigationBar.barStyle = .black
+        //navigationBar.barStyle = .black
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black,NSFontAttributeName:UIFont.systemFont(ofSize: 15)]
 
 //        navigationBar.setBackgroundImage(UIImage (named: "navigationbar_bg"), for: .default)
@@ -43,15 +43,25 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
             viewController.hidesBottomBarWhenPushed = true
         }
 
-        self.navigationBar.barTintColor = (viewController.value(forKey: "t_barTintColor") as? UIColor ) ?? tt_defafault_barColor
+        self.navigationBar.barTintColor = colorWith(viewController) //(viewController.value(forKey: "t_barTintColor") as? UIColor ) ?? tt_defafault_barColor
         super.pushViewController(viewController, animated: animated)
     }
 
+    func colorWith(_ controller:UIViewController) -> UIColor {
+       let b =  controller.responds(to: Selector.init(("t_barTintColor")))
+        var color = tt_defafault_barColor
+        
+        if b {
+            color = (controller.value(forKey: "t_barTintColor") as? UIColor ) ?? tt_defafault_barColor
+        }
+        
+       return color
+    }
     
     override func popViewController(animated: Bool) -> UIViewController? {
         let cnt = self.viewControllers.count
         let last = self.viewControllers[cnt - 2]
-        self.navigationBar.barTintColor = (last.value(forKey: "t_barTintColor") as? UIColor ) ?? tt_defafault_barColor
+        self.navigationBar.barTintColor = colorWith(last)//(last.value(forKey: "t_barTintColor") as? UIColor ) ?? tt_defafault_barColor
 
         return super.popViewController(animated: animated)
         
