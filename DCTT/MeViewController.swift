@@ -12,7 +12,9 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
     var _tableView:UITableView!
 
-    let _titleArr = ["消息通知","我的发布","我的收藏","我喜欢的","意见反馈","系统设置"]
+    let _titleArr = ["我的主页","消息通知","我的发布","我的收藏","我喜欢的","意见反馈","系统设置"]
+    let _imgArr = ["uc_account","uc_message","uc_danzi","uc_shouc","uc_app","uc_add","uc_system"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +30,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         _tableView.delegate = self
         _tableView.dataSource = self
         _tableView.register(UINib (nibName: "MePersonInfoCell", bundle: nil), forCellReuseIdentifier: "MePersonInfoCellReuseIdentifier")
+        _tableView.register(UINib (nibName: "MeNotRegisterCell", bundle: nil), forCellReuseIdentifier: "MeNotRegisterCellIdentifier")
         
         _tableView.sectionHeaderHeight = 0
         _tableView.sectionFooterHeight = 10
@@ -55,22 +58,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }*/
 
-    
-    func image(_ color:UIColor) -> UIImage {
-        let rect = CGRect (x: 0, y: 0, width: 1, height: 1)
-        
-        UIGraphicsBeginImageContext(rect.size)
-        
-        let ctx = UIGraphicsGetCurrentContext()
 
-        ctx?.setFillColor(color.cgColor)
-        
-        ctx?.fill(rect)
-        
-        let img = UIGraphicsGetImageFromCurrentImageContext()
-        
-        return img!
-    }
     
     //MARK: 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -89,8 +77,8 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-            case 0:return 200
-            default:return 50
+        case 0:return test_is_login ? 180 : 100
+            default:return 55
         }
     }
     
@@ -99,23 +87,30 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         var cell:UITableViewCell!
         
         if indexPath.section == 0 {
-            cell = tableView.dequeueReusableCell(withIdentifier: "MePersonInfoCellReuseIdentifier", for: indexPath)
+            let identifier =  test_is_login ? "MePersonInfoCellReuseIdentifier":"MeNotRegisterCellIdentifier"
+            cell = tableView.dequeueReusableCell(withIdentifier: identifier , for: indexPath)
+            
+            if test_is_login {
+                return cell;
+            }
+            
+            
         }else{
             cell = tableView.dequeueReusableCell(withIdentifier: "MeViewControllerCellIdentifier")
             if cell == nil {
                 cell = UITableViewCell.init(style: .value1, reuseIdentifier: "MeViewControllerCellIdentifier")
                 cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
                 cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15)
-                cell.accessoryType = .disclosureIndicator
             }
             cell.textLabel?.text = _titleArr[indexPath.row]
+            cell.imageView?.image = UIImage (named: _imgArr[indexPath.row])
             
-            cell.detailTextLabel?.text = indexPath.row < 4 ? "0":""
             
         }
         
-        
+        //cell.detailTextLabel?.text = indexPath.row < 4 ? "0":""
         cell.selectionStyle = .none
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
@@ -124,9 +119,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         if indexPath.section == 0 {
             let vc = UIStoryboard.init(name: "Login", bundle: nil).instantiateInitialViewController()
             
-            self.navigationController?.present(vc!, animated: true, completion: nil)
-            
-            //UIApplication.shared.keyWindow?.rootViewController?.present(vc!, animated: true, completion: nil)
+            self.present(vc!, animated: true, completion: nil)
             
             return
         }
