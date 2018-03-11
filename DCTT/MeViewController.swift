@@ -19,14 +19,14 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         super.viewDidLoad()
 
 //        self.navigationController?.navigationBar.setBackgroundImage(image(UIColor.init(colorLiteralRed: 0.5, green: 0.5, blue: 0.5, alpha: 0)), for: .default)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        //self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         _init()
     }
 
     func _init() {
         automaticallyAdjustsScrollViewInsets = false
-        _tableView = UITableView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 49), style: .grouped);
+        _tableView = UITableView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 49 - 64), style: .grouped);
         _tableView.delegate = self
         _tableView.dataSource = self
         _tableView.register(UINib (nibName: "MePersonInfoCell", bundle: nil), forCellReuseIdentifier: "MePersonInfoCellReuseIdentifier")
@@ -117,9 +117,10 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            let vc = UIStoryboard.init(name: "Login", bundle: nil).instantiateInitialViewController()
+            /*let vc = UIStoryboard.init(name: "Login", bundle: nil).instantiateInitialViewController()*/
+            let vc = UIStoryboard.init(name: "me", bundle: nil).instantiateViewController(withIdentifier: "me_personInfo_id")
             
-            self.present(vc!, animated: true, completion: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
             
             return
         }
