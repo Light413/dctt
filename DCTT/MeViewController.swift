@@ -77,7 +77,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0:return test_is_login ? 180 : 100
+        case 0:return test_is_login ? 150 : 100
             default:return 55
         }
     }
@@ -123,6 +123,21 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             self.navigationController?.pushViewController(vc, animated: true)
             
             return
+        } else if indexPath.section == 1 {
+            var vc:UIViewController!
+            
+            switch indexPath.row {
+            case 0:
+                vc = MeHomePageController()
+                break
+            default:
+                 vc = BaseViewController()
+                 
+                break
+            }
+        
+            self.navigationController?.pushViewController(vc, animated: true);
+            
         }
         
         
@@ -138,12 +153,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         })
             
             
-        }else{
-            let vc = BaseViewController()
-            
-            self.navigationController?.pushViewController(vc, animated: true)
         }
-        
         
         
 

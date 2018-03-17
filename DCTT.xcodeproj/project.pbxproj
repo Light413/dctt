@@ -59,7 +59,7 @@
 		A1DE18A11FC2A0D000562130 /* TTHeadTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */; };
 		A1E1B02D1FDA7AEF002D6BDC /* TTImagePreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E1B02C1FDA7AEE002D6BDC /* TTImagePreviewController.swift */; };
 		A1E1B02F1FDA90E8002D6BDC /* TTImageBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E1B02E1FDA90E8002D6BDC /* TTImageBaseViewController.swift */; };
-		A1E61D1D1FCE8F560080A12D /* back_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A1E61D1C1FCE8F560080A12D /* back_bg.png */; };
+		A1E61D1D1FCE8F560080A12D /* back_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1E61D1C1FCE8F560080A12D /* back_bg@2x.png */; };
 		A1E61D201FCE93E30080A12D /* MePersonInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E61D1E1FCE93E30080A12D /* MePersonInfoCell.swift */; };
 		A1E61D211FCE93E30080A12D /* MePersonInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E61D1F1FCE93E30080A12D /* MePersonInfoCell.xib */; };
 		A1E741AD1FD90F1600942219 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1E741AF1FD90F1600942219 /* Localizable.strings */; };
@@ -122,6 +122,7 @@
 		AD16EDA4204848C60072A266 /* PubBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD16EDA3204848C60072A266 /* PubBaseTableViewController.swift */; };
 		AD16EDA620485C030072A266 /* PubQuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD16EDA520485C030072A266 /* PubQuestionController.swift */; };
 		AD1B54EA1FEC01FE00B2F985 /* HomerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */; };
+		AD1BA1F6205D1C1200B7C29C /* MeHomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BA1F5205D1C1200B7C29C /* MeHomePageController.swift */; };
 		AD1BEC012029EF6B003E334C /* PubTypeCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BEBFF2029EF6B003E334C /* PubTypeCollectionReusableView.swift */; };
 		AD1BEC022029EF6B003E334C /* PubTypeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD1BEC002029EF6B003E334C /* PubTypeCollectionReusableView.xib */; };
 		AD202751204C385A00E538CD /* PubShangJiaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD202750204C385900E538CD /* PubShangJiaController.swift */; };
@@ -211,7 +212,7 @@
 		A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTHeadTitleView.swift; sourceTree = "<group>"; };
 		A1E1B02C1FDA7AEE002D6BDC /* TTImagePreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImagePreviewController.swift; sourceTree = "<group>"; };
 		A1E1B02E1FDA90E8002D6BDC /* TTImageBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImageBaseViewController.swift; sourceTree = "<group>"; };
-		A1E61D1C1FCE8F560080A12D /* back_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_bg.png; sourceTree = "<group>"; };
+		A1E61D1C1FCE8F560080A12D /* back_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_bg@2x.png"; sourceTree = "<group>"; };
 		A1E61D1E1FCE93E30080A12D /* MePersonInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MePersonInfoCell.swift; sourceTree = "<group>"; };
 		A1E61D1F1FCE93E30080A12D /* MePersonInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MePersonInfoCell.xib; sourceTree = "<group>"; };
 		A1E741AC1FD90EF300942219 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -280,6 +281,7 @@
 		AD16EDA3204848C60072A266 /* PubBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubBaseTableViewController.swift; sourceTree = "<group>"; };
 		AD16EDA520485C030072A266 /* PubQuestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubQuestionController.swift; sourceTree = "<group>"; };
 		AD1B54E91FEC01FE00B2F985 /* HomerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomerListViewController.swift; sourceTree = "<group>"; };
+		AD1BA1F5205D1C1200B7C29C /* MeHomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeHomePageController.swift; sourceTree = "<group>"; };
 		AD1BEBFF2029EF6B003E334C /* PubTypeCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubTypeCollectionReusableView.swift; sourceTree = "<group>"; };
 		AD1BEC002029EF6B003E334C /* PubTypeCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PubTypeCollectionReusableView.xib; sourceTree = "<group>"; };
 		AD202750204C385900E538CD /* PubShangJiaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubShangJiaController.swift; sourceTree = "<group>"; };
@@ -430,7 +432,7 @@
 				AD14CC581FE800E0003FBE0B /* home_cell_4.JPG */,
 				A1CE83A31FC4122D00DAF90F /* 14.png */,
 				A1B5A6441FC41F2200871676 /* sunrise.jpg */,
-				A1E61D1C1FCE8F560080A12D /* back_bg.png */,
+				A1E61D1C1FCE8F560080A12D /* back_bg@2x.png */,
 				AD1490B31FCB08750053FD31 /* trans-navi-left-button@2x.png */,
 			);
 			path = Test;
@@ -482,6 +484,7 @@
 				A149D2DB1FCE45310072FFE1 /* me.storyboard */,
 				AD21D9C020557C1000E317FF /* MePersonInfoController.swift */,
 				AD1033461FB6CEA00017E81C /* MeViewController.swift */,
+				AD1BA1F5205D1C1200B7C29C /* MeHomePageController.swift */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -799,7 +802,7 @@
 				AD14CC601FE8027A003FBE0B /* HomeCellWithImage.xib in Resources */,
 				AD1033301FB6CD4E0017E81C /* error@2x.png in Resources */,
 				AD21DF5C20274461002FE181 /* Publish.storyboard in Resources */,
-				A1E61D1D1FCE8F560080A12D /* back_bg.png in Resources */,
+				A1E61D1D1FCE8F560080A12D /* back_bg@2x.png in Resources */,
 				A1A642D81FC54FA40058F63B /* AppIcon-News40x40@3x.png in Resources */,
 				A1A642D41FC54FA40058F63B /* AppIcon-News29x29.png in Resources */,
 				AD0BD4F9200A07310088D5E7 /* WechatIMG1.jpeg in Resources */,
@@ -994,6 +997,7 @@
 				AD00300E201DF9D900A72A16 /* PubCityCell.swift in Sources */,
 				AD16EDA620485C030072A266 /* PubQuestionController.swift in Sources */,
 				AD128C6C201C747E00A9EDBE /* TTDatePickerView.swift in Sources */,
+				AD1BA1F6205D1C1200B7C29C /* MeHomePageController.swift in Sources */,
 				AD202757204C38A400E538CD /* PubFangwuViewController.swift in Sources */,
 				A19C4B631FCD2AD600E9DE59 /* TTSearchBarView.swift in Sources */,
 				A1CE83991FC3F6AA00DAF90F /* HomeDetailController.swift in Sources */,
