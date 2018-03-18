@@ -132,6 +132,10 @@
 		AD202759204C38B000E538CD /* PubDacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD202758204C38B000E538CD /* PubDacheViewController.swift */; };
 		AD20275B204C453000E538CD /* PubBaseTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD20275A204C453000E538CD /* PubBaseTextViewCell.swift */; };
 		AD2187D5205E02A000E8C93F /* MeBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2187D4205E02A000E8C93F /* MeBaseTableViewController.swift */; };
+		AD2187D8205E186E00E8C93F /* MeHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2187D6205E186E00E8C93F /* MeHomeCell.swift */; };
+		AD2187D9205E186E00E8C93F /* MeHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD2187D7205E186E00E8C93F /* MeHomeCell.xib */; };
+		AD2187DB205E7A5300E8C93F /* MeHomeHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2187DA205E7A5300E8C93F /* MeHomeHeadView.swift */; };
+		AD2187DD205E7A6F00E8C93F /* MeHomeHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD2187DC205E7A6F00E8C93F /* MeHomeHeadView.xib */; };
 		AD21D9BD205520C300E317FF /* MeNotRegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21D9BB205520C300E317FF /* MeNotRegisterCell.swift */; };
 		AD21D9BE205520C300E317FF /* MeNotRegisterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD21D9BC205520C300E317FF /* MeNotRegisterCell.xib */; };
 		AD21D9C120557C1000E317FF /* MePersonInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21D9C020557C1000E317FF /* MePersonInfoController.swift */; };
@@ -293,6 +297,10 @@
 		AD202758204C38B000E538CD /* PubDacheViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubDacheViewController.swift; sourceTree = "<group>"; };
 		AD20275A204C453000E538CD /* PubBaseTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubBaseTextViewCell.swift; sourceTree = "<group>"; };
 		AD2187D4205E02A000E8C93F /* MeBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeBaseTableViewController.swift; sourceTree = "<group>"; };
+		AD2187D6205E186E00E8C93F /* MeHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeCell.swift; sourceTree = "<group>"; };
+		AD2187D7205E186E00E8C93F /* MeHomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHomeCell.xib; sourceTree = "<group>"; };
+		AD2187DA205E7A5300E8C93F /* MeHomeHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeHeadView.swift; sourceTree = "<group>"; };
+		AD2187DC205E7A6F00E8C93F /* MeHomeHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHomeHeadView.xib; sourceTree = "<group>"; };
 		AD21D9BB205520C300E317FF /* MeNotRegisterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeNotRegisterCell.swift; sourceTree = "<group>"; };
 		AD21D9BC205520C300E317FF /* MeNotRegisterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeNotRegisterCell.xib; sourceTree = "<group>"; };
 		AD21D9C020557C1000E317FF /* MePersonInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MePersonInfoController.swift; sourceTree = "<group>"; };
@@ -662,6 +670,10 @@
 				A1E61D1F1FCE93E30080A12D /* MePersonInfoCell.xib */,
 				AD21D9BB205520C300E317FF /* MeNotRegisterCell.swift */,
 				AD21D9BC205520C300E317FF /* MeNotRegisterCell.xib */,
+				AD2187D6205E186E00E8C93F /* MeHomeCell.swift */,
+				AD2187D7205E186E00E8C93F /* MeHomeCell.xib */,
+				AD2187DA205E7A5300E8C93F /* MeHomeHeadView.swift */,
+				AD2187DC205E7A6F00E8C93F /* MeHomeHeadView.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -797,9 +809,11 @@
 				AD1033331FB6CD4E0017E81C /* success@2x.png in Resources */,
 				ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */,
 				AD14CC5C1FE800E0003FBE0B /* home_cell_4.JPG in Resources */,
+				AD2187D9205E186E00E8C93F /* MeHomeCell.xib in Resources */,
 				AD21D9BE205520C300E317FF /* MeNotRegisterCell.xib in Resources */,
 				AD0BD4FE200A07310088D5E7 /* WechatIMG6.jpeg in Resources */,
 				AD1490B41FCB08750053FD31 /* trans-navi-left-button@2x.png in Resources */,
+				AD2187DD205E7A6F00E8C93F /* MeHomeHeadView.xib in Resources */,
 				AD0BD4F1200A05160088D5E7 /* ly001.jpg in Resources */,
 				AD14CC591FE800E0003FBE0B /* home_cell_1.JPG in Resources */,
 				AD1033321FB6CD4E0017E81C /* success.png in Resources */,
@@ -933,6 +947,7 @@
 				A1E1B02D1FDA7AEF002D6BDC /* TTImagePreviewController.swift in Sources */,
 				AD202755204C389500E538CD /* PubQiuzhiViewController.swift in Sources */,
 				AD202759204C38B000E538CD /* PubDacheViewController.swift in Sources */,
+				AD2187DB205E7A5300E8C93F /* MeHomeHeadView.swift in Sources */,
 				A1C1E82120454EBC003D1F07 /* CategorySectionHeaderView.swift in Sources */,
 				AD10332E1FB6CD4E0017E81C /* Extension.swift in Sources */,
 				A148A2AF1FD687DD0052DDF3 /* PublishImageCell.swift in Sources */,
@@ -958,6 +973,7 @@
 				A148A2AB1FD687B40052DDF3 /* PublishTextCell.swift in Sources */,
 				AD128C6E201C748D00A9EDBE /* TTDataPickerView.swift in Sources */,
 				AD10332C1FB6CD4E0017E81C /* common.swift in Sources */,
+				AD2187D8205E186E00E8C93F /* MeHomeCell.swift in Sources */,
 				AD1BEC012029EF6B003E334C /* PubTypeCollectionReusableView.swift in Sources */,
 				AD1033361FB6CD4E0017E81C /* themeColor.swift in Sources */,
 				ADFC9E082053F75B00449767 /* FindPwdController.swift in Sources */,

@@ -157,7 +157,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             
             switch indexPath.row {
             case 0:
-                vc = MeHomePageController()
+                vc = MeHomePageController.init(style:.grouped)
                 break
                 
             default:

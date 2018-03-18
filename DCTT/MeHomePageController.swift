@@ -7,7 +7,7 @@
 //
 
 import UIKit
-let _IMG_HEIGHT : CGFloat = 150
+let _IMG_HEIGHT : CGFloat = 180
 
 class MeHomePageController: MeBaseTableViewController {
 
@@ -16,45 +16,52 @@ class MeHomePageController: MeBaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.backgroundColor = kTableviewBackgroundColor
         tableView.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
         
         _initSubview()
         
+        title = "个人动态"
     }
 
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        navigationController?.navigationBar.isTranslucent = false
-    navigationController?.navigationBar.setBackgroundImage(imgWithColor(tt_defafault_barColor.withAlphaComponent(1)), for: .default)
+        /*navigationController?.navigationBar.isTranslucent = false
+    navigationController?.navigationBar.setBackgroundImage(imgWithColor(tt_defafault_barColor.withAlphaComponent(1)), for: .default)*/
 
     }
     
     func _initSubview()  {
         
-        let bg = UIView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _IMG_HEIGHT - 64))
-        imgv = UIImageView (frame: CGRect (x: 0, y: -64, width: tableView.frame.width, height: _IMG_HEIGHT))
+        let bg = UIView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _IMG_HEIGHT - 0))
+        imgv = UIImageView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _IMG_HEIGHT))
         imgv.image = UIImage (named: "back_bg")
         bg.addSubview(imgv)
 
+        /////
+        let meinfo = Bundle.main.loadNibNamed("MeHomeHeadView", owner: nil, options: nil)?.first as! UIView
+        meinfo.frame = CGRect  (x: 0, y: 30, width: bg.frame.width, height: 130)
+        meinfo.backgroundColor = UIColor.clear
+        
+        bg.addSubview(meinfo)
+        
         tableView.tableHeaderView = bg
         tableView.tableFooterView = UIView()
         
-        navigationController?.navigationBar.isTranslucent = true
-    navigationController?.navigationBar.setBackgroundImage(imgWithColor(tt_defafault_barColor.withAlphaComponent(0)), for: UIBarPosition.top, barMetrics: .default)
+        /*navigationController?.navigationBar.isTranslucent = true
+    navigationController?.navigationBar.setBackgroundImage(imgWithColor(tt_defafault_barColor.withAlphaComponent(0)), for: UIBarPosition.top, barMetrics: .default)*/
         
-        tableView.register(UINib (nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCellReuseIdentifierId")
+        tableView.register(UINib (nibName: "MeHomeCell", bundle: nil), forCellReuseIdentifier: "MeHomeCellIdentifier")
 
-    
-        
+        tableView.estimatedRowHeight = 80;
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
 
     //MARK:
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let _y = scrollView.contentOffset.y + 64
+        let _y = scrollView.contentOffset.y + 0
         if _y < 0{
             //navigationController?.navigationBar.isTranslucent = true
             
@@ -62,9 +69,9 @@ class MeHomePageController: MeBaseTableViewController {
             let w = scrollView.frame.width * (1 + s)
             let h = _IMG_HEIGHT * (1 + s)
 
-            imgv.frame = CGRect (x: -scrollView.frame.size.width * s * 0.5, y: _y - 64, width: w, height: h)
+            imgv.frame = CGRect (x: -scrollView.frame.size.width * s * 0.5, y: _y - 0, width: w, height: h)
         }
-    navigationController?.navigationBar.setBackgroundImage(imgWithColor(tt_defafault_barColor.withAlphaComponent(_y > 30 ? 1 : 0)), for: .default)
+    //navigationController?.navigationBar.setBackgroundImage(imgWithColor(tt_defafault_barColor.withAlphaComponent(_y > 30 ? 1 : 0)), for: .default)
 
         
     }
@@ -91,7 +98,7 @@ class MeHomePageController: MeBaseTableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var identifier :String = "HomeCellReuseIdentifierId"
+        var identifier :String = "MeHomeCellIdentifier"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
         // Configure the cell...
@@ -100,39 +107,6 @@ class MeHomePageController: MeBaseTableViewController {
     }
     
     
-   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-    
-    
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
