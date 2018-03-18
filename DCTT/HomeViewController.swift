@@ -13,7 +13,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
     var vcArr = [BaseTableViewController]()
     var pagevc :TTPageViewController!
     var topview : TTHeadTitleView!
-    let _logo_title = "郸城头条-老家人自己的头条"
+    let _logo_title = "郸城头条"//-老家人自己的头条
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -96,3 +96,28 @@ let test_is_login = true
 
 
 
+//MARK: - methods
+public func imgWithColor(_ color:UIColor) -> UIImage? {
+    let ret = CGRect (x: 0, y: 0, width: 1, height: 1)
+    
+    UIGraphicsBeginImageContext(ret.size)
+    
+    let ctx = UIGraphicsGetCurrentContext()
+    
+    ctx?.setFillColor(color.cgColor)
+    
+    ctx?.fill(ret)
+    
+    let ig = UIGraphicsGetImageFromCurrentImageContext()
+    
+    UIGraphicsEndImageContext()
+    
+    return ig
+    
+}
+
+
+
+
+
+

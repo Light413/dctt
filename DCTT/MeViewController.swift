@@ -12,21 +12,54 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
     var _tableView:UITableView!
 
+    var _topBgView:UIView!
+    
     let _titleArr = ["我的主页","消息通知","我的发布","我的收藏","我喜欢的","意见反馈","系统设置"]
     let _imgArr = ["uc_account","uc_message","uc_danzi","uc_shouc","uc_app","uc_add","uc_system"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        self.navigationController?.navigationBar.setBackgroundImage(image(UIColor.init(colorLiteralRed: 0.5, green: 0.5, blue: 0.5, alpha: 0)), for: .default)
-        //self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
+        //self.navigationController?.navigationBar.shadowImage = UIImage()
+
         _init()
+
+        _topBgView = topView()
+        
     }
 
+    func topView() -> UIView {
+        let _l = UILabel .init(frame: CGRect (x: 0, y: 20, width: kCurrentScreenWidth, height: 44))
+        _l.text = "正儿八经的程序员GG"
+        _l.textAlignment = .center
+        _l.font = UIFont.systemFont(ofSize: 17)
+        
+        let _topBgView = UIView .init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 64))
+        _topBgView.backgroundColor = tt_defafault_barColor
+        _topBgView.alpha = 0
+        
+        _topBgView.addSubview(_l)
+
+        return _topBgView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        view.addSubview(_topBgView)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        _topBgView.removeFromSuperview()
+    }
+    
+    
     func _init() {
         automaticallyAdjustsScrollViewInsets = false
-        _tableView = UITableView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 49 - 64), style: .grouped);
+        _tableView = UITableView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 49), style: .grouped);
         _tableView.delegate = self
         _tableView.dataSource = self
         _tableView.register(UINib (nibName: "MePersonInfoCell", bundle: nil), forCellReuseIdentifier: "MePersonInfoCellReuseIdentifier")
@@ -48,19 +81,15 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         _tableView.tableFooterView = logoutBtn
     }
     
-    /*override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let _y = scrollView.contentOffset.y
+        
+        _topBgView.alpha = _y > 64 ? 1 : 0
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    }*/
-
 
     
-    //MARK: 
+    //MARK:  -
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -77,7 +106,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0:return test_is_login ? 150 : 100
+        case 0:return test_is_login ? 180 : 100
             default:return 55
         }
     }
@@ -130,6 +159,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             case 0:
                 vc = MeHomePageController()
                 break
+                
             default:
                  vc = BaseViewController()
                  
@@ -142,18 +172,18 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         
         
         
-        if indexPath.row == 0{
-            TTDatePickerView.show { (age) in
-                print(age)
-            }
-            
-        } else if indexPath.row == 1{
-        TTDataPickerView.show({ (str) in
-            print(str)
-        })
-            
-            
-        }
+//        if indexPath.row == 0{
+//            TTDatePickerView.show { (age) in
+//                print(age)
+//            }
+//
+//        } else if indexPath.row == 1{
+//        TTDataPickerView.show({ (str) in
+//            print(str)
+//        })
+//
+//
+//        }
         
         
 

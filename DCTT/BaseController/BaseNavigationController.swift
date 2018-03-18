@@ -18,15 +18,17 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationBar.shadowImage = UIImage()
         //navigationBar.barTintColor = tt_BarColor //kBartintColor
+        
         navigationBar.isTranslucent = false
         //navigationBar.tintColor = UIColor.white
         //navigationBar.barStyle = .black
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black,NSFontAttributeName:UIFont.systemFont(ofSize: 15)]
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black,NSFontAttributeName:UIFont.systemFont(ofSize: 17)]
 
 //        navigationBar.setBackgroundImage(UIImage (named: "navigationbar_bg"), for: .default)
         //UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent;
+
 
     }
     

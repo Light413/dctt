@@ -131,6 +131,7 @@
 		AD202757204C38A400E538CD /* PubFangwuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD202756204C38A400E538CD /* PubFangwuViewController.swift */; };
 		AD202759204C38B000E538CD /* PubDacheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD202758204C38B000E538CD /* PubDacheViewController.swift */; };
 		AD20275B204C453000E538CD /* PubBaseTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD20275A204C453000E538CD /* PubBaseTextViewCell.swift */; };
+		AD2187D5205E02A000E8C93F /* MeBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2187D4205E02A000E8C93F /* MeBaseTableViewController.swift */; };
 		AD21D9BD205520C300E317FF /* MeNotRegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21D9BB205520C300E317FF /* MeNotRegisterCell.swift */; };
 		AD21D9BE205520C300E317FF /* MeNotRegisterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD21D9BC205520C300E317FF /* MeNotRegisterCell.xib */; };
 		AD21D9C120557C1000E317FF /* MePersonInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21D9C020557C1000E317FF /* MePersonInfoController.swift */; };
@@ -140,6 +141,7 @@
 		AD21DF62202750FD002FE181 /* TableViewCellTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD21DF60202750FD002FE181 /* TableViewCellTextView.xib */; };
 		AD21DF6520275A8B002FE181 /* TableViewCellSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21DF6320275A8B002FE181 /* TableViewCellSwitch.swift */; };
 		AD21DF6620275A8B002FE181 /* TableViewCellSwitch.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD21DF6420275A8B002FE181 /* TableViewCellSwitch.xib */; };
+		AD29B58E205D89C6001FCF69 /* MeHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29B58D205D89C6001FCF69 /* MeHomeViewController.swift */; };
 		AD2C1EE520260C4E00E48245 /* BasePublishController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2C1EE420260C4E00E48245 /* BasePublishController.swift */; };
 		AD2C1EE72026137900E48245 /* PublishFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2C1EE62026137900E48245 /* PublishFriendViewController.swift */; };
 		AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */; };
@@ -290,6 +292,7 @@
 		AD202756204C38A400E538CD /* PubFangwuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubFangwuViewController.swift; sourceTree = "<group>"; };
 		AD202758204C38B000E538CD /* PubDacheViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubDacheViewController.swift; sourceTree = "<group>"; };
 		AD20275A204C453000E538CD /* PubBaseTextViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubBaseTextViewCell.swift; sourceTree = "<group>"; };
+		AD2187D4205E02A000E8C93F /* MeBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeBaseTableViewController.swift; sourceTree = "<group>"; };
 		AD21D9BB205520C300E317FF /* MeNotRegisterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeNotRegisterCell.swift; sourceTree = "<group>"; };
 		AD21D9BC205520C300E317FF /* MeNotRegisterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeNotRegisterCell.xib; sourceTree = "<group>"; };
 		AD21D9C020557C1000E317FF /* MePersonInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MePersonInfoController.swift; sourceTree = "<group>"; };
@@ -299,6 +302,7 @@
 		AD21DF60202750FD002FE181 /* TableViewCellTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCellTextView.xib; sourceTree = "<group>"; };
 		AD21DF6320275A8B002FE181 /* TableViewCellSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellSwitch.swift; sourceTree = "<group>"; };
 		AD21DF6420275A8B002FE181 /* TableViewCellSwitch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCellSwitch.xib; sourceTree = "<group>"; };
+		AD29B58D205D89C6001FCF69 /* MeHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeViewController.swift; sourceTree = "<group>"; };
 		AD2C1EE420260C4E00E48245 /* BasePublishController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePublishController.swift; sourceTree = "<group>"; };
 		AD2C1EE62026137900E48245 /* PublishFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishFriendViewController.swift; sourceTree = "<group>"; };
 		AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailCommentCell.swift; sourceTree = "<group>"; };
@@ -482,9 +486,11 @@
 			children = (
 				AD21D9BF205520EF00E317FF /* view */,
 				A149D2DB1FCE45310072FFE1 /* me.storyboard */,
-				AD21D9C020557C1000E317FF /* MePersonInfoController.swift */,
 				AD1033461FB6CEA00017E81C /* MeViewController.swift */,
+				AD2187D4205E02A000E8C93F /* MeBaseTableViewController.swift */,
+				AD21D9C020557C1000E317FF /* MePersonInfoController.swift */,
 				AD1BA1F5205D1C1200B7C29C /* MeHomePageController.swift */,
+				AD29B58D205D89C6001FCF69 /* MeHomeViewController.swift */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -982,6 +988,7 @@
 				AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */,
 				AD1033441FB6CE560017E81C /* HomeViewController.swift in Sources */,
 				AD2C1EE520260C4E00E48245 /* BasePublishController.swift in Sources */,
+				AD2187D5205E02A000E8C93F /* MeBaseTableViewController.swift in Sources */,
 				A1CE839B1FC3F6D900DAF90F /* FriendsDetailController.swift in Sources */,
 				AD1033371FB6CD4E0017E81C /* url.swift in Sources */,
 				A1CE839E1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift in Sources */,
@@ -994,6 +1001,7 @@
 				AD10332D1FB6CD4E0017E81C /* constant.swift in Sources */,
 				AD14CC5F1FE8027A003FBE0B /* HomeCellWithImage.swift in Sources */,
 				A1DE18A11FC2A0D000562130 /* TTHeadTitleView.swift in Sources */,
+				AD29B58E205D89C6001FCF69 /* MeHomeViewController.swift in Sources */,
 				AD00300E201DF9D900A72A16 /* PubCityCell.swift in Sources */,
 				AD16EDA620485C030072A266 /* PubQuestionController.swift in Sources */,
 				AD128C6C201C747E00A9EDBE /* TTDatePickerView.swift in Sources */,
