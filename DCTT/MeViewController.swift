@@ -14,7 +14,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
     var _topBgView:UIView!
     
-    let _titleArr = ["我的主页","消息通知","我的发布","我的收藏","我喜欢的","意见反馈","系统设置"]
+    let _titleArr = ["我的动态","消息通知","我的发布","我的收藏","我喜欢的","意见反馈","系统设置"]
     let _imgArr = ["uc_account","uc_message","uc_danzi","uc_shouc","uc_app","uc_add","uc_system"]
 
     override func viewDidLoad() {

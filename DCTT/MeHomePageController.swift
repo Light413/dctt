@@ -17,10 +17,11 @@ class MeHomePageController: MeBaseTableViewController {
         super.viewDidLoad()
 
         tableView.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
+        tableView.separatorStyle = .none
         
         _initSubview()
         
-        title = "个人动态"
+        title = "正儿八经的程序员GG"
     }
 
     
@@ -34,14 +35,14 @@ class MeHomePageController: MeBaseTableViewController {
     
     func _initSubview()  {
         
-        let bg = UIView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _IMG_HEIGHT - 0))
+        let bg = UIView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _IMG_HEIGHT + 0))
         imgv = UIImageView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _IMG_HEIGHT))
         imgv.image = UIImage (named: "back_bg")
         bg.addSubview(imgv)
 
         /////
         let meinfo = Bundle.main.loadNibNamed("MeHomeHeadView", owner: nil, options: nil)?.first as! UIView
-        meinfo.frame = CGRect  (x: 0, y: 30, width: bg.frame.width, height: 130)
+        meinfo.frame = CGRect  (x: 0, y: 20, width: bg.frame.width, height: 160)
         meinfo.backgroundColor = UIColor.clear
         
         bg.addSubview(meinfo)
@@ -56,6 +57,7 @@ class MeHomePageController: MeBaseTableViewController {
 
         tableView.estimatedRowHeight = 80;
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.sectionHeaderHeight = 20
     }
     
 
@@ -106,23 +108,15 @@ class MeHomePageController: MeBaseTableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = HomeDetailController()
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+
+    }
     
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
+    
+    
 }
