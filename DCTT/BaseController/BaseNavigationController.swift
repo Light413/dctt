@@ -32,15 +32,20 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
 
     }
     
+    func leftBarButtonItem() -> UIBarButtonItem {
+        let backbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
+        backbtn.setImage(UIImage (named: "leftbackicon_sdk_login"), for: .normal)
+        backbtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10)
+        backbtn.addTarget(self, action: #selector(navigationBackButtonAction), for: .touchUpInside)
+        let leftitem = UIBarButtonItem.init(customView: backbtn)
+
+        return leftitem
+        
+    }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if self.viewControllers.count > 0 {
-        let backbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
-            backbtn.setImage(UIImage (named: "leftbackicon_sdk_login"), for: .normal)
-            backbtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10)
-            backbtn.addTarget(self, action: #selector(navigationBackButtonAction), for: .touchUpInside)
-            let leftitem = UIBarButtonItem.init(customView: backbtn)
-            viewController.navigationItem.leftBarButtonItem = leftitem
+            viewController.navigationItem.leftBarButtonItem = leftBarButtonItem()
             
             viewController.hidesBottomBarWhenPushed = true
         }

@@ -20,7 +20,7 @@ class PublishTextCell: UICollectionViewCell,UITextViewDelegate {
         textview.delegate = self
         
         msg = UILabel (frame: CGRect (x: 8, y: 0, width: 100, height: 30))
-        msg.text = "发表新动态..."
+        msg.text = "请输入内容..."
         msg.font = UIFont.systemFont(ofSize: 15)
         msg.textColor = UIColor.lightGray
 

@@ -14,8 +14,14 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
     var _topBgView:UIView!
     
-    let _titleArr = ["我的动态","消息通知","我的发布","我的收藏","我喜欢的","意见反馈","系统设置"]
-    let _imgArr = ["uc_account","uc_message","uc_danzi","uc_shouc","uc_app","uc_add","uc_system"]
+    let _titleArr = ["我的动态","消息通知",/*"关注",*/"收藏/喜欢","粉丝关注","意见反馈","系统设置"]
+    let _imgArr = ["uc_account",
+                   "uc_message",
+                   /*"uc_danzi",*/
+                "uc_shouc",
+                "uc_app",
+                "uc_add",
+                "uc_system"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,7 +113,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:return test_is_login ? 180 : 100
-            default:return 55
+            default:return 60
         }
     }
     
@@ -158,6 +164,13 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             switch indexPath.row {
             case 0:
                 vc = MeHomePageController.init(style:.grouped)
+                break
+            case 1:
+                vc = MessageViewController()
+                break
+                
+            case 4://意见反馈
+                vc = FackBackViewController();
                 break
                 
             default:

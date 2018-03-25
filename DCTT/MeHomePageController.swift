@@ -7,7 +7,7 @@
 //
 
 import UIKit
-let _IMG_HEIGHT : CGFloat = 180
+let _IMG_HEIGHT : CGFloat = 240
 
 class MeHomePageController: MeBaseTableViewController {
 
@@ -15,8 +15,7 @@ class MeHomePageController: MeBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
+        
         tableView.separatorStyle = .none
         
         _initSubview()
@@ -42,7 +41,7 @@ class MeHomePageController: MeBaseTableViewController {
 
         /////
         let meinfo = Bundle.main.loadNibNamed("MeHomeHeadView", owner: nil, options: nil)?.first as! UIView
-        meinfo.frame = CGRect  (x: 0, y: 20, width: bg.frame.width, height: 160)
+        meinfo.frame = CGRect  (x: 0, y:_IMG_HEIGHT - 160, width: bg.frame.width, height: 160)
         meinfo.backgroundColor = UIColor.clear
         
         bg.addSubview(meinfo)
@@ -87,12 +86,6 @@ class MeHomePageController: MeBaseTableViewController {
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 20
