@@ -14,13 +14,13 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
     var _topBgView:UIView!
     
-    let _titleArr = ["我的动态","消息通知",/*"关注",*/"收藏/喜欢","粉丝关注","意见反馈","系统设置"]
+    let _titleArr = ["我的动态","消息通知",/*"关注",*/"收藏","粉丝关注",/*"意见反馈",*/"系统设置"]
     let _imgArr = ["uc_account",
                    "uc_message",
                    /*"uc_danzi",*/
                 "uc_shouc",
                 "uc_app",
-                "uc_add",
+                //"uc_add",
                 "uc_system"]
 
     override func viewDidLoad() {
@@ -113,7 +113,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:return test_is_login ? 180 : 100
-            default:return 60
+            default:return 70
         }
     }
     
@@ -168,15 +168,18 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             case 1:
                 vc = MessageViewController()
                 break
-                
+            case 2:
+                vc = MeCollectController()
+                break
+            case 3:
+                vc = FensiBaseController()
+                break
+
             case 4://意见反馈
                 vc = FackBackViewController();
                 break
-                
-            default:
-                 vc = BaseViewController()
-                 
-                break
+//
+            default:break
             }
         
             self.navigationController?.pushViewController(vc, animated: true);

@@ -1,26 +1,20 @@
 //
-//  MeCollectController.swift
+//  GuanzhuController.swift
 //  DCTT
 //
-//  Created by wyg on 2018/3/25.
+//  Created by wyg on 2018/4/11.
 //  Copyright © 2018年 Light.W. All rights reserved.
 //
 
 import UIKit
 
-class MeCollectController: MeBaseTableViewController {
+class GuanzhuController: MeBaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "收藏";
-        
-        tableView.register(UINib (nibName: "MeHomeCell", bundle: nil), forCellReuseIdentifier: "MeHomeCellIdentifier")
-        tableView.estimatedRowHeight = 80;
-        tableView.rowHeight = UITableViewAutomaticDimension
 
-        //tableView.register(UINib (nibName: "CollectCell", bundle: nil), forCellReuseIdentifier: "CollectCellIdentifier")
-        //tableView.rowHeight = 90
+        tableView.register(UINib (nibName: "FensiCell", bundle: nil), forCellReuseIdentifier: "FensiCellIdentifier");
+        tableView.rowHeight = 80;
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,21 +23,20 @@ class MeCollectController: MeBaseTableViewController {
     }
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 10
     }
 
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MeHomeCellIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FensiCellIdentifier", for: indexPath)
 
         // Configure the cell...
 
         return cell
     }
-
+    
 
     /*
     // Override to support conditional editing of the table view.

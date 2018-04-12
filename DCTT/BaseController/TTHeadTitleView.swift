@@ -20,15 +20,19 @@ let textDefaultFontSize:CGFloat = 15
 
 class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
     
+    
     private var _titles :[String]!
     private var _currentIndex: Int = 0//当前显示索引
     private var _collectionView:UICollectionView!
     private var _delegate:TTHeadTitleDelegate?
     private let _item_width:CGFloat = 50
     
+    private let _defaultBgColor =  UIColor.init(red: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha: 1)
+    
+    //MARK: -
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.init(colorLiteralRed: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha: 1)
+        self.backgroundColor = _defaultBgColor
         _collectionView = colleciontView(frame: CGRect (x: 0, y: 0, width: frame.width, height: frame.height - 1))
         self.addSubview(_collectionView)
     }
@@ -38,7 +42,8 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
         
         _titles = titles
         _delegate = delegate
-        self.backgroundColor = UIColor.init(colorLiteralRed: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha: 1)
+        self.backgroundColor = _defaultBgColor
+        
         _collectionView = colleciontView(frame: CGRect (x: 0, y: 0, width: frame.width, height: frame.height - 1))
         self.addSubview(_collectionView)
     }
