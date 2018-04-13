@@ -13,13 +13,27 @@ protocol TTHeadTitleDelegate {
 
 }
 
-let textSelectedColor:UIColor = tt_HomeBarColor //选中是字体颜色,默认红色
-let textDefaultColor:UIColor = UIColor.darkGray //默认字体颜色，黑色
-let textSelectedFontSize:CGFloat = 16
-let textDefaultFontSize:CGFloat = 15
+struct TTHeadTextAttribute {
+    var _defaultTextColor:UIColor
+    var _defaultFontSize:CGFloat
+    
+    var _selectedTextColor:UIColor
+    var _selectedFontSize:CGFloat
+    
+    init(defaultColor:UIColor,defaultSize:CGFloat,selectedColor:UIColor,selectedSize:CGFloat) {
+
+        _defaultTextColor = defaultColor
+        _defaultFontSize = defaultSize
+        
+        _selectedTextColor = selectedColor
+        _selectedFontSize = selectedSize
+    }
+}
+
 
 class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
-    
+    /*设置字体属性*/
+    var textAttribute:TTHeadTextAttribute = TTHeadTextAttribute.init(defaultColor: UIColor.lightGray, defaultSize: 16, selectedColor: tt_HomeBarColor, selectedSize: 16)
     
     private var _titles :[String]!
     private var _currentIndex: Int = 0//当前显示索引
@@ -68,7 +82,7 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
         collectionview.showsVerticalScrollIndicator = false
         collectionview.backgroundView = nil
         collectionview.backgroundColor = UIColor.white
-        collectionview.contentInset = UIEdgeInsetsMake(0, 15, 0, 15)
+        collectionview.contentInset = UIEdgeInsetsMake(0, 5, 0, 5)
         return collectionview
     }
     
@@ -109,10 +123,11 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
             _v.removeFromSuperview();
         }
         let l = UILabel.init(frame: CGRect (x: 0, y: 0, width: _item_width, height: self.frame.height))
-        l.font = UIFont.systemFont(ofSize: _currentIndex == indexPath.row ? textSelectedFontSize:textDefaultFontSize)
+        l.font = UIFont.boldSystemFont(ofSize: _currentIndex == indexPath.row ? textAttribute._selectedFontSize:textAttribute._defaultFontSize)
+        
         l.textAlignment = .center
         l.text = v
-        l.textColor = _currentIndex == indexPath.row ? textSelectedColor:textDefaultColor
+        l.textColor = _currentIndex == indexPath.row ? textAttribute._selectedTextColor:textAttribute._defaultTextColor
         
         cell.contentView.addSubview(l)
         return cell

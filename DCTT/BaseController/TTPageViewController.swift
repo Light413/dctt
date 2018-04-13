@@ -12,7 +12,7 @@ protocol TTPageViewControllerDelegate {
 }
 
 class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource{
-    var _viewControllers :[UITableViewController]!
+    var _viewControllers :[UIViewController]!
     var currentIndex: Int = 0//当前显示索引
     var _delegate:TTPageViewControllerDelegate?    
     var _collectionView:UICollectionView!

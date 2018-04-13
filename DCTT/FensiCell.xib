@@ -14,41 +14,41 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FensiCellIdentifier" id="KGk-i7-Jjw" customClass="FensiCell" customModule="DCTT" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WechatIMG10.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="2ci-Mz-cty">
-                        <rect key="frame" x="12" y="15" width="50" height="50"/>
+                        <rect key="frame" x="12" y="15" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="OTv-Jc-rVa"/>
-                            <constraint firstAttribute="height" constant="50" id="Ou6-sf-rS1"/>
+                            <constraint firstAttribute="width" constant="40" id="OTv-Jc-rVa"/>
+                            <constraint firstAttribute="height" constant="40" id="Ou6-sf-rS1"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="25"/>
+                                <integer key="value" value="20"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="尔等都没我漂亮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFO-bG-hWi">
-                        <rect key="frame" x="70" y="12" width="100" height="18"/>
+                        <rect key="frame" x="60" y="13" width="100" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="ptL-Ot-3wJ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJW-KD-fDC">
-                        <rect key="frame" x="236" y="25" width="60" height="30"/>
+                        <rect key="frame" x="236" y="22.5" width="60" height="25"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Vfi-5h-NoH"/>
-                            <constraint firstAttribute="height" constant="30" id="umC-kI-WUD"/>
+                            <constraint firstAttribute="height" constant="25" id="umC-kI-WUD"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <state key="normal" title="关注">
                             <color key="titleColor" red="0.84826076030731201" green="0.24100068211555481" blue="0.20491570234298706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
@@ -60,7 +60,7 @@
                         </userDefinedRuntimeAttributes>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人生短暂，好好珍惜每一段时光" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2Y-Sf-bpe">
-                        <rect key="frame" x="70" y="35" width="158" height="34"/>
+                        <rect key="frame" x="60" y="33" width="168" height="26"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -73,9 +73,9 @@
                     <constraint firstItem="N2Y-Sf-bpe" firstAttribute="leading" secondItem="FFO-bG-hWi" secondAttribute="leading" id="VKv-ns-lhP"/>
                     <constraint firstItem="2ci-Mz-cty" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="b8I-sE-9O8"/>
                     <constraint firstItem="2ci-Mz-cty" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="swY-z7-DDI"/>
-                    <constraint firstItem="FFO-bG-hWi" firstAttribute="top" secondItem="2ci-Mz-cty" secondAttribute="top" constant="-3" id="wAC-MZ-onH"/>
+                    <constraint firstItem="FFO-bG-hWi" firstAttribute="top" secondItem="2ci-Mz-cty" secondAttribute="top" constant="-2" id="wAC-MZ-onH"/>
                     <constraint firstItem="zJW-KD-fDC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xzN-97-QpG"/>
-                    <constraint firstItem="N2Y-Sf-bpe" firstAttribute="top" secondItem="FFO-bG-hWi" secondAttribute="bottom" constant="5" id="yLS-9I-j5O"/>
+                    <constraint firstItem="N2Y-Sf-bpe" firstAttribute="top" secondItem="FFO-bG-hWi" secondAttribute="bottom" constant="2" id="yLS-9I-j5O"/>
                     <constraint firstItem="zJW-KD-fDC" firstAttribute="leading" secondItem="N2Y-Sf-bpe" secondAttribute="trailing" constant="8" id="zPt-Ob-AkQ"/>
                 </constraints>
             </tableViewCellContentView>

@@ -39,6 +39,7 @@ class FensiBaseController: UIViewController,TTPageViewControllerDelegate,TTHeadT
         topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: 130, height: 40), titles: titles, delegate: self)
         //view.addSubview(topview)
         topview.backgroundColor = UIColor.white
+        topview.textAttribute = TTHeadTextAttribute.init(defaultColor: UIColor.lightGray, defaultSize: 16, selectedColor: UIColor.black, selectedSize: 16)
         
         navigationItem.titleView = topview
         

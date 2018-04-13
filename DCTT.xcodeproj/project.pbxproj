@@ -136,6 +136,7 @@
 		AD20F3C72067DEA4003BDE17 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD20F3C52067DEA4003BDE17 /* MessageCell.swift */; };
 		AD20F3C82067DEA4003BDE17 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD20F3C62067DEA4003BDE17 /* MessageCell.xib */; };
 		AD20F3CA2067EDE1003BDE17 /* FackBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD20F3C92067EDE1003BDE17 /* FackBackViewController.swift */; };
+		AD21014F208108D300558CAB /* TTBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21014E208108D300558CAB /* TTBaseTableViewController.swift */; };
 		AD2178DF207FB1B700B99069 /* FensiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2178DD207FB1B700B99069 /* FensiCell.swift */; };
 		AD2178E0207FB1B700B99069 /* FensiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD2178DE207FB1B700B99069 /* FensiCell.xib */; };
 		AD2178E4207FB2EC00B99069 /* WechatIMG10.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD2178E3207FB2EC00B99069 /* WechatIMG10.jpeg */; };
@@ -312,6 +313,7 @@
 		AD20F3C52067DEA4003BDE17 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		AD20F3C62067DEA4003BDE17 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		AD20F3C92067EDE1003BDE17 /* FackBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FackBackViewController.swift; sourceTree = "<group>"; };
+		AD21014E208108D300558CAB /* TTBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTBaseTableViewController.swift; sourceTree = "<group>"; };
 		AD2178DD207FB1B700B99069 /* FensiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FensiCell.swift; sourceTree = "<group>"; };
 		AD2178DE207FB1B700B99069 /* FensiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FensiCell.xib; sourceTree = "<group>"; };
 		AD2178E3207FB2EC00B99069 /* WechatIMG10.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WechatIMG10.jpeg; sourceTree = "<group>"; };
@@ -589,6 +591,7 @@
 				AD10333C1FB6CD920017E81C /* BaseViewController.swift */,
 				AD10333D1FB6CD920017E81C /* BaseViewControllerWithTable.swift */,
 				A1DE189E1FC270F300562130 /* TTPageViewController.swift */,
+				AD21014E208108D300558CAB /* TTBaseTableViewController.swift */,
 				A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */,
 				A1E1B02E1FDA90E8002D6BDC /* TTImageBaseViewController.swift */,
 				A133A97E1FD8DE6200793D57 /* TTImagePickerViewController.swift */,
@@ -1013,6 +1016,7 @@
 				A148A2AB1FD687B40052DDF3 /* PublishTextCell.swift in Sources */,
 				AD128C6E201C748D00A9EDBE /* TTDataPickerView.swift in Sources */,
 				AD10332C1FB6CD4E0017E81C /* common.swift in Sources */,
+				AD21014F208108D300558CAB /* TTBaseTableViewController.swift in Sources */,
 				AD2187D8205E186E00E8C93F /* MeHomeCell.swift in Sources */,
 				AD1BEC012029EF6B003E334C /* PubTypeCollectionReusableView.swift in Sources */,
 				AD1033361FB6CD4E0017E81C /* themeColor.swift in Sources */,
