@@ -14,7 +14,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
     var _topBgView:UIView!
     
-    let _titleArr = ["我的动态","消息通知",/*"关注",*/"收藏","粉丝关注",/*"意见反馈",*/"系统设置"]
+    let _titleArr = ["我的动态","消息通知",/*"关注",*/"收藏","粉丝关注",/*"意见反馈",*/"设置"]
     let _imgArr = ["uc_account",
                    "uc_message",
                    /*"uc_danzi",*/
@@ -78,13 +78,13 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         _tableView.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0)
         
-        let logoutBtn = UIButton (frame: CGRect (x: 0, y: 0, width: _tableView.frame.width, height: 50))
+        /*let logoutBtn = UIButton (frame: CGRect (x: 0, y: 0, width: _tableView.frame.width, height: 50))
         logoutBtn.setTitle("退出账号", for: .normal)
         logoutBtn.setTitleColor(tt_BarColor, for: .normal)
         logoutBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         logoutBtn.backgroundColor = UIColor.white
         
-        _tableView.tableFooterView = logoutBtn
+        _tableView.tableFooterView = logoutBtn*/
     }
     
 
@@ -176,7 +176,9 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
                 break
 
             case 4://意见反馈
-                vc = FackBackViewController();
+                vc =  UIStoryboard (name: "me", bundle: nil).instantiateViewController(withIdentifier: "me_setter_sbid");
+                
+                //vc = FackBackViewController();
                 break
 //
             default:break

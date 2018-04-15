@@ -162,6 +162,7 @@
 		AD2E9572207E65D2009C675B /* GuanzhuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E9571207E65D2009C675B /* GuanzhuController.swift */; };
 		AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */; };
 		AD4200222007AFCA00096CF7 /* HomeDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */; };
+		AD6338002083974900BC84B1 /* MeSetterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6337FF2083974900BC84B1 /* MeSetterController.swift */; };
 		AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */; };
 		AD6A983C201A12CB00E7C5AE /* HomeDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */; };
 		ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */; };
@@ -339,6 +340,7 @@
 		AD2E9571207E65D2009C675B /* GuanzhuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuanzhuController.swift; sourceTree = "<group>"; };
 		AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailCommentCell.swift; sourceTree = "<group>"; };
 		AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailCommentCell.xib; sourceTree = "<group>"; };
+		AD6337FF2083974900BC84B1 /* MeSetterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSetterController.swift; sourceTree = "<group>"; };
 		AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailFooterView.swift; sourceTree = "<group>"; };
 		AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailFooterView.xib; sourceTree = "<group>"; };
 		ADEAE5001FB6C8F50048F876 /* DCTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -528,6 +530,7 @@
 				AD20F3C92067EDE1003BDE17 /* FackBackViewController.swift */,
 				AD2E956F207E657D009C675B /* FensiBaseController.swift */,
 				AD2E9571207E65D2009C675B /* GuanzhuController.swift */,
+				AD6337FF2083974900BC84B1 /* MeSetterController.swift */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -1047,6 +1050,7 @@
 				A1DE189F1FC270F300562130 /* TTPageViewController.swift in Sources */,
 				AD128C76201CCD9500A9EDBE /* PubFriendCell.swift in Sources */,
 				AD14CC631FE802B6003FBE0B /* HomeCellWithImages.swift in Sources */,
+				AD6338002083974900BC84B1 /* MeSetterController.swift in Sources */,
 				AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */,
 				AD1033441FB6CE560017E81C /* HomeViewController.swift in Sources */,
 				AD2C1EE520260C4E00E48245 /* BasePublishController.swift in Sources */,
