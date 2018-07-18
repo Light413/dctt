@@ -19,8 +19,6 @@ class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollect
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
     }
 
 
@@ -29,14 +27,14 @@ class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollect
         
         _viewControllers = controllers
         _delegate = delegate
-        view.frame = viewFrame
+        //view.frame = viewFrame
         
         _collectionView = self.colleciontView()
         view.addSubview(_collectionView)
         
-        for vc in controllers {
+        /*for vc in controllers {
             self.addChildViewController(vc)
-        }
+        }*/
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -85,9 +83,13 @@ class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollect
         let v = _viewControllers[indexPath.row]
         for _v in cell.contentView.subviews{
             _v.removeFromSuperview();
+            
         }
         
+        v.removeFromParentViewController()
+        v.view.frame =  CGRect (x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         
+        self.addChildViewController(v)
         cell.contentView.addSubview(v.view)
         return cell
     }

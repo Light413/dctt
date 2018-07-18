@@ -42,12 +42,15 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         let _h = kCurrentScreenHeight - 64 - 0 - 40
         for _ in 0..<titles.count {
             let v = HomerListViewController();
-            v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h - 49)
+            //v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h - 49)
             vcArr.append(v)
         }
         
-        let rec = CGRect (x: 0, y: topview.frame.maxY, width: kCurrentScreenWidth, height: _h)
+        let rec = CGRect (x: 0, y: topview.frame.maxY, width: kCurrentScreenWidth, height: kCurrentScreenHeight - topview.frame.maxY - 50)
+        
         pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)
+        pagevc.view.frame = rec
+        
         self.addChildViewController(pagevc)
         view.addSubview(pagevc.view)
         

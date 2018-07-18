@@ -1214,7 +1214,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gener-tech.dcttwithpush";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "391f10c4-3ee3-48eb-bfe5-b65d314424c2";
+				PROVISIONING_PROFILE = "896dbe36-af0b-4b7d-9fec-4952a8c65b51";
 				PROVISIONING_PROFILE_SPECIFIER = "wygtest-dev";
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DCTT/BaseController/KLTAnimateNav/DCTT-Bridging-Header.h";

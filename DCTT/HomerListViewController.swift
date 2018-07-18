@@ -8,6 +8,7 @@
 
 import UIKit
 import MJRefresh
+import Alamofire
 
 class HomerListViewController: BaseTableViewController {
 
@@ -71,9 +72,18 @@ class HomerListViewController: BaseTableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
     
+        //
+        test()
     }
 
     
+    func test() {
+        Alamofire.request("http://192.168.1.104:80/tt/publish.php", method: .post, parameters: nil, headers: nil).responseJSON { (response) in
+            if let d = response.result.value {
+                print(d);
+            }
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var identifier :String = "HomeCellReuseIdentifierId"
