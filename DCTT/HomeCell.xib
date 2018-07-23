@@ -19,14 +19,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用swift3.0写项目且又没熟" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjc-oY-JMp">
-                        <rect key="frame" x="21" y="10" width="275" height="37.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用swift3.0写项目且又没熟" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjc-oY-JMp">
+                        <rect key="frame" x="21" y="15" width="275" height="26.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="爱吃鱼的猫咪咪" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SM-ei-zK7">
-                        <rect key="frame" x="24" y="52.5" width="86" height="14.5"/>
+                        <rect key="frame" x="24" y="51.5" width="86" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14.5" id="tIy-dE-CAV"/>
                         </constraints>
@@ -35,20 +35,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-12-19 13:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XM8-0M-xRV">
-                        <rect key="frame" x="120" y="52.5" width="100" height="14.5"/>
+                        <rect key="frame" x="120" y="51.5" width="100" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="2SM-ei-zK7" secondAttribute="bottom" constant="2" id="7IF-Aa-FL7"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="2SM-ei-zK7" secondAttribute="bottom" constant="3" id="7IF-Aa-FL7"/>
                     <constraint firstItem="Wjc-oY-JMp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="ECs-8O-1Te"/>
                     <constraint firstItem="XM8-0M-xRV" firstAttribute="centerY" secondItem="2SM-ei-zK7" secondAttribute="centerY" id="NpP-md-fYh"/>
                     <constraint firstItem="XM8-0M-xRV" firstAttribute="height" secondItem="2SM-ei-zK7" secondAttribute="height" id="Npp-kS-p3N"/>
                     <constraint firstItem="XM8-0M-xRV" firstAttribute="leading" secondItem="2SM-ei-zK7" secondAttribute="trailing" constant="10" id="PdT-D4-CRg"/>
-                    <constraint firstItem="2SM-ei-zK7" firstAttribute="top" secondItem="Wjc-oY-JMp" secondAttribute="bottom" constant="5" id="RuK-b4-2cw"/>
-                    <constraint firstItem="Wjc-oY-JMp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="SVC-OF-LG1"/>
+                    <constraint firstItem="2SM-ei-zK7" firstAttribute="top" secondItem="Wjc-oY-JMp" secondAttribute="bottom" constant="10" id="RuK-b4-2cw"/>
+                    <constraint firstItem="Wjc-oY-JMp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="SVC-OF-LG1"/>
                     <constraint firstItem="2SM-ei-zK7" firstAttribute="leading" secondItem="Wjc-oY-JMp" secondAttribute="leading" constant="3" id="TPB-Mp-4k5"/>
                     <constraint firstItem="Wjc-oY-JMp" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-8" id="bTU-89-ijZ"/>
                 </constraints>

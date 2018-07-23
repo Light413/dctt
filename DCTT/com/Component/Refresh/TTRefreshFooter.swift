@@ -19,7 +19,7 @@ class TTRefreshFooter: MJRefreshAutoFooter {
         self.mj_h = 50
         
         let _l = UILabel()
-        _l.font = UIFont.systemFont(ofSize: 15)
+        _l.font = UIFont.systemFont(ofSize: 13)
         _l.textColor = UIColor.darkGray
         _l.textAlignment = .center
         self.addSubview(_l)

@@ -11,7 +11,7 @@ protocol TTPageViewControllerDelegate {
     func pageViewControllerScrollTo(_ index:Int)
 }
 
-class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollectionViewDataSource{
+class TTPageViewController: UIViewController {
     var _viewControllers :[UIViewController]!
     var currentIndex: Int = 0//当前显示索引
     var _delegate:TTPageViewControllerDelegate?    
@@ -19,22 +19,21 @@ class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollect
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.edgesForExtendedLayout = .top
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        _collectionView = self.colleciontView()
+        view.addSubview(_collectionView)
+    }
 
-    init(controllers:[UITableViewController], frame viewFrame:CGRect,delegate:TTPageViewControllerDelegate? = nil) {
+    init(controllers:[UIViewController], frame viewFrame:CGRect,delegate:TTPageViewControllerDelegate? = nil) {
         super.init(nibName: nil, bundle: nil)
         
         _viewControllers = controllers
         _delegate = delegate
-        //view.frame = viewFrame
-        
-        _collectionView = self.colleciontView()
-        view.addSubview(_collectionView)
-        
-        /*for vc in controllers {
-            self.addChildViewController(vc)
-        }*/
+        view.frame = viewFrame
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -72,7 +71,10 @@ class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollect
         _collectionView.scrollToItem(at: IndexPath.init(row: index, section: 0), at: .right, animated: false)
     }
     
-    
+}
+
+
+extension TTPageViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     //MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return _viewControllers.count
@@ -88,7 +90,7 @@ class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollect
         
         v.removeFromParentViewController()
         v.view.frame =  CGRect (x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-        
+
         self.addChildViewController(v)
         cell.contentView.addSubview(v.view)
         return cell
@@ -96,14 +98,14 @@ class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollect
     
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-
+        
         _scroll(scrollView);
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         _scroll(scrollView);
     }
-
+    
     func _scroll(_ scrollView: UIScrollView) {
         let index = scrollView.contentOffset.x / scrollView.frame.width
         let i = lrintf(Float(index))
@@ -114,7 +116,9 @@ class TTPageViewController: UIViewController ,UICollectionViewDelegate,UICollect
             delegate.pageViewControllerScrollTo(i)
         }
     }
-    
-    
-    
+
 }
+
+
+
+

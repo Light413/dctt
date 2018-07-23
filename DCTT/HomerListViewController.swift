@@ -43,7 +43,7 @@ class HomerListViewController: BaseTableViewController {
         //...
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
-    
+        
         //
         loadData()
     }
@@ -103,6 +103,9 @@ class HomerListViewController: BaseTableViewController {
         case let n where n > 3:
             
             identifier = "HomeCellWithImagesIdentifierId"
+            cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
+            (cell as! HomeCellWithImages).fill(d)
+            
             break
         default:break
         }

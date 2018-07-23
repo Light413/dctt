@@ -20,13 +20,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用swift3.0写项目且又没熟读官方API文档的小朋友，在基于控制器。档的小朋友，在基于控制器。" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hn2-CB-Jjp">
-                        <rect key="frame" x="21" y="10" width="196" height="57.5"/>
+                        <rect key="frame" x="21" y="15" width="196" height="57.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快乐的小丸子" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roy-3a-mZO">
-                        <rect key="frame" x="21" y="72.5" width="74" height="14.5"/>
+                        <rect key="frame" x="21" y="80.5" width="74" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14.5" id="UXJ-hS-5vr"/>
                         </constraints>
@@ -35,13 +35,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-12-19 22:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaC-xj-OB5">
-                        <rect key="frame" x="105" y="72.5" width="99.5" height="14.5"/>
+                        <rect key="frame" x="105" y="80.5" width="99.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_cell_2.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="OSy-t7-zuj">
-                        <rect key="frame" x="219" y="10" width="85" height="62"/>
+                        <rect key="frame" x="219" y="15" width="85" height="62"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="62" id="2dD-9J-NJz"/>
                             <constraint firstAttribute="width" constant="85" id="NbU-gE-lZb"/>
@@ -55,12 +55,12 @@
                     <constraint firstItem="OSy-t7-zuj" firstAttribute="leading" secondItem="hn2-CB-Jjp" secondAttribute="trailing" constant="2" id="Gam-bV-bjB"/>
                     <constraint firstAttribute="bottomMargin" secondItem="roy-3a-mZO" secondAttribute="bottom" constant="3" id="Hh5-UK-YTC"/>
                     <constraint firstItem="OSy-t7-zuj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NaC-xj-OB5" secondAttribute="trailing" id="Tom-B9-LeV"/>
-                    <constraint firstItem="roy-3a-mZO" firstAttribute="top" secondItem="hn2-CB-Jjp" secondAttribute="bottom" constant="5" id="Wf6-ig-M1j"/>
+                    <constraint firstItem="roy-3a-mZO" firstAttribute="top" secondItem="hn2-CB-Jjp" secondAttribute="bottom" constant="8" id="Wf6-ig-M1j"/>
                     <constraint firstItem="hn2-CB-Jjp" firstAttribute="leading" secondItem="HtK-cg-MWc" secondAttribute="leadingMargin" constant="5" id="aLt-ZU-chy"/>
                     <constraint firstItem="NaC-xj-OB5" firstAttribute="leading" secondItem="roy-3a-mZO" secondAttribute="trailing" constant="10" id="h45-ii-kdt"/>
                     <constraint firstItem="roy-3a-mZO" firstAttribute="leading" secondItem="hn2-CB-Jjp" secondAttribute="leading" id="iPe-l6-36B"/>
                     <constraint firstItem="OSy-t7-zuj" firstAttribute="trailing" secondItem="HtK-cg-MWc" secondAttribute="trailingMargin" id="n34-VF-a80"/>
-                    <constraint firstItem="hn2-CB-Jjp" firstAttribute="top" secondItem="HtK-cg-MWc" secondAttribute="top" constant="10" id="v0z-mL-dIA"/>
+                    <constraint firstItem="hn2-CB-Jjp" firstAttribute="top" secondItem="HtK-cg-MWc" secondAttribute="top" constant="15" id="v0z-mL-dIA"/>
                     <constraint firstItem="OSy-t7-zuj" firstAttribute="top" secondItem="hn2-CB-Jjp" secondAttribute="top" id="wdN-0t-w8s"/>
                 </constraints>
             </tableViewCellContentView>

@@ -17,10 +17,11 @@ class BaseTableViewController: UITableViewController {
 
         //tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
         tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = kTableviewBackgroundColor
+        //tableView.backgroundColor = kTableviewBackgroundColor
         tableView.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
         
-
+        tableView.tableFooterView = UIView();
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -55,8 +55,6 @@
 		A1CE839E1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE839C1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift */; };
 		A1CE839F1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1CE839D1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib */; };
 		A1CE83A71FC4122D00DAF90F /* 14.png in Resources */ = {isa = PBXBuildFile; fileRef = A1CE83A31FC4122D00DAF90F /* 14.png */; };
-		A1DE189F1FC270F300562130 /* TTPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DE189E1FC270F300562130 /* TTPageViewController.swift */; };
-		A1DE18A11FC2A0D000562130 /* TTHeadTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */; };
 		A1E1B02D1FDA7AEF002D6BDC /* TTImagePreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E1B02C1FDA7AEE002D6BDC /* TTImagePreviewController.swift */; };
 		A1E1B02F1FDA90E8002D6BDC /* TTImageBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E1B02E1FDA90E8002D6BDC /* TTImageBaseViewController.swift */; };
 		A1E61D1D1FCE8F560080A12D /* back_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1E61D1C1FCE8F560080A12D /* back_bg@2x.png */; };
@@ -170,6 +168,8 @@
 		ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */; };
 		ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5051FB6C8F50048F876 /* ViewController.swift */; };
 		ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEAE50C1FB6C8F50048F876 /* LaunchScreen.storyboard */; };
+		ADEBE440210612B7005C5C06 /* TTPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEBE43E210612B7005C5C06 /* TTPageViewController.swift */; };
+		ADEBE441210612B7005C5C06 /* TTHeadTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEBE43F210612B7005C5C06 /* TTHeadTitleView.swift */; };
 		ADFC9E022053EDCC00449767 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADFC9E012053EDCC00449767 /* Login.storyboard */; };
 		ADFC9E042053F72500449767 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFC9E032053F72500449767 /* LoginViewController.swift */; };
 		ADFC9E062053F73D00449767 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFC9E052053F73D00449767 /* RegisterViewController.swift */; };
@@ -229,8 +229,6 @@
 		A1CE839C1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsCollectonViewCell.swift; sourceTree = "<group>"; };
 		A1CE839D1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsCollectonViewCell.xib; sourceTree = "<group>"; };
 		A1CE83A31FC4122D00DAF90F /* 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 14.png; sourceTree = "<group>"; };
-		A1DE189E1FC270F300562130 /* TTPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPageViewController.swift; sourceTree = "<group>"; };
-		A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTHeadTitleView.swift; sourceTree = "<group>"; };
 		A1E1B02C1FDA7AEE002D6BDC /* TTImagePreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImagePreviewController.swift; sourceTree = "<group>"; };
 		A1E1B02E1FDA90E8002D6BDC /* TTImageBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImageBaseViewController.swift; sourceTree = "<group>"; };
 		A1E61D1C1FCE8F560080A12D /* back_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_bg@2x.png"; sourceTree = "<group>"; };
@@ -352,6 +350,8 @@
 		ADEAE5051FB6C8F50048F876 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ADEAE50D1FB6C8F50048F876 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADEAE50F1FB6C8F50048F876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADEBE43E210612B7005C5C06 /* TTPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPageViewController.swift; sourceTree = "<group>"; };
+		ADEBE43F210612B7005C5C06 /* TTHeadTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTHeadTitleView.swift; sourceTree = "<group>"; };
 		ADFC9E012053EDCC00449767 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		ADFC9E032053F72500449767 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ADFC9E052053F73D00449767 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -552,8 +552,8 @@
 		AD10331C1FB6CD4E0017E81C /* com */ = {
 			isa = PBXGroup;
 			children = (
+				ADEBE43C21061292005C5C06 /* Component */,
 				A1A047AE1FD540320057CC17 /* PickerView */,
-				A1A047A91FD53C910057CC17 /* Refresh */,
 				AD10331D1FB6CD4E0017E81C /* common.swift */,
 				AD10331E1FB6CD4E0017E81C /* constant.swift */,
 				AD10331F1FB6CD4E0017E81C /* Extension.swift */,
@@ -599,9 +599,7 @@
 				AD10333B1FB6CD920017E81C /* BaseTableViewController.swift */,
 				AD10333C1FB6CD920017E81C /* BaseViewController.swift */,
 				AD10333D1FB6CD920017E81C /* BaseViewControllerWithTable.swift */,
-				A1DE189E1FC270F300562130 /* TTPageViewController.swift */,
 				AD21014E208108D300558CAB /* TTBaseTableViewController.swift */,
-				A1DE18A01FC2A0D000562130 /* TTHeadTitleView.swift */,
 				A1E1B02E1FDA90E8002D6BDC /* TTImageBaseViewController.swift */,
 				A133A97E1FD8DE6200793D57 /* TTImagePickerViewController.swift */,
 				A1E1B02C1FDA7AEE002D6BDC /* TTImagePreviewController.swift */,
@@ -751,6 +749,24 @@
 				AD1033451FB6CE620017E81C /* src */,
 			);
 			path = DCTT;
+			sourceTree = "<group>";
+		};
+		ADEBE43C21061292005C5C06 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				A1A047A91FD53C910057CC17 /* Refresh */,
+				ADEBE43D210612B7005C5C06 /* TTTagListController_Swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		ADEBE43D210612B7005C5C06 /* TTTagListController_Swift */ = {
+			isa = PBXGroup;
+			children = (
+				ADEBE43E210612B7005C5C06 /* TTPageViewController.swift */,
+				ADEBE43F210612B7005C5C06 /* TTHeadTitleView.swift */,
+			);
+			path = TTTagListController_Swift;
 			sourceTree = "<group>";
 		};
 		CEA6F35E826BA6E368A5F0B9 /* Pods */ = {
@@ -1002,6 +1018,7 @@
 				AD20F3CA2067EDE1003BDE17 /* FackBackViewController.swift in Sources */,
 				AD2187DB205E7A5300E8C93F /* MeHomeHeadView.swift in Sources */,
 				A1C1E82120454EBC003D1F07 /* CategorySectionHeaderView.swift in Sources */,
+				ADEBE441210612B7005C5C06 /* TTHeadTitleView.swift in Sources */,
 				AD10332E1FB6CD4E0017E81C /* Extension.swift in Sources */,
 				A148A2AF1FD687DD0052DDF3 /* PublishImageCell.swift in Sources */,
 				ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */,
@@ -1055,7 +1072,6 @@
 				A1A642DC1FC567CB0058F63B /* HomeSearchViewController.swift in Sources */,
 				AD21DF6520275A8B002FE181 /* TableViewCellSwitch.swift in Sources */,
 				A133A97F1FD8DE6200793D57 /* TTImagePickerViewController.swift in Sources */,
-				A1DE189F1FC270F300562130 /* TTPageViewController.swift in Sources */,
 				AD128C76201CCD9500A9EDBE /* PubFriendCell.swift in Sources */,
 				AD14CC631FE802B6003FBE0B /* HomeCellWithImages.swift in Sources */,
 				AD6338002083974900BC84B1 /* MeSetterController.swift in Sources */,
@@ -1076,12 +1092,12 @@
 				ADCA97882100DB4500DA0950 /* Tools.swift in Sources */,
 				AD10332D1FB6CD4E0017E81C /* constant.swift in Sources */,
 				AD14CC5F1FE8027A003FBE0B /* HomeCellWithImage.swift in Sources */,
-				A1DE18A11FC2A0D000562130 /* TTHeadTitleView.swift in Sources */,
 				AD00300E201DF9D900A72A16 /* PubCityCell.swift in Sources */,
 				AD16EDA620485C030072A266 /* PubQuestionController.swift in Sources */,
 				AD128C6C201C747E00A9EDBE /* TTDatePickerView.swift in Sources */,
 				AD1BA1F6205D1C1200B7C29C /* MeHomePageController.swift in Sources */,
 				AD202757204C38A400E538CD /* PubFangwuViewController.swift in Sources */,
+				ADEBE440210612B7005C5C06 /* TTPageViewController.swift in Sources */,
 				A19C4B631FCD2AD600E9DE59 /* TTSearchBarView.swift in Sources */,
 				A1CE83991FC3F6AA00DAF90F /* HomeDetailController.swift in Sources */,
 				A1C854C11FDFD72E00AC03E5 /* TTImagePreviewCell.swift in Sources */,

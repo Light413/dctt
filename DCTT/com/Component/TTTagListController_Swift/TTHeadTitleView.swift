@@ -10,56 +10,57 @@ import UIKit
 
 protocol TTHeadTitleDelegate {
     func titleClickedAtIndex(_ index:Int);
-
 }
 
 struct TTHeadTextAttribute {
     var _defaultTextColor:UIColor
     var _defaultFontSize:CGFloat
-    
     var _selectedTextColor:UIColor
     var _selectedFontSize:CGFloat
     
     init(defaultColor:UIColor,defaultSize:CGFloat,selectedColor:UIColor,selectedSize:CGFloat) {
-
         _defaultTextColor = defaultColor
         _defaultFontSize = defaultSize
-        
         _selectedTextColor = selectedColor
         _selectedFontSize = selectedSize
     }
 }
 
 
-class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSource {
+class TTHeadTitleView: UIView {
     /*设置字体属性*/
-    var textAttribute:TTHeadTextAttribute = TTHeadTextAttribute.init(defaultColor: UIColor.lightGray, defaultSize: 16, selectedColor: tt_HomeBarColor, selectedSize: 16)
+    var textAttribute:TTHeadTextAttribute = TTHeadTextAttribute.init(defaultColor: UIColor.darkGray, defaultSize: 15, selectedColor: UIColor.black, selectedSize: 16)
     
-    private var _titles :[String]!
-    private var _currentIndex: Int = 0//当前显示索引
-    private var _collectionView:UICollectionView!
-    private var _delegate:TTHeadTitleDelegate?
-    private let _item_width:CGFloat = 50
-    
-    private let _defaultBgColor =  UIColor.init(red: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha: 1)
+    fileprivate var _titles :[String]!
+    fileprivate var _currentIndex: Int = 0//当前显示索引
+    fileprivate var _collectionView:UICollectionView!
+    fileprivate var _delegate:TTHeadTitleDelegate?
+    fileprivate let _itemWidth:CGFloat = 50
+    fileprivate let _locationWidth:CGFloat = 20
+    fileprivate var location:UILabel!
     
     //MARK: -
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = _defaultBgColor
-        _collectionView = colleciontView(frame: CGRect (x: 0, y: 0, width: frame.width, height: frame.height - 1))
+
+        _collectionView = colleciontView(frame: CGRect (x: 0, y: 0, width: frame.width, height: frame.height))
         self.addSubview(_collectionView)
     }
     
     init(frame:CGRect,titles:[String],delegate:TTHeadTitleDelegate? = nil) {
         super.init(frame:frame)
-        
         _titles = titles
         _delegate = delegate
-        self.backgroundColor = _defaultBgColor
         
-        _collectionView = colleciontView(frame: CGRect (x: 0, y: 0, width: frame.width, height: frame.height - 1))
+        _collectionView = colleciontView(frame: CGRect (x: 0, y: 0, width: frame.width, height: frame.height))
         self.addSubview(_collectionView)
+        
+        //location
+        location = UILabel (frame: CGRect (x: (_itemWidth - _locationWidth)/2, y: _collectionView.frame.height - 3, width: _locationWidth, height: 3))
+        location.backgroundColor = UIColor.orange
+        location.layer.cornerRadius = 2
+        location.layer.masksToBounds = true
+        _collectionView.addSubview(location)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -68,7 +69,7 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
     
     fileprivate func colleciontView(frame:CGRect) -> UICollectionView {
         let _layout = UICollectionViewFlowLayout()
-        _layout.itemSize = CGSize (width: _item_width, height: frame.height)
+        _layout.itemSize = CGSize (width: _itemWidth, height: frame.height)
         _layout.minimumInteritemSpacing = 0
         _layout.minimumLineSpacing = 0
         _layout.scrollDirection = .horizontal
@@ -77,12 +78,10 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
         collectionview.delegate  = self
         collectionview.dataSource = self
         collectionview.register(UICollectionViewCell.self, forCellWithReuseIdentifier: String (describing: UICollectionViewCell.self))
-        collectionview.backgroundColor  = UIColor.white
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = false
         collectionview.backgroundView = nil
         collectionview.backgroundColor = UIColor.white
-        collectionview.contentInset = UIEdgeInsetsMake(0, 5, 0, 5)
         return collectionview
     }
     
@@ -94,22 +93,24 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
         var offset = item_width * (CGFloat(index) + 0.5) - _collectionView.frame.width / 2
         let max = _collectionView.contentSize.width - _collectionView.frame.width + _collectionView.contentInset.left
         
-        if offset < 0 {
-            offset = -_collectionView.contentInset.left;
-        }
-        
-        if offset > 0 && max > 0 && offset > max {
-            offset = max;
-        }
+        if offset < 0 { offset = -_collectionView.contentInset.left;}
+        if offset > 0 && max > 0 && offset > max { offset = max;}
 
-        //...有待完善
-        guard CGFloat.init(_titles.count) * _item_width > self.frame.width else {return }
+        let _x = CGFloat.init(index) * _itemWidth + (item_width - 0) * 0.5
+        UIView.animate(withDuration: 0.2) {[unowned self] in
+           self.location.center = CGPoint (x: _x, y: self.location.center.y);
+        }
         
+        
+        //...
+        guard CGFloat.init(_titles.count) * _itemWidth > self.frame.width else {return }
         _collectionView.setContentOffset(CGPoint (x: offset, y: 0), animated: true)
     }
+ 
+}
 
-    
-    
+
+extension TTHeadTitleView:UICollectionViewDelegate,UICollectionViewDataSource {
     //MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return _titles.count
@@ -122,9 +123,9 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
         for _v in cell.contentView.subviews{
             _v.removeFromSuperview();
         }
-        let l = UILabel.init(frame: CGRect (x: 0, y: 0, width: _item_width, height: self.frame.height))
-        l.font = UIFont.boldSystemFont(ofSize: _currentIndex == indexPath.row ? textAttribute._selectedFontSize:textAttribute._defaultFontSize)
         
+        let l = UILabel.init(frame: CGRect (x: 0, y: 0, width: _itemWidth, height: self.frame.height))
+        l.font = UIFont.systemFont(ofSize: _currentIndex == indexPath.row ? textAttribute._selectedFontSize:textAttribute._defaultFontSize, weight: UIFontWeightRegular)
         l.textAlignment = .center
         l.text = v
         l.textColor = _currentIndex == indexPath.row ? textAttribute._selectedTextColor:textAttribute._defaultTextColor
@@ -139,12 +140,11 @@ class TTHeadTitleView: UIView,UICollectionViewDelegate,UICollectionViewDataSourc
         _currentIndex = index
         collectionView.reloadData()
         
-        //delegate
+        scrollToItemAtIndex(index)
+
         if let delegate = _delegate {
             delegate.titleClickedAtIndex(index)
         }
     }
 
-    
-    
 }

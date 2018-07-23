@@ -22,9 +22,13 @@ class PublishViewController: BasePublishController {
                  "content":String.isNullOrEmpty(textCell.textview.text),
                  "type":"1"]
         
-        AlamofireHelper.upload(to: publish_url, parameters: d, uploadFiles: ig, successHandler: { (res) in
+        AlamofireHelper.upload(to: publish_url, parameters: d, uploadFiles: ig, successHandler: { [weak self] (res) in
             print(res)
             HUD.show(successInfo: "发布成功!");
+            guard let ss = self else {return}
+            
+            ss.dismiss(animated: true, completion: nil)
+            
         }) {
             print("upload faile");
         }

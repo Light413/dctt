@@ -24,8 +24,8 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false;
 
-        t_barTintColor = tt_HomeBarColor
-        self.navigationController?.navigationBar.barTintColor = t_barTintColor
+        //t_barTintColor = tt_HomeBarColor
+        //self.navigationController?.navigationBar.barTintColor = t_barTintColor
         
         _init()
 
@@ -35,21 +35,19 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
     func _init() {
         //head
         let titles = ["最新","热门","问答","段子","美食","商家","娱乐"]
-        topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 40), titles: titles, delegate: self)
-        view.addSubview(topview)
+        topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth - 30, height: 40), titles: titles, delegate: self)
+        //view.addSubview(topview)
+        self.navigationItem.titleView = topview
         
         ////pagevc
-        let _h = kCurrentScreenHeight - 64 - 0 - 40
         for _ in 0..<titles.count {
             let v = HomerListViewController();
             //v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h - 49)
             vcArr.append(v)
         }
         
-        let rec = CGRect (x: 0, y: topview.frame.maxY, width: kCurrentScreenWidth, height: kCurrentScreenHeight - topview.frame.maxY - 50)
-        
+        let rec = CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 50)
         pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)
-        pagevc.view.frame = rec
         
         self.addChildViewController(pagevc)
         view.addSubview(pagevc.view)
@@ -79,7 +77,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         leftview.addSubview(img)
         tf.leftView = leftview
         
-        navigationItem.titleView = logo_lable
+        //navigationItem.titleView = logo_lable
     }
     
     
