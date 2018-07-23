@@ -8,6 +8,18 @@
 
 import Foundation
 
+extension String {
+    static func isNullOrEmpty(_ any:Any?) -> String {
+        guard  let s = any else {return ""}
+        if s is NSNull {  return "";  }
+        let val = "\(s)".replacingOccurrences(of: "<br/>", with: "")
+        
+        return val
+    }
+
+}
+
+
 extension Date {
 
     //MARK:

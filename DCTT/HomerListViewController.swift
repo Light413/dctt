@@ -11,39 +11,22 @@ import MJRefresh
 import Alamofire
 
 class HomerListViewController: BaseTableViewController {
-
+    var pageNumber:Int = 1;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //....test
-        //self.edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
-        //self.automaticallyAdjustsScrollViewInsets = false
-        //self.tableView.autoresizingMask = .flexibleHeight
-        
-        for n in 0..<20 {
-            dataArray.append("\(n + 1)")
-        }
         
         tableView.register(UINib (nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCellReuseIdentifierId")
         tableView.register(UINib (nibName: "HomeCellWithImage", bundle: nil), forCellReuseIdentifier: "HomeCellWithImageIdentifierId")
         tableView.register(UINib (nibName: "HomeCellWithImages", bundle: nil), forCellReuseIdentifier: "HomeCellWithImagesIdentifierId")
-        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCellReuseIdentifier")
         
         //test  refresh
         let header = TTRefreshHeader.init(refreshingBlock: {[weak self] in
             guard let strongSelf = self else{return}
-            
-            print("refresh start...")
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                print("refresh end...")
-                strongSelf.dataArray.removeAll()
-                strongSelf.dataArray = strongSelf.dataArray + ["1","2","3","4","5"]
-                strongSelf.tableView.reloadData()
-                strongSelf.tableView.mj_header.endRefreshing()
-                strongSelf.tableView.mj_footer.state = MJRefreshState.idle
-            }
-            
+            strongSelf.pageNumber = 1
+            strongSelf.tableView.mj_footer.state = .idle
+            strongSelf.loadData()
         })
         
         tableView.mj_header = header;
@@ -51,21 +34,10 @@ class HomerListViewController: BaseTableViewController {
         
         let footer = TTRefreshFooter  {  [weak self] in
             guard let strongSelf = self else{return}
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                print("footer refresh end...")
-                
-                strongSelf.dataArray = strongSelf.dataArray + ["1","2","3","4","5"]
-                
-                strongSelf.tableView.reloadData()
-                
-                if strongSelf.dataArray.count > 20 {
-                    strongSelf.tableView.mj_footer.endRefreshingWithNoMoreData()
-                }else{
-                    strongSelf.tableView.mj_footer.endRefreshing()
-                }
-            }
+            strongSelf.pageNumber = strongSelf.pageNumber + 1
+            strongSelf.loadData();
         }
+        
         tableView.mj_footer = footer
         
         //...
@@ -73,34 +45,69 @@ class HomerListViewController: BaseTableViewController {
         tableView.estimatedRowHeight = 100
     
         //
-        test()
+        loadData()
     }
 
     
-    func test() {
-        Alamofire.request("http://192.168.1.104:80/tt/publish.php", method: .post, parameters: nil, headers: nil).responseJSON { (response) in
-            if let d = response.result.value {
-                print(d);
+    func loadData() {
+        
+        AlamofireHelper.post(url: home_list_url, parameters: nil, successHandler: {[weak self] (res) in
+            guard let ss = self else {return}
+            if ss.pageNumber == 1{ ss.dataArray.removeAll()}
+            
+            if ss.tableView.mj_header.isRefreshing(){
+                ss.tableView.mj_header.endRefreshing()
+            }else if ss.tableView.mj_footer.isRefreshing() {
+                ss.tableView.mj_footer.endRefreshing()
             }
+
+            if let arr = res["body"] as? [[String:Any]] {
+                ss.dataArray = ss.dataArray + arr;
+                if arr.count < 20 {
+                    ss.tableView.mj_footer.state = .noMoreData
+                }
+            }else {
+                ss.tableView.mj_footer.state = .noMoreData
+            }
+            
+            
+            ss.tableView.reloadData()
+            print(res);
+        }) { (error) in
+            
         }
+
+        
     }
     
+    
+    
+    //MARK:-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let d = dataArray[indexPath.row]
+        let type =  Int(String.isNullOrEmpty(d["imageNum"])) ?? 0
+        
         var identifier :String = "HomeCellReuseIdentifierId"
-        switch indexPath.row % 3 {
+        var cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
+
+        switch type {
         case 0:
-            identifier = "HomeCellReuseIdentifierId"
+            (cell as! HomeCell).msg.text = d["content"] as? String
+            
             break
-        case 1:
+        case let n where n < 3:
             identifier = "HomeCellWithImageIdentifierId"
+            cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
+            (cell as! HomeCellWithImage).fill(d)
             break
-        case 2:identifier = "HomeCellWithImagesIdentifierId"
+        case let n where n > 3:
+            
+            identifier = "HomeCellWithImagesIdentifierId"
             break
         default:break
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath) //as! HomeCell
-        //cell.backgroundColor = UIColor.red
+
         
         //cell.textLabel?.text = dataArray[indexPath.row]
         cell.selectionStyle = .default

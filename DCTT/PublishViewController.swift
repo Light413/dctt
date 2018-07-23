@@ -10,14 +10,29 @@ import UIKit
 import Photos
 
 class PublishViewController: BasePublishController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func _post(_ ig:[UIImage]? = nil)  {
+        
+        HUD.show()
+        let d = ["uid":"pub180163000",
+                 "content":String.isNullOrEmpty(textCell.textview.text),
+                 "type":"1"]
+        
+        AlamofireHelper.upload(to: publish_url, parameters: d, uploadFiles: ig, successHandler: { (res) in
+            print(res)
+            HUD.show(successInfo: "发布成功!");
+        }) {
+            print("upload faile");
+        }
         
     }
     
-
+    
+    
     override func previewAction() {
         let vc = HomeDetailController()
         

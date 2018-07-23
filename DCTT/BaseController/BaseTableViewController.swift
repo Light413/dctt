@@ -10,7 +10,8 @@ import UIKit
 import MJRefresh
 
 class BaseTableViewController: UITableViewController {
-    var dataArray = [String]()
+    var dataArray = [[String:Any]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

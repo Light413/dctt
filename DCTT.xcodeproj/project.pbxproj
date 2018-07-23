@@ -87,7 +87,6 @@
 		AD1033311FB6CD4E0017E81C /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1033231FB6CD4E0017E81C /* HUD.swift */; };
 		AD1033321FB6CD4E0017E81C /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1033241FB6CD4E0017E81C /* success.png */; };
 		AD1033331FB6CD4E0017E81C /* success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD1033251FB6CD4E0017E81C /* success@2x.png */; };
-		AD1033341FB6CD4E0017E81C /* NetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1033261FB6CD4E0017E81C /* NetHelper.swift */; };
 		AD1033351FB6CD4E0017E81C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1033291FB6CD4E0017E81C /* Reachability.m */; };
 		AD1033361FB6CD4E0017E81C /* themeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10332A1FB6CD4E0017E81C /* themeColor.swift */; };
 		AD1033371FB6CD4E0017E81C /* url.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10332B1FB6CD4E0017E81C /* url.swift */; };
@@ -163,8 +162,11 @@
 		AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */; };
 		AD4200222007AFCA00096CF7 /* HomeDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */; };
 		AD6338002083974900BC84B1 /* MeSetterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6337FF2083974900BC84B1 /* MeSetterController.swift */; };
+		AD68649F21043F3D004FFF76 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68649E21043F3D004FFF76 /* AlamofireHelper.swift */; };
 		AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */; };
 		AD6A983C201A12CB00E7C5AE /* HomeDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */; };
+		ADCA97862100DADD00DA0950 /* NetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97852100DADC00DA0950 /* NetHelper.swift */; };
+		ADCA97882100DB4500DA0950 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97872100DB4500DA0950 /* Tools.swift */; };
 		ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */; };
 		ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5051FB6C8F50048F876 /* ViewController.swift */; };
 		ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEAE50C1FB6C8F50048F876 /* LaunchScreen.storyboard */; };
@@ -263,7 +265,6 @@
 		AD1033231FB6CD4E0017E81C /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		AD1033241FB6CD4E0017E81C /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
 		AD1033251FB6CD4E0017E81C /* success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success@2x.png"; sourceTree = "<group>"; };
-		AD1033261FB6CD4E0017E81C /* NetHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetHelper.swift; sourceTree = "<group>"; };
 		AD1033281FB6CD4E0017E81C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		AD1033291FB6CD4E0017E81C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		AD10332A1FB6CD4E0017E81C /* themeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = themeColor.swift; sourceTree = "<group>"; };
@@ -341,8 +342,11 @@
 		AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailCommentCell.swift; sourceTree = "<group>"; };
 		AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailCommentCell.xib; sourceTree = "<group>"; };
 		AD6337FF2083974900BC84B1 /* MeSetterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSetterController.swift; sourceTree = "<group>"; };
+		AD68649E21043F3D004FFF76 /* AlamofireHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
 		AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailFooterView.swift; sourceTree = "<group>"; };
 		AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailFooterView.xib; sourceTree = "<group>"; };
+		ADCA97852100DADC00DA0950 /* NetHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetHelper.swift; sourceTree = "<group>"; };
+		ADCA97872100DB4500DA0950 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		ADEAE5001FB6C8F50048F876 /* DCTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADEAE5051FB6C8F50048F876 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -417,6 +421,12 @@
 		A1C46D752005E14A00E02635 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A1CE83911FC3C0AC00DAF90F /* HomeCell.swift */,
+				A1CE83921FC3C0AC00DAF90F /* HomeCell.xib */,
+				AD14CC5D1FE8027A003FBE0B /* HomeCellWithImage.swift */,
+				AD14CC5E1FE8027A003FBE0B /* HomeCellWithImage.xib */,
+				AD14CC611FE802B6003FBE0B /* HomeCellWithImages.swift */,
+				AD14CC621FE802B6003FBE0B /* HomeCellWithImages.xib */,
 				A1B8E491200603B1001E156E /* HomeDetailHeadView.swift */,
 				A1B8E4932006066F001E156E /* HomeDetailHeadView.xib */,
 				AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */,
@@ -432,12 +442,6 @@
 		A1CE83901FC3C05500DAF90F /* view */ = {
 			isa = PBXGroup;
 			children = (
-				A1CE83911FC3C0AC00DAF90F /* HomeCell.swift */,
-				A1CE83921FC3C0AC00DAF90F /* HomeCell.xib */,
-				AD14CC5D1FE8027A003FBE0B /* HomeCellWithImage.swift */,
-				AD14CC5E1FE8027A003FBE0B /* HomeCellWithImage.xib */,
-				AD14CC611FE802B6003FBE0B /* HomeCellWithImages.swift */,
-				AD14CC621FE802B6003FBE0B /* HomeCellWithImages.xib */,
 				A1CE839C1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift */,
 				A1CE839D1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib */,
 				A1783C011FCC128F00E4AB06 /* AllCategoryCell.swift */,
@@ -554,11 +558,13 @@
 				AD10331E1FB6CD4E0017E81C /* constant.swift */,
 				AD10331F1FB6CD4E0017E81C /* Extension.swift */,
 				AD1033201FB6CD4E0017E81C /* hud */,
-				AD1033261FB6CD4E0017E81C /* NetHelper.swift */,
 				AD1033271FB6CD4E0017E81C /* Reachability */,
 				AD10332A1FB6CD4E0017E81C /* themeColor.swift */,
+				ADCA97872100DB4500DA0950 /* Tools.swift */,
+				ADCA97852100DADC00DA0950 /* NetHelper.swift */,
 				AD10332B1FB6CD4E0017E81C /* url.swift */,
 				A1E853D21FC6924100E8DB85 /* DCTT-Bridging-Header.h */,
+				AD68649E21043F3D004FFF76 /* AlamofireHelper.swift */,
 			);
 			path = com;
 			sourceTree = "<group>";
@@ -918,6 +924,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-DCTT/Pods-DCTT-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LKDBHelper/LKDBHelper.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -930,6 +937,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LKDBHelper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -1053,6 +1061,7 @@
 				AD6338002083974900BC84B1 /* MeSetterController.swift in Sources */,
 				AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */,
 				AD1033441FB6CE560017E81C /* HomeViewController.swift in Sources */,
+				AD68649F21043F3D004FFF76 /* AlamofireHelper.swift in Sources */,
 				AD2C1EE520260C4E00E48245 /* BasePublishController.swift in Sources */,
 				AD2187D5205E02A000E8C93F /* MeBaseTableViewController.swift in Sources */,
 				A1CE839B1FC3F6D900DAF90F /* FriendsDetailController.swift in Sources */,
@@ -1061,10 +1070,10 @@
 				A117530C1FC7B0DF00888516 /* KLTNavigationController.m in Sources */,
 				AD20F3C72067DEA4003BDE17 /* MessageCell.swift in Sources */,
 				AD0BD4ED2009FE980088D5E7 /* HomeDetailImgCell.swift in Sources */,
-				AD1033341FB6CD4E0017E81C /* NetHelper.swift in Sources */,
 				AD1033421FB6CD920017E81C /* BaseViewControllerWithTable.swift in Sources */,
 				AD21D9BD205520C300E317FF /* MeNotRegisterCell.swift in Sources */,
 				AD00300A201DF9C500A72A16 /* PubWriteCell.swift in Sources */,
+				ADCA97882100DB4500DA0950 /* Tools.swift in Sources */,
 				AD10332D1FB6CD4E0017E81C /* constant.swift in Sources */,
 				AD14CC5F1FE8027A003FBE0B /* HomeCellWithImage.swift in Sources */,
 				A1DE18A11FC2A0D000562130 /* TTHeadTitleView.swift in Sources */,
@@ -1076,6 +1085,7 @@
 				A19C4B631FCD2AD600E9DE59 /* TTSearchBarView.swift in Sources */,
 				A1CE83991FC3F6AA00DAF90F /* HomeDetailController.swift in Sources */,
 				A1C854C11FDFD72E00AC03E5 /* TTImagePreviewCell.swift in Sources */,
+				ADCA97862100DADD00DA0950 /* NetHelper.swift in Sources */,
 				AD2E9570207E657D009C675B /* FensiBaseController.swift in Sources */,
 				AD2C1EE72026137900E48245 /* PublishFriendViewController.swift in Sources */,
 				AD2E956D207E59F9009C675B /* CollectCell.swift in Sources */,

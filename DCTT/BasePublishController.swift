@@ -18,6 +18,8 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
     var kMaxImagesNumber:Int = 9
     private var presentViewController:UINavigationController!
     
+    var textCell:PublishTextCell!
+    
     //MARK:
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,7 +139,45 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
     }
 
     func previewAction() {}
-    func submintBtnAction(){}
+    func submintBtnAction(){
+        guard imgDataArr.count > 0 else {
+            _post();
+            return
+        }
+        
+        
+        var images = [UIImage]()
+        
+        //获取相册图片
+        let requestOption = PHImageRequestOptions.init()
+        requestOption.resizeMode = .fast
+        requestOption.isSynchronous = true
+        let size = CGSize(width: 400, height: 400)
+        
+        let group = DispatchGroup.init()
+        for i in 0..<imgDataArr.count {
+            let asset = imgDataArr[i]
+            group.enter()
+            
+            PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .aspectFit, options: requestOption, resultHandler: { [weak self ](img, dic) in
+                if let ig = img{
+                    images.append(ig)
+                }
+                
+                group.leave()
+            })
+            
+        }
+        
+        group.notify(queue: DispatchQueue.main) {[weak self ] in
+            guard let ss = self else {return}
+            print("end");
+            ss._post(images)
+        }
+
+    }
+    
+    func _post(_ ig:[UIImage]? = nil) { }
     
     //MARK:
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -160,7 +200,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         
         let section = indexPath.section
         if section == 0 {
-            
+            textCell = cell as! PublishTextCell
         }else if section == 1 {
             if indexPath.row < imgDataArr.count {
                 let cell = cell as! PublishImageCell
@@ -275,16 +315,6 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
