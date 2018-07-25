@@ -81,7 +81,7 @@ var kPublish_type_info:[String:String]!
 
 
 //////TEST
-let test_is_login = true
+let test_is_login = false
 
 
 

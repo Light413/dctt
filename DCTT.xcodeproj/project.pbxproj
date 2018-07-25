@@ -161,6 +161,8 @@
 		AD4200222007AFCA00096CF7 /* HomeDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */; };
 		AD6338002083974900BC84B1 /* MeSetterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6337FF2083974900BC84B1 /* MeSetterController.swift */; };
 		AD68649F21043F3D004FFF76 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68649E21043F3D004FFF76 /* AlamofireHelper.swift */; };
+		AD694D4B2108C3BB00FAB2CB /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD694D492108C3BB00FAB2CB /* Icon-60@3x.png */; };
+		AD694D4C2108C3BB00FAB2CB /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD694D4A2108C3BB00FAB2CB /* Icon-60@2x.png */; };
 		AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */; };
 		AD6A983C201A12CB00E7C5AE /* HomeDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */; };
 		ADCA97862100DADD00DA0950 /* NetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97852100DADC00DA0950 /* NetHelper.swift */; };
@@ -234,7 +236,6 @@
 		A1E61D1C1FCE8F560080A12D /* back_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_bg@2x.png"; sourceTree = "<group>"; };
 		A1E61D1E1FCE93E30080A12D /* MePersonInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MePersonInfoCell.swift; sourceTree = "<group>"; };
 		A1E61D1F1FCE93E30080A12D /* MePersonInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MePersonInfoCell.xib; sourceTree = "<group>"; };
-		A1E741AC1FD90EF300942219 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A1E741AE1FD90F1600942219 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A1E741B01FD90F2A00942219 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A1E853D21FC6924100E8DB85 /* DCTT-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DCTT-Bridging-Header.h"; path = "../BaseController/KLTAnimateNav/DCTT-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -341,6 +342,8 @@
 		AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailCommentCell.xib; sourceTree = "<group>"; };
 		AD6337FF2083974900BC84B1 /* MeSetterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSetterController.swift; sourceTree = "<group>"; };
 		AD68649E21043F3D004FFF76 /* AlamofireHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
+		AD694D492108C3BB00FAB2CB /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
+		AD694D4A2108C3BB00FAB2CB /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailFooterView.swift; sourceTree = "<group>"; };
 		AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailFooterView.xib; sourceTree = "<group>"; };
 		ADCA97852100DADC00DA0950 /* NetHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetHelper.swift; sourceTree = "<group>"; };
@@ -462,6 +465,8 @@
 				A148A2A31FD6494B0052DDF3 /* publish_image@2x.png */,
 				A148A2A51FD649570052DDF3 /* publish_write@2x.png */,
 				A148A2A71FD658180052DDF3 /* video_allshare@2x.png */,
+				AD694D4A2108C3BB00FAB2CB /* Icon-60@2x.png */,
+				AD694D492108C3BB00FAB2CB /* Icon-60@3x.png */,
 				A1A642CC1FC54FA40058F63B /* icon */,
 				A1B5A6421FC4174400871676 /* ymtimg2.jpg */,
 				AD0BD4EF200A05160088D5E7 /* ly001.jpg */,
@@ -890,6 +895,7 @@
 				AD2E956E207E59F9009C675B /* CollectCell.xib in Resources */,
 				AD0BD4F9200A07310088D5E7 /* WechatIMG1.jpeg in Resources */,
 				A1A642D51FC54FA40058F63B /* AppIcon-News29x29@2x.png in Resources */,
+				AD694D4B2108C3BB00FAB2CB /* Icon-60@3x.png in Resources */,
 				A189DEFE1FCFABCD007911D2 /* area.plist in Resources */,
 				AD2178E0207FB1B700B99069 /* FensiCell.xib in Resources */,
 				AD0BD504200A34350088D5E7 /* FriendHeadView.xib in Resources */,
@@ -916,6 +922,7 @@
 				AD14CC5A1FE800E0003FBE0B /* home_cell_2.JPG in Resources */,
 				A1CE839F1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib in Resources */,
 				AD128C77201CCD9500A9EDBE /* PubFriendCell.xib in Resources */,
+				AD694D4C2108C3BB00FAB2CB /* Icon-60@2x.png in Resources */,
 				AD0BD4EE2009FE980088D5E7 /* HomeDetailImgCell.xib in Resources */,
 				AD2178E4207FB2EC00B99069 /* WechatIMG10.jpeg in Resources */,
 				AD14CC641FE802B6003FBE0B /* HomeCellWithImages.xib in Resources */,
@@ -1125,7 +1132,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				ADEAE50D1FB6C8F50048F876 /* Base */,
-				A1E741AC1FD90EF300942219 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1232,6 +1238,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55B69D6DCD87607BEB534DEA /* Pods-DCTT.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8R29X3H9MY;
@@ -1253,6 +1260,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 604BC239A7045558390DF0BE /* Pods-DCTT.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";

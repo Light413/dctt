@@ -152,10 +152,17 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            /*let vc = UIStoryboard.init(name: "Login", bundle: nil).instantiateInitialViewController()*/
-            let vc = UIStoryboard.init(name: "me", bundle: nil).instantiateViewController(withIdentifier: "me_personInfo_id")
+            if !test_is_login {
+              let vc = UIStoryboard.init(name: "Login", bundle: nil).instantiateInitialViewController()
+                self.navigationController?.present(vc!, animated: true, completion: nil)
+            }else{
+               let vc = UIStoryboard.init(name: "me", bundle: nil).instantiateViewController(withIdentifier: "me_personInfo_id")
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+
+
             
-            self.navigationController?.pushViewController(vc, animated: true)
+            
             
             return
         } else if indexPath.section == 1 {

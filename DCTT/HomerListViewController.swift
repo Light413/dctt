@@ -39,6 +39,7 @@ class HomerListViewController: BaseTableViewController {
         }
         
         tableView.mj_footer = footer
+        tableView.mj_footer.isHidden = true
         
         //...
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -50,8 +51,11 @@ class HomerListViewController: BaseTableViewController {
 
     
     func loadData() {
+        HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
         
         AlamofireHelper.post(url: home_list_url, parameters: nil, successHandler: {[weak self] (res) in
+            HUD.dismiss()
+            
             guard let ss = self else {return}
             if ss.pageNumber == 1{ ss.dataArray.removeAll()}
             
@@ -65,6 +69,8 @@ class HomerListViewController: BaseTableViewController {
                 ss.dataArray = ss.dataArray + arr;
                 if arr.count < 20 {
                     ss.tableView.mj_footer.state = .noMoreData
+                }else{
+                    ss.tableView.mj_footer.isHidden = false
                 }
             }else {
                 ss.tableView.mj_footer.state = .noMoreData
@@ -72,9 +78,9 @@ class HomerListViewController: BaseTableViewController {
             
             
             ss.tableView.reloadData()
-            print(res);
+            //print(res);
         }) { (error) in
-            
+            HUD.dismiss()
         }
 
         

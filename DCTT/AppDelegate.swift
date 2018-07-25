@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         HUD.config()
 
         UIApplication.shared.applicationIconBadgeNumber = 0
+        sleep(2)
         
         //_initLocationServices()
         //_initNotification()

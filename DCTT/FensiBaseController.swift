@@ -11,7 +11,7 @@ import UIKit
 class FensiBaseController: UIViewController,TTPageViewControllerDelegate,TTHeadTitleDelegate {
     var t_barTintColor:UIColor?;
     
-    var vcArr = [MeBaseTableViewController]()
+    var vcArr = [UIViewController]()
     var pagevc :TTPageViewController!
     var topview : TTHeadTitleView!
     
@@ -44,17 +44,18 @@ class FensiBaseController: UIViewController,TTPageViewControllerDelegate,TTHeadT
         navigationItem.titleView = topview
         
         ////pagevc
-        let _h =  view.frame.height - 64 //kCurrentScreenHeight - 64
         for _ in 0..<titles.count {
             let v = GuanzhuController();
-            v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h - 1)
+            //v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h - 49)
             vcArr.append(v)
         }
         
-        let rec = CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h + 40)
+        let rec = CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 0)
         pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)
+        
         self.addChildViewController(pagevc)
         view.addSubview(pagevc.view)
+
         
 
     }
