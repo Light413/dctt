@@ -46,12 +46,13 @@ class HomerListViewController: BaseTableViewController {
         tableView.estimatedRowHeight = 100
         
         //
-        loadData()
+        //loadData()
+        tableView.mj_header.beginRefreshing()
     }
 
     
     func loadData() {
-        HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
+        //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
         
         AlamofireHelper.post(url: home_list_url, parameters: nil, successHandler: {[weak self] (res) in
             HUD.dismiss()

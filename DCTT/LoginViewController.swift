@@ -9,11 +9,19 @@
 import UIKit
 
 class LoginViewController: UITableViewController {
-
+    @IBOutlet weak var phoneNumber: UITextField!
+    
+    @IBOutlet weak var pwd: UITextField!
+    
+    @IBOutlet weak var loginBtn: UIButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        HUD.dismiss();
+        
         let _topBg = UIView .init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 64))
         
         let backbtn = UIButton (frame: CGRect (x: 15, y: 20, width: 30, height: 30))
@@ -24,14 +32,45 @@ class LoginViewController: UITableViewController {
         
         let leftItme = UIBarButtonItem (customView: backbtn)
         navigationItem.leftBarButtonItem = leftItme
-        
         tableView.tableFooterView = UIView()
         
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        //self.navigationController?.navigationBar.isTranslucent = true
+        //self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(getImage(), for: .default)
+        self.title = "手机号登陆"
+        
+        view.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(dimissKeyboar(_ :))))
+        
     }
 
+    func dimissKeyboar(_ gesture:UITapGestureRecognizer)  {
+        phoneNumber.resignFirstResponder()
+        pwd.resignFirstResponder()
+    }
+    
+    
+    @IBAction func buttonAction(_ sender: UIButton) {
+        switch sender.tag {
+        case 1://login
+            
+            break
+        case 2://register
+            
+            break
+        case 3://forgor pwd
+            
+            break
+
+        default:
+            break
+        }
+        
+        
+    }
+    
+    
+    
+    
     
     func getImage() -> UIImage?  {
        let rect = CGRect (x: 0, y: 0, width: 5, height: 5)
@@ -40,7 +79,7 @@ class LoginViewController: UITableViewController {
         
        let ctx =  UIGraphicsGetCurrentContext()
         
-        ctx?.setFillColor(UIColor(red: 46/255.0, green: 182/255.0, blue: 106/255.0, alpha: 0).cgColor)
+        ctx?.setFillColor(UIColor.white.cgColor)
         ctx?.fill(rect)
         
         let ig = UIGraphicsGetImageFromCurrentImageContext()
@@ -67,3 +106,17 @@ class LoginViewController: UITableViewController {
 
 
 }
+
+
+extension LoginViewController:UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+
+
+
+

@@ -12,7 +12,8 @@ class FindPwdController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "重设密码";
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

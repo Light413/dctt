@@ -25,7 +25,6 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         //self.navigationController?.navigationBar.shadowImage = UIImage()
 
         _init()
@@ -53,13 +52,13 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         super.viewWillAppear(animated)
         
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        view.addSubview(_topBgView)
+        //view.addSubview(_topBgView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        _topBgView.removeFromSuperview()
+        //_topBgView.removeFromSuperview()
     }
     
     
@@ -77,6 +76,8 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         view.addSubview(_tableView)
         _tableView.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0)
+        
+        //_tableView.backgroundColor = UIColor.white
         
         /*let logoutBtn = UIButton (frame: CGRect (x: 0, y: 0, width: _tableView.frame.width, height: 50))
         logoutBtn.setTitle("退出账号", for: .normal)
@@ -112,7 +113,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0:return test_is_login ? 180 : 100
+        case 0:return test_is_login ? 180 : 150
             default:return 70
         }
     }
@@ -125,7 +126,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             let identifier =  test_is_login ? "MePersonInfoCellReuseIdentifier":"MeNotRegisterCellIdentifier"
             cell = tableView.dequeueReusableCell(withIdentifier: identifier , for: indexPath)
             
-            if test_is_login {
+            if true {
                 return cell;
             }
             
@@ -134,7 +135,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             cell = tableView.dequeueReusableCell(withIdentifier: "MeViewControllerCellIdentifier")
             if cell == nil {
                 cell = UITableViewCell.init(style: .value1, reuseIdentifier: "MeViewControllerCellIdentifier")
-                cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
+                cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
                 cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15)
             }
             cell.textLabel?.text = _titleArr[indexPath.row]
@@ -153,6 +154,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             if !test_is_login {
+               HUD.show()
               let vc = UIStoryboard.init(name: "Login", bundle: nil).instantiateInitialViewController()
                 self.navigationController?.present(vc!, animated: true, completion: nil)
             }else{
