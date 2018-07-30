@@ -31,8 +31,16 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
         _topBgView = topView()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(loginSuccessNoti(_ :)), name: userLoginedSuccessNotification, object: nil)
     }
 
+    func loginSuccessNoti(_ noti:Notification) {
+        _tableView.reloadData()
+    }
+    
+    
+    
+    
     func topView() -> UIView {
         let _l = UILabel .init(frame: CGRect (x: 0, y: 20, width: kCurrentScreenWidth, height: 44))
         _l.text = "正儿八经的程序员GG"
@@ -113,7 +121,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0:return test_is_login ? 180 : 150
+        case 0:return user_has_logined ? 180 : 150
             default:return 70
         }
     }
@@ -123,7 +131,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         var cell:UITableViewCell!
         
         if indexPath.section == 0 {
-            let identifier =  test_is_login ? "MePersonInfoCellReuseIdentifier":"MeNotRegisterCellIdentifier"
+            let identifier =  user_has_logined ? "MePersonInfoCellReuseIdentifier":"MeNotRegisterCellIdentifier"
             cell = tableView.dequeueReusableCell(withIdentifier: identifier , for: indexPath)
             
             if true {
@@ -153,7 +161,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            if !test_is_login {
+            if !user_has_logined {
                HUD.show()
               let vc = UIStoryboard.init(name: "Login", bundle: nil).instantiateInitialViewController()
                 self.navigationController?.present(vc!, animated: true, completion: nil)

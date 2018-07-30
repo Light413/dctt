@@ -19,10 +19,12 @@ let kCurrentScreenHeight = UIScreen.main.bounds.height
 var APP_IS_BACKGROUND:Bool = false //app是否处于后台
 
 ///url
-let BASE_URL = "http://192.168.1.104:80/tt/"
+//let BASE_URL = "http://192.168.1.104:80/tt/"
+let BASE_URL = "http://39.106.164.101:80/tt/"
 let home_list_url = "getPostList.php"
 let publish_url = "publish.php"
-
+let register_url = "register.php"
+let login_url = "login.php"
 
 ///
 let Loading = {HUD.show()}
@@ -81,7 +83,7 @@ var kPublish_type_info:[String:String]!
 
 
 //////TEST
-let test_is_login = false
+var user_has_logined = false
 
 
 

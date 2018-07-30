@@ -107,7 +107,7 @@ class HomerListViewController: BaseTableViewController {
             cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
             (cell as! HomeCellWithImage).fill(d)
             break
-        case let n where n > 3:
+        case let n where n >= 3:
             
             identifier = "HomeCellWithImagesIdentifierId"
             cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)

@@ -161,12 +161,13 @@
 		AD4200222007AFCA00096CF7 /* HomeDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */; };
 		AD6338002083974900BC84B1 /* MeSetterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6337FF2083974900BC84B1 /* MeSetterController.swift */; };
 		AD68649F21043F3D004FFF76 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68649E21043F3D004FFF76 /* AlamofireHelper.swift */; };
-		AD694D4B2108C3BB00FAB2CB /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD694D492108C3BB00FAB2CB /* Icon-60@3x.png */; };
-		AD694D4C2108C3BB00FAB2CB /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD694D4A2108C3BB00FAB2CB /* Icon-60@2x.png */; };
+		AD694D4B2108C3BB00FAB2CB /* Icon_60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD694D492108C3BB00FAB2CB /* Icon_60@3x.png */; };
+		AD694D4C2108C3BB00FAB2CB /* Icon_60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD694D4A2108C3BB00FAB2CB /* Icon_60@2x.png */; };
 		AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */; };
 		AD6A983C201A12CB00E7C5AE /* HomeDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */; };
 		ADCA97862100DADD00DA0950 /* NetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97852100DADC00DA0950 /* NetHelper.swift */; };
 		ADCA97882100DB4500DA0950 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97872100DB4500DA0950 /* Tools.swift */; };
+		ADDEA990210F630D007C1CBA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDEA98F210F630D007C1CBA /* Notification.swift */; };
 		ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */; };
 		ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5051FB6C8F50048F876 /* ViewController.swift */; };
 		ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEAE50C1FB6C8F50048F876 /* LaunchScreen.storyboard */; };
@@ -342,12 +343,13 @@
 		AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailCommentCell.xib; sourceTree = "<group>"; };
 		AD6337FF2083974900BC84B1 /* MeSetterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSetterController.swift; sourceTree = "<group>"; };
 		AD68649E21043F3D004FFF76 /* AlamofireHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
-		AD694D492108C3BB00FAB2CB /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
-		AD694D4A2108C3BB00FAB2CB /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		AD694D492108C3BB00FAB2CB /* Icon_60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_60@3x.png"; sourceTree = "<group>"; };
+		AD694D4A2108C3BB00FAB2CB /* Icon_60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_60@2x.png"; sourceTree = "<group>"; };
 		AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailFooterView.swift; sourceTree = "<group>"; };
 		AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailFooterView.xib; sourceTree = "<group>"; };
 		ADCA97852100DADC00DA0950 /* NetHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetHelper.swift; sourceTree = "<group>"; };
 		ADCA97872100DB4500DA0950 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		ADDEA98F210F630D007C1CBA /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		ADEAE5001FB6C8F50048F876 /* DCTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADEAE5051FB6C8F50048F876 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -465,8 +467,8 @@
 				A148A2A31FD6494B0052DDF3 /* publish_image@2x.png */,
 				A148A2A51FD649570052DDF3 /* publish_write@2x.png */,
 				A148A2A71FD658180052DDF3 /* video_allshare@2x.png */,
-				AD694D4A2108C3BB00FAB2CB /* Icon-60@2x.png */,
-				AD694D492108C3BB00FAB2CB /* Icon-60@3x.png */,
+				AD694D4A2108C3BB00FAB2CB /* Icon_60@2x.png */,
+				AD694D492108C3BB00FAB2CB /* Icon_60@3x.png */,
 				A1A642CC1FC54FA40058F63B /* icon */,
 				A1B5A6421FC4174400871676 /* ymtimg2.jpg */,
 				AD0BD4EF200A05160088D5E7 /* ly001.jpg */,
@@ -662,6 +664,7 @@
 				AD128C67201C6A6E00A9EDBE /* Publish */,
 				AD0FAFA2204461F1008A386E /* Servers */,
 				AD0FAFA320446243008A386E /* Me */,
+				ADDEA98F210F630D007C1CBA /* Notification.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -895,7 +898,7 @@
 				AD2E956E207E59F9009C675B /* CollectCell.xib in Resources */,
 				AD0BD4F9200A07310088D5E7 /* WechatIMG1.jpeg in Resources */,
 				A1A642D51FC54FA40058F63B /* AppIcon-News29x29@2x.png in Resources */,
-				AD694D4B2108C3BB00FAB2CB /* Icon-60@3x.png in Resources */,
+				AD694D4B2108C3BB00FAB2CB /* Icon_60@3x.png in Resources */,
 				A189DEFE1FCFABCD007911D2 /* area.plist in Resources */,
 				AD2178E0207FB1B700B99069 /* FensiCell.xib in Resources */,
 				AD0BD504200A34350088D5E7 /* FriendHeadView.xib in Resources */,
@@ -922,7 +925,7 @@
 				AD14CC5A1FE800E0003FBE0B /* home_cell_2.JPG in Resources */,
 				A1CE839F1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib in Resources */,
 				AD128C77201CCD9500A9EDBE /* PubFriendCell.xib in Resources */,
-				AD694D4C2108C3BB00FAB2CB /* Icon-60@2x.png in Resources */,
+				AD694D4C2108C3BB00FAB2CB /* Icon_60@2x.png in Resources */,
 				AD0BD4EE2009FE980088D5E7 /* HomeDetailImgCell.xib in Resources */,
 				AD2178E4207FB2EC00B99069 /* WechatIMG10.jpeg in Resources */,
 				AD14CC641FE802B6003FBE0B /* HomeCellWithImages.xib in Resources */,
@@ -1030,6 +1033,7 @@
 				A148A2AF1FD687DD0052DDF3 /* PublishImageCell.swift in Sources */,
 				ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */,
 				AD1033401FB6CD920017E81C /* BaseTableViewController.swift in Sources */,
+				ADDEA990210F630D007C1CBA /* Notification.swift in Sources */,
 				AD202753204C388100E538CD /* PubJiaoYouController.swift in Sources */,
 				AD1033351FB6CD4E0017E81C /* Reachability.m in Sources */,
 				ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */,

@@ -44,14 +44,15 @@ class AlamofireHelper: NSObject {
                 DispatchQueue.main.async {
                     switch dataResponse.result {
                         case .success(let value):
-                            if let dic = value as? [String:Any] ,let status = dic["status"] {
+                            if let dic = value as? [String:Any] ,let status = dic["status"] as? Int {
                                 if "\(status)" == "200" {
                                     if let success = successHandler {
                                         success(dic);
                                     }
                                 }else{
                                     if let failure = failureHandler {
-                                        failure(dataResponse.error)
+                                        let err = NSError.init(domain: "服务器返回错误-\(dic["msg"] ?? "")", code:status, userInfo: nil)
+                                        failure(err)
                                     }
                                 }
                             }

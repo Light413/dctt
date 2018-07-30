@@ -52,6 +52,24 @@ class LoginViewController: UITableViewController {
     @IBAction func buttonAction(_ sender: UIButton) {
         switch sender.tag {
         case 1://login
+            HUD.show(withStatus: "登录中")
+            let d = ["phone_number":"18016373661",
+                     "pwd":"123012",
+                     ]
+            
+            AlamofireHelper.post(url: login_url, parameters: d, successHandler: { (res) in
+                print(res)
+                HUD.show(successInfo: "登录成功")
+                user_has_logined = true
+                NotificationCenter.default.post(Notification.init(name: userLoginedSuccessNotification))
+                
+                self.dismiss(animated: true, completion: nil)
+            
+            }) { (error) in
+                HUD.show(info: "请求服务器失败，请稍后重试.")
+                print(error?.localizedDescription);
+            }
+            
             
             break
         case 2://register
