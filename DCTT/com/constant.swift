@@ -26,6 +26,11 @@ let publish_url = "publish.php"
 let register_url = "register.php"
 let login_url = "login.php"
 
+let user_agreement_url = "userAgreement.html"
+
+
+
+
 ///
 let Loading = {HUD.show()}
 let Loadingwith:((String)->()) = {str in

@@ -51,7 +51,7 @@ class AlamofireHelper: NSObject {
                                     }
                                 }else{
                                     if let failure = failureHandler {
-                                        let err = NSError.init(domain: "服务器返回错误-\(dic["msg"] ?? "")", code:status, userInfo: nil)
+                                        let err = NSError.init(domain: "\(dic["msg"] ?? "")", code:status, userInfo: nil)
                                         failure(err)
                                     }
                                 }

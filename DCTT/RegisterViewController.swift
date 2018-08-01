@@ -22,15 +22,37 @@ class RegisterViewController: UITableViewController {
     }
 
     @IBAction func buttonAction(_ sender: UIButton) {
-        let d = ["phone_number":"18016373661",
-                 "pwd":"123012",
-                 ]
-        
-        AlamofireHelper.post(url: register_url, parameters: d, successHandler: { (res) in
-            print(res)
-        }) { (error) in
-            print(error?.localizedDescription);
+        switch sender.tag {
+        case 1:
+            
+            break
+            
+        case 2:
+            let d = ["phone_number":String.isNullOrEmpty(phone.text),
+                     "pwd":String.isNullOrEmpty(pwd.text),
+                     ]
+            
+            //
+            HUD.show()
+            AlamofireRequest(register_url, parameter: d , successHandler : { [weak self](res) in
+                print(res)
+                HUD.show(successInfo: "注册成功")
+                
+                guard let ss = self else {return}
+                ss.navigationController?.popViewController(animated: true)
+            })
+            
+            break
+            
+        case 3:
+            let vc = BaseWebViewController()
+            vc.title = "用户服务协议"
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            break
+        default:break
         }
+
         
         
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UITableViewController {
+class LoginViewController: UITableViewController{
     @IBOutlet weak var phoneNumber: UITextField!
     
     @IBOutlet weak var pwd: UITextField!
@@ -53,23 +53,19 @@ class LoginViewController: UITableViewController {
         switch sender.tag {
         case 1://login
             HUD.show(withStatus: "登录中")
-            let d = ["phone_number":"18016373661",
-                     "pwd":"123012",
+            let d = ["phone_number":String.isNullOrEmpty(phoneNumber.text),
+                     "pwd":String.isNullOrEmpty(pwd.text),
                      ]
             
-            AlamofireHelper.post(url: login_url, parameters: d, successHandler: { (res) in
+            AlamofireRequest(login_url, parameter: d) {[weak self] (res) in
                 print(res)
                 HUD.show(successInfo: "登录成功")
                 user_has_logined = true
                 NotificationCenter.default.post(Notification.init(name: userLoginedSuccessNotification))
                 
-                self.dismiss(animated: true, completion: nil)
-            
-            }) { (error) in
-                HUD.show(info: "请求服务器失败，请稍后重试.")
-                print(error?.localizedDescription);
+                guard let ss = self else {return}
+                ss.dismiss(animated: true, completion: nil)
             }
-            
             
             break
         case 2://register

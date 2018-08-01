@@ -157,10 +157,12 @@
 		AD2E956E207E59F9009C675B /* CollectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD2E956C207E59F9009C675B /* CollectCell.xib */; };
 		AD2E9570207E657D009C675B /* FensiBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E956F207E657D009C675B /* FensiBaseController.swift */; };
 		AD2E9572207E65D2009C675B /* GuanzhuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E9571207E65D2009C675B /* GuanzhuController.swift */; };
+		AD3CB6C8211203BA00681E65 /* AlamofireRequestAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CB6C7211203BA00681E65 /* AlamofireRequestAble.swift */; };
+		AD3CB6CA211206DC00681E65 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CB6C9211206DB00681E65 /* AlamofireHelper.swift */; };
+		AD3CB6CC211210D500681E65 /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CB6CB211210D500681E65 /* BaseWebViewController.swift */; };
 		AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */; };
 		AD4200222007AFCA00096CF7 /* HomeDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */; };
 		AD6338002083974900BC84B1 /* MeSetterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6337FF2083974900BC84B1 /* MeSetterController.swift */; };
-		AD68649F21043F3D004FFF76 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68649E21043F3D004FFF76 /* AlamofireHelper.swift */; };
 		AD694D4B2108C3BB00FAB2CB /* Icon_60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD694D492108C3BB00FAB2CB /* Icon_60@3x.png */; };
 		AD694D4C2108C3BB00FAB2CB /* Icon_60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD694D4A2108C3BB00FAB2CB /* Icon_60@2x.png */; };
 		AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */; };
@@ -339,10 +341,12 @@
 		AD2E956C207E59F9009C675B /* CollectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectCell.xib; sourceTree = "<group>"; };
 		AD2E956F207E657D009C675B /* FensiBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FensiBaseController.swift; sourceTree = "<group>"; };
 		AD2E9571207E65D2009C675B /* GuanzhuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuanzhuController.swift; sourceTree = "<group>"; };
+		AD3CB6C7211203BA00681E65 /* AlamofireRequestAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequestAble.swift; sourceTree = "<group>"; };
+		AD3CB6C9211206DB00681E65 /* AlamofireHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
+		AD3CB6CB211210D500681E65 /* BaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebViewController.swift; sourceTree = "<group>"; };
 		AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailCommentCell.swift; sourceTree = "<group>"; };
 		AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailCommentCell.xib; sourceTree = "<group>"; };
 		AD6337FF2083974900BC84B1 /* MeSetterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSetterController.swift; sourceTree = "<group>"; };
-		AD68649E21043F3D004FFF76 /* AlamofireHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlamofireHelper.swift; path = ../AlamofireHelper.swift; sourceTree = "<group>"; };
 		AD694D492108C3BB00FAB2CB /* Icon_60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_60@3x.png"; sourceTree = "<group>"; };
 		AD694D4A2108C3BB00FAB2CB /* Icon_60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_60@2x.png"; sourceTree = "<group>"; };
 		AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailFooterView.swift; sourceTree = "<group>"; };
@@ -550,6 +554,7 @@
 				AD2E956F207E657D009C675B /* FensiBaseController.swift */,
 				AD2E9571207E65D2009C675B /* GuanzhuController.swift */,
 				AD6337FF2083974900BC84B1 /* MeSetterController.swift */,
+				AD3CB6CB211210D500681E65 /* BaseWebViewController.swift */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -769,7 +774,8 @@
 		ADEBE43C21061292005C5C06 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				AD68649E21043F3D004FFF76 /* AlamofireHelper.swift */,
+				AD3CB6C7211203BA00681E65 /* AlamofireRequestAble.swift */,
+				AD3CB6C9211206DB00681E65 /* AlamofireHelper.swift */,
 				A1A047AE1FD540320057CC17 /* PickerView */,
 				AD1033201FB6CD4E0017E81C /* hud */,
 				AD1033271FB6CD4E0017E81C /* Reachability */,
@@ -963,6 +969,7 @@
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/LKDBHelper/LKDBHelper.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
@@ -976,6 +983,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LKDBHelper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
@@ -1003,7 +1011,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DC35A96028B5B831E98C95EE /* [CP] Copy Pods Resources */ = {
@@ -1064,6 +1072,7 @@
 				A1E1B02F1FDA90E8002D6BDC /* TTImageBaseViewController.swift in Sources */,
 				AD1033311FB6CD4E0017E81C /* HUD.swift in Sources */,
 				A148A2AB1FD687B40052DDF3 /* PublishTextCell.swift in Sources */,
+				AD3CB6C8211203BA00681E65 /* AlamofireRequestAble.swift in Sources */,
 				AD128C6E201C748D00A9EDBE /* TTDataPickerView.swift in Sources */,
 				AD10332C1FB6CD4E0017E81C /* common.swift in Sources */,
 				AD21014F208108D300558CAB /* TTBaseTableViewController.swift in Sources */,
@@ -1099,7 +1108,6 @@
 				AD6338002083974900BC84B1 /* MeSetterController.swift in Sources */,
 				AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */,
 				AD1033441FB6CE560017E81C /* HomeViewController.swift in Sources */,
-				AD68649F21043F3D004FFF76 /* AlamofireHelper.swift in Sources */,
 				AD2C1EE520260C4E00E48245 /* BasePublishController.swift in Sources */,
 				AD2187D5205E02A000E8C93F /* MeBaseTableViewController.swift in Sources */,
 				A1CE839B1FC3F6D900DAF90F /* FriendsDetailController.swift in Sources */,
@@ -1118,9 +1126,11 @@
 				AD16EDA620485C030072A266 /* PubQuestionController.swift in Sources */,
 				AD128C6C201C747E00A9EDBE /* TTDatePickerView.swift in Sources */,
 				AD1BA1F6205D1C1200B7C29C /* MeHomePageController.swift in Sources */,
+				AD3CB6CC211210D500681E65 /* BaseWebViewController.swift in Sources */,
 				AD202757204C38A400E538CD /* PubFangwuViewController.swift in Sources */,
 				ADEBE440210612B7005C5C06 /* TTPageViewController.swift in Sources */,
 				A19C4B631FCD2AD600E9DE59 /* TTSearchBarView.swift in Sources */,
+				AD3CB6CA211206DC00681E65 /* AlamofireHelper.swift in Sources */,
 				A1CE83991FC3F6AA00DAF90F /* HomeDetailController.swift in Sources */,
 				A1C854C11FDFD72E00AC03E5 /* TTImagePreviewCell.swift in Sources */,
 				ADCA97862100DADD00DA0950 /* NetHelper.swift in Sources */,

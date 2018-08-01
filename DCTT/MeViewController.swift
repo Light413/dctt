@@ -84,6 +84,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         view.addSubview(_tableView)
         _tableView.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0)
+        _tableView.showsVerticalScrollIndicator = false
         
         //_tableView.backgroundColor = UIColor.white
         

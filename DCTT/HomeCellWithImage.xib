@@ -41,9 +41,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_cell_2.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="OSy-t7-zuj">
-                        <rect key="frame" x="219" y="15" width="85" height="62"/>
+                        <rect key="frame" x="219" y="15" width="85" height="80"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="62" id="2dD-9J-NJz"/>
+                            <constraint firstAttribute="height" constant="80" id="2dD-9J-NJz"/>
                             <constraint firstAttribute="width" constant="85" id="NbU-gE-lZb"/>
                         </constraints>
                     </imageView>
