@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import MBProgressHUD
 
 class HUD: NSObject {
 
@@ -49,6 +50,22 @@ class HUD: NSObject {
         SVProgressHUD.dismiss()
     }
     
+    ////
+    static func showText(_ text:String , view: UIView){
+        let hud =  MBProgressHUD.showAdded(to: view, animated: true);
+        hud.label.text = text
+        hud.label.numberOfLines = 0
+        hud.mode = .text;
+        hud.bezelView.backgroundColor = UIColor.black
+        hud.contentColor = UIColor.white
+        hud.offset = CGPoint (x: 0, y: -30)
+        
+        hud.hide(animated: true, afterDelay: 2);
+    }
+    
+    static func dimissHudView(_  view: UIView){
+        MBProgressHUD.hide(for: view, animated: true);
+    }
     
     
 }

@@ -342,7 +342,7 @@
 		AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailCommentCell.swift; sourceTree = "<group>"; };
 		AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailCommentCell.xib; sourceTree = "<group>"; };
 		AD6337FF2083974900BC84B1 /* MeSetterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSetterController.swift; sourceTree = "<group>"; };
-		AD68649E21043F3D004FFF76 /* AlamofireHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
+		AD68649E21043F3D004FFF76 /* AlamofireHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlamofireHelper.swift; path = ../AlamofireHelper.swift; sourceTree = "<group>"; };
 		AD694D492108C3BB00FAB2CB /* Icon_60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_60@3x.png"; sourceTree = "<group>"; };
 		AD694D4A2108C3BB00FAB2CB /* Icon_60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_60@2x.png"; sourceTree = "<group>"; };
 		AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailFooterView.swift; sourceTree = "<group>"; };
@@ -393,7 +393,8 @@
 				AD128C6B201C747E00A9EDBE /* TTDatePickerView.swift */,
 				AD128C6D201C748D00A9EDBE /* TTDataPickerView.swift */,
 			);
-			path = PickerView;
+			name = PickerView;
+			path = ../PickerView;
 			sourceTree = "<group>";
 		};
 		A1A642CC1FC54FA40058F63B /* icon */ = {
@@ -488,6 +489,13 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		A1E6AE83211147A500A0A630 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
 		A1E853C81FC690E100E8DB85 /* KLTAnimateNav */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,19 +567,16 @@
 		AD10331C1FB6CD4E0017E81C /* com */ = {
 			isa = PBXGroup;
 			children = (
+				A1E6AE83211147A500A0A630 /* lib */,
 				ADEBE43C21061292005C5C06 /* Component */,
-				A1A047AE1FD540320057CC17 /* PickerView */,
 				AD10331D1FB6CD4E0017E81C /* common.swift */,
 				AD10331E1FB6CD4E0017E81C /* constant.swift */,
 				AD10331F1FB6CD4E0017E81C /* Extension.swift */,
-				AD1033201FB6CD4E0017E81C /* hud */,
-				AD1033271FB6CD4E0017E81C /* Reachability */,
 				AD10332A1FB6CD4E0017E81C /* themeColor.swift */,
 				ADCA97872100DB4500DA0950 /* Tools.swift */,
 				ADCA97852100DADC00DA0950 /* NetHelper.swift */,
 				AD10332B1FB6CD4E0017E81C /* url.swift */,
 				A1E853D21FC6924100E8DB85 /* DCTT-Bridging-Header.h */,
-				AD68649E21043F3D004FFF76 /* AlamofireHelper.swift */,
 			);
 			path = com;
 			sourceTree = "<group>";
@@ -585,7 +590,8 @@
 				AD1033241FB6CD4E0017E81C /* success.png */,
 				AD1033251FB6CD4E0017E81C /* success@2x.png */,
 			);
-			path = hud;
+			name = hud;
+			path = ../hud;
 			sourceTree = "<group>";
 		};
 		AD1033271FB6CD4E0017E81C /* Reachability */ = {
@@ -594,7 +600,8 @@
 				AD1033281FB6CD4E0017E81C /* Reachability.h */,
 				AD1033291FB6CD4E0017E81C /* Reachability.m */,
 			);
-			path = Reachability;
+			name = Reachability;
+			path = ../Reachability;
 			sourceTree = "<group>";
 		};
 		AD1033381FB6CD920017E81C /* BaseController */ = {
@@ -762,6 +769,10 @@
 		ADEBE43C21061292005C5C06 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				AD68649E21043F3D004FFF76 /* AlamofireHelper.swift */,
+				A1A047AE1FD540320057CC17 /* PickerView */,
+				AD1033201FB6CD4E0017E81C /* hud */,
+				AD1033271FB6CD4E0017E81C /* Reachability */,
 				A1A047A91FD53C910057CC17 /* Refresh */,
 				ADEBE43D210612B7005C5C06 /* TTTagListController_Swift */,
 			);
@@ -992,7 +1003,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		DC35A96028B5B831E98C95EE /* [CP] Copy Pods Resources */ = {

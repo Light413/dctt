@@ -8,6 +8,7 @@ PODS:
     - LKDBHelper/standard (= 2.4.4)
   - LKDBHelper/standard (2.4.4):
     - FMDB
+  - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.12)
   - RxCocoa (3.0.0):
     - RxSwift (~> 3.0)
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - Alamofire (= 4.5)
   - Kingfisher (= 3.13.0)
   - LKDBHelper (~> 2.4.2)
+  - MBProgressHUD (~> 1.1.0)
   - MJRefresh
   - RxCocoa (= 3.0)
   - RxDataSources (~> 1.0.4)
@@ -34,6 +36,7 @@ SPEC CHECKSUMS:
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   Kingfisher: 7eebf6000ac64401839f10da37f21eefa7d88970
   LKDBHelper: cf467ff69aaf1e13bd4964aca3a79881d54c6d14
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   RxCocoa: 0a2f3ae381cf16f4021a4cee7a4420f83058a965
   RxDataSources: b3389acc5fe2eefb8fcd81a2b76a876ad08bc82a
@@ -41,6 +44,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 53032c0fefe5f179c1d61bee9b033a3a47120abc
+PODFILE CHECKSUM: c753e316ca4e434891d094fe91cb692ac0376eee
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.0.1
