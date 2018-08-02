@@ -11,7 +11,7 @@ import Photos
 
 class BasePublishController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
-    var imgDataArr = [PHAsset]()
+    var imgDataArr = [Any]()
     
     var _colloectionview:UICollectionView!
     
@@ -114,8 +114,14 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         return collectionview
     }
     
+    //MARK: - 选择图片
     ///显示相册视图
     func showImagePicker()  {
+        guard PHPhotoLibrary.authorizationStatus() == .authorized else {
+            HUD.showText("请在系统设置中允许访问相册", view: view)
+            return
+        }
+        
         let vc = TTImagePickerViewController()
         //最大选择的数
         vc.maxImagesNumber = kMaxImagesNumber - imgDataArr.count
@@ -132,6 +138,8 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         presentViewController = UINavigationController(rootViewController:vc)
         self.navigationController?.present(presentViewController, animated: true, completion: nil)
     }
+    
+    
     
     //MARK: - Actions
     func navigationBackButtonAction() {
@@ -156,17 +164,23 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         
         let group = DispatchGroup.init()
         for i in 0..<imgDataArr.count {
-            let asset = imgDataArr[i]
+            let obj = imgDataArr[i]
+            
             group.enter()
-            
-            PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .aspectFit, options: requestOption, resultHandler: { [weak self ](img, dic) in
-                if let ig = img{
-                    images.append(ig)
-                }
+            if obj is PHAsset {
                 
+                PHImageManager.default().requestImage(for: obj as! PHAsset, targetSize: size, contentMode: .aspectFit, options: requestOption, resultHandler: { [weak self ](img, dic) in
+                        if let ig = img{
+                            images.append(ig)
+                        }
+                        
+                        group.leave()
+                    })
+            }else if obj is UIImage {
+                images.append(obj as! UIImage);
                 group.leave()
-            })
-            
+            }
+
         }
         
         group.notify(queue: DispatchQueue.main) {[weak self ] in
@@ -241,8 +255,9 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
                 strongSelf.showImagePicker()
             })
             
-            let action2 = UIAlertAction.init(title: "拍照", style: .default, handler: { (action) in
-                
+            let action2 = UIAlertAction.init(title: "拍照", style: .default, handler: { [weak self] (action) in
+                guard let strongSelf = self else {return}
+                strongSelf.showCarema()
             })
             
             let action3 = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
@@ -318,3 +333,50 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
 
 
 }
+
+extension BasePublishController:UIImagePickerControllerDelegate ,UINavigationControllerDelegate{
+    
+    func showCarema() {
+        let vc = UIImagePickerController.init()
+        vc.delegate = self
+        vc.allowsEditing = true
+        
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {HUD.show(info: "NO Camera Available");return}
+        guard AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == .authorized else {
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (b) in
+                DispatchQueue.main.async {
+                    if b {
+                        print("Allow");
+                    }else {
+                        HUD.show(info: "Allow access to the camera in Settings");
+                        print("Not Allow");
+                    }
+                }
+            }); return
+        }
+        
+        vc.sourceType = .camera
+        
+        
+        self.navigationController?.present(vc, animated: true, completion: nil)
+        
+    }
+
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let img = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            imgDataArr.append(img)
+            _colloectionview.reloadSections(IndexSet.init(integer: 1))
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+}
+

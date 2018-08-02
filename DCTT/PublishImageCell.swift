@@ -46,22 +46,27 @@ class PublishImageCell: UICollectionViewCell {
     /// - parameter asset:      所指向的图片资源
     /// - parameter type:       cell类型
     /// - parameter isSelected: 是否选中确定角标icon
-    func setImage(_ asset:PHAsset , type:ImageCellTpye , isSelected:Bool? = false) {
+    func setImage(_ asset:Any , type:ImageCellTpye , isSelected:Bool? = false) {
         cellType = type
         
-        //获取相册图片
-        let requestOption = PHImageRequestOptions.init()
-        //requestOption.isSynchronous = true
-        requestOption.resizeMode = .fast
-        
-        let size = CGSize(width: 400, height: 400)
-         PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .aspectFit, options: requestOption, resultHandler: { [weak self ](img, dic) in
+        if asset is PHAsset {
+            //获取相册图片
+            let requestOption = PHImageRequestOptions.init()
+            //requestOption.isSynchronous = true
+            requestOption.resizeMode = .fast
             
-             guard let strongSelf = self else{return}
-             if let ig = img {
-                strongSelf.igv.image = ig;
-             }
-         })
+            let size = CGSize(width: 400, height: 400)
+            PHImageManager.default().requestImage(for: asset as! PHAsset, targetSize: size, contentMode: .aspectFit, options: requestOption, resultHandler: { [weak self ](img, dic) in
+                
+                guard let strongSelf = self else{return}
+                if let ig = img {
+                    strongSelf.igv.image = ig;
+                }
+                })
+
+        } else if asset is UIImage {
+            igv.image = asset as? UIImage;
+        }
         
         //设置角标
         if type == .album {

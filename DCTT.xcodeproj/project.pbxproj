@@ -61,6 +61,8 @@
 		A1E61D201FCE93E30080A12D /* MePersonInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E61D1E1FCE93E30080A12D /* MePersonInfoCell.swift */; };
 		A1E61D211FCE93E30080A12D /* MePersonInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E61D1F1FCE93E30080A12D /* MePersonInfoCell.xib */; };
 		A1E741AD1FD90F1600942219 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1E741AF1FD90F1600942219 /* Localizable.strings */; };
+		A1FD18312112A92F000F0E91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD18302112A92F000F0E91 /* User.swift */; };
+		A1FD18332112D63D000F0E91 /* TTPickerImageAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD18322112D63D000F0E91 /* TTPickerImageAble.swift */; };
 		AD00300A201DF9C500A72A16 /* PubWriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD003008201DF9C500A72A16 /* PubWriteCell.swift */; };
 		AD00300B201DF9C500A72A16 /* PubWriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD003009201DF9C500A72A16 /* PubWriteCell.xib */; };
 		AD00300E201DF9D900A72A16 /* PubCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD00300C201DF9D900A72A16 /* PubCityCell.swift */; };
@@ -242,6 +244,8 @@
 		A1E741AE1FD90F1600942219 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A1E741B01FD90F2A00942219 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A1E853D21FC6924100E8DB85 /* DCTT-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DCTT-Bridging-Header.h"; path = "../BaseController/KLTAnimateNav/DCTT-Bridging-Header.h"; sourceTree = "<group>"; };
+		A1FD18302112A92F000F0E91 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A1FD18322112D63D000F0E91 /* TTPickerImageAble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPickerImageAble.swift; sourceTree = "<group>"; };
 		AC2D79CD06F43F25725B0AC5 /* Pods_DCTT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DCTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD003008201DF9C500A72A16 /* PubWriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubWriteCell.swift; sourceTree = "<group>"; };
 		AD003009201DF9C500A72A16 /* PubWriteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PubWriteCell.xib; sourceTree = "<group>"; };
@@ -511,6 +515,14 @@
 			path = KLTAnimateNav;
 			sourceTree = "<group>";
 		};
+		A1FD182F2112A908000F0E91 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A1FD18302112A92F000F0E91 /* User.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		AD0BD4FF200A33A40088D5E7 /* Friend */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,6 +634,7 @@
 				A1E1B02E1FDA90E8002D6BDC /* TTImageBaseViewController.swift */,
 				A133A97E1FD8DE6200793D57 /* TTImagePickerViewController.swift */,
 				A1E1B02C1FDA7AEE002D6BDC /* TTImagePreviewController.swift */,
+				A1FD18322112D63D000F0E91 /* TTPickerImageAble.swift */,
 			);
 			path = BaseController;
 			sourceTree = "<group>";
@@ -711,6 +724,7 @@
 		AD20275C204C4C2200E538CD /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				A1FD182F2112A908000F0E91 /* model */,
 				ADFC9E012053EDCC00449767 /* Login.storyboard */,
 				ADFC9E032053F72500449767 /* LoginViewController.swift */,
 				ADFC9E052053F73D00449767 /* RegisterViewController.swift */,
@@ -1099,11 +1113,13 @@
 				AD00B9B9201B6EB90015A876 /* BaseDetailController.swift in Sources */,
 				AD10333F1FB6CD920017E81C /* BaseTabbarController.swift in Sources */,
 				AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */,
+				A1FD18332112D63D000F0E91 /* TTPickerImageAble.swift in Sources */,
 				AD0FAFA020444C0A008A386E /* CategoryItemsCell.swift in Sources */,
 				A1A642DC1FC567CB0058F63B /* HomeSearchViewController.swift in Sources */,
 				AD21DF6520275A8B002FE181 /* TableViewCellSwitch.swift in Sources */,
 				A133A97F1FD8DE6200793D57 /* TTImagePickerViewController.swift in Sources */,
 				AD128C76201CCD9500A9EDBE /* PubFriendCell.swift in Sources */,
+				A1FD18312112A92F000F0E91 /* User.swift in Sources */,
 				AD14CC631FE802B6003FBE0B /* HomeCellWithImages.swift in Sources */,
 				AD6338002083974900BC84B1 /* MeSetterController.swift in Sources */,
 				AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */,
