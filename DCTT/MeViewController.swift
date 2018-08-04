@@ -217,18 +217,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         
         
         
-//        if indexPath.row == 0{
-//            TTDatePickerView.show { (age) in
-//                print(age)
-//            }
-//
-//        } else if indexPath.row == 1{
-//        TTDataPickerView.show({ (str) in
-//            print(str)
-//        })
-//
-//
-//        }
+
         
         
 

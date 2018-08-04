@@ -57,4 +57,17 @@ class User {
         return user_id
     }
     
+    static func avatar() -> String? {
+        return User.default.userFor("avatar")
+//        guard let dic = User.default.userInfo() else {return nil}
+//        guard let user_id = dic["avatar"] as? String else {return nil}
+//        return user_id
+    }
+    
+    private func userFor(_ key:String) -> String? {
+        guard let dic = userInfo() else {return nil}
+        guard let res = dic[key] as? String else {return nil}
+        return res
+    }
+    
 }
