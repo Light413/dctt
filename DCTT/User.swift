@@ -8,41 +8,53 @@
 
 import Foundation
 
-struct User {
-    static var userInfo:[String:Any]? {
-        if let arr = UserDefaults.standard.value(forKey: "userinfo") as? [String:Any] {
-            return arr;
+class User {
+    static let `default` = User()
+    
+    func userInfo() -> [String:Any]? {
+        if let data = UserDefaults.standard.value(forKey: "userinfo") as? Data {
+            do {
+                if let d =  try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:Any]{
+                    return d;
+                }
+                return nil
+            }catch {
+                
+            }
         }
-    }
+        
+        return nil
 
-    static var name:String?{
-        if let name = userInfo?["name"] as? String {
-            return name;
-        } else if let name = userInfo?["nickName"] as? String {
-            return name;
-        }
     }
     
-    static let isLogined:Bool = User.userInfo != nil
-    static let token:String? = User.getValue("token")
-    static let age  = User.getValue("age")
-    static let uid  = User.getValue("user_id")
-    static let avatarUrl  = User.getValue("avatar")
-    static let location  = User.getValue("location")
-    static let notes  = User.getValue("notes")
-    static let score  = User.getValue("score")
-    static let fans  = User.getValue("fans")
-    static let praise  = User.getValue("praise")
-    static let sex  = User.getValue("sex")
-    static let phoneNumber  = User.getValue("phone_number")
-    static let pwd  = User.getValue("pwd")
-
-    private static func  getValue(_ key:String) -> String? {
-        if let v = userInfo?[key] {
-            return "\(v)";
+   static func name() -> String? {
+        guard let dic = User.default.userInfo() else {return nil}
+        if let name = dic["name"] as? String  {
+            return "\(name)";
         }
-    
+        
+        if let name = dic["nickName"] as? String {
+            return "\(name)";
+        }
+        
+        return nil
     }
     
+    
+   static func isLogined() -> Bool {
+        return  User.default.userInfo() != nil
+    }
+    
+   static func token() -> String? {
+        guard let dic = User.default.userInfo() else {return nil}
+        guard let token = dic["token"] as? String else {return nil}
+        return token
+    }
+    
+   static func uid() -> String? {
+        guard let dic = User.default.userInfo() else {return nil}
+        guard let user_id = dic["user_id"] as? String else {return nil}
+        return user_id
+    }
     
 }

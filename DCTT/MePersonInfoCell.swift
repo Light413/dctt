@@ -10,6 +10,38 @@ import UIKit
 
 class MePersonInfoCell: UITableViewCell {
 
+    @IBOutlet weak var name: UILabel!
+    
+    @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var sex: UIImageView!
+    @IBOutlet weak var age: UILabel!
+    @IBOutlet weak var city: UILabel!
+    
+    @IBOutlet weak var praiseCnt: UILabel!
+    @IBOutlet weak var fansCnt: UILabel!
+    @IBOutlet weak var score: UILabel!
+
+    func fill()  {
+        guard let dic = User.default.userInfo() else {return}
+        name.text = User.name()
+        print(dic)
+        
+        if let igurl = dic["avatar"] as? String {
+             let url = URL.init(string: igurl)
+            avatar.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
+        }
+
+        let sexigname = String.isNullOrEmpty(dic["sex"]) == "1" ? "boy":"girl"
+        sex.image = UIImage (named:  sexigname)
+
+        age.text =  String.isNullOrEmpty(dic["age"]) + "岁"
+        city.text = (dic["location"] as? String) ?? "未知"
+
+        praiseCnt.text = String.isNullOrEmpty(dic["praise"])
+        fansCnt.text = String.isNullOrEmpty(dic["fans"])
+        score.text = String.isNullOrEmpty(dic["score"])
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

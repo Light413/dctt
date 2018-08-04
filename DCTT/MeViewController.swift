@@ -35,7 +35,11 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     }
 
     func loginSuccessNoti(_ noti:Notification) {
+        user_has_logined = User.isLogined()
+        
+        print("name: \(User.name()) , token: \(User.token()) , uid: \(User.uid())")
         _tableView.reloadData()
+
     }
     
     
@@ -134,6 +138,11 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         if indexPath.section == 0 {
             let identifier =  user_has_logined ? "MePersonInfoCellReuseIdentifier":"MeNotRegisterCellIdentifier"
             cell = tableView.dequeueReusableCell(withIdentifier: identifier , for: indexPath)
+            
+            if user_has_logined {
+                (cell as! MePersonInfoCell).fill();
+            }
+            
             
             if true {
                 return cell;

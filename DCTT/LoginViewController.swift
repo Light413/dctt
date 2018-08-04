@@ -58,9 +58,23 @@ class LoginViewController: UITableViewController{
                      ]
             
             AlamofireRequest(login_url, parameter: d) {[weak self] (res) in
-                print(res)
+                //print(res)
+                if let d = res["body"] as? [String:Any] {
+                    do {
+                        let data =  try JSONSerialization.data(withJSONObject: d, options: [])
+                        
+                        UserDefaults.standard.setValue(data, forKey: "userinfo");
+                        UserDefaults.standard.synchronize();
+
+                    }catch {
+                        print(error.localizedDescription)
+                    }
+                    
+                    
+                }
+                
+                
                 HUD.show(successInfo: "登录成功")
-                user_has_logined = true
                 NotificationCenter.default.post(Notification.init(name: userLoginedSuccessNotification))
                 
                 guard let ss = self else {return}
