@@ -25,7 +25,7 @@ let home_list_url = "getPostList.php"
 let publish_url = "publish.php"
 let register_url = "register.php"
 let login_url = "login.php"
-let add_action_url = "addAction.php"
+let update_profile_url = "updateProfile.php"
 
 
 

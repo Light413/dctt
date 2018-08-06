@@ -21,7 +21,7 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用swift3.0写项目且又没熟读官方API" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hV9-nH-RoG">
                         <rect key="frame" x="21" y="15" width="291" height="6.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -43,16 +43,16 @@
                         <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_cell_1.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="8Vg-6U-xde">
+                    <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Vg-6U-xde">
                         <rect key="frame" x="21" y="29.5" width="95" height="80"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="UWf-ek-Qcx"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_cell_3.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="5Gy-ij-cCw">
+                    <imageView userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Gy-ij-cCw">
                         <rect key="frame" x="217" y="29.5" width="95" height="80"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_cell_2.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="MJt-y9-5Jv">
+                    <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MJt-y9-5Jv">
                         <rect key="frame" x="119" y="29.5" width="95" height="80"/>
                     </imageView>
                 </subviews>
@@ -88,9 +88,4 @@
             <point key="canvasLocation" x="-136" y="-70"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="home_cell_1.JPG" width="719" height="720"/>
-        <image name="home_cell_2.JPG" width="500" height="365"/>
-        <image name="home_cell_3.JPG" width="442" height="293"/>
-    </resources>
 </document>

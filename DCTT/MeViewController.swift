@@ -32,8 +32,34 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         _topBgView = topView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(loginSuccessNoti(_ :)), name: userLoginedSuccessNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUserInfo(_ :)), name: updateUserInfoNotification, object: nil)
     }
 
+    func updateUserInfo(_ noti:Notification)  {
+        guard let uid = User.uid() else {return}
+        let d = ["uid":uid, "type":"3"]
+        
+        AlamofireHelper.post(url: update_profile_url, parameters: d, successHandler: {[weak self] (res) in
+            if let d = res["body"] as? [String:Any] {
+                do {
+                    let data =  try JSONSerialization.data(withJSONObject: d, options: [])
+                    UserDefaults.standard.setValue(data, forKey: "userinfo");
+                    UserDefaults.standard.synchronize();
+                }catch {
+                    print(error.localizedDescription)
+                }
+                
+                guard let ss = self else {return}
+                ss._tableView.reloadData()
+            }
+
+        }) { (err) in
+            
+        }
+    }
+    
+    
     func loginSuccessNoti(_ noti:Notification) {
         user_has_logined = User.isLogined()
         
@@ -143,12 +169,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
                 (cell as! MePersonInfoCell).fill();
             }
             
-            
-            if true {
-                return cell;
-            }
-            
-            
+            return cell;
         }else{
             cell = tableView.dequeueReusableCell(withIdentifier: "MeViewControllerCellIdentifier")
             if cell == nil {

@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import Kingfisher
 
 class MePersonInfoController: MeBaseTableViewController {
 
@@ -136,18 +137,30 @@ class MePersonInfoController: MeBaseTableViewController {
         
         
         HUD.show()
-            let d = ["uid":uid,
-//                     "content":String.isNullOrEmpty(mark.text),
-//                     "type":"1"
+        var d:[String:Any] = ["uid":uid,
+                     "type":"0"
         ]
-            
-            AlamofireHelper.upload(to: add_action_url, parameters: d, uploadFiles: image, successHandler: { [weak self] (res) in
+        if let sex = u_sex {
+            d["sex"] = sex;
+        }
+        if let city = u_city {
+            d["city"] = city
+        }
+        
+        
+            AlamofireHelper.upload(to: update_profile_url, parameters: d, uploadFiles: image, successHandler: { [weak self] (res) in
                 print(res)
                 HUD.show(successInfo: "发布成功!");
                 guard let ss = self else {return}
                 
-                ss.dismiss(animated: true, completion: nil)
+                if image != nil , let now = User.avatar() {
+                    ImageCache.default.removeImage(forKey: now)
+                }
                 
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                    NotificationCenter.default.post(name: updateUserInfoNotification, object: nil)
+                    ss.navigationController?.popViewController(animated: true)
+                })
             }) {
                 print("upload faile");
             }

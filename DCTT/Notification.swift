@@ -9,3 +9,4 @@
 import Foundation
 
 let userLoginedSuccessNotification = Notification.Name.init("userLoginedSuccessNotification")
+let updateUserInfoNotification = Notification.Name.init("updateUserInfoNotification")
