@@ -13,6 +13,7 @@
 		A117530B1FC7B0DF00888516 /* AnimationContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = A11753081FC7B0DF00888516 /* AnimationContoller.m */; };
 		A117530C1FC7B0DF00888516 /* KLTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A117530A1FC7B0DF00888516 /* KLTNavigationController.m */; };
 		A133A97F1FD8DE6200793D57 /* TTImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A133A97E1FD8DE6200793D57 /* TTImagePickerViewController.swift */; };
+		A13A6D6521195B5C00BB0CD9 /* ShowAlertControllerAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13A6D6421195B5C00BB0CD9 /* ShowAlertControllerAble.swift */; };
 		A148A2A41FD6494B0052DDF3 /* publish_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A148A2A31FD6494B0052DDF3 /* publish_image@2x.png */; };
 		A148A2A61FD649570052DDF3 /* publish_write@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A148A2A51FD649570052DDF3 /* publish_write@2x.png */; };
 		A148A2A81FD658180052DDF3 /* video_allshare@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A148A2A71FD658180052DDF3 /* video_allshare@2x.png */; };
@@ -185,6 +186,7 @@
 		A11753091FC7B0DF00888516 /* KLTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLTNavigationController.h; sourceTree = "<group>"; };
 		A117530A1FC7B0DF00888516 /* KLTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLTNavigationController.m; sourceTree = "<group>"; };
 		A133A97E1FD8DE6200793D57 /* TTImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TTImagePickerViewController.swift; path = ../TTImagePickerViewController.swift; sourceTree = "<group>"; };
+		A13A6D6421195B5C00BB0CD9 /* ShowAlertControllerAble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAlertControllerAble.swift; sourceTree = "<group>"; };
 		A148A2A31FD6494B0052DDF3 /* publish_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "publish_image@2x.png"; sourceTree = "<group>"; };
 		A148A2A51FD649570052DDF3 /* publish_write@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "publish_write@2x.png"; sourceTree = "<group>"; };
 		A148A2A71FD658180052DDF3 /* video_allshare@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_allshare@2x.png"; sourceTree = "<group>"; };
@@ -655,6 +657,7 @@
 				AD0FAFA2204461F1008A386E /* Servers */,
 				AD0FAFA320446243008A386E /* Me */,
 				ADDEA98F210F630D007C1CBA /* Notification.swift */,
+				A13A6D6421195B5C00BB0CD9 /* ShowAlertControllerAble.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -1029,6 +1032,7 @@
 				AD21DF5E20274DC7002FE181 /* BaseVCWithTableView.swift in Sources */,
 				AD20275B204C453000E538CD /* PubBaseTextViewCell.swift in Sources */,
 				AD20F3C02067DC6B003BDE17 /* MessageViewController.swift in Sources */,
+				A13A6D6521195B5C00BB0CD9 /* ShowAlertControllerAble.swift in Sources */,
 				AD1633C520235D4900B2D009 /* PubSelectTypeController.swift in Sources */,
 				AD10334D1FB6D1A40017E81C /* AllViewController.swift in Sources */,
 				A1A047AC1FD53C910057CC17 /* TTRefreshFooter.swift in Sources */,

@@ -92,7 +92,7 @@ class AlamofireHelper: NSObject {
    public func upload(to:String,
                 parameters:[String:Any]? = nil,
                 uploadFiles:[Any]? = nil,
-                successHandler:((Any) -> Void)? = nil,
+                successHandler:(([String:Any]) -> Void)? = nil,
                 failureHandler:(() -> Void)? = nil)
     {
         var header:HTTPHeaders = [:]
@@ -144,10 +144,10 @@ class AlamofireHelper: NSObject {
         }, to: base_url + to, headers: header) { (encodingResult) in
             switch encodingResult {
             case .success(request: let upload, streamingFromDisk: _, streamFileURL:_):
-                upload.responseJSON(completionHandler: {  (res) in
+                upload.validate().responseJSON(completionHandler: {  (res) in
                     print("111");
-                    if let success = successHandler {
-                        success(res);
+                    if let success = successHandler , let value = res.result.value as? [String:Any] {
+                        success(value);
                     }
                 })
                 break;
@@ -167,7 +167,7 @@ class AlamofireHelper: NSObject {
     static public func upload(to:String,
                 parameters:[String:Any]? = nil,
                 uploadFiles:[Any]? = nil,
-                successHandler:((Any) -> Void)? = nil,
+                successHandler:(([String:Any]) -> Void)? = nil,
                 failureHandler:(() -> Void)? = nil)
     
     {

@@ -7,6 +7,19 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+
+
+extension UIButton{
+    var ex_isEnabled:AnyObserver<Bool>{
+        return UIBindingObserver(UIElement: self) { button, valid in
+            button.isEnabled = valid
+            }.asObserver()
+    }
+}
+
+
 
 extension String {
     static func isNullOrEmpty(_ any:Any?) -> String {
