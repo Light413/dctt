@@ -20,7 +20,7 @@ class MeHomePageController: MeBaseTableViewController {
         
         _initSubview()
         
-        title = "正儿八经的程序员GG"
+        title = User.name()
     }
 
     
@@ -41,7 +41,7 @@ class MeHomePageController: MeBaseTableViewController {
 
         /////
         let meinfo = Bundle.main.loadNibNamed("MeHomeHeadView", owner: nil, options: nil)?.first as! UIView
-        meinfo.frame = CGRect  (x: 0, y:_IMG_HEIGHT - 160, width: bg.frame.width, height: 160)
+        meinfo.frame = CGRect  (x: 0, y:_IMG_HEIGHT - 180, width: bg.frame.width, height: 180)
         meinfo.backgroundColor = UIColor.clear
         
         bg.addSubview(meinfo)

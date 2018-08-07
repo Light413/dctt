@@ -41,7 +41,9 @@ class MePersonInfoController: MeBaseTableViewController {
     }
 
     func _init()  {
+        tableView.backgroundColor = tt_bg_color
         tableView.tableHeaderView = UIView (frame: CGRect (x: 0, y: 0, width: 10, height: 20))
+       
         self.navigationItem.rightBarButtonItem = rightNavigationItem()
         guard let userinfo = User.default.userInfo() else {return}
         
@@ -52,7 +54,7 @@ class MePersonInfoController: MeBaseTableViewController {
             }
             
             name.text = String.isNullOrEmpty(userinfo["name"])
-            sex.text = String.isNullOrEmpty(userinfo["sex"])
+            sex.text = String.isNullOrEmpty(userinfo["sex"])  == "1" ? "男":"女"
             age.text = String.isNullOrEmpty(userinfo["bornDate"])
             city.text = String.isNullOrEmpty(userinfo["location"])
             
@@ -69,7 +71,7 @@ class MePersonInfoController: MeBaseTableViewController {
         let o_sex = rx_sex.asObservable().map({$0 != nil}).shareReplay(1)
         let o_age = rx_age.asObservable().map({$0 != nil}).shareReplay(1)
         let o_city = rx_city.asObservable().map({$0 != nil}).shareReplay(1)
-        let o_name =  mark.rx.text.orEmpty.map({String.isNullOrEmpty($0) != String.isNullOrEmpty(userinfo["name"]) }).shareReplay(1)
+        let o_name =  name.rx.text.orEmpty.map({String.isNullOrEmpty($0) != String.isNullOrEmpty(userinfo["name"]) }).shareReplay(1)
         let o_mark =  mark.rx.text.orEmpty.map({String.isNullOrEmpty($0) != String.isNullOrEmpty(userinfo["notes"]) }).shareReplay(1)
         
         Observable.combineLatest(o_avatar,o_sex,o_age,o_city,o_name,o_mark) { $0 || $1 || $2 || $3 || $4 || $5}.bindTo(saveBtn.ex_isEnabled).addDisposableTo(disposeBag)
@@ -83,10 +85,10 @@ class MePersonInfoController: MeBaseTableViewController {
     
     
     func rightNavigationItem() -> UIBarButtonItem{
-        let rightbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
+        let rightbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 40, height: 30))
         rightbtn.setTitle("提交", for: .normal)
         rightbtn.setTitleColor(UIColor.darkGray , for: .normal)
-        rightbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        rightbtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         rightbtn.addTarget(self, action: #selector(saveAction), for: .touchUpInside)
         let rightitem = UIBarButtonItem.init(customView: rightbtn)
         
@@ -130,7 +132,7 @@ class MePersonInfoController: MeBaseTableViewController {
             print(mark);
             }
             
-            d["notes"] = String.isNullOrEmpty(mark);
+            d["mark"] = String.isNullOrEmpty(mark);
         }
 
         
@@ -146,7 +148,7 @@ class MePersonInfoController: MeBaseTableViewController {
                 ImageCache.default.removeImage(forKey: now)
             }
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                 NotificationCenter.default.post(name: updateUserInfoNotification, object: nil)
                 ss.navigationController?.popViewController(animated: true)
             })
@@ -180,13 +182,21 @@ class MePersonInfoController: MeBaseTableViewController {
             TTDataPickerView.show(arr as! [Any], components: 2) { [weak self](obj) in
                 guard let ss = self else {return}
                 guard let d = obj as? [String:String] else {return}
-                let s = "\(String.isNullOrEmpty(d["province"]))" + (d["city"] == nil ? "" : "-\((String.isNullOrEmpty(d["city"])))")
+                let s = "\(String.isNullOrEmpty(d["province"]))" + (d["city"] == nil ? "" : "\((String.isNullOrEmpty(d["city"])))")
                 ss.city.text = s
                 //ss.u_city = s
                 ss.rx_city.value = s
             }
         }
     }
+    
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let v = UIView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: 20))
+//        v.backgroundColor = kTableviewBackgroundColor
+//        return v
+//    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

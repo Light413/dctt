@@ -15,6 +15,7 @@ extension UIButton{
     var ex_isEnabled:AnyObserver<Bool>{
         return UIBindingObserver(UIElement: self) { button, valid in
             button.isEnabled = valid
+            button.setTitleColor(valid ? UIColor.red:UIColor.lightGray, for: .normal);
             }.asObserver()
     }
 }
