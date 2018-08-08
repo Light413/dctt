@@ -29,7 +29,9 @@ class User {
     
    static func name() -> String? {
         guard let dic = User.default.userInfo() else {return nil}
-        if let name = dic["name"] as? String  {
+        let name = String.isNullOrEmpty(dic["name"]);
+    
+        if name.lengthOfBytes(using: String.Encoding.utf8) > 0  {
             return "\(name)";
         }
         
@@ -59,9 +61,6 @@ class User {
     
     static func avatar() -> String? {
         return User.default.userFor("avatar")
-//        guard let dic = User.default.userInfo() else {return nil}
-//        guard let user_id = dic["avatar"] as? String else {return nil}
-//        return user_id
     }
     
     private func userFor(_ key:String) -> String? {

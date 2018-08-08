@@ -16,9 +16,6 @@ class MeHomeHeadView: UIView {
     @IBOutlet weak var city: UILabel!
     
     @IBOutlet weak var mark: UILabel!
-    
-    
-    
     @IBOutlet weak var praise: UILabel!
     @IBOutlet weak var fans: UILabel!
     @IBOutlet weak var score: UILabel!
@@ -37,7 +34,9 @@ class MeHomeHeadView: UIView {
         age.text =  String.isNullOrEmpty(dic["age"]) + "岁"
         
         city.text = (dic["location"] as? String) ?? "未知"
-        mark.text = (dic["notes"] as? String) ?? "暂无个人介绍"
+        
+        let notes = String.isNullOrEmpty(dic["notes"])
+        mark.text =  notes.lengthOfBytes(using: String.Encoding.utf8) > 0 ? notes : "暂无介绍"
         
         praise.text = String.isNullOrEmpty(dic["praise"])
         fans.text = String.isNullOrEmpty(dic["fans"])

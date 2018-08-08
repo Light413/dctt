@@ -153,7 +153,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:return user_has_logined ? 180 : 150
-            default:return 70
+            default:return 60
         }
     }
     
@@ -174,7 +174,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             cell = tableView.dequeueReusableCell(withIdentifier: "MeViewControllerCellIdentifier")
             if cell == nil {
                 cell = UITableViewCell.init(style: .value1, reuseIdentifier: "MeViewControllerCellIdentifier")
-                cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
+                cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
                 cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15)
             }
             cell.textLabel?.text = _titleArr[indexPath.row]
@@ -211,7 +211,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             
             switch indexPath.row {
             case 0:
-                vc = MeHomePageController.init(style:.grouped)
+                vc = MeHomePageController.init(style:.plain)
                 break
             case 1:
                 vc = MessageViewController()

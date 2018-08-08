@@ -169,6 +169,8 @@
 		ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEAE50C1FB6C8F50048F876 /* LaunchScreen.storyboard */; };
 		ADEBE440210612B7005C5C06 /* TTPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEBE43E210612B7005C5C06 /* TTPageViewController.swift */; };
 		ADEBE441210612B7005C5C06 /* TTHeadTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEBE43F210612B7005C5C06 /* TTHeadTitleView.swift */; };
+		ADF6D901211B3CD900ECA9F9 /* MeHomeSuperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF6D8FF211B3CD900ECA9F9 /* MeHomeSuperCell.swift */; };
+		ADF6D902211B3CD900ECA9F9 /* MeHomeSuperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADF6D900211B3CD900ECA9F9 /* MeHomeSuperCell.xib */; };
 		ADFC9E022053EDCC00449767 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADFC9E012053EDCC00449767 /* Login.storyboard */; };
 		ADFC9E042053F72500449767 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFC9E032053F72500449767 /* LoginViewController.swift */; };
 		ADFC9E062053F73D00449767 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFC9E052053F73D00449767 /* RegisterViewController.swift */; };
@@ -349,6 +351,8 @@
 		ADEAE50F1FB6C8F50048F876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADEBE43E210612B7005C5C06 /* TTPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPageViewController.swift; sourceTree = "<group>"; };
 		ADEBE43F210612B7005C5C06 /* TTHeadTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTHeadTitleView.swift; sourceTree = "<group>"; };
+		ADF6D8FF211B3CD900ECA9F9 /* MeHomeSuperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeSuperCell.swift; sourceTree = "<group>"; };
+		ADF6D900211B3CD900ECA9F9 /* MeHomeSuperCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHomeSuperCell.xib; sourceTree = "<group>"; };
 		ADFC9E012053EDCC00449767 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		ADFC9E032053F72500449767 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ADFC9E052053F73D00449767 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -719,6 +723,8 @@
 				AD2E956C207E59F9009C675B /* CollectCell.xib */,
 				AD2178DD207FB1B700B99069 /* FensiCell.swift */,
 				AD2178DE207FB1B700B99069 /* FensiCell.xib */,
+				ADF6D8FF211B3CD900ECA9F9 /* MeHomeSuperCell.swift */,
+				ADF6D900211B3CD900ECA9F9 /* MeHomeSuperCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -902,6 +908,7 @@
 				AD21DF62202750FD002FE181 /* TableViewCellTextView.xib in Resources */,
 				A1C4023B1FCCF9A6005BAA9A /* cell_background.png in Resources */,
 				A1B8E4942006066F001E156E /* HomeDetailHeadView.xib in Resources */,
+				ADF6D902211B3CD900ECA9F9 /* MeHomeSuperCell.xib in Resources */,
 				ADD45A7D21189A7500F5F95F /* icon_lanuch.png in Resources */,
 				AD4200222007AFCA00096CF7 /* HomeDetailCommentCell.xib in Resources */,
 				A1B5A6431FC4174400871676 /* ymtimg2.jpg in Resources */,
@@ -1059,6 +1066,7 @@
 				AD1033491FB6CF070017E81C /* FriendsViewController.swift in Sources */,
 				AD202751204C385A00E538CD /* PubShangJiaController.swift in Sources */,
 				AD128C70201CC53700A9EDBE /* PublishFriendController.swift in Sources */,
+				ADF6D901211B3CD900ECA9F9 /* MeHomeSuperCell.swift in Sources */,
 				AD2178DF207FB1B700B99069 /* FensiCell.swift in Sources */,
 				A148A2B31FD6A0B70052DDF3 /* PublishCollectionReusableView.swift in Sources */,
 				AD21D9C120557C1000E317FF /* MePersonInfoController.swift in Sources */,
