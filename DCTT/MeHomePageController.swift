@@ -48,6 +48,8 @@ class MeHomePageController: MeBaseTableViewController {
         meinfo.backgroundColor = UIColor.clear
         bg.addSubview(meinfo)
         
+        tableView = MeInfoTableView.init(frame: tableView.frame, style: .plain)
+        
         tableView.tableHeaderView = bg
         tableView.tableFooterView = UIView()
         bg.backgroundColor = UIColor.clear
@@ -58,7 +60,10 @@ class MeHomePageController: MeBaseTableViewController {
         //tableView.register(UINib (nibName: "MeHomeCell", bundle: nil), forCellReuseIdentifier: "MeHomeCellIdentifier")
 //        tableView.estimatedRowHeight = 80;
 //        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.register(UINib (nibName: "MeHomeSuperCell", bundle: nil), forCellReuseIdentifier: "MeHomeSuperCellIdentifier")
+        
+        
+        //tableView.register(UINib (nibName: "MeHomeSuperCell", bundle: nil), forCellReuseIdentifier: "MeHomeSuperCellIdentifier")
+        tableView.register(MeHomeCell2.self, forCellReuseIdentifier: "MeHomeSuperCellIdentifier")
         tableView.rowHeight = kCurrentScreenHeight - 64 - sectionHeight
        
         tableView.showsVerticalScrollIndicator = false
@@ -79,15 +84,12 @@ class MeHomePageController: MeBaseTableViewController {
         if _y <= 0 {
             //navigationController?.navigationBar.isTranslucent = true
             
-            /*let s  = -_y / _IMG_HEIGHT
+            let s  = -_y / _IMG_HEIGHT
             let w = scrollView.frame.width * (1 + s)
             let h = _IMG_HEIGHT * (1 + s)
 
-            imgv.frame = CGRect (x: -scrollView.frame.size.width * s * 0.5, y: _y - 0, width: w, height: h)*/
-            
-            /////
-//            scrollView.contentOffset =  CGPoint.zero
-//            canScroll = true
+            imgv.frame = CGRect (x: -scrollView.frame.size.width * s * 0.5, y: _y - 0, width: w, height: h)
+
         }
         
         if _y >= _IMG_HEIGHT {
@@ -129,7 +131,10 @@ extension MeHomePageController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var identifier :String = "MeHomeSuperCellIdentifier"
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MeHomeCell2
+        
+        cell.superVC = self
+        cell.add()
         
         // Configure the cell...
         cell.selectionStyle = .none
@@ -164,9 +169,22 @@ extension MeHomePageController {
     
 }
 
-extension UITableView :UIGestureRecognizerDelegate{
+class MeInfoTableView: UITableView ,UIGestureRecognizerDelegate{
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+//        print(gestureRecognizer.self);
+//        if gestureRecognizer.name is UIScrollViewPanGestureRecognizer {
+//            print("UIScrollViewPanGestureRecognizer")
+//        }
+        
+        return true
+    }
+    
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
+    }
+    
+    
 }
 
-}
+
+
