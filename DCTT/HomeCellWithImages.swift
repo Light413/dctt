@@ -16,6 +16,8 @@ class HomeCellWithImages: UITableViewCell {
     @IBOutlet weak var ig2: UIImageView!
     @IBOutlet weak var ig3: UIImageView!
     
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var time: UILabel!
     
     
     
@@ -30,6 +32,19 @@ class HomeCellWithImages: UITableViewCell {
         msg.text = d["content"] as? String
         
         let images = String.isNullOrEmpty(d["images"])
+        
+        if let u_info = d["user"] as? [String:Any]  {
+            let uname = String.isNullOrEmpty(u_info["name"]).lengthOfBytes(using: String.Encoding.utf8) > 0 ? String.isNullOrEmpty(u_info["name"]) : String.isNullOrEmpty(u_info["name"])
+            name.text = uname
+            
+            time.text = String.isNullOrEmpty(d["postDate"])
+
+            
+        }
+        
+        
+        
+        
         let arr = images.components(separatedBy: ",")
         guard arr.count > 0 else { return}
         

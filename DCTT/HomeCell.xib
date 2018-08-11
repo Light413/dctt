@@ -56,6 +56,8 @@
             <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
                 <outlet property="msg" destination="Wjc-oY-JMp" id="bfM-O6-Ivk"/>
+                <outlet property="name" destination="2SM-ei-zK7" id="Anc-RQ-c1f"/>
+                <outlet property="time" destination="XM8-0M-xRV" id="GMF-li-cre"/>
             </connections>
             <point key="canvasLocation" x="-113" y="15"/>
         </tableViewCell>

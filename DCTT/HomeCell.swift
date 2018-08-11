@@ -11,6 +11,28 @@ import UIKit
 class HomeCell: UITableViewCell {
     @IBOutlet weak var msg: UILabel!
     
+    @IBOutlet weak var name: UILabel!
+    
+    @IBOutlet weak var time: UILabel!
+    
+    func fill(_ d:[String:Any]) {
+        msg.text = String.isNullOrEmpty(d["content"])
+        
+        if let u_info = d["user"] as? [String:Any]  {
+            let uname = String.isNullOrEmpty(u_info["name"]).lengthOfBytes(using: String.Encoding.utf8) > 0 ? String.isNullOrEmpty(u_info["name"]) : String.isNullOrEmpty(u_info["name"])
+            name.text = uname
+            
+            time.text = String.isNullOrEmpty(d["postDate"])
+            
+            
+        }
+
+    }
+    
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

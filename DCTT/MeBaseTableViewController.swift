@@ -13,9 +13,10 @@ class MeBaseTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.backgroundColor = kTableviewBackgroundColor
+        tableView.backgroundColor = tt_bg_color
         
         tableView.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
+        tableView.showsVerticalScrollIndicator = false
     }
 
     

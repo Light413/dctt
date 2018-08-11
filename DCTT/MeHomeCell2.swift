@@ -10,8 +10,8 @@ import UIKit
 
 class MeHomeCell2: UITableViewCell {
 
-    var superVC:UIViewController?
-    var pagevc:TTPageViewController!
+    weak var superVC:MeHomePageController?
+    var pagevc:UIViewController!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,39 +21,18 @@ class MeHomeCell2: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        ////pagevc
-        var vcArr = [UIViewController]()
-        
-        for _ in 0..<2 {
-            let v = HomerListViewControllerTest2();
-            //v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h - 49)
-            vcArr.append(v)
-        }
-        
-        let rec = CGRect (x: 0, y: 0, width: self.frame.width, height:self.frame.height)
-         pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:nil)
-        
-//        self.superVC?.addChildViewController(pagevc)
-        self.addSubview(pagevc.view)
 
     }
     
-    func add() {
-        self.superVC?.addChildViewController(pagevc)
+    func addWithController(_ controller:UIViewController) {
+        pagevc = controller
+        
+        self.addSubview(pagevc.view)
+//        self.superVC?.addChildViewController(pagevc)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

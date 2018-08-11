@@ -15,7 +15,9 @@ class HomeCellWithImage: UITableViewCell {
     
     @IBOutlet weak var igv: UIImageView!
     
+    @IBOutlet weak var name: UILabel!
     
+    @IBOutlet weak var time: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +34,13 @@ class HomeCellWithImage: UITableViewCell {
         
         let url = URL.init(string: arr.first!)
         igv.kf.setImage(with: url)
+        
+        guard let u_info = d["user"] as? [String:Any] else {return}
+        
+        let uname = String.isNullOrEmpty(u_info["name"]).lengthOfBytes(using: String.Encoding.utf8) > 0 ? String.isNullOrEmpty(u_info["name"]) : String.isNullOrEmpty(u_info["name"])
+        name.text = uname
+        
+        time.text = String.isNullOrEmpty(d["postDate"])
     }
     
     

@@ -31,6 +31,7 @@ class MessageViewController: MeBaseTableViewController {
         tableView.estimatedRowHeight = 100;
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.sectionHeaderHeight = 20
+        
     }
     
 

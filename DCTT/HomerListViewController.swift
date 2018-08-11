@@ -53,8 +53,9 @@ class HomerListViewController: BaseTableViewController {
     
     func loadData() {
         //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
+        let d = ["type":0]
         
-        AlamofireHelper.post(url: home_list_url, parameters: nil, successHandler: {[weak self] (res) in
+        AlamofireHelper.post(url: home_list_url, parameters: d, successHandler: {[weak self] (res) in
             HUD.dismiss()
             
             guard let ss = self else {return}
@@ -99,7 +100,7 @@ class HomerListViewController: BaseTableViewController {
 
         switch type {
         case 0:
-            (cell as! HomeCell).msg.text = d["content"] as? String
+            (cell as! HomeCell).fill(d)
             
             break
         case let n where n < 3:

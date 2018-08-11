@@ -16,9 +16,12 @@ class PublishViewController: BasePublishController {
     }
     
     override func _post(_ ig:[UIImage]? = nil)  {
+        guard let uid = User.uid() else {
+            HUD.showText("请前往登录", view: view);return
+        }
         
         HUD.show()
-        let d = ["uid":"pub180163000",
+        let d = ["uid":uid,
                  "content":String.isNullOrEmpty(textCell.textview.text),
                  "type":"1"]
         

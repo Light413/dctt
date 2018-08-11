@@ -15,6 +15,7 @@ class GuanzhuController: MeBaseTableViewController {
 
         tableView.register(UINib (nibName: "FensiCell", bundle: nil), forCellReuseIdentifier: "FensiCellIdentifier");
         tableView.rowHeight = 70;
+        
     }
 
     override func didReceiveMemoryWarning() {

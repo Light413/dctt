@@ -30,8 +30,8 @@ class MePersonInfoCell: UITableViewCell {
             avatar.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
         }
 
-        let notes = String.isNullOrEmpty(dic["notes"])
-        city.text =  notes.lengthOfBytes(using: String.Encoding.utf8) > 0 ? notes : "暂无介绍"
+//        let notes = String.isNullOrEmpty(dic["notes"])
+//        city.text =  notes.lengthOfBytes(using: String.Encoding.utf8) > 0 ? notes : "暂无介绍"
 
         praiseCnt.text = String.isNullOrEmpty(dic["praise"])
         fansCnt.text = String.isNullOrEmpty(dic["fans"])

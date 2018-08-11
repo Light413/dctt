@@ -16,6 +16,7 @@ class TTPageViewController: UIViewController {
     var currentIndex: Int = 0//当前显示索引
     var _delegate:TTPageViewControllerDelegate?    
     var _collectionView:UICollectionView!
+    var isScrollEnabled:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,12 @@ class TTPageViewController: UIViewController {
         view.addSubview(_collectionView)
     }
 
-    init(controllers:[UIViewController], frame viewFrame:CGRect,delegate:TTPageViewControllerDelegate? = nil) {
+    init(controllers:[UIViewController], frame viewFrame:CGRect,delegate:TTPageViewControllerDelegate? = nil,
+         canScroll:Bool = true)
+    {
         super.init(nibName: nil, bundle: nil)
+        
+        isScrollEnabled = canScroll
         
         _viewControllers = controllers
         _delegate = delegate
@@ -64,6 +69,8 @@ class TTPageViewController: UIViewController {
         collectionview.isPagingEnabled = true
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = false
+        collectionview.isScrollEnabled = isScrollEnabled ////......
+        
         return collectionview
     }
     

@@ -12,9 +12,14 @@ let _IMG_HEIGHT : CGFloat = 240
 class MeHomePageController: MeBaseTableViewController {
 
     var imgv:UIImageView!
-    let sectionHeight:CGFloat = 45
+    let sectionHeight:CGFloat = 50
     
     var canScroll:Bool = true
+    
+    //////////
+    var _cellPageController:TTPageViewController!
+    var _cellSectionHeadView:TTHeadTitleView!
+    let sectionHeadTitles = ["动态","其他"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +27,29 @@ class MeHomePageController: MeBaseTableViewController {
         tableView.separatorStyle = .none
         
         _initSubview()
-        
         title = User.name()
+        
+        superNavigationController = self.navigationController
+        
     }
 
+    func addCellPageController() -> TTPageViewController {
+        ////pagevc
+        var vcArr = [UIViewController]()
+        
+        for _ in 0..<sectionHeadTitles.count {
+            let v = MeHomeListController();
+            
+            vcArr.append(v)
+        }
+        
+        let rec = CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height:kCurrentScreenHeight - 64 - sectionHeight)
+        let pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)
+        
+        self.addChildViewController(pagevc)
+        
+        return pagevc
+    }
     
 //    override func viewWillDisappear(_ animated: Bool) {
 //        super.viewWillDisappear(animated)
@@ -73,7 +97,8 @@ class MeHomePageController: MeBaseTableViewController {
     
     func noti(_ noti:NSNotification) {
         canScroll = true
-        print("super can")
+        kchildViewCanScroll = false
+        //print("super can")
     }
 
     
@@ -98,6 +123,7 @@ class MeHomePageController: MeBaseTableViewController {
                 scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT)
                 
                 NotificationCenter.default.post(name: NSNotification.Name (rawValue: "childCanScrollNotification"), object: nil)
+                kchildViewCanScroll = true
             }else {
                 scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT)
             }
@@ -123,20 +149,17 @@ class MeHomePageController: MeBaseTableViewController {
 
 // MARK: - Table view data source
 extension MeHomePageController {
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var identifier :String = "MeHomeSuperCellIdentifier"
+        let identifier :String = "MeHomeSuperCellIdentifier"
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MeHomeCell2
         
-        cell.superVC = self
-        cell.add()
-        
-        // Configure the cell...
+        _cellPageController = addCellPageController()
+        cell.addWithController(_cellPageController)
         cell.selectionStyle = .none
         return cell
     }
@@ -154,11 +177,14 @@ extension MeHomePageController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let titles = ["动态","其他"]
         let bg = UIView (frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: sectionHeight))
-        let topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: 40), titles: titles, delegate: nil)
         
+        var attri = TTHeadTextAttribute()
+        attri.itemWidth = 60
+        let topview  = TTHeadTitleView (frame: CGRect (x: 8, y: 8, width: tableView.frame.width - 20, height: 35), titles: sectionHeadTitles, delegate: self ,textAttributes:attri)
         bg.addSubview(topview)
+        
+        _cellSectionHeadView = topview
         
         let line = UIView(frame: CGRect(x: 0, y: sectionHeight - 5, width: tableView.frame.width, height: 5))
         line.backgroundColor = tt_bg_color
@@ -169,13 +195,23 @@ extension MeHomePageController {
     
 }
 
+extension MeHomePageController:TTHeadTitleDelegate,TTPageViewControllerDelegate {
+    func titleClickedAtIndex(_ index: Int) {
+        _cellPageController.scrollToPageAtIndex(index)
+    }
+    
+    func pageViewControllerScrollTo(_ index: Int) {
+        _cellSectionHeadView.scrollToItemAtIndex(index)
+    }
+    
+}
+
+
+
+
+
 class MeInfoTableView: UITableView ,UIGestureRecognizerDelegate{
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-//        print(gestureRecognizer.self);
-//        if gestureRecognizer.name is UIScrollViewPanGestureRecognizer {
-//            print("UIScrollViewPanGestureRecognizer")
-//        }
-        
         return true
     }
     

@@ -14,7 +14,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
     var _topBgView:UIView!
     
-    let _titleArr = ["我的动态","消息通知",/*"关注",*/"收藏","粉丝关注",/*"意见反馈",*/"设置"]
+    let _titleArr = ["我的主页","消息",/*"关注",*/"收藏","粉丝关注",/*"意见反馈",*/"设置"]
     let _imgArr = ["uc_account",
                    "uc_message",
                    /*"uc_danzi",*/
@@ -152,8 +152,8 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0:return user_has_logined ? 180 : 150
-            default:return 60
+        case 0:return user_has_logined ? 200 : 150
+            default:return 55
         }
     }
     

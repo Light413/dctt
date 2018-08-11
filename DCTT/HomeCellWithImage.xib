@@ -68,6 +68,8 @@
             <connections>
                 <outlet property="igv" destination="OSy-t7-zuj" id="Qsl-VV-rzj"/>
                 <outlet property="msg" destination="hn2-CB-Jjp" id="yhf-My-KhT"/>
+                <outlet property="name" destination="roy-3a-mZO" id="fCf-cf-fXT"/>
+                <outlet property="time" destination="NaC-xj-OB5" id="OjQ-zF-Y2w"/>
             </connections>
             <point key="canvasLocation" x="-136" y="-70"/>
         </tableViewCell>

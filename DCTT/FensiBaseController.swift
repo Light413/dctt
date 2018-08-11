@@ -15,6 +15,7 @@ class FensiBaseController: UIViewController,TTPageViewControllerDelegate,TTHeadT
     var pagevc :TTPageViewController!
     var topview : TTHeadTitleView!
     
+    var _tableView:UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,14 +40,13 @@ class FensiBaseController: UIViewController,TTPageViewControllerDelegate,TTHeadT
         topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: 130, height: 40), titles: titles, delegate: self)
         //view.addSubview(topview)
         topview.backgroundColor = UIColor.white
-        topview.textAttribute = TTHeadTextAttribute.init(defaultColor: UIColor.lightGray, defaultSize: 16, selectedColor: UIColor.black, selectedSize: 16)
+//        topview.textAttribute = TTHeadTextAttribute.init(defaultColor: UIColor.lightGray, defaultSize: 16, selectedColor: UIColor.black, selectedSize: 16)
         
         navigationItem.titleView = topview
         
         ////pagevc
         for _ in 0..<titles.count {
             let v = GuanzhuController();
-            //v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h - 49)
             vcArr.append(v)
         }
         
@@ -55,9 +55,6 @@ class FensiBaseController: UIViewController,TTPageViewControllerDelegate,TTHeadT
         
         self.addChildViewController(pagevc)
         view.addSubview(pagevc.view)
-
-        
-
     }
     
     //MARK: -
