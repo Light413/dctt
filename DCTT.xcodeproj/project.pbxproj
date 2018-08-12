@@ -162,6 +162,7 @@
 		ADE12F9D211E9DA5002B8854 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE12F9A211E9DA4002B8854 /* Icon-60.png */; };
 		ADE12F9E211E9DA5002B8854 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE12F9B211E9DA4002B8854 /* Icon-60@2x.png */; };
 		ADE12F9F211E9DA5002B8854 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE12F9C211E9DA5002B8854 /* Icon-60@3x.png */; };
+		ADE989512120710D004DAAC5 /* FriendRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE989502120710D004DAAC5 /* FriendRootController.swift */; };
 		ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */; };
 		ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5051FB6C8F50048F876 /* ViewController.swift */; };
 		ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEAE50C1FB6C8F50048F876 /* LaunchScreen.storyboard */; };
@@ -340,6 +341,7 @@
 		ADE12F9A211E9DA4002B8854 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
 		ADE12F9B211E9DA4002B8854 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		ADE12F9C211E9DA5002B8854 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
+		ADE989502120710D004DAAC5 /* FriendRootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRootController.swift; sourceTree = "<group>"; };
 		ADEAE5001FB6C8F50048F876 /* DCTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DCTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADEAE5051FB6C8F50048F876 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 				AD0BD500200A33CD0088D5E7 /* view */,
 				AD1033481FB6CF070017E81C /* FriendsViewController.swift */,
 				A1CE839A1FC3F6D900DAF90F /* FriendsDetailController.swift */,
+				ADE989502120710D004DAAC5 /* FriendRootController.swift */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -1091,6 +1094,7 @@
 				A1CE839E1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift in Sources */,
 				A117530C1FC7B0DF00888516 /* KLTNavigationController.m in Sources */,
 				AD20F3C72067DEA4003BDE17 /* MessageCell.swift in Sources */,
+				ADE989512120710D004DAAC5 /* FriendRootController.swift in Sources */,
 				AD0BD4ED2009FE980088D5E7 /* HomeDetailImgCell.swift in Sources */,
 				AD1033421FB6CD920017E81C /* BaseViewControllerWithTable.swift in Sources */,
 				AD21D9BD205520C300E317FF /* MeNotRegisterCell.swift in Sources */,

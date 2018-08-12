@@ -11,6 +11,7 @@ import UIKit
 class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewDataSource {
 
     var _tableview:UITableView!
+    var headView:HomeDetailHeadView!
     
     private let kSectionViewFooterHeight:CGFloat = 100
     
@@ -32,7 +33,7 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         _tableview.delegate = self
         _tableview.dataSource = self
         _tableview.contentInset = UIEdgeInsetsMake(0, 0, 5, 0)
-        
+        _tableview.showsVerticalScrollIndicator = false
         _tableview.separatorStyle = .none
         
         //Register Cell
@@ -50,13 +51,17 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         //headView
         let headview = Bundle.main.loadNibNamed("HomeDetailHeadView", owner: nil, options: nil)?.last as! HomeDetailHeadView
         _tableview.tableHeaderView = headview
+        headView = headview
         
         //bottom comment btn
         addBottomBar()
         
     }
 
+    //MARK:- Sub Methods
     
+    
+    //MARK: -
     //toolBar
     func addBottomBar()  {
         let toolBar = UIToolbar.init(frame: CGRect (x: 0, y: _tableview.frame.maxY, width: kCurrentScreenWidth, height: 40))

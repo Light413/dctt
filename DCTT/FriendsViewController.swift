@@ -15,13 +15,13 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        automaticallyAdjustsScrollViewInsets = false
+        //automaticallyAdjustsScrollViewInsets = false
         _init()
 
     }
 
     func _init() {
-        let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - 64 - 49);
+        let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - 64 - 50);
         let _colloectionview = colleciontView(frame)
         _colloectionview.delegate = self
         _colloectionview.dataSource = self
@@ -52,7 +52,7 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
         
         view.addSubview(_colloectionview);
 
-        _topHeadView()
+        //_topHeadView()
     }
     
     
@@ -95,12 +95,11 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
         navigationItem.rightBarButtonItem = leftitem
     }
     
-    func searchAction() {
-        print("click")
-        
-
-        
     
+    
+    
+    
+    func searchAction() {
     }
     
     //MARK: - UICollectionViewDataSource

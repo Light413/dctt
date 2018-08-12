@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtI-vn-kbo">
-                        <rect key="frame" x="242" y="8" width="60" height="30"/>
+                        <rect key="frame" x="234" y="11" width="60" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="0zG-vS-aEM"/>
                             <constraint firstAttribute="width" constant="60" id="Tg8-ls-KVa"/>
@@ -35,7 +36,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小蚊子爱吃鱼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9V5-pM-2st">
-                        <rect key="frame" x="56" y="10" width="80" height="18"/>
+                        <rect key="frame" x="64" y="13" width="80" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="gzi-Em-mQh"/>
                         </constraints>
@@ -43,8 +44,8 @@
                         <color key="textColor" red="0.22352941179999999" green="0.42352941179999998" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="14.png" translatesAutoresizingMaskIntoConstraints="NO" id="LTY-f1-Nyq">
-                        <rect key="frame" x="8" y="8" width="40" height="40"/>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ymtimg2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="LTY-f1-Nyq">
+                        <rect key="frame" x="16" y="11" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="uTI-tx-g7F"/>
                             <constraint firstAttribute="height" constant="40" id="v54-88-s5V"/>
@@ -57,13 +58,13 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="马克思改变人们的思想，马化腾改变了人们的交流方式，马云改变了我的消费观念" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLO-lq-Tab">
-                        <rect key="frame" x="56" y="36" width="246" height="33"/>
+                        <rect key="frame" x="64" y="39" width="230" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-01-10 17:39" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="844-gx-LH1">
-                        <rect key="frame" x="56" y="77" width="100.5" height="14.5"/>
+                        <rect key="frame" x="64" y="77" width="100.5" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14.5" id="nrg-Zd-F3P"/>
                         </constraints>
@@ -72,7 +73,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sev-Bw-cRc">
-                        <rect key="frame" x="171.5" y="69" width="35" height="30"/>
+                        <rect key="frame" x="179.5" y="69" width="35" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="35" id="00y-MM-4lA"/>
                             <constraint firstAttribute="height" constant="30" id="cpp-eb-017"/>
@@ -111,7 +112,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="14.png" width="120" height="120"/>
         <image name="comment_like_icon_night" width="16" height="16"/>
+        <image name="ymtimg2.jpg" width="160" height="190"/>
     </resources>
 </document>
