@@ -123,6 +123,8 @@ class MePersonInfoController: MeBaseTableViewController {
         
         if let username = userInfo["name"] as? String , username != String.isNullOrEmpty(name.text) {
             d["name"] = String.isNullOrEmpty(name.text);
+        }else{
+            d["name"] = String.isNullOrEmpty(name.text);
         }
         
         var mark = String.isNullOrEmpty(self.mark.text)
@@ -133,8 +135,11 @@ class MePersonInfoController: MeBaseTableViewController {
             }
             
             d["mark"] = String.isNullOrEmpty(mark);
+        }else{
+            d["mark"] = String.isNullOrEmpty(mark);
         }
 
+        print(d)
         
         AlamofireHelper.upload(to: update_profile_url, parameters: d, uploadFiles: image, successHandler: { [weak self] (res) in
             print(res)
@@ -206,71 +211,20 @@ class MePersonInfoController: MeBaseTableViewController {
 
 
 // MARK: -
-extension MePersonInfoController:UIImagePickerControllerDelegate ,UINavigationControllerDelegate{
-    func show()  {
-        let alertViewContronller = UIAlertController.init(title: "添加照片", message: nil, preferredStyle: .actionSheet)
-        let action1 = UIAlertAction.init(title: "从相册选择", style: .default, handler: { [weak self] (action) in
-            guard let strongSelf = self else {return}
-            strongSelf.selectPictureWithIndex(2)
-            })
-        
-        let action2 = UIAlertAction.init(title: "拍照", style: .default, handler: { [weak self] (action) in
-            guard let strongSelf = self else {return}
-            strongSelf.selectPictureWithIndex(1)
-            })
-        
-        let action3 = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
-        
-        alertViewContronller.addAction(action1)
-        alertViewContronller.addAction(action2)
-        alertViewContronller.addAction(action3)
-        
-        self.navigationController?.present(alertViewContronller, animated: true, completion: nil)
-    }
-    
-    func selectPictureWithIndex(_ index:Int) {
-        let vc = UIImagePickerController.init()
-        vc.delegate = self
-        vc.allowsEditing = true
-        
-        switch index {
-        case 1:
-            guard UIImagePickerController.isSourceTypeAvailable(.camera) else {HUD.show(info: "NO Camera Available");return}
-            guard AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == .authorized else {
-                AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (b) in
-                    DispatchQueue.main.async {
-                        if b {
-                            print("Allow");
-                        }else {
-                            HUD.show(info: "Allow access to the camera in Settings");
-                            print("Not Allow");
-                        }
-                    }
-                }); return
-            }
-            
-            vc.sourceType = .camera
-            break
-        case 2: vc.sourceType = .photoLibrary;break
-        default:break
-        }
-        
-        self.navigationController?.present(vc, animated: true, completion: nil)
-    }
-
+extension MePersonInfoController:TTPickerImageAble{
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let img = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             icon.image = img
             //u_avatar_image = img
             rx_avatar.value = img
         }
-        
+
         picker.dismiss(animated: true, completion: nil)
-        
+
     }
     
 }

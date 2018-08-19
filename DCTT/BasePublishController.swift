@@ -30,11 +30,11 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         }
         
         
-        let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - 64 - 45);
+        let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - 64 - 0);
         _colloectionview = colleciontView(frame)
         _colloectionview.contentInset = UIEdgeInsetsMake(0, 0, 20, 0)
         view.addSubview(_colloectionview)
-        view.backgroundColor = UIColor.red
+        //view.backgroundColor = UIColor.red
         
         ///submint button
         let submintBtn = UIButton (frame: CGRect (x: 0, y: frame.maxY, width: frame.width, height: 45))
@@ -43,7 +43,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         submintBtn.backgroundColor = tt_BarColor
         submintBtn.addTarget(self, action: #selector(submintBtnAction), for: .touchUpInside)
         
-        view.addSubview(submintBtn)
+        //view.addSubview(submintBtn)
         
         ////navigationItem
         navigationItem.leftBarButtonItem = leftNavigationItem()
@@ -66,7 +66,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
     }
     
     func leftNavigationItem() -> UIBarButtonItem {
-        let leftbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
+        let leftbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 40, height: 30))
         leftbtn.setTitle("取消", for: .normal)
         leftbtn.setTitleColor(UIColor.darkGray, for: .normal)
         leftbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -76,11 +76,11 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
     }
     
     func rightNavigationItem() -> UIBarButtonItem{
-        let rightbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
-        rightbtn.setTitle("预览", for: .normal)
-        rightbtn.setTitleColor(UIColor.darkGray , for: .normal)//kAirplaneCell_head_selected_color
+        let rightbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 40, height: 30))
+        rightbtn.setTitle("发布", for: .normal)
+        rightbtn.setTitleColor(tt_BarColor , for: .normal)
         rightbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        rightbtn.addTarget(self, action: #selector(previewAction), for: .touchUpInside)
+        rightbtn.addTarget(self, action: #selector(submintBtnAction), for: .touchUpInside)
         let rightitem = UIBarButtonItem.init(customView: rightbtn)
         
         return rightitem
@@ -193,7 +193,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
     
     func _post(_ ig:[UIImage]? = nil) { }
     
-    //MARK:
+    //MARK: -
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
     }

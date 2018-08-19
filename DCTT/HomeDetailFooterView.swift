@@ -15,7 +15,7 @@ class HomeDetailFooterView: UIView {
     
     override func awakeFromNib() {
         zanBtn.contentHorizontalAlignment = .center
-        zanBtn.layer.cornerRadius = 15
+        zanBtn.layer.cornerRadius = 12.5
         zanBtn.layer.masksToBounds = true
         zanBtn.layer.borderWidth = 0.5
         zanBtn.layer.borderColor = UIColor.lightGray.cgColor

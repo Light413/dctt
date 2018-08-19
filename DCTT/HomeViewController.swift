@@ -37,14 +37,12 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         let titles = ["最新","热门","问答","商家"]//["最新","热门","问答","段子","美食","商家","娱乐"]
         
         var attri = TTHeadTextAttribute()
-        attri.itemWidth = 50
+        attri.itemWidth = 55
         attri._defaultFontSize = 16
         attri._selectedFontSize = 17
         
         topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth - 30, height: 35), titles: titles, delegate: self ,textAttributes:attri)
-
-        //topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth - 30, height: 40), titles: titles, delegate: self)
-        //view.addSubview(topview)
+        topview.backgroundColor = UIColor.clear
         self.navigationItem.titleView = topview
         
         ////pagevc

@@ -9,17 +9,26 @@
 import UIKit
 let _IMG_HEIGHT : CGFloat = 240
 
+enum HomePageType:Int {
+    case me
+    case other
+}
+
 class MeHomePageController: MeBaseTableViewController {
 
+    var type:HomePageType = .me
+    var uid:String!
+    
     var imgv:UIImageView!
     let sectionHeight:CGFloat = 50
     
     var canScroll:Bool = true
-    
+
     //////////
     var _cellPageController:TTPageViewController!
     var _cellSectionHeadView:TTHeadTitleView!
     let sectionHeadTitles = ["动态","其他"]
+    var _meInfoView:MeHomeHeadView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +48,7 @@ class MeHomePageController: MeBaseTableViewController {
         
         for _ in 0..<sectionHeadTitles.count {
             let v = MeHomeListController();
+            v.uid = uid
             
             vcArr.append(v)
         }
@@ -67,10 +77,11 @@ class MeHomePageController: MeBaseTableViewController {
         bg.addSubview(imgv)
 
         /////
-        let meinfo = Bundle.main.loadNibNamed("MeHomeHeadView", owner: nil, options: nil)?.first as! UIView
+        let meinfo = Bundle.main.loadNibNamed("MeHomeHeadView", owner: nil, options: nil)?.first as! MeHomeHeadView
         meinfo.frame = CGRect  (x: 0, y:_IMG_HEIGHT - 180, width: bg.frame.width, height: 180)
         meinfo.backgroundColor = UIColor.clear
         bg.addSubview(meinfo)
+        _meInfoView = meinfo;
         
         tableView = MeInfoTableView.init(frame: tableView.frame, style: .plain)
         
@@ -93,6 +104,33 @@ class MeHomePageController: MeBaseTableViewController {
         tableView.showsVerticalScrollIndicator = false
         
         NotificationCenter.default.addObserver(self, selector: #selector(noti(_ :)), name: NSNotification.Name (rawValue: "superCanScrollNotification"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateProfile(_ :)), name: NSNotification.Name.init("updateProfileNotification"), object: nil)
+    }
+    
+    func updateProfile(_ noti:Notification) {
+        if let d = noti.userInfo as? [String:Any] {
+            _meInfoView.fill(d)
+            _meInfoView.avatarClickerAction = {[weak self] in
+                guard let ss = self else {return}
+                guard let avatar_url = d["avatar"] as? String else {return}
+                
+                let vc  = TTImagePreviewController2()
+                vc.index = 0
+                vc.dataArry = [avatar_url]
+                
+                ss.navigationController?.present(vc, animated: false, completion: nil)
+            }
+            
+            let name = String.isNullOrEmpty(d["name"]);
+            
+            if name.lengthOfBytes(using: String.Encoding.utf8) > 0  {
+                title = name
+            }else{
+                title = String.isNullOrEmpty(d["nickName"])
+            }
+            
+        }
     }
     
     func noti(_ noti:NSNotification) {

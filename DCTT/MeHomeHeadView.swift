@@ -19,10 +19,22 @@ class MeHomeHeadView: UIView {
     @IBOutlet weak var praise: UILabel!
     @IBOutlet weak var fans: UILabel!
     @IBOutlet weak var score: UILabel!
-    
+
+    var avatarClickerAction:(() -> Void)?
     
     override func awakeFromNib() {
-        guard let dic = User.default.userInfo() else {return}
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(iconTap(_ :)))
+        
+        avatar.addGestureRecognizer(tap)
+    }
+    
+    func iconTap(_ gesture:UITapGestureRecognizer)  {
+        if let action = avatarClickerAction {
+            action()
+        }
+    }
+    
+    func fill(_ dic:[String:Any]) {
         
         if let igurl = dic["avatar"] as? String {
             let url = URL.init(string: igurl)
@@ -41,7 +53,6 @@ class MeHomeHeadView: UIView {
         praise.text = String.isNullOrEmpty(dic["praise"])
         fans.text = String.isNullOrEmpty(dic["fans"])
         score.text = String.isNullOrEmpty(dic["score"])
-
     }
 
 }

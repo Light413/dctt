@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_lanuch.png" translatesAutoresizingMaskIntoConstraints="NO" id="izD-Ua-XTX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lanuch_icon" translatesAutoresizingMaskIntoConstraints="NO" id="izD-Ua-XTX">
                                 <rect key="frame" x="127.5" y="223.5" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="nA0-As-iXk"/>
@@ -50,6 +50,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_lanuch.png" width="60" height="60"/>
+        <image name="lanuch_icon" width="60" height="60"/>
     </resources>
 </document>

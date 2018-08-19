@@ -9,7 +9,7 @@
 import UIKit
 import Photos
 
-class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UICollectionViewDataSource {
+class TTImagePreviewController: UIViewController{
 
     override var prefersStatusBarHidden: Bool {
         get{
@@ -19,18 +19,19 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
     
     var dataArry = [PHAsset]()
     var selectedDataArr = [PHAsset]()
-    var index:Int = 0
+    var index:Int = 0 //选中的索引
     var maxImagesNumber:Int = 0
     var closeHandler:(([PHAsset]) -> Void)? //关闭视图前，选择结果处理的回调
     
     //privita variable
-    private var _colloectionview:UICollectionView!
-    private var _topBar:UIToolbar!
-    private var _bottomBar:UIToolbar!
-    private var _imgNumber:UILabel!
-    private var _selectButton:UIButton!
-    private var _toolBarIsHiden = false
+    fileprivate var _colloectionview:UICollectionView!
+    fileprivate var _topBar:UIToolbar!
+    fileprivate var _bottomBar:UIToolbar!
+    fileprivate var _imgNumber:UILabel!
+    fileprivate var _selectButton:UIButton!
+    fileprivate var _toolBarIsHiden = false
     
+    //MARK:-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -41,9 +42,7 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
 
         addTooBar()
         
-        //
         _colloectionview.scrollToItem(at: IndexPath.init(item: index, section: 0), at: .left, animated: false)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,6 +50,26 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
+    fileprivate func colleciontView(_ frame:CGRect) -> UICollectionView {
+        let _layout = UICollectionViewFlowLayout()
+        _layout.itemSize = CGSize (width: frame.width + 10, height: frame.height)
+        _layout.minimumInteritemSpacing = 0
+        _layout.minimumLineSpacing = 0
+        _layout.scrollDirection = .horizontal
+        
+        let collectionview = UICollectionView (frame: CGRect (x: frame.minX, y: frame.minY, width: frame.width + 10, height: frame.height), collectionViewLayout: _layout)
+        collectionview.delegate  = self
+        collectionview.dataSource = self
+        
+        collectionview.register(TTImagePreviewCell.self, forCellWithReuseIdentifier: "TTImagePreviewCellIdentifier")
+        
+        collectionview.backgroundColor  = UIColor.black
+        collectionview.showsHorizontalScrollIndicator = false
+        collectionview.showsVerticalScrollIndicator = false
+        collectionview.alwaysBounceVertical = false
+        collectionview.isPagingEnabled = true
+        return collectionview
+    }
     
     func addTooBar() {
         let _alpha:Float = 0.5
@@ -66,7 +85,6 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
         _topBar.addSubview(_imgNumber)
         _imgNumber.text = "已选择\(selectedDataArr.count)张"
         
-        
         let backbtn = UIButton (frame: CGRect (x: 15, y: 10 + (_topBar.frame.height - 60)/2, width: 50, height: 50))
         backbtn.setImage(UIImage (named: "photo_detail_titlebar_close"), for: .normal)
         backbtn.imageEdgeInsets = UIEdgeInsetsMake(-5, -10, 5, 10)
@@ -78,7 +96,6 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
         _bottomBar.barStyle = .black
         _bottomBar.isTranslucent = true
         _bottomBar.setShadowImage(UIImage(), forToolbarPosition: .bottom)
-        
         _bottomBar.setBackgroundImage(imageWithColor(UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: _alpha)), forToolbarPosition: .any , barMetrics: .default)
         view.addSubview(_bottomBar)
         
@@ -87,7 +104,7 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
         selectbtn.setImage(UIImage (named: "ImgPic_select_ok_preview"), for: .selected)
         
         selectbtn.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
-        selectbtn.addTarget(self, action: #selector(_selectImage(_:)), for: .touchUpInside)
+        selectbtn.addTarget(self, action: #selector(selectImageAction(_:)), for: .touchUpInside)
         _bottomBar.addSubview(selectbtn)
         _selectButton = selectbtn
         
@@ -100,7 +117,7 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
     }
     
     
-    //MARK: - EVENT
+    //MARK: - Toolbar  EVENT
     func _dismiss() {
         if let handler = self.closeHandler {
             handler(self.selectedDataArr);
@@ -109,9 +126,8 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
         _ = self.navigationController?.popViewController(animated: false)
     }
     
-    func _selectImage(_ btn:UIButton) {
+    func selectImageAction(_ btn:UIButton) {
         guard let _index = _colloectionview.indexPathsForVisibleItems.last?.row else {return}
-
         let asset = dataArry[_index]
         
         let _b = selectedDataArr.contains(asset);
@@ -154,37 +170,26 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
     
     }
     
-    fileprivate func colleciontView(_ frame:CGRect) -> UICollectionView {
-        let _layout = UICollectionViewFlowLayout()
-        _layout.itemSize = CGSize (width: frame.width + 10, height: frame.height)
-        _layout.minimumInteritemSpacing = 0
-        _layout.minimumLineSpacing = 0
-        _layout.scrollDirection = .horizontal
-        
-        let collectionview = UICollectionView (frame: CGRect (x: frame.minX, y: frame.minY, width: frame.width + 10, height: frame.height), collectionViewLayout: _layout)
-        collectionview.delegate  = self
-        collectionview.dataSource = self
-        
-        //collectionview.register(UINib (nibName: "TTImagePreviewCell", bundle: nil), forCellWithReuseIdentifier: "TTImagePreviewCellIdentifier")
-        collectionview.register(TTImagePreviewCell2.self, forCellWithReuseIdentifier: "TTImagePreviewCellIdentifier")
-        
-        collectionview.backgroundColor  = UIColor.black
-        collectionview.showsHorizontalScrollIndicator = false
-        collectionview.showsVerticalScrollIndicator = false
-        collectionview.alwaysBounceVertical = false
-        collectionview.isPagingEnabled = true
-        return collectionview
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
+}
 
-    //MARK:
+
+
+//MARK: -
+extension TTImagePreviewController : UICollectionViewDelegate , UICollectionViewDataSource{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArry.count
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TTImagePreviewCellIdentifier", for: indexPath) as! TTImagePreviewCell2
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TTImagePreviewCellIdentifier", for: indexPath) as! TTImagePreviewCell
         
         let asset = dataArry[indexPath.row]
         cell.setImage(asset, type: .preview, isSelected: true)
@@ -209,24 +214,11 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
             let _b = selectedDataArr.count > 0 ? selectedDataArr.contains(asset) : false
             _selectButton.isSelected = _b
         }
-
+        
         
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        UIView.animate(withDuration: 0.2, animations: {
-            if !self._toolBarIsHiden {
-                self._topBar.transform = CGAffineTransform.init(translationX: 0, y: -50)
-            }else{
-                self._topBar.transform = CGAffineTransform.identity
-            }
-        }) { (finished) in
-            self._toolBarIsHiden = !self._toolBarIsHiden
-        }
-    }
 
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let i = lroundf(Float(scrollView.contentOffset.x / (kCurrentScreenWidth + 10)))
         
@@ -237,22 +229,10 @@ class TTImagePreviewController: BaseViewController ,UICollectionViewDelegate,UIC
         }
         
     }
+
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
+

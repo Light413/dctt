@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegate,CLLocationManagerDelegate{
@@ -32,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
     func _initSys()  {
         HUD.config()
 
+        IQKeyboardManager.sharedManager().enable = true
         UIApplication.shared.applicationIconBadgeNumber = 0
         sleep(2)
         

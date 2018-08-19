@@ -9,8 +9,10 @@
 import UIKit
 
 class MeHomeListController: UITableViewController {
-    var canScroll:Bool = false;
-    var dataArray = [[String:Any]]()
+    var uid:String!
+    
+    private var canScroll:Bool = false;
+    private var dataArray = [[String:Any]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +28,24 @@ class MeHomeListController: UITableViewController {
 
         //////
         loadData();
-        
+        loadProfile()
     }
     
-    func noti(_ noti:NSNotification) {
-        canScroll = true
-        //print("child can")
+    func loadProfile() {
+        //"cdbd1bd27dbf0fe4ae76b08f9462c983"
+        guard let u = uid else {return}
+        let d:[String:Any] = ["uid":u, "type":3]
+        
+        AlamofireHelper.post(url: update_profile_url, parameters: d, successHandler: { (res) in
+            guard String.isNullOrEmpty(res["status"]) == "200" else { return;}
+            guard let user = res["body"] as? [String:Any] else {return}
+            
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: NSNotification.Name.init("updateProfileNotification"), object: nil, userInfo: user)
+            }
+        }) { (err) in
+            
+        }
     }
     
     func loadData() {
@@ -58,7 +72,6 @@ class MeHomeListController: UITableViewController {
             
             
             ss.tableView.reloadData()
-            print(res);
         }) { (error) in
             HUD.dismiss()
         }
@@ -67,7 +80,11 @@ class MeHomeListController: UITableViewController {
     }
     
     
-    
+    //MARK:- 控制滑动
+    func noti(_ noti:NSNotification) {
+        canScroll = true
+        //print("child can")
+    }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if !canScroll && kchildViewCanScroll == false {
@@ -83,6 +100,7 @@ class MeHomeListController: UITableViewController {
         }
     }
     
+    //MARK:-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArray.count
     }

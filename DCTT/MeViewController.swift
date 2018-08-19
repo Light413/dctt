@@ -212,6 +212,10 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             switch indexPath.row {
             case 0:
                 vc = MeHomePageController.init(style:.plain)
+                if let uid = User.uid() {
+                    (vc as! MeHomePageController).uid = uid;
+                }
+                
                 break
             case 1:
                 vc = MessageViewController()

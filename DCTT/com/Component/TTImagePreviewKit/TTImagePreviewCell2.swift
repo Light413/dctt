@@ -1,5 +1,5 @@
 //
-//  TTImagePreviewCell2.swift
+//  TTImagePreviewCell.swift
 //  DCTT
 //
 //  Created by gener on 2017/12/13.
@@ -8,13 +8,14 @@
 
 import UIKit
 import Photos
+import Kingfisher
 
 class TTImagePreviewCell2: UICollectionViewCell,UIScrollViewDelegate {
     
     var scrollview:UIScrollView!
     var igv:UIImageView!
     
-    var imageClickedHandler:((Void) -> Void)?
+    var imageClickedHandler:(() -> Void)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,23 +70,6 @@ class TTImagePreviewCell2: UICollectionViewCell,UIScrollViewDelegate {
         scrollview.zoomScale = 1
     }
     
-    /// - parameter asset:      所指向的图片资源
-    /// - parameter type:       cell类型
-    /// - parameter isSelected: 是否选中确定角标icon
-    func setImage(_ asset:PHAsset , type:ImageCellTpye , isSelected:Bool? = false) {
-        //获取相册图片
-        let requestOption = PHImageRequestOptions.init()
-        requestOption.resizeMode = .exact
-        
-        let size = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
-        PHImageManager.default().requestImage(for: asset, targetSize: size, contentMode: .aspectFit, options: requestOption, resultHandler: { [weak self ](img, dic) in
-                guard let strongSelf = self else{return}
-                if let ig = img {
-                    strongSelf._initWithImage(ig)
-                }
-            })
-        
-    }
     
     fileprivate func _initWithImage(_ image:UIImage) {
         igv.image = image
@@ -99,4 +83,23 @@ class TTImagePreviewCell2: UICollectionViewCell,UIScrollViewDelegate {
         setIgvCenter(scrollview)
         
     }
+    
+    //MARK:- Public
+    func setImage(_ s:String) {
+
+        ImageCache.default.retrieveImage(forKey: s, options: nil) {[weak self] (image, cacheType) in
+            guard let ss = self else {return}
+            if let ig = image {
+                ss._initWithImage(ig)
+            }
+        }
+        
+        
+        //igv.kf.setImage(with: url, placeholder: UIImage (named: "default_image2"), options: nil, progressBlock: nil, completionHandler:nil)
+        
+        
+    }
+    
+    
+    
 }

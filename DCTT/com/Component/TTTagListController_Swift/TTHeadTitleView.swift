@@ -82,7 +82,7 @@ class TTHeadTitleView: UIView {
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = false
         collectionview.backgroundView = nil
-        collectionview.backgroundColor = UIColor.white
+        collectionview.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0)
         return collectionview
     }
     

@@ -18,17 +18,33 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.shadowImage = UIImage()
-        //navigationBar.barTintColor = tt_BarColor //kBartintColor
-        
+
         navigationBar.isTranslucent = false
-        //navigationBar.tintColor = UIColor.white
-        //navigationBar.barStyle = .black
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black,NSFontAttributeName:UIFont.systemFont(ofSize: 17)]
 
 //        navigationBar.setBackgroundImage(UIImage (named: "navigationbar_bg"), for: .default)
 
-
+        navigationBar.shadowImage = UIImage();
+        navigationBar.setBackgroundImage(imageWithColor(tt_defafault_barColor), for: .default)
+    }
+    
+    func imageWithColor(_ color:UIColor) -> UIImage? {
+        let rect = CGRect (x: 0, y: 0, width: 1, height: 1)
+        
+        UIGraphicsBeginImageContext(rect.size)
+        
+        let ctx = UIGraphicsGetCurrentContext()
+        
+        ctx?.setFillColor(color.cgColor)
+        
+        ctx?.fill(rect)
+        
+        let ig = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return ig
+        
     }
     
     func leftBarButtonItem() -> UIBarButtonItem {

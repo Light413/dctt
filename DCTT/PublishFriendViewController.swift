@@ -56,12 +56,12 @@ class PublishFriendViewController: BasePublishController {
 
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-            return CGSize (width: kCurrentScreenWidth - 20, height: 80)
+            return CGSize (width: kCurrentScreenWidth - 20, height: 100)
         }
         
         let _w = (kCurrentScreenWidth - 20 )
         
-        return imgDataArr.count > 0 ? CGSize (width: _w, height: _w * 0.8): CGSize (width: _w / 3.0, height: 100)
+        return imgDataArr.count > 0 ? CGSize (width: _w, height: _w * 1): CGSize (width: _w / 3.0, height: 100)
     }
 
 

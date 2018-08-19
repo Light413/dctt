@@ -16,6 +16,8 @@ class HomeDetailHeadView: UIView {
     
     @IBOutlet weak var dateLable: UILabel!
     
+    var avatarClickedAction:(() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         iconImg.layer.cornerRadius = 20
@@ -25,7 +27,9 @@ class HomeDetailHeadView: UIView {
     }
     
     func tapIconAction()  {
-        print("jump to user profile")
+        if let iconAction = avatarClickedAction {
+            iconAction()
+        }
     }
     
     

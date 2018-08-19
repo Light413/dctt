@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeDetailController: BaseDetailController{
 
     var data:[String:Any]!
+    var imgArr = [String]()
     
     var isPreview:Bool = false //是否处于预览状态
     
@@ -22,6 +24,9 @@ class HomeDetailController: BaseDetailController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        _tableview.register(UINib (nibName: "HomeDetailImgCell3", bundle: nil), forCellReuseIdentifier: "HomeDetailImgCell3Identifier")
+        
         //titleview
         _titleView = titleView()
         _titleView.isHidden = true
@@ -33,6 +38,29 @@ class HomeDetailController: BaseDetailController{
 
     func fillData()  {
         headView.fill(data)
+        headView.avatarClickedAction = {[weak self] in
+           let vc = MeHomePageController.init(style:.plain)
+            guard let ss = self else {
+                return
+            }
+            
+            if let uid = ss.data["uid"] as? String {
+                vc.uid = uid
+            }
+            
+            ss.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        
+        let images = String.isNullOrEmpty(data["images"])
+        if images.lengthOfBytes(using: String.Encoding.utf8) > 50 {
+           let arr = images.components(separatedBy: ",")
+            if arr.count > 0 {
+                imgArr = imgArr + arr
+            }
+        }
+        
+
     }
     
     
@@ -93,8 +121,7 @@ class HomeDetailController: BaseDetailController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            let igNum = Int(String.isNullOrEmpty(data["imageNum"]))
-            return 1 + (igNum ?? 0) // + pic 个数
+            return 1 +  lroundf(ceilf(Float(imgArr.count) / 3.0) ) // + pic 个数
         }else{
         
             return 5 //评论数
@@ -114,21 +141,32 @@ class HomeDetailController: BaseDetailController{
                 let paragraphStyle = NSMutableParagraphStyle.init()
                 paragraphStyle.lineSpacing = 5
                 paragraphStyle.lineBreakMode = .byCharWrapping
-                paragraphStyle.firstLineHeadIndent = 20
+                paragraphStyle.firstLineHeadIndent = 15
                 
-                let dic:[String:Any] = [NSFontAttributeName:UIFont.systemFont(ofSize: 16) , NSParagraphStyleAttributeName:paragraphStyle,NSKernAttributeName:1]
+                let dic:[String:Any] = [NSFontAttributeName:UIFont.systemFont(ofSize: 17) , NSParagraphStyleAttributeName:paragraphStyle,NSKernAttributeName:1]
                 let attriStr = NSAttributedString.init(string: _text, attributes: dic)
                 cell.textLabel?.attributedText = attriStr
             }else{//带有图的cell
-                cell = tableView.dequeueReusableCell(withIdentifier: "HomeDetailImgCellIdentifier", for: indexPath) as! HomeDetailImgCell
+                cell = tableView.dequeueReusableCell(withIdentifier: "HomeDetailImgCell3Identifier", for: indexPath) as! HomeDetailImgCell3
 
-                let images = String.isNullOrEmpty(data["images"])
-                let arr = images.components(separatedBy: ",")
-                if arr.count >= indexPath.row  {
-                    let url = URL.init(string: arr[indexPath.row - 1])
-                    (cell as! HomeDetailImgCell).igv.kf.setImage(with: url, placeholder: UIImage (named: "default_image2"), options: nil, progressBlock: nil, completionHandler:nil)
+                /////
+                let row = indexPath.row - 1
+                let igs = imagesWithIndex(row)
+                (cell as! HomeDetailImgCell3).tapActionHandler = {[weak self] i in
+                    if  let ss = self {
+                        let index = row * 3 + i
+                        let vc  = TTImagePreviewController2()
+                        vc.index = index - 1
+                        vc.dataArry = ss.imgArr
+                        
+                        ss.navigationController?.present(vc, animated: false, completion: nil)
                     }
+                    
                 }
+                
+                (cell as! HomeDetailImgCell3).fill(igs)
+
+            }
         }else{
              cell = tableView.dequeueReusableCell(withIdentifier: "HomeDetailCommentCellIdentifier", for: indexPath)
         }
@@ -139,7 +177,10 @@ class HomeDetailController: BaseDetailController{
         return cell
     }
     
-
+    deinit {
+        print("123")
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let vc = HomeDetailController()
 //
@@ -154,7 +195,31 @@ class HomeDetailController: BaseDetailController{
     }
     
     
+    //MARK: -
+    func imagesWithIndex(_ index:Int) -> [String] {
+        var arr = [String]()
+        for i in index * 3 ..< imgArr.count{
+            let origin = imgArr[i]
+            arr.append(origin)
+            if arr.count >= 3 {
+                break
+            }
+        }
+        
+        return arr
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (indexPath.section == 0 && indexPath.row == 0) || indexPath.section > 0 {
+            return UITableViewAutomaticDimension
+        }
+        
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

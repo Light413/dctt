@@ -69,13 +69,9 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         collectionview.register(UINib (nibName: "PubTypeCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PubTypeCollectionReusableViewIdentifier")
         
         collectionview.showsHorizontalScrollIndicator = false
-        //collectionview.showsVerticalScrollIndicator = false
+        collectionview.showsVerticalScrollIndicator = false
         collectionview.contentInset = UIEdgeInsetsMake(5, offset, 10, offset)
         
-//        collectionview.layer.borderWidth = 2
-//        collectionview.layer.borderColor = kTableviewBackgroundColor.cgColor //UIColor.lightGray.cgColor
-//        collectionview.layer.cornerRadius = 5
-//        collectionview.layer.masksToBounds = true
     }
     
     
