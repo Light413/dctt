@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import SwiftTTPageController
 
 class FriendRootController: BaseViewController {
     //////////
     var _cellPageController:TTPageViewController!
-    var _cellSectionHeadView:TTHeadTitleView!
+    var _cellSectionHeadView:TTHeadView!
     let sectionHeadTitles = ["最新","最热"]
 
     override func viewDidLoad() {
@@ -27,7 +28,7 @@ class FriendRootController: BaseViewController {
     func title_v() -> UIView {
         var attri = TTHeadTextAttribute()
         attri.itemWidth = 50
-        let topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: 100, height: 35), titles: sectionHeadTitles, delegate: self ,textAttributes:attri)
+        let topview  = TTHeadView (frame: CGRect (x: 0, y: 0, width: 100, height: 35), titles: sectionHeadTitles, delegate: self ,textAttributes:attri)
         _cellSectionHeadView = topview
         
         return topview
@@ -66,12 +67,12 @@ class FriendRootController: BaseViewController {
 
 }
 
-extension FriendRootController:TTHeadTitleDelegate,TTPageViewControllerDelegate {
-    func titleClickedAtIndex(_ index: Int) {
+extension FriendRootController:TTHeadViewDelegate,TTPageViewControllerDelegate {
+    func tt_headViewSelectedAt(_ index: Int) {
         _cellPageController.scrollToPageAtIndex(index)
     }
     
-    func pageViewControllerScrollTo(_ index: Int) {
+    func tt_pageControllerSelectedAt(_ index: Int) {
         _cellSectionHeadView.scrollToItemAtIndex(index)
     }
     

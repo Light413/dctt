@@ -148,8 +148,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
             #if true
                 
             let typevc = PubSelectTypeController()
-                
-            UIApplication.shared.keyWindow?.rootViewController?.present(typevc, animated: false, completion: nil)
+            let navi = BaseNavigationController(rootViewController: typevc)
+            UIApplication.shared.keyWindow?.rootViewController?.present(navi, animated: true, completion: nil)
                 
             #else
             TTPublishView.show({ (index) in

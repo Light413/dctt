@@ -8,11 +8,12 @@
 
 import UIKit
 import RxSwift
+import SwiftTTPageController
 
-class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHeadTitleDelegate,UITextFieldDelegate{
+class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHeadViewDelegate,UITextFieldDelegate{
     var vcArr = [BaseTableViewController]()
     var pagevc :TTPageViewController!
-    var topview : TTHeadTitleView!
+    var topview : TTHeadView!
     let _logo_title = "郸城头条"//-老家人自己的头条
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -34,14 +35,14 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
 
     func _init() {
         //head
-        let titles = ["最新","热门","问答","商家"]//["最新","热门","问答","段子","美食","商家","娱乐"]
+        let titles = ["最新","热门","问答","商家","吐槽"]//["最新","热门","问答","段子","美食","商家","娱乐"]
         
         var attri = TTHeadTextAttribute()
         attri.itemWidth = 55
-        attri._defaultFontSize = 16
-        attri._selectedFontSize = 17
+        attri.defaultFontSize = 16
+        attri.selectedFontSize = 17
         
-        topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth - 30, height: 35), titles: titles, delegate: self ,textAttributes:attri)
+        topview  = TTHeadView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth - 30, height: 35), titles: titles, delegate: self ,textAttributes:attri)
         topview.backgroundColor = UIColor.clear
         self.navigationItem.titleView = topview
         
@@ -59,7 +60,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         view.addSubview(pagevc.view)
         
         //navigationbar item
-        let logo_lable = UILabel (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 30))
+        /*let logo_lable = UILabel (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 30))
         logo_lable.text = _logo_title
         logo_lable.font = UIFont.boldSystemFont(ofSize: 18)
         logo_lable.textColor = UIColor.white
@@ -83,16 +84,17 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         leftview.addSubview(img)
         tf.leftView = leftview
         
-        //navigationItem.titleView = logo_lable
+        //navigationItem.titleView = logo_lable*/
     }
     
     
     //MARK: -
-    func titleClickedAtIndex(_ index: Int) {
+    func tt_headViewSelectedAt(_ index: Int) {
         pagevc.scrollToPageAtIndex(index)
     }
     
-    func pageViewControllerScrollTo(_ index: Int) {
+    func tt_pageControllerSelectedAt(_ index: Int) {
+        
         topview.scrollToItemAtIndex(index);
     }
     

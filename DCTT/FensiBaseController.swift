@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import SwiftTTPageController
 
-class FensiBaseController: UIViewController,TTPageViewControllerDelegate,TTHeadTitleDelegate {
+class FensiBaseController: UIViewController,TTPageViewControllerDelegate,TTHeadViewDelegate {
     var t_barTintColor:UIColor?;
     
     var vcArr = [UIViewController]()
     var pagevc :TTPageViewController!
-    var topview : TTHeadTitleView!
+    var topview : TTHeadView!
     
     var _tableView:UITableView!
     
@@ -37,7 +38,7 @@ class FensiBaseController: UIViewController,TTPageViewControllerDelegate,TTHeadT
     func _initSubviews()  {
         
         let titles = ["关注","粉丝"]
-        topview  = TTHeadTitleView (frame: CGRect (x: 0, y: 0, width: 130, height: 40), titles: titles, delegate: self)
+        topview  = TTHeadView (frame: CGRect (x: 0, y: 0, width: 130, height: 40), titles: titles, delegate: self)
         //view.addSubview(topview)
         topview.backgroundColor = UIColor.white
 //        topview.textAttribute = TTHeadTextAttribute.init(defaultColor: UIColor.lightGray, defaultSize: 16, selectedColor: UIColor.black, selectedSize: 16)
@@ -58,11 +59,11 @@ class FensiBaseController: UIViewController,TTPageViewControllerDelegate,TTHeadT
     }
     
     //MARK: -
-    func titleClickedAtIndex(_ index: Int) {
+    func tt_headViewSelectedAt(_ index: Int) {
         pagevc.scrollToPageAtIndex(index)
     }
     
-    func pageViewControllerScrollTo(_ index: Int) {
+    func tt_pageControllerSelectedAt(_ index: Int) {
         topview.scrollToItemAtIndex(index);
     }
     

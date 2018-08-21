@@ -8,6 +8,7 @@
 
 import UIKit
 let _IMG_HEIGHT : CGFloat = 240
+import SwiftTTPageController
 
 enum HomePageType:Int {
     case me
@@ -26,7 +27,7 @@ class MeHomePageController: MeBaseTableViewController {
 
     //////////
     var _cellPageController:TTPageViewController!
-    var _cellSectionHeadView:TTHeadTitleView!
+    var _cellSectionHeadView:TTHeadView!
     let sectionHeadTitles = ["动态","其他"]
     var _meInfoView:MeHomeHeadView!
     
@@ -219,7 +220,7 @@ extension MeHomePageController {
         
         var attri = TTHeadTextAttribute()
         attri.itemWidth = 60
-        let topview  = TTHeadTitleView (frame: CGRect (x: 8, y: 8, width: tableView.frame.width - 20, height: 35), titles: sectionHeadTitles, delegate: self ,textAttributes:attri)
+        let topview  = TTHeadView (frame: CGRect (x: 8, y: 8, width: tableView.frame.width - 20, height: 35), titles: sectionHeadTitles, delegate: self ,textAttributes:attri)
         bg.addSubview(topview)
         
         _cellSectionHeadView = topview
@@ -233,12 +234,12 @@ extension MeHomePageController {
     
 }
 
-extension MeHomePageController:TTHeadTitleDelegate,TTPageViewControllerDelegate {
-    func titleClickedAtIndex(_ index: Int) {
+extension MeHomePageController:TTHeadViewDelegate,TTPageViewControllerDelegate {
+    func tt_headViewSelectedAt(_ index: Int) {
         _cellPageController.scrollToPageAtIndex(index)
     }
     
-    func pageViewControllerScrollTo(_ index: Int) {
+    func tt_pageControllerSelectedAt(_ index: Int) {
         _cellSectionHeadView.scrollToItemAtIndex(index)
     }
     

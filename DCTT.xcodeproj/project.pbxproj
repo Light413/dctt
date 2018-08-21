@@ -150,6 +150,7 @@
 		AD6A983C201A12CB00E7C5AE /* HomeDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */; };
 		ADCA97862100DADD00DA0950 /* NetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97852100DADC00DA0950 /* NetHelper.swift */; };
 		ADCA97882100DB4500DA0950 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97872100DB4500DA0950 /* Tools.swift */; };
+		ADD2DAE4212C67240054F1DB /* ServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD2DAE3212C67240054F1DB /* ServerViewController.swift */; };
 		ADD7CE19211C88DF00A33F3B /* MeHomeCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7CE18211C88DF00A33F3B /* MeHomeCell2.swift */; };
 		ADD7CE1B211C8C4800A33F3B /* MeHomeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7CE1A211C8C4800A33F3B /* MeHomeListController.swift */; };
 		ADDEA990210F630D007C1CBA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDEA98F210F630D007C1CBA /* Notification.swift */; };
@@ -162,8 +163,6 @@
 		ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5031FB6C8F50048F876 /* AppDelegate.swift */; };
 		ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEAE5051FB6C8F50048F876 /* ViewController.swift */; };
 		ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEAE50C1FB6C8F50048F876 /* LaunchScreen.storyboard */; };
-		ADEBE440210612B7005C5C06 /* TTPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEBE43E210612B7005C5C06 /* TTPageViewController.swift */; };
-		ADEBE441210612B7005C5C06 /* TTHeadTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEBE43F210612B7005C5C06 /* TTHeadTitleView.swift */; };
 		ADED55612121D294005C8EE6 /* HomeDetailImgCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED555F2121D294005C8EE6 /* HomeDetailImgCell3.swift */; };
 		ADED55622121D294005C8EE6 /* HomeDetailImgCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADED55602121D294005C8EE6 /* HomeDetailImgCell3.xib */; };
 		ADF6D901211B3CD900ECA9F9 /* MeHomeSuperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF6D8FF211B3CD900ECA9F9 /* MeHomeSuperCell.swift */; };
@@ -327,6 +326,7 @@
 		AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailFooterView.xib; sourceTree = "<group>"; };
 		ADCA97852100DADC00DA0950 /* NetHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetHelper.swift; sourceTree = "<group>"; };
 		ADCA97872100DB4500DA0950 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		ADD2DAE3212C67240054F1DB /* ServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServerViewController.swift; path = ../../mcs/ServerViewController.swift; sourceTree = "<group>"; };
 		ADD7CE18211C88DF00A33F3B /* MeHomeCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeCell2.swift; sourceTree = "<group>"; };
 		ADD7CE1A211C8C4800A33F3B /* MeHomeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeListController.swift; sourceTree = "<group>"; };
 		ADDEA98F210F630D007C1CBA /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -341,8 +341,6 @@
 		ADEAE5051FB6C8F50048F876 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ADEAE50D1FB6C8F50048F876 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADEAE50F1FB6C8F50048F876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ADEBE43E210612B7005C5C06 /* TTPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPageViewController.swift; sourceTree = "<group>"; };
-		ADEBE43F210612B7005C5C06 /* TTHeadTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTHeadTitleView.swift; sourceTree = "<group>"; };
 		ADED555F2121D294005C8EE6 /* HomeDetailImgCell3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailImgCell3.swift; sourceTree = "<group>"; };
 		ADED55602121D294005C8EE6 /* HomeDetailImgCell3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailImgCell3.xib; sourceTree = "<group>"; };
 		ADF6D8FF211B3CD900ECA9F9 /* MeHomeSuperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeSuperCell.swift; sourceTree = "<group>"; };
@@ -505,6 +503,7 @@
 			children = (
 				AD0FAFA420446272008A386E /* view */,
 				AD10334C1FB6D1A40017E81C /* AllViewController.swift */,
+				ADD2DAE3212C67240054F1DB /* ServerViewController.swift */,
 			);
 			name = Servers;
 			sourceTree = "<group>";
@@ -775,18 +774,8 @@
 				AD1033201FB6CD4E0017E81C /* hud */,
 				AD1033271FB6CD4E0017E81C /* Reachability */,
 				A1A047A91FD53C910057CC17 /* Refresh */,
-				ADEBE43D210612B7005C5C06 /* TTTagListController_Swift */,
 			);
 			path = Component;
-			sourceTree = "<group>";
-		};
-		ADEBE43D210612B7005C5C06 /* TTTagListController_Swift */ = {
-			isa = PBXGroup;
-			children = (
-				ADEBE43E210612B7005C5C06 /* TTPageViewController.swift */,
-				ADEBE43F210612B7005C5C06 /* TTHeadTitleView.swift */,
-			);
-			path = TTTagListController_Swift;
 			sourceTree = "<group>";
 		};
 		CEA6F35E826BA6E368A5F0B9 /* Pods */ = {
@@ -956,6 +945,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftTTPageController/SwiftTTPageController.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -971,6 +961,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTTPageController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1031,7 +1022,6 @@
 				AD20F3CA2067EDE1003BDE17 /* FackBackViewController.swift in Sources */,
 				AD2187DB205E7A5300E8C93F /* MeHomeHeadView.swift in Sources */,
 				A1C1E82120454EBC003D1F07 /* CategorySectionHeaderView.swift in Sources */,
-				ADEBE441210612B7005C5C06 /* TTHeadTitleView.swift in Sources */,
 				AD10332E1FB6CD4E0017E81C /* Extension.swift in Sources */,
 				A148A2AF1FD687DD0052DDF3 /* PublishImageCell.swift in Sources */,
 				ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */,
@@ -1053,6 +1043,7 @@
 				AD0BD502200A34270088D5E7 /* FriendHeadView.swift in Sources */,
 				ADFC9E042053F72500449767 /* LoginViewController.swift in Sources */,
 				A1C172091FD631E2006BAAA0 /* TTPublishView.swift in Sources */,
+				ADD2DAE4212C67240054F1DB /* ServerViewController.swift in Sources */,
 				AD16EDA4204848C60072A266 /* PubBaseTableViewController.swift in Sources */,
 				A1E1B02F1FDA90E8002D6BDC /* TTImageBaseViewController.swift in Sources */,
 				AD1033311FB6CD4E0017E81C /* HUD.swift in Sources */,
@@ -1119,7 +1110,6 @@
 				AD1BA1F6205D1C1200B7C29C /* MeHomePageController.swift in Sources */,
 				AD3CB6CC211210D500681E65 /* BaseWebViewController.swift in Sources */,
 				AD202757204C38A400E538CD /* PubFangwuViewController.swift in Sources */,
-				ADEBE440210612B7005C5C06 /* TTPageViewController.swift in Sources */,
 				A19C4B631FCD2AD600E9DE59 /* TTSearchBarView.swift in Sources */,
 				AD3CB6CA211206DC00681E65 /* AlamofireHelper.swift in Sources */,
 				A1CE83991FC3F6AA00DAF90F /* HomeDetailController.swift in Sources */,

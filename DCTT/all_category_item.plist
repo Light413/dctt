@@ -21,7 +21,7 @@
 		</dict>
 		<dict>
 			<key>item_title</key>
-			<string>提问题</string>
+			<string>问答</string>
 			<key>item_id</key>
 			<string>id001</string>
 			<key>item_key</key>
@@ -29,7 +29,7 @@
 		</dict>
 		<dict>
 			<key>item_title</key>
-			<string>段子</string>
+			<string>吐槽</string>
 			<key>item_id</key>
 			<string>id001</string>
 			<key>item_key</key>
@@ -37,22 +37,6 @@
 		</dict>
 	</array>
 	<array>
-		<dict>
-			<key>item_key</key>
-			<string>20</string>
-			<key>item_title</key>
-			<string>最新活动</string>
-			<key>item_id</key>
-			<string>id001</string>
-		</dict>
-		<dict>
-			<key>item_key</key>
-			<string>21</string>
-			<key>item_title</key>
-			<string>商家黄页</string>
-			<key>item_id</key>
-			<string>id004</string>
-		</dict>
 		<dict>
 			<key>item_key</key>
 			<string>22</string>
@@ -63,19 +47,27 @@
 		</dict>
 		<dict>
 			<key>item_key</key>
-			<string>23</string>
-			<key>item_title</key>
-			<string>相亲交友</string>
-			<key>item_id</key>
-			<string>id005</string>
-		</dict>
-		<dict>
-			<key>item_key</key>
 			<string>24</string>
 			<key>item_title</key>
 			<string>求职招聘</string>
 			<key>item_id</key>
 			<string>id006</string>
+		</dict>
+		<dict>
+			<key>item_key</key>
+			<string>21</string>
+			<key>item_title</key>
+			<string>商家</string>
+			<key>item_id</key>
+			<string>id004</string>
+		</dict>
+		<dict>
+			<key>item_key</key>
+			<string>23</string>
+			<key>item_title</key>
+			<string>相亲交友</string>
+			<key>item_id</key>
+			<string>id005</string>
 		</dict>
 		<dict>
 			<key>item_key</key>
@@ -95,22 +87,6 @@
 		</dict>
 		<dict>
 			<key>item_key</key>
-			<string>27</string>
-			<key>item_title</key>
-			<string>打听个事</string>
-			<key>item_id</key>
-			<string>id001</string>
-		</dict>
-		<dict>
-			<key>item_key</key>
-			<string>28</string>
-			<key>item_title</key>
-			<string>吐槽曝光</string>
-			<key>item_id</key>
-			<string>id001</string>
-		</dict>
-		<dict>
-			<key>item_key</key>
 			<string>29</string>
 			<key>item_title</key>
 			<string>二手交易</string>
@@ -119,49 +95,9 @@
 		</dict>
 		<dict>
 			<key>item_key</key>
-			<string>210</string>
-			<key>item_title</key>
-			<string>摄影婚庆</string>
-			<key>item_id</key>
-			<string>id001</string>
-		</dict>
-		<dict>
-			<key>item_key</key>
-			<string>211</string>
-			<key>item_title</key>
-			<string>母婴亲子</string>
-			<key>item_id</key>
-			<string>id001</string>
-		</dict>
-		<dict>
-			<key>item_key</key>
-			<string>212</string>
-			<key>item_title</key>
-			<string>3C数码</string>
-			<key>item_id</key>
-			<string>id001</string>
-		</dict>
-		<dict>
-			<key>item_key</key>
-			<string>213</string>
-			<key>item_title</key>
-			<string>家居装饰</string>
-			<key>item_id</key>
-			<string>id001</string>
-		</dict>
-		<dict>
-			<key>item_key</key>
-			<string>214</string>
-			<key>item_title</key>
-			<string>快递物流</string>
-			<key>item_id</key>
-			<string>id008</string>
-		</dict>
-		<dict>
-			<key>item_key</key>
 			<string>215</string>
 			<key>item_title</key>
-			<string>其他便民信息</string>
+			<string>便民信息</string>
 			<key>item_id</key>
 			<string>id001</string>
 		</dict>
