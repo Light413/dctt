@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import SwiftTTPageController
 
 class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
 
     var dataArray = [String]()
     
+    var _cellPageController:TTPageViewController!
+    var _cellSectionHeadView:TTHeadView!
+
+    let sectionHeadTitles = ["最新发布"]
+    let sectionHeight:CGFloat = 50
+    
+    var canScroll:Bool = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false;
@@ -27,7 +36,7 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
     
     func _init() {
         let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - 64 - 49);
-        let _tableview = UITableView (frame: frame, style: .grouped)
+        let _tableview = MeInfoTableView (frame: frame, style: .plain)
         
         _tableview.delegate = self
         _tableview.dataSource = self
@@ -37,113 +46,150 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         
         _tableview.register(UINib (nibName: "HomeCellWithImages", bundle: nil), forCellReuseIdentifier: "HomeCellWithImagesIdentifierId")
         
-        _tableview.rowHeight = UITableViewAutomaticDimension
-        _tableview.estimatedRowHeight = 100
+        _tableview.register(MeHomeCell2.self, forCellReuseIdentifier: "MeHomeSuperCellIdentifier")
+        
+        _tableview.showsVerticalScrollIndicator = false;
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(noti(_ :)), name: NSNotification.Name (rawValue: "superCanScrollNotification"), object: nil)
 
     }
     
+    func noti(_ noti:NSNotification) {
+        canScroll = true
+        kchildViewCanScroll = false
+        //print("super can")
+    }
+
+    //MARK: -
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section > 0 ? 10 : 1
+        return  1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = indexPath.section > 0 ? "HomeCellWithImagesIdentifierId":"CategoryItemsCellReuseIdentifier"
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        if indexPath.section == 0 {
+            let identifier = "CategoryItemsCellReuseIdentifier"
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+            return cell
+
+        }
         
+        let identifier :String = "MeHomeSuperCellIdentifier"
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MeHomeCell2
+        
+        _cellPageController = addCellPageController()
+        cell.addWithController(_cellPageController)
+        cell.selectionStyle = .none
+        cell.backgroundColor = UIColor.red
         return cell
-        
         
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if indexPath.section == 0 {
-//            return 180;
-//        }
-//        
-//        return 150
-//    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 180;
+        }
+        
+        return kCurrentScreenHeight - 49 - sectionHeight
+    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard section > 0 else {return nil}
         
-        let v = CategorySectionHeaderView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: 40))
+        let bg = UIView (frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: sectionHeight))
         
-        return v
+        var attri = TTHeadTextAttribute()
+        attri.itemWidth = 90
+        attri.selectedFontSize = 15
+        
+        let topview  = TTHeadView (frame: CGRect (x: 0, y: 3, width: tableView.frame.width - 20, height: 40), titles: sectionHeadTitles, delegate: self ,textAttributes:attri)
+        bg.addSubview(topview)
+        
+        _cellSectionHeadView = topview
+        
+        let line0 = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 1))
+        line0.backgroundColor = kTableviewBackgroundColor
+        
+        bg.addSubview(line0)
+        bg.backgroundColor = UIColor.white
+        
+        return bg
+        
+//        let v = CategorySectionHeaderView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: 40))
+//
+//        return v
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section > 0 ? 40 : 0.01
+        return section > 0 ? sectionHeight : 0.01
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 0 ? 5 : 0.01
+        return  0.01
     }
     
     
-    /*fileprivate func colleciontView(_ frame:CGRect) -> UICollectionView {
-        let offset:CGFloat = 10
-        //let _width = (kCurrentScreenWidth - offset *  2 - 8) / 3.0
-        let _width = (kCurrentScreenWidth - offset *  2 - 5) / 2.0
-        
-        let _layout = UICollectionViewFlowLayout()
-        _layout.itemSize = CGSize (width: _width, height: _width * 0.5)
-        _layout.minimumInteritemSpacing = 2
-        _layout.minimumLineSpacing = 8
-        _layout.scrollDirection = .horizontal
-        
-        let collectionview = UICollectionView (frame: frame, collectionViewLayout: _layout)
-        collectionview.delegate  = self
-        collectionview.dataSource = self
-        collectionview.register(UINib (nibName: "AllCategoryCell", bundle: nil), forCellWithReuseIdentifier: "AllCategoryCellReuseIdentifierId")
-        collectionview.backgroundColor  = UIColor.white
-        collectionview.showsHorizontalScrollIndicator = false
-        collectionview.showsVerticalScrollIndicator = true
-        collectionview.contentInset = UIEdgeInsetsMake(15, offset, 10, offset)
-        collectionview.isPagingEnabled = true
-        
-        return collectionview
-    }
-    
-    
-    //MARK: - UICollectionViewDataSource
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllCategoryCellReuseIdentifierId", for: indexPath) as! AllCategoryCell
-        let str = dataArray[indexPath.row]
-        cell.title.text = str
 
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = FriendsDetailController()
-        
-        self.navigationController?.pushViewController(vc, animated: true)
-    }*/
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK:-
+    func addCellPageController() -> TTPageViewController {
+        ////pagevc
+        var vcArr = [UIViewController]()
+        
+        for _ in 0..<sectionHeadTitles.count {
+            let v = ServerListController();
+            
+            vcArr.append(v)
+        }
+        
+        let rec = CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height:kCurrentScreenHeight - 49 - sectionHeight)
+        let pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)
+        
+        self.addChildViewController(pagevc)
+        
+        return pagevc
     }
-    */
 
+    
+     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let _y = scrollView.contentOffset.y + 0
+
+        if _y >= _IMG_HEIGHT {
+            if canScroll {
+                canScroll = false
+                scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT)
+                
+                NotificationCenter.default.post(name: NSNotification.Name (rawValue: "childCanScrollNotification"), object: nil)
+                kchildViewCanScroll = true
+            }else {
+                scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT)
+            }
+        } else {
+            if !canScroll {
+                scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT)
+            }
+        }
+        
+    }
+    
 }
+
+extension AllViewController:TTHeadViewDelegate,TTPageViewControllerDelegate {
+    func tt_headViewSelectedAt(_ index: Int) {
+        _cellPageController.scrollToPageAtIndex(index)
+    }
+    
+    func tt_pageControllerSelectedAt(_ index: Int) {
+        _cellSectionHeadView.scrollToItemAtIndex(index)
+    }
+    
+}
+

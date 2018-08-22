@@ -37,7 +37,7 @@ class MeHomePageController: MeBaseTableViewController {
         tableView.separatorStyle = .none
         
         _initSubview()
-        title = User.name()
+        //title = User.name()
         
         superNavigationController = self.navigationController
         
@@ -84,14 +84,14 @@ class MeHomePageController: MeBaseTableViewController {
         bg.addSubview(meinfo)
         _meInfoView = meinfo;
         
-        tableView = MeInfoTableView.init(frame: tableView.frame, style: .plain)
+        tableView = MeInfoTableView.init(frame: tableView.frame, style: .grouped)
         
         tableView.tableHeaderView = bg
         tableView.tableFooterView = UIView()
         bg.backgroundColor = UIColor.clear
-//        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.isTranslucent = true
 //
-//    navigationController?.navigationBar.setBackgroundImage(imgWithColor(tt_defafault_barColor.withAlphaComponent(0)), for: UIBarPosition.top, barMetrics: .default)
+    navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor (red: 250/255.0, green: 251/255.0, blue: 253/255.0, alpha: 0).withAlphaComponent(0)), for: UIBarPosition.top, barMetrics: .default)
         
         //tableView.register(UINib (nibName: "MeHomeCell", bundle: nil), forCellReuseIdentifier: "MeHomeCellIdentifier")
 //        tableView.estimatedRowHeight = 80;
@@ -123,13 +123,13 @@ class MeHomePageController: MeBaseTableViewController {
                 ss.navigationController?.present(vc, animated: false, completion: nil)
             }
             
-            let name = String.isNullOrEmpty(d["name"]);
-            
-            if name.lengthOfBytes(using: String.Encoding.utf8) > 0  {
-                title = name
-            }else{
-                title = String.isNullOrEmpty(d["nickName"])
-            }
+//            let name = String.isNullOrEmpty(d["name"]);
+//
+//            if name.lengthOfBytes(using: String.Encoding.utf8) > 0  {
+//                title = name
+//            }else{
+//                title = String.isNullOrEmpty(d["nickName"])
+//            }
             
         }
     }
@@ -156,23 +156,23 @@ class MeHomePageController: MeBaseTableViewController {
 
         }
         
-        if _y >= _IMG_HEIGHT {
+        if _y >= _IMG_HEIGHT - 0 {
             if canScroll {
                 canScroll = false
-                scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT)
+                scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT - 0)
                 
                 NotificationCenter.default.post(name: NSNotification.Name (rawValue: "childCanScrollNotification"), object: nil)
                 kchildViewCanScroll = true
             }else {
-                scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT)
+                scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT - 0)
             }
         } else {
             if !canScroll {
-               scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT)
+               scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT - 0)
             }
         }
         
-    //navigationController?.navigationBar.setBackgroundImage(imgWithColor(tt_defafault_barColor.withAlphaComponent(_y > 30 ? 1 : 0)), for: .default)
+    navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor.white.withAlphaComponent(_y > 30 ? 1 : 0)), for: .default)
     }
     
     
@@ -217,6 +217,7 @@ extension MeHomePageController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let bg = UIView (frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: sectionHeight))
+        bg.backgroundColor = UIColor.white
         
         var attri = TTHeadTextAttribute()
         attri.itemWidth = 60

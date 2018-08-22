@@ -61,6 +61,7 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
         ////pageCtr
         pageCtr.numberOfPages = numberOfItem
         pageCtr.currentPage = 0
+
     }
     
     

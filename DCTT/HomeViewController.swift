@@ -35,7 +35,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
 
     func _init() {
         //head
-        let titles = ["最新","热门","问答","商家","吐槽"]//["最新","热门","问答","段子","美食","商家","娱乐"]
+        let titles = ["最新","热门","问答","活动","吐槽"]//["最新","热门","问答","段子","美食","商家","娱乐"]
         
         var attri = TTHeadTextAttribute()
         attri.itemWidth = 55

@@ -42,7 +42,7 @@ class BaseTabbarController: UITabBarController {
                 "HomeViewController",
                 "FriendRootController",
                 "BaseViewController",
-                "ServerViewController",
+                "AllViewController",
                 "MeViewController"]
         
         var viewControllerArr:Array = [UIViewController]()

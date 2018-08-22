@@ -37,7 +37,12 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     }
 
     func updateUserInfo(_ noti:Notification)  {
-        guard let uid = User.uid() else {return}
+        guard let uid = User.uid() else {
+            _tableView.reloadData()
+            return
+            
+        }
+        
         let d = ["uid":uid, "type":"3"]
         
         AlamofireHelper.post(url: update_profile_url, parameters: d, successHandler: {[weak self] (res) in

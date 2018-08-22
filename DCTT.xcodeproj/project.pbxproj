@@ -150,7 +150,6 @@
 		AD6A983C201A12CB00E7C5AE /* HomeDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */; };
 		ADCA97862100DADD00DA0950 /* NetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97852100DADC00DA0950 /* NetHelper.swift */; };
 		ADCA97882100DB4500DA0950 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97872100DB4500DA0950 /* Tools.swift */; };
-		ADD2DAE4212C67240054F1DB /* ServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD2DAE3212C67240054F1DB /* ServerViewController.swift */; };
 		ADD7CE19211C88DF00A33F3B /* MeHomeCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7CE18211C88DF00A33F3B /* MeHomeCell2.swift */; };
 		ADD7CE1B211C8C4800A33F3B /* MeHomeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7CE1A211C8C4800A33F3B /* MeHomeListController.swift */; };
 		ADDEA990210F630D007C1CBA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDEA98F210F630D007C1CBA /* Notification.swift */; };
@@ -165,6 +164,7 @@
 		ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEAE50C1FB6C8F50048F876 /* LaunchScreen.storyboard */; };
 		ADED55612121D294005C8EE6 /* HomeDetailImgCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADED555F2121D294005C8EE6 /* HomeDetailImgCell3.swift */; };
 		ADED55622121D294005C8EE6 /* HomeDetailImgCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADED55602121D294005C8EE6 /* HomeDetailImgCell3.xib */; };
+		ADEF0DB5212DB117007BF6AE /* ServerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF0DB4212DB117007BF6AE /* ServerListController.swift */; };
 		ADF6D901211B3CD900ECA9F9 /* MeHomeSuperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF6D8FF211B3CD900ECA9F9 /* MeHomeSuperCell.swift */; };
 		ADF6D902211B3CD900ECA9F9 /* MeHomeSuperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADF6D900211B3CD900ECA9F9 /* MeHomeSuperCell.xib */; };
 		ADFC9E022053EDCC00449767 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADFC9E012053EDCC00449767 /* Login.storyboard */; };
@@ -326,7 +326,6 @@
 		AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailFooterView.xib; sourceTree = "<group>"; };
 		ADCA97852100DADC00DA0950 /* NetHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetHelper.swift; sourceTree = "<group>"; };
 		ADCA97872100DB4500DA0950 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
-		ADD2DAE3212C67240054F1DB /* ServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServerViewController.swift; path = ../../mcs/ServerViewController.swift; sourceTree = "<group>"; };
 		ADD7CE18211C88DF00A33F3B /* MeHomeCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeCell2.swift; sourceTree = "<group>"; };
 		ADD7CE1A211C8C4800A33F3B /* MeHomeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeListController.swift; sourceTree = "<group>"; };
 		ADDEA98F210F630D007C1CBA /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -343,6 +342,7 @@
 		ADEAE50F1FB6C8F50048F876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADED555F2121D294005C8EE6 /* HomeDetailImgCell3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailImgCell3.swift; sourceTree = "<group>"; };
 		ADED55602121D294005C8EE6 /* HomeDetailImgCell3.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeDetailImgCell3.xib; sourceTree = "<group>"; };
+		ADEF0DB4212DB117007BF6AE /* ServerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerListController.swift; sourceTree = "<group>"; };
 		ADF6D8FF211B3CD900ECA9F9 /* MeHomeSuperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeSuperCell.swift; sourceTree = "<group>"; };
 		ADF6D900211B3CD900ECA9F9 /* MeHomeSuperCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHomeSuperCell.xib; sourceTree = "<group>"; };
 		ADFC9E012053EDCC00449767 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -503,7 +503,7 @@
 			children = (
 				AD0FAFA420446272008A386E /* view */,
 				AD10334C1FB6D1A40017E81C /* AllViewController.swift */,
-				ADD2DAE3212C67240054F1DB /* ServerViewController.swift */,
+				ADEF0DB4212DB117007BF6AE /* ServerListController.swift */,
 			);
 			name = Servers;
 			sourceTree = "<group>";
@@ -1043,7 +1043,6 @@
 				AD0BD502200A34270088D5E7 /* FriendHeadView.swift in Sources */,
 				ADFC9E042053F72500449767 /* LoginViewController.swift in Sources */,
 				A1C172091FD631E2006BAAA0 /* TTPublishView.swift in Sources */,
-				ADD2DAE4212C67240054F1DB /* ServerViewController.swift in Sources */,
 				AD16EDA4204848C60072A266 /* PubBaseTableViewController.swift in Sources */,
 				A1E1B02F1FDA90E8002D6BDC /* TTImageBaseViewController.swift in Sources */,
 				AD1033311FB6CD4E0017E81C /* HUD.swift in Sources */,
@@ -1114,6 +1113,7 @@
 				AD3CB6CA211206DC00681E65 /* AlamofireHelper.swift in Sources */,
 				A1CE83991FC3F6AA00DAF90F /* HomeDetailController.swift in Sources */,
 				ADCA97862100DADD00DA0950 /* NetHelper.swift in Sources */,
+				ADEF0DB5212DB117007BF6AE /* ServerListController.swift in Sources */,
 				AD2E9570207E657D009C675B /* FensiBaseController.swift in Sources */,
 				AD2C1EE72026137900E48245 /* PublishFriendViewController.swift in Sources */,
 				AD2E956D207E59F9009C675B /* CollectCell.swift in Sources */,
