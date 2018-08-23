@@ -64,5 +64,54 @@ extension Date {
     }
 
 
-
+    /// 根据日期字符串转化为简短日期
+    ///
+    /// - parameter dateStr: eg"2018-08-23 14:10:00"
+    ///
+    /// - returns: 格式化后的日期
+    func dateFormatterWithString(_ dateStr:String) -> String {
+        let dateformatter  = DateFormatter.init();
+        dateformatter.dateFormat = "yyyy-MM-dd HH:mm:SS"
+        dateformatter.timeZone = TimeZone.current
+        let date = dateformatter.date(from: dateStr)
+        let sec = date?.timeIntervalSinceNow
+        
+        guard let s = sec , s < 0.0 else {return ""}
+        let second = fabs(s)
+        
+        let mins = second / 60
+        if mins < 1 {
+            return "刚刚";
+        }
+        
+        let hour = mins / 60
+        if hour < 1 {
+            let m = Int(mins) % 60
+            return "\(m)分钟前"
+        }
+        
+        let day = hour / 24
+        if day < 1 {
+            let h = Int(hour) % 24
+            return "\(h)小时前"
+        }
+        
+        let month = day / 30
+        if month < 1 {
+            let d = Int(day) % 30
+            return "\(d)天前"
+        }
+        
+        let year = month / 12
+        if year < 1 {
+            let m = Int(month) % 12
+            return "\(m)个月前"
+        }
+        
+        let y = Int(year)
+        return "\(y)年前"
+    }
+    
+    
+    
 }
