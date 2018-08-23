@@ -63,6 +63,8 @@
 		AD0BD4EE2009FE980088D5E7 /* HomeDetailImgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0BD4EC2009FE980088D5E7 /* HomeDetailImgCell.xib */; };
 		AD0BD502200A34270088D5E7 /* FriendHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0BD501200A34270088D5E7 /* FriendHeadView.swift */; };
 		AD0BD504200A34350088D5E7 /* FriendHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0BD503200A34350088D5E7 /* FriendHeadView.xib */; };
+		AD0E32C8212EF983009E26BC /* home_bg_gray@2x.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD0E32C6212EF983009E26BC /* home_bg_gray@2x.jpeg */; };
+		AD0E32C9212EF983009E26BC /* home_bg_blue@2x.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD0E32C7212EF983009E26BC /* home_bg_blue@2x.jpeg */; };
 		AD0FAFA020444C0A008A386E /* CategoryItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0FAF9E20444C0A008A386E /* CategoryItemsCell.swift */; };
 		AD0FAFA120444C0A008A386E /* CategoryItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0FAF9F20444C0A008A386E /* CategoryItemsCell.xib */; };
 		AD10332C1FB6CD4E0017E81C /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10331D1FB6CD4E0017E81C /* common.swift */; };
@@ -237,6 +239,8 @@
 		AD0BD4EC2009FE980088D5E7 /* HomeDetailImgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailImgCell.xib; sourceTree = "<group>"; };
 		AD0BD501200A34270088D5E7 /* FriendHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendHeadView.swift; sourceTree = "<group>"; };
 		AD0BD503200A34350088D5E7 /* FriendHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendHeadView.xib; sourceTree = "<group>"; };
+		AD0E32C6212EF983009E26BC /* home_bg_gray@2x.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home_bg_gray@2x.jpeg"; sourceTree = "<group>"; };
+		AD0E32C7212EF983009E26BC /* home_bg_blue@2x.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home_bg_blue@2x.jpeg"; sourceTree = "<group>"; };
 		AD0FAF9E20444C0A008A386E /* CategoryItemsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryItemsCell.swift; sourceTree = "<group>"; };
 		AD0FAF9F20444C0A008A386E /* CategoryItemsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryItemsCell.xib; sourceTree = "<group>"; };
 		AD10331D1FB6CD4E0017E81C /* common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
@@ -447,6 +451,8 @@
 				A1B5A6421FC4174400871676 /* ymtimg2.jpg */,
 				A1B5A6441FC41F2200871676 /* sunrise.jpg */,
 				A1E61D1C1FCE8F560080A12D /* back_bg@2x.png */,
+				AD0E32C7212EF983009E26BC /* home_bg_blue@2x.jpeg */,
+				AD0E32C6212EF983009E26BC /* home_bg_gray@2x.jpeg */,
 				AD1490B31FCB08750053FD31 /* trans-navi-left-button@2x.png */,
 			);
 			path = Test;
@@ -877,6 +883,7 @@
 				ADFC9E022053EDCC00449767 /* Login.storyboard in Resources */,
 				AD1033331FB6CD4E0017E81C /* success@2x.png in Resources */,
 				ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */,
+				AD0E32C9212EF983009E26BC /* home_bg_blue@2x.jpeg in Resources */,
 				AD2187D9205E186E00E8C93F /* MeHomeCell.xib in Resources */,
 				AD21D9BE205520C300E317FF /* MeNotRegisterCell.xib in Resources */,
 				AD1490B41FCB08750053FD31 /* trans-navi-left-button@2x.png in Resources */,
@@ -895,6 +902,7 @@
 				AD2178E0207FB1B700B99069 /* FensiCell.xib in Resources */,
 				AD0BD504200A34350088D5E7 /* FriendHeadView.xib in Resources */,
 				A148A2A61FD649570052DDF3 /* publish_write@2x.png in Resources */,
+				AD0E32C8212EF983009E26BC /* home_bg_gray@2x.jpeg in Resources */,
 				AD1BEC022029EF6B003E334C /* PubTypeCollectionReusableView.xib in Resources */,
 				AD21DF62202750FD002FE181 /* TableViewCellTextView.xib in Resources */,
 				A1C4023B1FCCF9A6005BAA9A /* cell_background.png in Resources */,

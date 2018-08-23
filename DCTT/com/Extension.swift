@@ -69,7 +69,7 @@ extension Date {
     /// - parameter dateStr: eg"2018-08-23 14:10:00"
     ///
     /// - returns: 格式化后的日期
-    func dateFormatterWithString(_ dateStr:String) -> String {
+   public static func dateFormatterWithString(_ dateStr:String) -> String {
         let dateformatter  = DateFormatter.init();
         dateformatter.dateFormat = "yyyy-MM-dd HH:mm:SS"
         dateformatter.timeZone = TimeZone.current

@@ -28,7 +28,7 @@ class MeHomePageController: MeBaseTableViewController {
     //////////
     var _cellPageController:TTPageViewController!
     var _cellSectionHeadView:TTHeadView!
-    let sectionHeadTitles = ["动态","其他"]
+    let sectionHeadTitles = ["动态"]
     var _meInfoView:MeHomeHeadView!
     
     override func viewDidLoad() {
@@ -62,13 +62,13 @@ class MeHomePageController: MeBaseTableViewController {
         return pagevc
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//
-//        navigationController?.navigationBar.isTranslucent = false
-//    navigationController?.navigationBar.setBackgroundImage(imgWithColor(tt_defafault_barColor.withAlphaComponent(1)), for: .default)
-//
-//    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        navigationController?.navigationBar.isTranslucent = false
+    navigationController?.navigationBar.setBackgroundImage(imgWithColor(tt_defafault_barColor.withAlphaComponent(1)), for: .default)
+
+    }
     
     func _initSubview()  {
         let bg = UIView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _IMG_HEIGHT + 0))
@@ -80,7 +80,7 @@ class MeHomePageController: MeBaseTableViewController {
         /////
         let meinfo = Bundle.main.loadNibNamed("MeHomeHeadView", owner: nil, options: nil)?.first as! MeHomeHeadView
         meinfo.frame = CGRect  (x: 0, y:_IMG_HEIGHT - 180, width: bg.frame.width, height: 180)
-        meinfo.backgroundColor = UIColor.clear
+        meinfo.backgroundColor = UIColor.white
         bg.addSubview(meinfo)
         _meInfoView = meinfo;
         
@@ -143,6 +143,7 @@ class MeHomePageController: MeBaseTableViewController {
     
 
     //MARK: -
+    let _offset_y:CGFloat = 50
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let _y = scrollView.contentOffset.y + 0
         if _y <= 0 {
@@ -156,23 +157,29 @@ class MeHomePageController: MeBaseTableViewController {
 
         }
         
-        if _y >= _IMG_HEIGHT - 0 {
+        if _y >= _IMG_HEIGHT - _offset_y {
             if canScroll {
                 canScroll = false
-                scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT - 0)
+                scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT - _offset_y)
                 
                 NotificationCenter.default.post(name: NSNotification.Name (rawValue: "childCanScrollNotification"), object: nil)
                 kchildViewCanScroll = true
             }else {
-                scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT - 0)
+                scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT - _offset_y)
             }
         } else {
             if !canScroll {
-               scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT - 0)
+               scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT - _offset_y)
             }
         }
         
     navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor.white.withAlphaComponent(_y > 30 ? 1 : 0)), for: .default)
+        if _y > 0 {
+            title = User.name()
+        }else{
+            title = nil
+        }
+        
     }
     
     

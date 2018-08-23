@@ -22,7 +22,7 @@ class HomeCell: UITableViewCell {
             let uname = String.isNullOrEmpty(u_info["name"]).lengthOfBytes(using: String.Encoding.utf8) > 0 ? String.isNullOrEmpty(u_info["name"]) : String.isNullOrEmpty(u_info["name"])
             name.text = uname
             
-            time.text = String.isNullOrEmpty(d["postDate"])
+            time.text = Date.dateFormatterWithString(String.isNullOrEmpty(d["postDate"]))
             
             
         }

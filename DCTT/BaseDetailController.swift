@@ -45,8 +45,8 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         _tableview.register(UINib (nibName: "HomeDetailImgCell", bundle: nil), forCellReuseIdentifier: "HomeDetailImgCellIdentifier")
         
         //计算Cell高度
-//        _tableview.estimatedRowHeight = 70
-//        _tableview.rowHeight = UITableViewAutomaticDimension
+        _tableview.estimatedRowHeight = 70
+        _tableview.rowHeight = UITableViewAutomaticDimension
         
         //headView
         let headview = Bundle.main.loadNibNamed("HomeDetailHeadView", owner: nil, options: nil)?.last as! HomeDetailHeadView
