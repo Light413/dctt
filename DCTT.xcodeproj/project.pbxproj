@@ -421,17 +421,6 @@
 				ADED55602121D294005C8EE6 /* HomeDetailImgCell3.xib */,
 				AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */,
 				AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */,
-			);
-			name = view;
-			sourceTree = "<group>";
-		};
-		A1CE83901FC3C05500DAF90F /* view */ = {
-			isa = PBXGroup;
-			children = (
-				A1CE839C1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift */,
-				A1CE839D1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib */,
-				A1783C011FCC128F00E4AB06 /* AllCategoryCell.swift */,
-				A1783C021FCC128F00E4AB06 /* AllCategoryCell.xib */,
 				A19C4B621FCD2AD600E9DE59 /* TTSearchBarView.swift */,
 			);
 			name = view;
@@ -498,6 +487,8 @@
 		AD0BD500200A33CD0088D5E7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A1CE839C1FC40D3D00DAF90F /* FriendsCollectonViewCell.swift */,
+				A1CE839D1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib */,
 				AD0BD501200A34270088D5E7 /* FriendHeadView.swift */,
 				AD0BD503200A34350088D5E7 /* FriendHeadView.xib */,
 			);
@@ -538,6 +529,8 @@
 		AD0FAFA420446272008A386E /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A1783C011FCC128F00E4AB06 /* AllCategoryCell.swift */,
+				A1783C021FCC128F00E4AB06 /* AllCategoryCell.xib */,
 				AD0FAF9E20444C0A008A386E /* CategoryItemsCell.swift */,
 				AD0FAF9F20444C0A008A386E /* CategoryItemsCell.xib */,
 				A1C1E82020454EBB003D1F07 /* CategorySectionHeaderView.swift */,
@@ -644,8 +637,8 @@
 		AD128C68201C6DDB00A9EDBE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AD20275C204C4C2200E538CD /* Login */,
 				AD1033381FB6CD920017E81C /* BaseController */,
+				AD20275C204C4C2200E538CD /* Login */,
 				A1C46D742005E12200E02635 /* Home */,
 				AD0BD4FF200A33A40088D5E7 /* Friend */,
 				AD128C67201C6A6E00A9EDBE /* Publish */,
@@ -762,7 +755,6 @@
 		ADEAE5021FB6C8F50048F876 /* DCTT */ = {
 			isa = PBXGroup;
 			children = (
-				A1CE83901FC3C05500DAF90F /* view */,
 				AD10331C1FB6CD4E0017E81C /* com */,
 				AD128C68201C6DDB00A9EDBE /* ViewControllers */,
 				AD1033451FB6CE620017E81C /* src */,

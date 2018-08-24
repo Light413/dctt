@@ -1,10 +1,5 @@
 //
 //  url.swift
-//  JobCard
-//
-//  Created by gener on 17/11/10.
-//  Copyright © 2017年 Light. All rights reserved.
-//
 
 import Foundation
 

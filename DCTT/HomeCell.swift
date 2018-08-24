@@ -19,8 +19,17 @@ class HomeCell: UITableViewCell {
         msg.text = String.isNullOrEmpty(d["content"])
         
         if let u_info = d["user"] as? [String:Any]  {
-            let uname = String.isNullOrEmpty(u_info["name"]).lengthOfBytes(using: String.Encoding.utf8) > 0 ? String.isNullOrEmpty(u_info["name"]) : String.isNullOrEmpty(u_info["name"])
-            name.text = uname
+            var s = ""
+            let name = String.isNullOrEmpty(dic["name"]);
+            if name.lengthOfBytes(using: String.Encoding.utf8) > 0  {
+                s = name;
+            }
+            else
+                if let name = dic["nickName"] as? String {
+                    s = name;
+            }
+            
+            name.text = s
             
             time.text = Date.dateFormatterWithString(String.isNullOrEmpty(d["postDate"]))
             
