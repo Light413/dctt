@@ -42,7 +42,7 @@ let tt_themeColor = UIColor (red: 250/255.0, green: 110/255.0, blue: 12/255.0, a
 
 let tt_bg_color =  UIColor.init(red:244/255.0, green: 245/255.0, blue: 247/255.0, alpha: 1)
 
-
+let kButtonTitleColor = UIColor (red: 236/255.0, green: 82/255.0, blue: 82/255.0, alpha: 1)
 
 
 

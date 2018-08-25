@@ -169,6 +169,8 @@
 		ADEF0DB5212DB117007BF6AE /* ServerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEF0DB4212DB117007BF6AE /* ServerListController.swift */; };
 		ADF6D901211B3CD900ECA9F9 /* MeHomeSuperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF6D8FF211B3CD900ECA9F9 /* MeHomeSuperCell.swift */; };
 		ADF6D902211B3CD900ECA9F9 /* MeHomeSuperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADF6D900211B3CD900ECA9F9 /* MeHomeSuperCell.xib */; };
+		ADFB5379213044F600C45441 /* HomeCellFillDateAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFB5378213044F600C45441 /* HomeCellFillDateAble.swift */; };
+		ADFB537B213056A100C45441 /* TTPostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFB537A213056A100C45441 /* TTPostCommentView.swift */; };
 		ADFC9E022053EDCC00449767 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADFC9E012053EDCC00449767 /* Login.storyboard */; };
 		ADFC9E042053F72500449767 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFC9E032053F72500449767 /* LoginViewController.swift */; };
 		ADFC9E062053F73D00449767 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFC9E052053F73D00449767 /* RegisterViewController.swift */; };
@@ -349,6 +351,8 @@
 		ADEF0DB4212DB117007BF6AE /* ServerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerListController.swift; sourceTree = "<group>"; };
 		ADF6D8FF211B3CD900ECA9F9 /* MeHomeSuperCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeSuperCell.swift; sourceTree = "<group>"; };
 		ADF6D900211B3CD900ECA9F9 /* MeHomeSuperCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHomeSuperCell.xib; sourceTree = "<group>"; };
+		ADFB5378213044F600C45441 /* HomeCellFillDateAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellFillDateAble.swift; sourceTree = "<group>"; };
+		ADFB537A213056A100C45441 /* TTPostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPostCommentView.swift; sourceTree = "<group>"; };
 		ADFC9E012053EDCC00449767 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		ADFC9E032053F72500449767 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ADFC9E052053F73D00449767 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -405,6 +409,7 @@
 		A1C46D752005E14A00E02635 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				ADFB5378213044F600C45441 /* HomeCellFillDateAble.swift */,
 				A1CE83911FC3C0AC00DAF90F /* HomeCell.swift */,
 				A1CE83921FC3C0AC00DAF90F /* HomeCell.xib */,
 				AD14CC5D1FE8027A003FBE0B /* HomeCellWithImage.swift */,
@@ -422,6 +427,7 @@
 				AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */,
 				AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */,
 				A19C4B621FCD2AD600E9DE59 /* TTSearchBarView.swift */,
+				ADFB537A213056A100C45441 /* TTPostCommentView.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1048,6 +1054,7 @@
 				AD1033311FB6CD4E0017E81C /* HUD.swift in Sources */,
 				A148A2AB1FD687B40052DDF3 /* PublishTextCell.swift in Sources */,
 				AD3CB6C8211203BA00681E65 /* AlamofireRequestAble.swift in Sources */,
+				ADFB537B213056A100C45441 /* TTPostCommentView.swift in Sources */,
 				AD128C6E201C748D00A9EDBE /* TTDataPickerView.swift in Sources */,
 				AD10332C1FB6CD4E0017E81C /* common.swift in Sources */,
 				ADD7CE19211C88DF00A33F3B /* MeHomeCell2.swift in Sources */,
@@ -1116,6 +1123,7 @@
 				ADEF0DB5212DB117007BF6AE /* ServerListController.swift in Sources */,
 				AD2E9570207E657D009C675B /* FensiBaseController.swift in Sources */,
 				AD2C1EE72026137900E48245 /* PublishFriendViewController.swift in Sources */,
+				ADFB5379213044F600C45441 /* HomeCellFillDateAble.swift in Sources */,
 				AD2E956D207E59F9009C675B /* CollectCell.swift in Sources */,
 				AD128C6A201C702D00A9EDBE /* TTBasePickerView.swift in Sources */,
 			);

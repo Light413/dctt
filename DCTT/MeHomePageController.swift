@@ -28,19 +28,15 @@ class MeHomePageController: MeBaseTableViewController {
     //////////
     var _cellPageController:TTPageViewController!
     var _cellSectionHeadView:TTHeadView!
-    let sectionHeadTitles = ["动态"]
+    let sectionHeadTitles = ["动态","问答"]
     var _meInfoView:MeHomeHeadView!
     
+    private var kuserName:String = ""
+    
+    //MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.separatorStyle = .none
-        
         _initSubview()
-        //title = User.name()
-        
-        superNavigationController = self.navigationController
-        
     }
 
     func addCellPageController() -> TTPageViewController {
@@ -62,6 +58,12 @@ class MeHomePageController: MeBaseTableViewController {
         return pagevc
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isTranslucent = true
+
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
@@ -77,7 +79,7 @@ class MeHomePageController: MeBaseTableViewController {
         imgv.contentMode = .scaleToFill
         bg.addSubview(imgv)
 
-        /////
+        /////meinfo
         let meinfo = Bundle.main.loadNibNamed("MeHomeHeadView", owner: nil, options: nil)?.first as! MeHomeHeadView
         meinfo.frame = CGRect  (x: 0, y:_IMG_HEIGHT - 180, width: bg.frame.width, height: 180)
         meinfo.backgroundColor = UIColor.white
@@ -85,13 +87,12 @@ class MeHomePageController: MeBaseTableViewController {
         _meInfoView = meinfo;
         
         tableView = MeInfoTableView.init(frame: tableView.frame, style: .grouped)
-        
+        tableView.separatorStyle = .none
         tableView.tableHeaderView = bg
         tableView.tableFooterView = UIView()
         bg.backgroundColor = UIColor.clear
-        navigationController?.navigationBar.isTranslucent = true
-//
-    navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor (red: 250/255.0, green: 251/255.0, blue: 253/255.0, alpha: 0).withAlphaComponent(0)), for: UIBarPosition.top, barMetrics: .default)
+        
+        navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor (red: 250/255.0, green: 251/255.0, blue: 253/255.0, alpha: 0).withAlphaComponent(0)), for: UIBarPosition.top, barMetrics: .default)
         
         //tableView.register(UINib (nibName: "MeHomeCell", bundle: nil), forCellReuseIdentifier: "MeHomeCellIdentifier")
 //        tableView.estimatedRowHeight = 80;
@@ -101,7 +102,6 @@ class MeHomePageController: MeBaseTableViewController {
         //tableView.register(UINib (nibName: "MeHomeSuperCell", bundle: nil), forCellReuseIdentifier: "MeHomeSuperCellIdentifier")
         tableView.register(MeHomeCell2.self, forCellReuseIdentifier: "MeHomeSuperCellIdentifier")
         tableView.rowHeight = kCurrentScreenHeight - 64 - sectionHeight
-       
         tableView.showsVerticalScrollIndicator = false
         
         NotificationCenter.default.addObserver(self, selector: #selector(noti(_ :)), name: NSNotification.Name (rawValue: "superCanScrollNotification"), object: nil)
@@ -123,13 +123,12 @@ class MeHomePageController: MeBaseTableViewController {
                 ss.navigationController?.present(vc, animated: false, completion: nil)
             }
             
-//            let name = String.isNullOrEmpty(d["name"]);
-//
-//            if name.lengthOfBytes(using: String.Encoding.utf8) > 0  {
-//                title = name
-//            }else{
-//                title = String.isNullOrEmpty(d["nickName"])
-//            }
+            let name = String.isNullOrEmpty(d["name"]);
+            if name.lengthOfBytes(using: String.Encoding.utf8) > 0  {
+                kuserName = name
+            }else{
+                kuserName = String.isNullOrEmpty(d["nickName"])
+            }
             
         }
     }
@@ -173,9 +172,9 @@ class MeHomePageController: MeBaseTableViewController {
             }
         }
         
-    navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor.white.withAlphaComponent(_y > 30 ? 1 : 0)), for: .default)
+    navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor.white.withAlphaComponent(_y > 40 ? 1 : 0)), for: .default)
         if _y > 0 {
-            title = User.name()
+            title = kuserName
         }else{
             title = nil
         }
@@ -232,10 +231,7 @@ extension MeHomePageController {
         bg.addSubview(topview)
         
         _cellSectionHeadView = topview
-        
-        let line = UIView(frame: CGRect(x: 0, y: sectionHeight - 5, width: tableView.frame.width, height: 5))
-        line.backgroundColor = tt_bg_color
-        //bg.addSubview(line)
+
         return bg
     }
     
@@ -263,6 +259,19 @@ class MeInfoTableView: UITableView ,UIGestureRecognizerDelegate{
     }
     
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        /*
+         <UIScreenEdgePanGestureRecognizer: 0x15f5afdc0; state = Began; delaysTouchesBegan = YES; view = <UILayoutContainerView 0x15f5ac7e0>; target= <(action=panGestureRec:, target=<DCTT.BaseNavigationController 0x15f893a00>)>>
+         */
+        //判断手势是否是NavigationController的侧滑返回手势
+        if otherGestureRecognizer.isMember(of: UIScreenEdgePanGestureRecognizer.self) {
+            return false
+        }
+        
+        //判断是否UICollectionView侧滑手势
+        if (otherGestureRecognizer.view?.isMember(of: UICollectionView.self))!{
+            return false
+        }
+        
         return true
     }
     

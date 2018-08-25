@@ -16,32 +16,10 @@ class HomeCell: UITableViewCell {
     @IBOutlet weak var time: UILabel!
     
     func fill(_ d:[String:Any]) {
-        msg.text = String.isNullOrEmpty(d["content"])
-        
-        if let u_info = d["user"] as? [String:Any]  {
-            var s = ""
-            let name = String.isNullOrEmpty(dic["name"]);
-            if name.lengthOfBytes(using: String.Encoding.utf8) > 0  {
-                s = name;
-            }
-            else
-                if let name = dic["nickName"] as? String {
-                    s = name;
-            }
-            
-            name.text = s
-            
-            time.text = Date.dateFormatterWithString(String.isNullOrEmpty(d["postDate"]))
-            
-            
-        }
-
+        fillData(msg: msg, user: name, date: time, data: d)
     }
     
-    
-    
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

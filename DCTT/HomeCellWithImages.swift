@@ -29,25 +29,12 @@ class HomeCellWithImages: UITableViewCell {
 
     
     func fill(_ d:[String:Any]) {
-        msg.text = d["content"] as? String
+        fillData(msg: msg, user: name, date: time, data: d)
         
         let images = String.isNullOrEmpty(d["images"])
-        
-        if let u_info = d["user"] as? [String:Any]  {
-            let uname = String.isNullOrEmpty(u_info["name"]).lengthOfBytes(using: String.Encoding.utf8) > 0 ? String.isNullOrEmpty(u_info["name"]) : String.isNullOrEmpty(u_info["name"])
-            name.text = uname
-            
-            time.text = Date.dateFormatterWithString(String.isNullOrEmpty(d["postDate"]))
 
-            
-        }
-        
-        
-        
-        
         let arr = images.components(separatedBy: ",")
-        guard arr.count > 0 else { return}
-        
+        guard arr.count > 0 else { return}        
         for i in 0..<3 {
             let url = URL.init(string: arr[i])
             

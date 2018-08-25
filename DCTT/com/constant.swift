@@ -93,7 +93,6 @@ var kPublish_type_info:[String:String]!
 //////TEST
 var user_has_logined = User.isLogined()
 
-var superNavigationController:UINavigationController?
 var kchildViewCanScroll:Bool = false
 
 

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import IQKeyboardManagerSwift
 class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewDataSource {
 
     var _tableview:UITableView!
@@ -29,12 +29,13 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
 
     //MARK: -
     func initSubview()  {
-        _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 40), style: .grouped)
+        _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 49), style: .grouped)
         _tableview.delegate = self
         _tableview.dataSource = self
-        _tableview.contentInset = UIEdgeInsetsMake(0, 0, 5, 0)
+        _tableview.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         _tableview.showsVerticalScrollIndicator = false
         _tableview.separatorStyle = .none
+        _tableview.backgroundColor = UIColor.white
         
         //Register Cell
         _tableview.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCellReuseIdentifier")
@@ -58,49 +59,57 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         
     }
 
-    //MARK:- Sub Methods
-    
-    
     //MARK: -
     //toolBar
     func addBottomBar()  {
-        let toolBar = UIToolbar.init(frame: CGRect (x: 0, y: _tableview.frame.maxY, width: kCurrentScreenWidth, height: 40))
+        let toolBar = UIToolbar.init(frame: CGRect (x: 0, y: _tableview.frame.maxY, width: kCurrentScreenWidth, height: 49))
+        toolBar.barTintColor = UIColor.white
         
-        let writeBtn = UIButton (frame: CGRect (x: 0, y: 5, width: 120, height: 30))
+        let btn_frame = CGRect (x: 0, y: 10, width: 80, height: 30)
+        let writeBtn = UIButton (frame: btn_frame)
         writeBtn.setTitle("写评论", for: .normal)
         writeBtn.setTitleColor(UIColor.darkGray, for: .normal)
         writeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        writeBtn.layer.cornerRadius = 15
-        writeBtn.layer.borderColor = UIColor.lightGray.cgColor
-        writeBtn.layer.borderWidth = 0.5
+        writeBtn.backgroundColor = kTableviewBackgroundColor;
+        writeBtn.layer.cornerRadius = 5
         writeBtn.layer.masksToBounds = true
-        writeBtn.setImage(UIImage (named: "comment"), for: .normal)
-        writeBtn.imageEdgeInsets = UIEdgeInsetsMake(10, -10, 7, 0)
-        writeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 6, 0, 0)
-        //writeBtn.backgroundColor = UIColor.lightGray //kTableviewBackgroundColor
+
         writeBtn.tag = 100
         writeBtn.addTarget(self, action: #selector(toolBarButtonClicked(_ :)), for: .touchUpInside)
         let writeItem = UIBarButtonItem (customView: writeBtn)
         
+        //评论数
+        let commentNumber = UIButton (frame: btn_frame)
+        commentNumber.setTitle("评论(30)", for: .normal)
+        commentNumber.setTitleColor(UIColor.darkGray, for: .normal)
+        commentNumber.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        commentNumber.backgroundColor = kTableviewBackgroundColor
+        commentNumber.layer.cornerRadius = 5
+        commentNumber.layer.masksToBounds = true
+        
+        commentNumber.tag = 101
+        commentNumber.addTarget(self, action: #selector(toolBarButtonClicked(_ :)), for: .touchUpInside)
+        let commentNumberItem = UIBarButtonItem (customView: commentNumber)
+
         //收藏
-        let scBtn = UIButton (frame: CGRect (x: 0, y: 5, width: 80, height: 30))
-        scBtn.setImage(UIImage (named: "love_video"), for: .normal)
-        scBtn.setImage(UIImage (named: "love_video_press"), for: .selected)
-        scBtn.imageEdgeInsets = UIEdgeInsetsMake(5, 10, 5, 50)//2020
-        scBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0)
+        let scBtn = UIButton (frame: CGRect (x: 0, y: 5, width: 80, height: 32))
+        scBtn.setImage(UIImage (named: "likeicon_actionbar_details"), for: .normal)
+        scBtn.setImage(UIImage (named: "likeicon_actionbar_details_press"), for: .selected)
+        scBtn.imageEdgeInsets = UIEdgeInsetsMake(5, 10, 5, 45)//2020
+        scBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 2, 0, 0)
         
         scBtn.setTitle("收藏", for: .normal)
         scBtn.setTitle("已收藏", for: .selected)
         scBtn.setTitleColor(UIColor.darkGray, for: .normal)
-        scBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        scBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         
-        scBtn.tag = 101
+        scBtn.tag = 102
         scBtn.addTarget(self, action: #selector(toolBarButtonClicked(_ :)), for: .touchUpInside)
         let scItem = UIBarButtonItem (customView: scBtn)
         
         let flex = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
-        toolBar.items = [writeItem,flex,scItem]
+        toolBar.items = [writeItem,commentNumberItem,flex,scItem]
         
         view.addSubview(toolBar)
     }
@@ -110,6 +119,11 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         
         switch button.tag {
         case 100://写评论
+            IQKeyboardManager.sharedManager().enable = false
+            IQKeyboardManager.sharedManager().enableAutoToolbar = false
+            let post_v = TTPostCommentView.init(frame:UIScreen.main.bounds)
+            
+            UIApplication.shared.keyWindow?.addSubview(post_v)
             break
         case 101://收藏
             break
@@ -140,29 +154,6 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         guard let v = Bundle.main.loadNibNamed("HomeDetailFooterView", owner: nil, options: nil)?.last as? HomeDetailFooterView else{return nil}
         
         return v
-        
-        
-        /*let _v = UIView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kSectionViewFooterHeight))
-        
-        ////
-        let lovebtn = UIButton (frame: CGRect (x: tableView.frame.width - 100, y: 15, width: 80, height: 30))
-        lovebtn.layer.cornerRadius = 15
-        lovebtn.layer.masksToBounds = true
-        lovebtn.layer.borderWidth = 0.5
-        lovebtn.layer.borderColor = UIColor.lightGray.cgColor
-        
-        lovebtn.setImage(UIImage (named: "comment_like_icon_night"), for: .normal)
-        lovebtn.setImage(UIImage (named: "comment_like_icon_night"), for: .highlighted)
-        _v.addSubview(lovebtn)
-        
-        ////
-        let commentLable =  UILabel (frame: CGRect (x: 10, y: kSectionViewFooterHeight - 25, width: 60, height: 20))
-        commentLable.textColor = UIColor.darkGray
-        commentLable.font = UIFont.systemFont(ofSize: 13)
-        commentLable.text = "评论(20)"
-        _v.addSubview(commentLable)
-        
-        return _v*/
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
