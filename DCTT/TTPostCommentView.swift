@@ -8,21 +8,25 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+
+let TTPostCommentSuccessNotification = NSNotification.Name.init(rawValue: "TTPostCommentSuccessNotification");
+
 class TTPostCommentView: UIView {
 
-    var _textView:UITextView!
-    var _maskView:UIView!
-    var _bgView:UIView!
-    let bg_h:CGFloat = 80
-
-    var msg:UILabel!
+    var pid:String!
+    
+    private var _textView:UITextView!
+    private var _maskView:UIView!
+    private var _bgView:UIView!
+    private let bg_h:CGFloat = 80
+    fileprivate var msg:UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         _maskView = UIView.init(frame: frame)
         _maskView.backgroundColor = UIColor.black
-        _maskView.alpha = 0.2
+        _maskView.alpha = 0.1
         self.addSubview(_maskView)
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(dismiss))
         _maskView.addGestureRecognizer(tap)
@@ -48,7 +52,7 @@ class TTPostCommentView: UIView {
         postBtn.setTitle("发布", for: .normal)
         postBtn.setTitleColor(kButtonTitleColor, for: .normal)
         postBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        
+        postBtn.addTarget(self, action: #selector(postAction), for: .touchUpInside)
         _bgView.addSubview(postBtn)
         
         self.addSubview(_bgView)
@@ -87,6 +91,8 @@ class TTPostCommentView: UIView {
     
     
     func dismiss() {
+        _textView.resignFirstResponder()
+        
         UIView.animate(withDuration: 0.25, animations: {
             [weak self] in
             guard let  ss = self else {return}
@@ -106,7 +112,27 @@ class TTPostCommentView: UIView {
         NotificationCenter.default.removeObserver(self)
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().enableAutoToolbar = true
-        print("deiinit")
+    }
+    
+    
+    func postAction() {
+        HUD.show(withStatus: "发布中")
+        
+        guard let uid = User.uid() else {return}
+        
+        let d = ["type":"add","pid":pid!,"uid":uid , "content":String.isNullOrEmpty(_textView.text)]
+        
+        AlamofireHelper.post(url: comment_url, parameters: d, successHandler: {[weak self] (res) in
+            print(res)
+            HUD.show(successInfo: "发布成功")
+            guard let ss = self else {return}
+            
+            NotificationCenter.default.post(name: TTPostCommentSuccessNotification, object: nil)
+            ss.dismiss()
+        }) { (err) in
+            HUD.show(info: "发布失败,请稍后重试")
+        }
+        
     }
 }
 

@@ -29,17 +29,7 @@ class User {
     
    static func name() -> String? {
         guard let dic = User.default.userInfo() else {return nil}
-        let name = String.isNullOrEmpty(dic["name"]);
-    
-        if name.lengthOfBytes(using: String.Encoding.utf8) > 0  {
-            return "\(name)";
-        }
-        
-        if let name = dic["nickName"] as? String {
-            return "\(name)";
-        }
-        
-        return nil
+        return getUserNameWigh(dic);
     }
     
     
@@ -69,4 +59,21 @@ class User {
         return res
     }
     
+}
+
+extension User {
+    static func getUserNameWigh(_ dic:[String:Any]) -> String? {
+        let name = String.isNullOrEmpty(dic["name"]);
+        
+        if name.lengthOfBytes(using: String.Encoding.utf8) > 0  {
+            return "\(name)";
+        }
+        
+        if let name = dic["nickName"] as? String {
+            return "\(name)";
+        }
+        
+        return nil
+
+    }
 }

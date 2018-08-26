@@ -13,6 +13,7 @@ class HomeDetailController: BaseDetailController{
 
     var data:[String:Any]!
     var imgArr = [String]()
+    var commentDataArr = [[String:Any]]()
     
     var isPreview:Bool = false //是否处于预览状态
     
@@ -32,11 +33,21 @@ class HomeDetailController: BaseDetailController{
         _titleView.isHidden = true
         navigationItem.titleView = _titleView
 
-        fillData()
+        /////TTPostCommentSuccessNotification
+        NotificationCenter.default.addObserver(self, selector: #selector(postCommentSuccessAction(_ :)), name: TTPostCommentSuccessNotification, object: nil)
         
+        fillData()
+        loadComment()
     }
 
+    func postCommentSuccessAction(_ noti:NSNotification) {
+        loadComment()
+    }
+    
+    
     func fillData()  {
+        pid = String.isNullOrEmpty(data["pid"])
+        
         headView.fill(data)
         headView.avatarClickedAction = {[weak self] in
            let vc = MeHomePageController.init(style:.plain)
@@ -66,10 +77,29 @@ class HomeDetailController: BaseDetailController{
     
     
     func loadComment() {
+        let d = ["type":"get","pid":pid!]
+        
+        AlamofireHelper.post(url: comment_url, parameters: d, successHandler: {[weak self] (res) in
+            guard let arr = res["body"] as? [[String:Any]] else {return}
+            guard let ss = self else {return}
+
+            ss.commentDataArr.removeAll()
+            
+            ss.commentDataArr = ss.commentDataArr + arr
+            if arr.count > 0 {
+                ss.commentNumbers = ss.commentDataArr.count;
+            }
+
+            ss._tableview.reloadSections([1], with: .none)
+        }) { (err) in
+            HUD.show(info: "获取评论失败,请稍后重试")
+            print(err?.localizedDescription);
+            
+            //点击重试
+        }
         
     }
-    
-    
+
     //MARK: -
     
     func titleView() -> UIView {
@@ -124,7 +154,7 @@ class HomeDetailController: BaseDetailController{
             return 1 +  lroundf(ceilf(Float(imgArr.count) / 3.0) ) // + pic 个数
         }else{
         
-            return 5 //评论数
+            return commentDataArr.count //评论数
         }
         
     }
@@ -136,12 +166,12 @@ class HomeDetailController: BaseDetailController{
             if indexPath.row == 0 {
                 let _text = String.isNullOrEmpty(data["content"])
                 cell.textLabel?.numberOfLines = 0
-                cell.textLabel?.textColor = UIColor.darkGray
+                cell.textLabel?.textColor = UIColor.black
                 
                 let paragraphStyle = NSMutableParagraphStyle.init()
                 paragraphStyle.lineSpacing = 5
                 paragraphStyle.lineBreakMode = .byCharWrapping
-                paragraphStyle.firstLineHeadIndent = 15
+                paragraphStyle.firstLineHeadIndent = 5
                 
                 let dic:[String:Any] = [NSFontAttributeName:UIFont.systemFont(ofSize: 17) , NSParagraphStyleAttributeName:paragraphStyle,NSKernAttributeName:1]
                 let attriStr = NSAttributedString.init(string: _text, attributes: dic)
@@ -169,6 +199,8 @@ class HomeDetailController: BaseDetailController{
             }
         }else{
              cell = tableView.dequeueReusableCell(withIdentifier: "HomeDetailCommentCellIdentifier", for: indexPath)
+            let d = commentDataArr[indexPath.row]
+            (cell as! HomeDetailCommentCell).fill(d)
         }
         
 
@@ -208,19 +240,7 @@ class HomeDetailController: BaseDetailController{
         
         return arr
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (indexPath.section == 0 && indexPath.row == 0) || indexPath.section > 0 {
-            return UITableViewAutomaticDimension
-        }
-        
-        return UITableViewAutomaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
-    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

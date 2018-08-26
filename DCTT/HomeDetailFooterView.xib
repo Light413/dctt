@@ -42,23 +42,17 @@
                         <action selector="zanBtnAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="tO7-4x-qla"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9o2-0d-Vvz">
-                    <rect key="frame" x="20" y="77.5" width="25" height="14.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJX-SZ-LPG">
-                    <rect key="frame" x="47" y="77.5" width="15.5" height="14.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全部评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9o2-0d-Vvz">
+                    <rect key="frame" x="10" y="77.5" width="49.5" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MO-Ie-Hly">
-                    <rect key="frame" x="0.0" y="57.5" width="320" height="5"/>
+                    <rect key="frame" x="0.0" y="58.5" width="320" height="3"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="5" id="6n4-RD-Zg3"/>
+                        <constraint firstAttribute="height" constant="3" id="6n4-RD-Zg3"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -70,16 +64,14 @@
                 <constraint firstItem="Uun-D0-muT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="0mW-Vf-Ubh"/>
                 <constraint firstAttribute="bottom" secondItem="9o2-0d-Vvz" secondAttribute="bottom" constant="8" id="5zw-SC-nDn"/>
                 <constraint firstItem="6MO-Ie-Hly" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6eh-Nb-Fya"/>
-                <constraint firstItem="YJX-SZ-LPG" firstAttribute="leading" secondItem="9o2-0d-Vvz" secondAttribute="trailing" constant="2" id="99b-Q9-iDi"/>
                 <constraint firstAttribute="trailing" secondItem="yhJ-lF-cde" secondAttribute="trailing" constant="30" id="ItJ-Pk-5HS"/>
                 <constraint firstItem="6MO-Ie-Hly" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="10" id="JR5-xn-m2S"/>
                 <constraint firstItem="qug-e5-dZ7" firstAttribute="leading" secondItem="Uun-D0-muT" secondAttribute="trailing" constant="2" id="Kd1-kQ-3uA"/>
                 <constraint firstItem="qug-e5-dZ7" firstAttribute="centerY" secondItem="Uun-D0-muT" secondAttribute="centerY" id="NNB-sL-Mm0"/>
                 <constraint firstItem="6MO-Ie-Hly" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PVi-Rg-PLi"/>
                 <constraint firstItem="Uun-D0-muT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="QLV-xM-qHB"/>
-                <constraint firstItem="YJX-SZ-LPG" firstAttribute="centerY" secondItem="9o2-0d-Vvz" secondAttribute="centerY" id="dCT-qm-PI6"/>
                 <constraint firstAttribute="trailing" secondItem="6MO-Ie-Hly" secondAttribute="trailing" id="hyj-08-ZOE"/>
-                <constraint firstItem="9o2-0d-Vvz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="k3A-n2-dSu"/>
+                <constraint firstItem="9o2-0d-Vvz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="k3A-n2-dSu"/>
                 <constraint firstItem="yhJ-lF-cde" firstAttribute="centerY" secondItem="qug-e5-dZ7" secondAttribute="centerY" id="ki0-MI-yJt"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

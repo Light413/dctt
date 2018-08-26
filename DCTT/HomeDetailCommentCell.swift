@@ -20,39 +20,54 @@ class HomeDetailCommentCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let text = "马克思改变人们的思想，马化腾改变了人们的交流方式，马云改变了我的消费观念"
+
+
+    }
+    
+    func fill(_ d:[String:Any]) {
+        let text = String.isNullOrEmpty(d["content"])
         let paragraphStyle = NSMutableParagraphStyle.init()
         paragraphStyle.lineSpacing = 3
         paragraphStyle.lineBreakMode = .byCharWrapping
         paragraphStyle.firstLineHeadIndent = 0
         
-        let dic:[String:Any] = [
+        let attriDic:[String:Any] = [
             NSFontAttributeName:UIFont.systemFont(ofSize: 15) ,
             NSParagraphStyleAttributeName:paragraphStyle,
             NSKernAttributeName:1
         ]
         
-        let attriStr = NSAttributedString.init(string: text, attributes: dic)
+        let attriStr = NSAttributedString.init(string: text, attributes: attriDic)
         msgText.attributedText = attriStr
         
+        //name
+        var s = ""
+        let _name = String.isNullOrEmpty(d["u_name"]);
         
+        if _name.lengthOfBytes(using: String.Encoding.utf8) > 0  {
+            s =  "\(_name)";
+        }
+        else
+        if let name = d["u_nickName"] as? String {
+            s = "\(name)";
+        }
+
+        name.text = s
+        
+        //avatar
+        if let igurl = d["u_avatar"] as? String {
+            let url = URL.init(string: igurl)
+            icon.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
+        }
+        
+        timeLable.text = "发布于 " + Date.dateFormatterWithString(String.isNullOrEmpty(d["date"]))
+
     }
-    
-    
 
     @IBAction func zanBtnAction(_ sender: UIButton) {
         
         
     }
     
-    
-    
-    
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
 }

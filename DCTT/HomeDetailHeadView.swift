@@ -58,6 +58,6 @@ class HomeDetailHeadView: UIView {
         nameLable.text = s
         
         
-        dateLable.text = Date.dateFormatterWithString(String.isNullOrEmpty(d["postDate"]))
+        dateLable.text = "发布于 " + Date.dateFormatterWithString(String.isNullOrEmpty(d["postDate"]))
     }
 }
