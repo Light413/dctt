@@ -23,6 +23,7 @@ class HomeDetailController: BaseDetailController{
     
     private var _titleView:UIView!
     
+    //MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +46,7 @@ class HomeDetailController: BaseDetailController{
     }
     
     
+    //HeadView
     func fillData()  {
         pid = String.isNullOrEmpty(data["pid"])
         
@@ -74,8 +76,7 @@ class HomeDetailController: BaseDetailController{
 
     }
     
-    
-    
+
     func loadComment() {
         let d = ["type":"get","pid":pid!]
         
@@ -99,9 +100,10 @@ class HomeDetailController: BaseDetailController{
         }
         
     }
+    
+    
 
     //MARK: -
-    
     func titleView() -> UIView {
         let _bgview = UIView (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
 
@@ -147,8 +149,6 @@ class HomeDetailController: BaseDetailController{
     
     
     //MARK: - UITableViewDelegate
-    func numberOfSections(in tableView: UITableView) -> Int { return 2}
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1 +  lroundf(ceilf(Float(imgArr.count) / 3.0) ) // + pic 个数
@@ -219,12 +219,13 @@ class HomeDetailController: BaseDetailController{
 //        self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        guard section == 0 else { return nil}
-        guard let v = Bundle.main.loadNibNamed("HomeDetailFooterView", owner: nil, options: nil)?.last as? HomeDetailFooterView else{return nil}
-        
-        return v
-    }
+//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        guard section == 0 else { return nil}
+//        guard let v = Bundle.main.loadNibNamed("HomeDetailFooterView", owner: nil, options: nil)?.last as? HomeDetailFooterView else{return nil}
+//        headFooterView = v;
+//
+//        return v
+//    }
     
     
     //MARK: -

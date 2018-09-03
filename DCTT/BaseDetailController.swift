@@ -8,16 +8,18 @@
 
 import UIKit
 import IQKeyboardManagerSwift
-class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewDataSource {
 
+class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewDataSource {
     var pid:String!
-    
     var _tableview:UITableView!
     var headView:HomeDetailHeadView!
+    var headFooterView:HomeDetailFooterView!
     
     private let kSectionViewFooterHeight:CGFloat = 100
-    var _commentNumber:UILabel!
+    private var _commentNumber:UILabel!
+    private var _readCnt:[String:Any]?
     
+    //设置评论数
     var commentNumbers:Int {
         get{
             return 0
@@ -43,8 +45,32 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadReadCnt()
 
+    }
+
+    //阅读量，点赞
+    func loadReadCnt() {
+        HUD.show()
+        AlamofireHelper.post(url: post_detail_url, parameters: ["pid":pid! , "type":"0"], successHandler: {[weak self] (res) in
+            print(res)
+            HUD.dismiss()
+            
+            guard let body = res["body"] as? [String:Any] else {return}
+            guard let ss = self else {return}
+            if let footview = ss.headFooterView {
+              footview.fill(body)
+            }
+            
+            ss._readCnt = body
+        }) { (error) in
+            HUD.dismiss()
+        }
+        
+    }
+    
     //MARK: -
     func initSubview()  {
         _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 49), style: .grouped)
@@ -158,8 +184,10 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
             UIApplication.shared.keyWindow?.addSubview(post_v)
             break
         case 101://收藏
+            
             break
         case 102://举报
+            
             break
         default:break
         }
@@ -167,6 +195,9 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
  
     
     //MARK: -
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0 ;
     }
@@ -184,6 +215,11 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard section == 0 else { return nil}
         guard let v = Bundle.main.loadNibNamed("HomeDetailFooterView", owner: nil, options: nil)?.last as? HomeDetailFooterView else{return nil}
+        headFooterView = v
+        
+        if let readcnt = _readCnt {
+            v.fill(readcnt)
+        }
         
         return v
     }

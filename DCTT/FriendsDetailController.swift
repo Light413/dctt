@@ -58,7 +58,7 @@ class FriendsDetailController: BaseDetailController{
     }
     
     //MARK: - UITableViewDelegate
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
 

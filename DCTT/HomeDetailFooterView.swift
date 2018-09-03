@@ -11,7 +11,9 @@ import UIKit
 class HomeDetailFooterView: UIView {
 
     @IBOutlet weak var zanBtn: UIButton!
+    @IBOutlet weak var readCnt: UILabel!
     
+    var _d:[String:Any]?
     
     override func awakeFromNib() {
         zanBtn.contentHorizontalAlignment = .center
@@ -22,14 +24,35 @@ class HomeDetailFooterView: UIView {
     }
     
     @IBAction func zanBtnAction(_ sender: UIButton) {
+        guard let dic = _d else{return}
+        guard let pid = dic["pid"] as? String else {return}
+        
+        HUD.show()
+        AlamofireHelper.post(url: post_detail_url, parameters: ["pid":pid , "type":"1"], successHandler: {[weak self] (res) in
+            guard let ss = self else {return}
+            ///+1 不能取消点赞
+            
+            ss.zanBtn.isSelected = true
+            HUD.show(successInfo: "点赞成功")
+        }) { (error) in
+           HUD.show(info: "点赞失败,请稍后重试")
+        }
+
     }
     
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    func fill(_ d:[String:Any]) {
+        _d = d
+        
+        if let cnt = Int(String.isNullOrEmpty(d["readCnt"])) {
+            readCnt.text = "\(cnt)";
+        }
+        
+        if let cnt = Int(String.isNullOrEmpty(d["praiseCnt"]))  , cnt > 0 {
+            zanBtn.setTitle("\(cnt)", for: .normal)
+        }
+        
+        
+        
     }
-    */
-
+    
 }
