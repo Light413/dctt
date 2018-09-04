@@ -26,6 +26,10 @@ class HomeDetailFooterView: UIView {
     @IBAction func zanBtnAction(_ sender: UIButton) {
         guard let dic = _d else{return}
         guard let pid = dic["pid"] as? String else {return}
+        guard !sender.isSelected else {
+            HUD.showText("已经点赞!", view: self)
+            return;
+        }
         
         HUD.show()
         AlamofireHelper.post(url: post_detail_url, parameters: ["pid":pid , "type":"1"], successHandler: {[weak self] (res) in
@@ -49,6 +53,9 @@ class HomeDetailFooterView: UIView {
         
         if let cnt = Int(String.isNullOrEmpty(d["praiseCnt"]))  , cnt > 0 {
             zanBtn.setTitle("\(cnt)", for: .normal)
+            
+            //已赞
+            zanBtn.isSelected = true
         }
         
         

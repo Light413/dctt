@@ -172,8 +172,7 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     }
     
     func toolBarButtonClicked(_ button:UIButton) {
-        button.isSelected = !button.isSelected
-        
+
         switch button.tag {
         case 100://写评论
             IQKeyboardManager.sharedManager().enable = false
@@ -184,6 +183,10 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
             UIApplication.shared.keyWindow?.addSubview(post_v)
             break
         case 101://收藏
+            HUD.show()
+            button.isSelected = !button.isSelected
+            
+            HUD.show(successInfo: "收藏成功")
             
             break
         case 102://举报
