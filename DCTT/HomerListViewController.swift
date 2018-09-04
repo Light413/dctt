@@ -127,8 +127,10 @@ class HomerListViewController: BaseTableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = HomeDetailController()
         let d = dataArray[indexPath.row]
+        let pid =  String.isNullOrEmpty(d["pid"])
+        let vc = HomeDetailController(pid)
+        
         vc.data = d
         
         self.navigationController?.pushViewController(vc, animated: true)

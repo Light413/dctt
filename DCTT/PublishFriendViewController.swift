@@ -36,7 +36,7 @@ class PublishFriendViewController: BasePublishController {
     }
     
     override func previewAction() {
-        let vc = FriendsDetailController()
+        let vc = FriendsDetailController("...")
         
         self.navigationController?.pushViewController(vc, animated: true)
     }

@@ -41,7 +41,7 @@ class PublishViewController: BasePublishController {
     
     
     override func previewAction() {
-        let vc = HomeDetailController()
+        let vc = HomeDetailController("")
         
         self.navigationController?.pushViewController(vc, animated: true)
     }

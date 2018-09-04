@@ -48,15 +48,11 @@ class HomeDetailController: BaseDetailController{
     
     //HeadView
     func fillData()  {
-        pid = String.isNullOrEmpty(data["pid"])
-        
         headView.fill(data)
         headView.avatarClickedAction = {[weak self] in
-           let vc = MeHomePageController.init(style:.plain)
-            guard let ss = self else {
-                return
-            }
+            guard let ss = self else { return}
             
+            let vc = MeHomePageController.init(style:.plain)
             if let uid = ss.data["uid"] as? String {
                 vc.uid = uid
             }
@@ -91,7 +87,7 @@ class HomeDetailController: BaseDetailController{
                 ss.commentNumbers = ss.commentDataArr.count;
             }
 
-            ss._tableview.reloadSections([1], with: .none)
+            ss._tableview.reloadSections([1], with: .automatic)
         }) { (err) in
             HUD.show(info: "获取评论失败,请稍后重试")
             print(err?.localizedDescription);
@@ -171,7 +167,7 @@ class HomeDetailController: BaseDetailController{
                 let paragraphStyle = NSMutableParagraphStyle.init()
                 paragraphStyle.lineSpacing = 5
                 paragraphStyle.lineBreakMode = .byCharWrapping
-                paragraphStyle.firstLineHeadIndent = 5
+                paragraphStyle.firstLineHeadIndent = 30
                 
                 let dic:[String:Any] = [NSFontAttributeName:UIFont.systemFont(ofSize: 17) , NSParagraphStyleAttributeName:paragraphStyle,NSKernAttributeName:1]
                 let attriStr = NSAttributedString.init(string: _text, attributes: dic)
@@ -201,6 +197,16 @@ class HomeDetailController: BaseDetailController{
              cell = tableView.dequeueReusableCell(withIdentifier: "HomeDetailCommentCellIdentifier", for: indexPath)
             let d = commentDataArr[indexPath.row]
             (cell as! HomeDetailCommentCell).fill(d)
+            (cell as! HomeDetailCommentCell).avatarClickedAction = {[weak self] in
+                guard let ss = self else {return}
+                
+                let vc = MeHomePageController.init(style:.plain)
+                if let uid = d["uid"] as? String {
+                    vc.uid = uid
+                }
+                
+                ss.navigationController?.pushViewController(vc, animated: true)
+            }
         }
         
 
@@ -210,13 +216,12 @@ class HomeDetailController: BaseDetailController{
     }
     
     deinit {
-        print("123")
+        print("HomeDetailController deinit")
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = HomeDetailController()
-//
-//        self.navigationController?.pushViewController(vc, animated: true)
+
+        
     }
     
 //    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

@@ -17,11 +17,20 @@ class HomeDetailCommentCell: UITableViewCell {
     @IBOutlet weak var msgText: UILabel!
     @IBOutlet weak var timeLable: UILabel!
     
+    var avatarClickedAction:(() -> Void)?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
 
-
+        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(tapIconAction))
+        icon.addGestureRecognizer(tapGesture)
+    }
+    
+    func tapIconAction()  {
+        if let iconAction = avatarClickedAction {
+            iconAction()
+        }
     }
     
     func fill(_ d:[String:Any]) {
@@ -65,7 +74,17 @@ class HomeDetailCommentCell: UITableViewCell {
     }
 
     @IBAction func zanBtnAction(_ sender: UIButton) {
-        
+        switch sender.tag {
+        case 1://赞
+            break
+            
+        case 2://回复
+            
+            break
+            
+        default:
+            break
+        }
         
     }
     

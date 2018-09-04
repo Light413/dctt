@@ -210,7 +210,7 @@ extension MeHomePageController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = HomeDetailController()
+        let vc = HomeDetailController("....")
         
         self.navigationController?.pushViewController(vc, animated: true)
         

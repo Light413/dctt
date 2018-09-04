@@ -18,6 +18,7 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     private let kSectionViewFooterHeight:CGFloat = 100
     private var _commentNumber:UILabel!
     private var _readCnt:[String:Any]?
+    var _isScBtn:UIButton! //是否收藏
     
     //设置评论数
     var commentNumbers:Int {
@@ -35,6 +36,15 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     }
     
     //MARK: -
+    init(_ _id:String) {
+        super.init(nibName: nil, bundle: nil)
+        pid = _id
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,21 +53,13 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         
         addRightNavigationItem()
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         loadReadCnt()
-
     }
 
     //阅读量，点赞
     func loadReadCnt() {
-        HUD.show()
-        AlamofireHelper.post(url: post_detail_url, parameters: ["pid":pid! , "type":"0"], successHandler: {[weak self] (res) in
-            print(res)
-            HUD.dismiss()
-            
+        //HUD.show()
+        AlamofireHelper.post(url: post_detail_url, parameters: ["pid":pid! , "type":"0","uid":User.uid()!], successHandler: {[weak self] (res) in
             guard let body = res["body"] as? [String:Any] else {return}
             guard let ss = self else {return}
             if let footview = ss.headFooterView {
@@ -65,8 +67,12 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
             }
             
             ss._readCnt = body
+            
+            //是否收藏
+            ss._isScBtn.isSelected = String.isNullOrEmpty(body["sc"]) == "1"
+            
         }) { (error) in
-            HUD.dismiss()
+            //HUD.dismiss()
         }
         
     }
@@ -133,10 +139,8 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         commentNumber.tag = 101
         commentNumber.addTarget(self, action: #selector(toolBarButtonClicked(_ :)), for: .touchUpInside)
         
-        //let num:NSString = "10"
         let numLable = UILabel()
         numLable.font = UIFont.systemFont(ofSize: 8)
-        //numLable.text = num as String
         numLable.textColor = UIColor.white
         numLable.textAlignment = .center
         numLable.backgroundColor = kButtonTitleColor
@@ -145,8 +149,6 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         //numLable.sizeToFit()
         _commentNumber = numLable
         
-//        let size = num.boundingRect(with: CGSize.init(width: 50, height: 10), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName:numLable.font], context: nil)
-//        numLable.frame = CGRect (x: 30, y: 2, width: size.width + 10, height: 10)
         commentNumber.addSubview(numLable)
         let commentNumberItem = UIBarButtonItem (customView: commentNumber)
 
@@ -162,6 +164,8 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         scBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         scBtn.tag = 102
         scBtn.addTarget(self, action: #selector(toolBarButtonClicked(_ :)), for: .touchUpInside)
+        
+        _isScBtn = scBtn
         let scItem = UIBarButtonItem (customView: scBtn)
         
         let flex = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -172,7 +176,6 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     }
     
     func toolBarButtonClicked(_ button:UIButton) {
-
         switch button.tag {
         case 100://写评论
             IQKeyboardManager.sharedManager().enable = false
@@ -182,14 +185,24 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
             
             UIApplication.shared.keyWindow?.addSubview(post_v)
             break
-        case 101://收藏
+        case 102://收藏
             HUD.show()
-            button.isSelected = !button.isSelected
             
-            HUD.show(successInfo: "收藏成功")
+            let d = ["pid":pid! ,
+                     "type": button.isSelected ? "3" : "2" ,
+                     "uid":User.uid()!]
+            
+            AlamofireHelper.post(url: post_detail_url, parameters: d, successHandler: { (res) in
+                button.isSelected = !button.isSelected
+                
+                HUD.show(successInfo: button.isSelected ? "收藏成功" : "取消收藏")
+            }) { (error) in
+                HUD.show(info: "请求失败,请稍后重试")
+            }
+
             
             break
-        case 102://举报
+        case 103://举报
             
             break
         default:break

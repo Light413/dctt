@@ -114,7 +114,7 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = FriendsDetailController()
+        let vc = FriendsDetailController("....")
 
         self.navigationController?.pushViewController(vc, animated: true)
     }
