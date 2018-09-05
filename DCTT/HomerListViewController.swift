@@ -13,6 +13,20 @@ import Alamofire
 class HomerListViewController: BaseTableViewController {
     var pageNumber:Int = 1;
     
+    private var _type:String!
+    
+    
+    init(_ type:String) {
+        super.init(nibName: nil, bundle: nil)
+        
+        _type = type
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +53,7 @@ class HomerListViewController: BaseTableViewController {
         }
         
         tableView.mj_footer = footer
-        tableView.mj_footer.isHidden = true
+        //tableView.mj_footer.isHidden = true
         
         //...
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -53,7 +67,18 @@ class HomerListViewController: BaseTableViewController {
     
     func loadData() {
         //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
-        let d = ["type":0]
+        var subType = 0
+        switch _type! {
+            case "0":subType = 0;break
+            case "1":subType = 1;break
+            case "2":subType = 2;break
+            case "3":subType = 3; break
+            case "4":subType = 4;break
+            case "5":subType = 5;break
+            default:break
+        }
+        
+        let d = ["type":0 , "subType":subType]
         
         AlamofireHelper.post(url: home_list_url, parameters: d, successHandler: {[weak self] (res) in
             HUD.dismiss()

@@ -21,11 +21,17 @@ class PublishFriendViewController: BasePublishController {
     
 
    override func _post(_ ig:[UIImage]? = nil)  {
-        HUD.show()
-        let d = ["uid":"uid180163000",
-                 "content":"华为在这两年取得相当优异的成绩，调查数据显示五月份出货量已经超过1800万台，余承东更直言今年总出货量有望挑战两亿台，可想而知，这是一个多么庞大的数字",
-                 "type":"5"]
-        
+ 
+    guard let uid = User.uid() else {
+        HUD.showText("请前往登录", view: view);return
+    }
+    
+    HUD.show()
+    let d = ["uid":uid,
+             "content":String.isNullOrEmpty(textCell.textview.text),
+             "tab":"1",
+             "type":"0"]
+
         AlamofireHelper.upload(to: publish_url, parameters: d, uploadFiles: ig, successHandler: { (res) in
             print(res)
             HUD.show(successInfo: "发布成功!");

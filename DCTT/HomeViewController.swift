@@ -35,10 +35,10 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
 
     func _init() {
         //head
-        let titles = ["最新","热门","问答","活动","吐槽"]//["最新","热门","问答","段子","美食","商家","娱乐"]
+        let titles = ["最新","热门","问答","活动","吐槽","娱乐"]//["最新","热门","问答","段子","美食","商家"]
         
         var attri = TTHeadTextAttribute()
-        attri.itemWidth = 55
+        attri.itemWidth = 50
         attri.defaultFontSize = 16
         attri.selectedFontSize = 17
         
@@ -47,8 +47,8 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         self.navigationItem.titleView = topview
         
         ////pagevc
-        for _ in 0..<titles.count {
-            let v = HomerListViewController();
+        for i in 0..<titles.count {
+            let v = HomerListViewController("\(i)");
             //v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h - 49)
             vcArr.append(v)
         }

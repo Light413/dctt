@@ -86,7 +86,7 @@ class TTRefreshFooter: MJRefreshAutoFooter {
                 break
                 
             case .noMoreData:
-                self.title.text = "没有更多数据"
+                self.title.text = "已经是最后一条啦"
                 self.loading.stopAnimating()
                 break
                 

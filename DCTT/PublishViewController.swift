@@ -11,13 +11,24 @@ import Photos
 
 class PublishViewController: BasePublishController {
     ///发布内容类型
+    /**
+     1.新鲜事
+     2.问答
+     3.吐槽
+     4.活动
+     5.娱乐
+     */
     private var _type:String!
     
     
-    init(type:String) {
+    init(_ type:String) {
         super.init(nibName: nil, bundle: nil)
         
         _type = type
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     
@@ -34,7 +45,7 @@ class PublishViewController: BasePublishController {
         HUD.show()
         let d = ["uid":uid,
                  "content":String.isNullOrEmpty(textCell.textview.text),
-                 "type":"1"]
+                 "type":_type!]
         
         AlamofireHelper.upload(to: publish_url, parameters: d, uploadFiles: ig, successHandler: { [weak self] (res) in
             print(res)

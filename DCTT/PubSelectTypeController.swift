@@ -146,7 +146,17 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
             
             switch item_id {
             case "id001"://发布新鲜事
-                vc = PublishViewController(); break;
+                var _row = 0
+                switch (indexPath.section,indexPath.row) {
+                    case (0,0): _row = 1; break
+                    case (0,2): _row = 2; break
+                    case (0,3): _row = 3; break
+                    case (0,4): _row = 4; break
+                    case (0,5): _row = 5; break
+                    default:break
+                }
+                
+                vc = PublishViewController("\(_row)"); break;
                 
             case "id002"://朋友圈
                 vc = PublishFriendViewController(); break;
