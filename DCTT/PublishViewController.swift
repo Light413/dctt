@@ -10,6 +10,17 @@ import UIKit
 import Photos
 
 class PublishViewController: BasePublishController {
+    ///发布内容类型
+    private var _type:String!
+    
+    
+    init(type:String) {
+        super.init(nibName: nil, bundle: nil)
+        
+        _type = type
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,13 +49,7 @@ class PublishViewController: BasePublishController {
         
     }
     
-    
-    
-    override func previewAction() {
-        let vc = HomeDetailController("")
-        
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+
     
     //MARK:
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

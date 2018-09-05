@@ -483,9 +483,9 @@
 			isa = PBXGroup;
 			children = (
 				AD0BD500200A33CD0088D5E7 /* view */,
+				ADE989502120710D004DAAC5 /* FriendRootController.swift */,
 				AD1033481FB6CF070017E81C /* FriendsViewController.swift */,
 				A1CE839A1FC3F6D900DAF90F /* FriendsDetailController.swift */,
-				ADE989502120710D004DAAC5 /* FriendRootController.swift */,
 			);
 			name = Friend;
 			sourceTree = "<group>";

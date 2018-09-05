@@ -12,15 +12,8 @@ import Kingfisher
 class HomeDetailController: BaseDetailController{
 
     var data:[String:Any]!
-    var imgArr = [String]()
-    var commentDataArr = [[String:Any]]()
     
-    var isPreview:Bool = false //是否处于预览状态
-    
-    ////....test
-    var pre_text:String!
-    var pre_imgs = [UIImage]()
-    
+    private var imgArr = [String]()
     private var _titleView:UIView!
     
     //MARK: -
@@ -73,29 +66,6 @@ class HomeDetailController: BaseDetailController{
     }
     
 
-    func loadComment() {
-        let d = ["type":"get","pid":pid!]
-        
-        AlamofireHelper.post(url: comment_url, parameters: d, successHandler: {[weak self] (res) in
-            guard let arr = res["body"] as? [[String:Any]] else {return}
-            guard let ss = self else {return}
-
-            ss.commentDataArr.removeAll()
-            
-            ss.commentDataArr = ss.commentDataArr + arr
-            if arr.count > 0 {
-                ss.commentNumbers = ss.commentDataArr.count;
-            }
-
-            ss._tableview.reloadSections([1], with: .automatic)
-        }) { (err) in
-            HUD.show(info: "获取评论失败,请稍后重试")
-            print(err?.localizedDescription);
-            
-            //点击重试
-        }
-        
-    }
     
     
 
@@ -224,15 +194,7 @@ class HomeDetailController: BaseDetailController{
         
     }
     
-//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        guard section == 0 else { return nil}
-//        guard let v = Bundle.main.loadNibNamed("HomeDetailFooterView", owner: nil, options: nil)?.last as? HomeDetailFooterView else{return nil}
-//        headFooterView = v;
-//
-//        return v
-//    }
-    
-    
+
     //MARK: -
     func imagesWithIndex(_ index:Int) -> [String] {
         var arr = [String]()

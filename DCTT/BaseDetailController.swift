@@ -12,13 +12,17 @@ import IQKeyboardManagerSwift
 class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewDataSource {
     var pid:String!
     var _tableview:UITableView!
+    
+    ///评论
+    var commentDataArr = [[String:Any]]()
+    
     var headView:HomeDetailHeadView!
     var headFooterView:HomeDetailFooterView!
     
     private let kSectionViewFooterHeight:CGFloat = 100
     private var _commentNumber:UILabel!
     private var _readCnt:[String:Any]?
-    var _isScBtn:UIButton! //是否收藏
+    private var _isScBtn:UIButton! //是否收藏
     
     //设置评论数
     var commentNumbers:Int {
@@ -35,30 +39,12 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         }
     }
     
-    //MARK: -
-    init(_ _id:String) {
-        super.init(nibName: nil, bundle: nil)
-        pid = _id
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        initSubview()
-        
-        addRightNavigationItem()
-        
-        loadReadCnt()
-    }
-
+    //MARK: - Load data
     //阅读量，点赞
     func loadReadCnt() {
-        //HUD.show()
+        //...
+        
         AlamofireHelper.post(url: post_detail_url, parameters: ["pid":pid! , "type":"0","uid":User.uid()!], successHandler: {[weak self] (res) in
             guard let body = res["body"] as? [String:Any] else {return}
             guard let ss = self else {return}
@@ -77,7 +63,55 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         
     }
     
-    //MARK: -
+    ///获取评论
+    func loadComment() {
+        let d = ["type":"get","pid":pid!]
+        
+        AlamofireHelper.post(url: comment_url, parameters: d, successHandler: {[weak self] (res) in
+            guard let arr = res["body"] as? [[String:Any]] else {return}
+            guard let ss = self else {return}
+            
+            ss.commentDataArr.removeAll()
+            
+            ss.commentDataArr = ss.commentDataArr + arr
+            if arr.count > 0 {
+                ss.commentNumbers = ss.commentDataArr.count;
+            }
+            
+            ss._tableview.reloadSections([1], with: .automatic)
+        }) { (err) in
+            HUD.show(info: "获取评论失败,请稍后重试")
+            print(err?.localizedDescription);
+            
+            //点击重试
+        }
+        
+    }
+    
+    
+    
+    
+    //MARK: - Init
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        initSubview()
+        
+        addRightNavigationItem()
+        
+        loadReadCnt()
+    }
+
+    init(_ _id:String) {
+        super.init(nibName: nil, bundle: nil)
+        pid = _id
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func initSubview()  {
         _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 49), style: .grouped)
         _tableview.delegate = self
@@ -108,7 +142,6 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         
     }
 
-    //MARK: -
     //toolBar
     func addBottomBar()  {
         let toolBar = UIToolbar.init(frame: CGRect (x: 0, y: _tableview.frame.maxY, width: kCurrentScreenWidth, height: 49))
@@ -210,7 +243,7 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     }
  
     
-    //MARK: -
+    //MARK: - UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
