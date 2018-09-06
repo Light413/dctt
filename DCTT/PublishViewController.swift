@@ -19,7 +19,7 @@ class PublishViewController: BasePublishController {
      5.娱乐
      */
     private var _type:String!
-    
+    private var _isPublishFriend:Bool = false//发布朋友圈
     
     init(_ type:String) {
         super.init(nibName: nil, bundle: nil)
@@ -29,6 +29,7 @@ class PublishViewController: BasePublishController {
         ///发布朋友圈
         if type == "6" {
             kMaxImagesNumber = 1
+            _isPublishFriend = true
         }
         
     }
@@ -72,7 +73,12 @@ class PublishViewController: BasePublishController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:return 1;
-        case 1:return imgDataArr.count + 1 > 9 ? 9 : imgDataArr.count + 1;
+        case 1:
+            if _isPublishFriend {
+                return  1;
+            }else{
+                return imgDataArr.count + 1 > 9 ? 9 : imgDataArr.count + 1;
+            }
         case 2:return 0;
         default:return 0;
         }

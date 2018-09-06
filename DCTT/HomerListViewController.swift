@@ -78,7 +78,7 @@ class HomerListViewController: BaseTableViewController {
             default:break
         }
         
-        let d = ["type":0 , "subType":subType]
+        let d = ["category":"sy" , "subType":subType] as [String : Any]
         
         AlamofireHelper.post(url: home_list_url, parameters: d, successHandler: {[weak self] (res) in
             HUD.dismiss()

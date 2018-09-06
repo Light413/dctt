@@ -20,7 +20,14 @@ extension UIButton{
     }
 }
 
+extension UIImageView {
+    
+    func setImage(path:URL)  {
+        self.kf.setImage(with: path, placeholder: UIImage (named: "default_image2"), options: nil, progressBlock: nil, completionHandler:nil)
 
+    }
+    
+}
 
 extension String {
     static func isNullOrEmpty(_ any:Any?) -> String {
@@ -35,8 +42,6 @@ extension String {
 
 
 extension Date {
-
-    //MARK:
    /// Date类型返回字符串
    ///
    /// - parameter date:          date

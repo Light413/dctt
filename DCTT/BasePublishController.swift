@@ -318,7 +318,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize (width: collectionView.frame.width, height: section > 1 ? 0:(section == 0 ? 0:10))//...
+        return CGSize (width: collectionView.frame.width, height: section > 1 ? 0:(section == 0 ? 0:0))//...
     }
     
     

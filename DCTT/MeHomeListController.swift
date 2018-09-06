@@ -51,7 +51,7 @@ class MeHomeListController: UITableViewController {
     func loadData() {
         //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
         guard let uid = User.uid() else {return}
-        let d = ["type":"1" , "uid": uid]
+        let d = ["category":"sy" , "uid": uid]
         
         HUD.show()
         AlamofireHelper.post(url: home_list_url, parameters: d, successHandler: {[weak self] (res) in
