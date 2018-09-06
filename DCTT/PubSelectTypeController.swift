@@ -138,6 +138,8 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let d = dataArray[indexPath.section][indexPath.row]
         let item_id = d["item_id"]!
+        let item_key = d["item_key"]!
+        
         kPublish_type_info = d
 
         _dismiss { [weak self]  in
@@ -153,6 +155,7 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
                     case (0,3): _row = 3; break
                     case (0,4): _row = 4; break
                     case (0,5): _row = 5; break
+                    case (0,1): _row = 6; break
                     default:break
                 }
                 

@@ -25,6 +25,12 @@ class PublishViewController: BasePublishController {
         super.init(nibName: nil, bundle: nil)
         
         _type = type
+        
+        ///发布朋友圈
+        if type == "6" {
+            kMaxImagesNumber = 1
+        }
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

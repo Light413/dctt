@@ -10,10 +10,14 @@ import UIKit
 
 class BaseWebViewController: BaseViewController,UIWebViewDelegate,UIGestureRecognizerDelegate {
 
-    var webview: UIWebView!
+    private var webview: UIWebView!
+    private var _url:String!
     
-    var req_url:String!
-    var req_parms:[String:Any]?
+    init(baseUrl url :String) {
+        super.init(nibName: nil, bundle: nil)
+        _url = url
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +37,7 @@ class BaseWebViewController: BaseViewController,UIWebViewDelegate,UIGestureRecog
         longpress.delegate = self
         webview.addGestureRecognizer(longpress)
         
-        let req = URLRequest.init(url: URL.init(string: BASE_URL + user_agreement_url)!)
+        let req = URLRequest.init(url: URL.init(string: BASE_URL + _url!)!)
         
         HUD.show()
         webview.loadRequest(req)
@@ -60,7 +64,7 @@ class BaseWebViewController: BaseViewController,UIWebViewDelegate,UIGestureRecog
     
     func loadData() {
         
-        
+        webview.reload()
     }
     
 

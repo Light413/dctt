@@ -45,7 +45,7 @@ class RegisterViewController: UITableViewController {
             break
             
         case 3:
-            let vc = BaseWebViewController()
+            let vc = BaseWebViewController(baseUrl:user_agreement_url)
             vc.title = "用户服务协议"
             self.navigationController?.pushViewController(vc, animated: true)
             

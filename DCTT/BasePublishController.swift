@@ -53,6 +53,10 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         NotificationCenter.default.addObserver(self, selector: #selector(selectImageCompletionNotification(_ :)), name: NSNotification.Name (rawValue: "notification_selectedimage_completion"), object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     func selectImageCompletionNotification(_ notification:Notification)  {
         presentViewController.dismiss(animated: true) {
             
@@ -314,7 +318,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize (width: collectionView.frame.width, height: section > 1 ? 50:(section == 0 ? 0:10))
+        return CGSize (width: collectionView.frame.width, height: section > 1 ? 0:(section == 0 ? 0:10))//...
     }
     
     

@@ -16,7 +16,7 @@ extension ShowAlertControllerAble where Self : UIViewController {
     func showMsg( _ msg:String , title:String , handler:@escaping ((Void) -> Void)) {
         
         let vc = UIAlertController.init(title: msg,message: nil, preferredStyle: .alert)
-        let action = UIAlertAction.init(title:"Cancel", style: .default)
+        let action = UIAlertAction.init(title:"取消", style: .default)
         let action2 = UIAlertAction.init(title: title, style: .destructive) { (action) in
             handler();
         }
