@@ -36,6 +36,9 @@
 		A1B5A6451FC41F2200871676 /* sunrise.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A1B5A6441FC41F2200871676 /* sunrise.jpg */; };
 		A1B8E492200603B1001E156E /* HomeDetailHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8E491200603B1001E156E /* HomeDetailHeadView.swift */; };
 		A1B8E4942006066F001E156E /* HomeDetailHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B8E4932006066F001E156E /* HomeDetailHeadView.xib */; };
+		A1BCDFF22142102C001AC3CC /* app_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1BCDFF02142102C001AC3CC /* app_logo@2x.png */; };
+		A1BCDFF32142102C001AC3CC /* app_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1BCDFF12142102C001AC3CC /* app_logo@3x.png */; };
+		A1BCDFF521421634001AC3CC /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BCDFF421421634001AC3CC /* AboutUsViewController.swift */; };
 		A1C172091FD631E2006BAAA0 /* TTPublishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C172081FD631E2006BAAA0 /* TTPublishView.swift */; };
 		A1C1E82120454EBC003D1F07 /* CategorySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C1E82020454EBB003D1F07 /* CategorySectionHeaderView.swift */; };
 		A1C402351FCCF41F005BAA9A /* all_category_item.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1C402341FCCF41F005BAA9A /* all_category_item.plist */; };
@@ -211,6 +214,9 @@
 		A1B5A6441FC41F2200871676 /* sunrise.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunrise.jpg; sourceTree = "<group>"; };
 		A1B8E491200603B1001E156E /* HomeDetailHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailHeadView.swift; sourceTree = "<group>"; };
 		A1B8E4932006066F001E156E /* HomeDetailHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailHeadView.xib; sourceTree = "<group>"; };
+		A1BCDFF02142102C001AC3CC /* app_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_logo@2x.png"; sourceTree = "<group>"; };
+		A1BCDFF12142102C001AC3CC /* app_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app_logo@3x.png"; sourceTree = "<group>"; };
+		A1BCDFF421421634001AC3CC /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		A1C172081FD631E2006BAAA0 /* TTPublishView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPublishView.swift; sourceTree = "<group>"; };
 		A1C1E82020454EBB003D1F07 /* CategorySectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySectionHeaderView.swift; sourceTree = "<group>"; };
 		A1C402341FCCF41F005BAA9A /* all_category_item.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = all_category_item.plist; sourceTree = "<group>"; };
@@ -435,6 +441,8 @@
 		A1CE83951FC3CD3600DAF90F /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				A1BCDFF02142102C001AC3CC /* app_logo@2x.png */,
+				A1BCDFF12142102C001AC3CC /* app_logo@3x.png */,
 				ADE12F9A211E9DA4002B8854 /* Icon-60.png */,
 				ADE12F9B211E9DA4002B8854 /* Icon-60@2x.png */,
 				ADE12F9C211E9DA5002B8854 /* Icon-60@3x.png */,
@@ -527,6 +535,7 @@
 				AD2E956F207E657D009C675B /* FensiBaseController.swift */,
 				AD2E9571207E65D2009C675B /* GuanzhuController.swift */,
 				AD6337FF2083974900BC84B1 /* MeSetterController.swift */,
+				A1BCDFF421421634001AC3CC /* AboutUsViewController.swift */,
 				AD3CB6CB211210D500681E65 /* BaseWebViewController.swift */,
 			);
 			name = Me;
@@ -883,6 +892,7 @@
 				ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */,
 				AD0E32C9212EF983009E26BC /* home_bg_blue@2x.jpeg in Resources */,
 				AD2187D9205E186E00E8C93F /* MeHomeCell.xib in Resources */,
+				A1BCDFF32142102C001AC3CC /* app_logo@3x.png in Resources */,
 				AD21D9BE205520C300E317FF /* MeNotRegisterCell.xib in Resources */,
 				AD1490B41FCB08750053FD31 /* trans-navi-left-button@2x.png in Resources */,
 				AD2187DD205E7A6F00E8C93F /* MeHomeHeadView.xib in Resources */,
@@ -900,6 +910,7 @@
 				AD2178E0207FB1B700B99069 /* FensiCell.xib in Resources */,
 				AD0BD504200A34350088D5E7 /* FriendHeadView.xib in Resources */,
 				A148A2A61FD649570052DDF3 /* publish_write@2x.png in Resources */,
+				A1BCDFF22142102C001AC3CC /* app_logo@2x.png in Resources */,
 				AD0E32C8212EF983009E26BC /* home_bg_gray@2x.jpeg in Resources */,
 				AD1BEC022029EF6B003E334C /* PubTypeCollectionReusableView.xib in Resources */,
 				AD21DF62202750FD002FE181 /* TableViewCellTextView.xib in Resources */,
@@ -1103,6 +1114,7 @@
 				AD20F3C72067DEA4003BDE17 /* MessageCell.swift in Sources */,
 				ADE989512120710D004DAAC5 /* FriendRootController.swift in Sources */,
 				AD0BD4ED2009FE980088D5E7 /* HomeDetailImgCell.swift in Sources */,
+				A1BCDFF521421634001AC3CC /* AboutUsViewController.swift in Sources */,
 				AD1033421FB6CD920017E81C /* BaseViewControllerWithTable.swift in Sources */,
 				AD21D9BD205520C300E317FF /* MeNotRegisterCell.swift in Sources */,
 				AD00300A201DF9C500A72A16 /* PubWriteCell.swift in Sources */,

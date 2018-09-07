@@ -13,7 +13,7 @@ class FriendRootController: BaseViewController {
     //////////
     var _cellPageController:TTPageViewController!
     var _cellSectionHeadView:TTHeadView!
-    let sectionHeadTitles = ["最新","最热"]
+    let sectionHeadTitles = ["最新","热门"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

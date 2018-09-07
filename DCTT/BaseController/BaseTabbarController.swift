@@ -20,7 +20,7 @@ class BaseTabbarController: UITabBarController {
         
         let itemtitleArr = [
             "首页",
-            "同城圈",
+            "朋友圈",
             "",
             "生活服务",
             "我的"]

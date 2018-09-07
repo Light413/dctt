@@ -20,6 +20,7 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
         //automaticallyAdjustsScrollViewInsets = false
         _init()
 
+        HUD.show(withStatus: "数据加载中")
         loadData()
     }
 
@@ -29,12 +30,10 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
         _colloectionview.delegate = self
         _colloectionview.dataSource = self
         
-        let header = TTRefreshHeader.init {
-                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-
-                            self._colloectionview.reloadData()
-                            self._colloectionview.mj_header.endRefreshing()
-                        }
+        let header = TTRefreshHeader.init {[weak self] in
+            guard let ss = self else {return}
+            
+            ss.loadData()
         }
         
         _colloectionview.mj_header = header
@@ -42,11 +41,6 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
         //_colloectionview.mj_header.beginRefreshing()
         
         let footer = TTRefreshFooter.init{
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                self._colloectionview.reloadData()
-                
-                self._colloectionview.mj_footer.endRefreshing()
-            }
 
         }
         
@@ -58,7 +52,7 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
     }
     
     func loadData() {
-        //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
+
         var subType = 0
         
         let d = ["category":"friend" , "subType":subType] as [String : Any]
@@ -103,7 +97,7 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
         
         _layout.itemSize = CGSize (width: _w, height: _w * 0.8)
         _layout.minimumInteritemSpacing = 0
-        _layout.minimumLineSpacing = 0
+        _layout.minimumLineSpacing = 2
         _layout.scrollDirection = .vertical
         
         let collectionview = UICollectionView (frame: frame, collectionViewLayout: _layout)
@@ -113,7 +107,7 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
         collectionview.backgroundColor  = UIColor.white
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = true
-        collectionview.contentInset = UIEdgeInsetsMake(0, 10, 0, 10);
+        //collectionview.contentInset = UIEdgeInsetsMake(0, 10, 0, 10);
         
         return collectionview
     }
