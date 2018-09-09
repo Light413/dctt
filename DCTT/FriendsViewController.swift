@@ -82,7 +82,7 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
             
             
             ss._colloectionview.reloadData()
-            print(res);
+            //print(res);
         }) { (error) in
             HUD.dismiss()
         }
@@ -97,22 +97,22 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
         
         _layout.itemSize = CGSize (width: _w, height: _w * 0.8)
         _layout.minimumInteritemSpacing = 0
-        _layout.minimumLineSpacing = 2
+        _layout.minimumLineSpacing = 5
         _layout.scrollDirection = .vertical
         
         let collectionview = UICollectionView (frame: frame, collectionViewLayout: _layout)
         collectionview.delegate  = self
         collectionview.dataSource = self
-        collectionview.register(UINib (nibName: "FriendsCollectonViewCell", bundle: nil), forCellWithReuseIdentifier: "FriendsCollectonViewCellReuse")
+        collectionview.register(UINib (nibName: "ZTCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "FriendsCollectonViewCellReuse")
         collectionview.backgroundColor  = UIColor.white
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = true
         //collectionview.contentInset = UIEdgeInsetsMake(0, 10, 0, 10);
-        
+    
         return collectionview
     }
     
-    func _topHeadView() {
+    /*func _topHeadView() {
         let segment = UISegmentedControl.init(items: ["最新","人气"])
         segment.frame = CGRect (x: 0, y: 0, width: 180, height: 25)
         segment.tintColor = tt_BarColor
@@ -131,12 +131,8 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
         navigationItem.rightBarButtonItem = leftitem
     }
     
-    
-    
-    
-    
     func searchAction() {
-    }
+    }*/
     
     //MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -144,16 +140,21 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsCollectonViewCellReuse", for: indexPath) as! FriendsCollectonViewCell
-        let d = dataArray[indexPath.row]
-        cell.fill(d)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsCollectonViewCellReuse", for: indexPath) as! ZTCollectionViewCell
+//        let d = dataArray[indexPath.row]
+//        cell.fill(d)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = FriendsDetailController("....")
 
+        let d = dataArray[indexPath.row]
+        let pid =  String.isNullOrEmpty(d["pid"])
+        let vc = FriendsDetailController(pid)
+        
+        vc.data = d
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

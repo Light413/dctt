@@ -19,21 +19,33 @@ class FriendHeadView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let text = "前女友是我小姨子的上司，小姨子工作犯错要被开除，老婆让我找前女友求求情。于是我打了电话，前女友问明情况后说：“她让你找我，你就找我？你有没脑子的？明摆着在试探！我要是为了你帮这个忙，她一定整死你信不信？”"
+        msg.layer.backgroundColor = UIColor.black.withAlphaComponent(0.2).cgColor;
+    }
+    
+    func fill(_ d : [String:Any]) {
+        let text = String.isNullOrEmpty(d["content"])
         let paragraphStyle = NSMutableParagraphStyle.init()
         paragraphStyle.lineSpacing = 2
         paragraphStyle.lineBreakMode = .byCharWrapping
         paragraphStyle.firstLineHeadIndent = 0
         
-        let dic:[String:Any] = [
-            //NSFontAttributeName:UIFont.systemFont(ofSize: 15) ,
+        let attridic:[String:Any] = [
+            NSFontAttributeName:UIFont.boldSystemFont(ofSize: 17) ,
             NSParagraphStyleAttributeName:paragraphStyle,
             NSKernAttributeName:1
         ]
         
-        let attriStr = NSAttributedString.init(string: text, attributes: dic)
+        let attriStr = NSAttributedString.init(string: text, attributes: attridic)
         msg.attributedText = attriStr
         
+        
+        
+        let imagePath = String.isNullOrEmpty(d["images"])
+        if let url = URL.init(string: imagePath) {
+            bgImg.setImage(path: url)
+        }
+        
+        //dateLable.text = "发布于 " + Date.dateFormatterWithString(String.isNullOrEmpty(d["postDate"]))
     }
     
     

@@ -19,12 +19,17 @@ class HomeCellWithImages: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var time: UILabel!
     
+    @IBOutlet weak var image_h: NSLayoutConstraint!
     
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        let w = (kCurrentScreenWidth - 20) / 3.0
+        image_h.constant = w;
+        
     }
 
     

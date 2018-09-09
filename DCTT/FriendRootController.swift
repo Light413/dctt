@@ -28,6 +28,9 @@ class FriendRootController: BaseViewController {
     func title_v() -> UIView {
         var attri = TTHeadTextAttribute()
         attri.itemWidth = 50
+        attri.defaultFontSize = 16
+        attri.selectedFontSize = 17
+
         let topview  = TTHeadView (frame: CGRect (x: 0, y: 0, width: 100, height: 35), titles: sectionHeadTitles, delegate: self ,textAttributes:attri)
         _cellSectionHeadView = topview
         
@@ -40,11 +43,17 @@ class FriendRootController: BaseViewController {
         ////pagevc
         var vcArr = [UIViewController]()
         
-        for _ in 0..<sectionHeadTitles.count {
-            let v = FriendsViewController();
-            
-            vcArr.append(v)
-        }
+//        for _ in 0..<sectionHeadTitles.count {
+//            let v = FriendsViewController();
+//
+//            vcArr.append(v)
+//        }
+        
+        let v1 = ZTTableViewController()
+        vcArr.append(v1)
+        
+        let v2 = DarenTableViewController()
+        vcArr.append(v2)
         
         let rec = CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height:kCurrentScreenHeight - 49 )
         let pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)

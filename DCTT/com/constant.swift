@@ -32,8 +32,9 @@ let post_detail_url = "detail.php"
 
 let user_agreement_url = "userAgreement.html"
 let aboutus_url = "aboutus.html"
-
-
+let contactus_url = "contactus.html"
+let disclaimer_url = "disclaimer.html"
+let usehelp_url = "usehelp.html"
 
 ///
 let Loading = {HUD.show()}

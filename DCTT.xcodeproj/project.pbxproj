@@ -153,6 +153,14 @@
 		AD6338002083974900BC84B1 /* MeSetterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6337FF2083974900BC84B1 /* MeSetterController.swift */; };
 		AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */; };
 		AD6A983C201A12CB00E7C5AE /* HomeDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */; };
+		ADC61DDF2144057000AE11B1 /* DarenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61DDE2144057000AE11B1 /* DarenTableViewController.swift */; };
+		ADC61DE22144058900AE11B1 /* DarenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61DE02144058900AE11B1 /* DarenCell.swift */; };
+		ADC61DE32144058900AE11B1 /* DarenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADC61DE12144058900AE11B1 /* DarenCell.xib */; };
+		ADC61DE621441C8300AE11B1 /* ZTCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61DE421441C8300AE11B1 /* ZTCollectionViewCell.swift */; };
+		ADC61DE721441C8300AE11B1 /* ZTCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADC61DE521441C8300AE11B1 /* ZTCollectionViewCell.xib */; };
+		ADC61DE92144215C00AE11B1 /* ZTTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61DE82144215C00AE11B1 /* ZTTableViewController.swift */; };
+		ADC61DEC2144217400AE11B1 /* ZTTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61DEA2144217400AE11B1 /* ZTTableViewCell.swift */; };
+		ADC61DED2144217400AE11B1 /* ZTTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADC61DEB2144217400AE11B1 /* ZTTableViewCell.xib */; };
 		ADCA97862100DADD00DA0950 /* NetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97852100DADC00DA0950 /* NetHelper.swift */; };
 		ADCA97882100DB4500DA0950 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97872100DB4500DA0950 /* Tools.swift */; };
 		ADD7CE19211C88DF00A33F3B /* MeHomeCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7CE18211C88DF00A33F3B /* MeHomeCell2.swift */; };
@@ -336,6 +344,14 @@
 		AD6337FF2083974900BC84B1 /* MeSetterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSetterController.swift; sourceTree = "<group>"; };
 		AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailFooterView.swift; sourceTree = "<group>"; };
 		AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailFooterView.xib; sourceTree = "<group>"; };
+		ADC61DDE2144057000AE11B1 /* DarenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarenTableViewController.swift; sourceTree = "<group>"; };
+		ADC61DE02144058900AE11B1 /* DarenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarenCell.swift; sourceTree = "<group>"; };
+		ADC61DE12144058900AE11B1 /* DarenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DarenCell.xib; sourceTree = "<group>"; };
+		ADC61DE421441C8300AE11B1 /* ZTCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTCollectionViewCell.swift; sourceTree = "<group>"; };
+		ADC61DE521441C8300AE11B1 /* ZTCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTCollectionViewCell.xib; sourceTree = "<group>"; };
+		ADC61DE82144215C00AE11B1 /* ZTTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTTableViewController.swift; sourceTree = "<group>"; };
+		ADC61DEA2144217400AE11B1 /* ZTTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTTableViewCell.swift; sourceTree = "<group>"; };
+		ADC61DEB2144217400AE11B1 /* ZTTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTTableViewCell.xib; sourceTree = "<group>"; };
 		ADCA97852100DADC00DA0950 /* NetHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetHelper.swift; sourceTree = "<group>"; };
 		ADCA97872100DB4500DA0950 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		ADD7CE18211C88DF00A33F3B /* MeHomeCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeCell2.swift; sourceTree = "<group>"; };
@@ -494,6 +510,8 @@
 				ADE989502120710D004DAAC5 /* FriendRootController.swift */,
 				AD1033481FB6CF070017E81C /* FriendsViewController.swift */,
 				A1CE839A1FC3F6D900DAF90F /* FriendsDetailController.swift */,
+				ADC61DDE2144057000AE11B1 /* DarenTableViewController.swift */,
+				ADC61DE82144215C00AE11B1 /* ZTTableViewController.swift */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -505,6 +523,12 @@
 				A1CE839D1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib */,
 				AD0BD501200A34270088D5E7 /* FriendHeadView.swift */,
 				AD0BD503200A34350088D5E7 /* FriendHeadView.xib */,
+				ADC61DE02144058900AE11B1 /* DarenCell.swift */,
+				ADC61DE12144058900AE11B1 /* DarenCell.xib */,
+				ADC61DE421441C8300AE11B1 /* ZTCollectionViewCell.swift */,
+				ADC61DE521441C8300AE11B1 /* ZTCollectionViewCell.xib */,
+				ADC61DEA2144217400AE11B1 /* ZTTableViewCell.swift */,
+				ADC61DEB2144217400AE11B1 /* ZTTableViewCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -900,6 +924,7 @@
 				ADE12F9D211E9DA5002B8854 /* Icon-60.png in Resources */,
 				A148A2B41FD6A0B70052DDF3 /* PublishCollectionReusableView.xib in Resources */,
 				AD00300F201DF9D900A72A16 /* PubCityCell.xib in Resources */,
+				ADC61DE32144058900AE11B1 /* DarenCell.xib in Resources */,
 				AD14CC601FE8027A003FBE0B /* HomeCellWithImage.xib in Resources */,
 				AD1033301FB6CD4E0017E81C /* error@2x.png in Resources */,
 				ADED55622121D294005C8EE6 /* HomeDetailImgCell3.xib in Resources */,
@@ -918,6 +943,7 @@
 				ADE12F9E211E9DA5002B8854 /* Icon-60@2x.png in Resources */,
 				A1B8E4942006066F001E156E /* HomeDetailHeadView.xib in Resources */,
 				ADF6D902211B3CD900ECA9F9 /* MeHomeSuperCell.xib in Resources */,
+				ADC61DED2144217400AE11B1 /* ZTTableViewCell.xib in Resources */,
 				AD4200222007AFCA00096CF7 /* HomeDetailCommentCell.xib in Resources */,
 				A1B5A6431FC4174400871676 /* ymtimg2.jpg in Resources */,
 				A1783C041FCC128F00E4AB06 /* AllCategoryCell.xib in Resources */,
@@ -933,6 +959,7 @@
 				AD128C77201CCD9500A9EDBE /* PubFriendCell.xib in Resources */,
 				AD0BD4EE2009FE980088D5E7 /* HomeDetailImgCell.xib in Resources */,
 				AD2178E4207FB2EC00B99069 /* WechatIMG10.jpeg in Resources */,
+				ADC61DE721441C8300AE11B1 /* ZTCollectionViewCell.xib in Resources */,
 				AD14CC641FE802B6003FBE0B /* HomeCellWithImages.xib in Resources */,
 				AD10332F1FB6CD4E0017E81C /* error.png in Resources */,
 				A1E741AD1FD90F1600942219 /* Localizable.strings in Resources */,
@@ -1033,6 +1060,7 @@
 				AD1033471FB6CEA00017E81C /* MeViewController.swift in Sources */,
 				A1E1B02D1FDA7AEF002D6BDC /* TTImagePreviewController.swift in Sources */,
 				ADD7CE1B211C8C4800A33F3B /* MeHomeListController.swift in Sources */,
+				ADC61DE92144215C00AE11B1 /* ZTTableViewController.swift in Sources */,
 				AD202755204C389500E538CD /* PubQiuzhiViewController.swift in Sources */,
 				AD2E9572207E65D2009C675B /* GuanzhuController.swift in Sources */,
 				AD202759204C38B000E538CD /* PubDacheViewController.swift in Sources */,
@@ -1064,6 +1092,7 @@
 				A1E1B02F1FDA90E8002D6BDC /* TTImageBaseViewController.swift in Sources */,
 				AD1033311FB6CD4E0017E81C /* HUD.swift in Sources */,
 				A148A2AB1FD687B40052DDF3 /* PublishTextCell.swift in Sources */,
+				ADC61DE22144058900AE11B1 /* DarenCell.swift in Sources */,
 				AD3CB6C8211203BA00681E65 /* AlamofireRequestAble.swift in Sources */,
 				ADFB537B213056A100C45441 /* TTPostCommentView.swift in Sources */,
 				AD128C6E201C748D00A9EDBE /* TTDataPickerView.swift in Sources */,
@@ -1074,6 +1103,7 @@
 				AD1BEC012029EF6B003E334C /* PubTypeCollectionReusableView.swift in Sources */,
 				AD1033361FB6CD4E0017E81C /* themeColor.swift in Sources */,
 				ADFC9E082053F75B00449767 /* FindPwdController.swift in Sources */,
+				ADC61DEC2144217400AE11B1 /* ZTTableViewCell.swift in Sources */,
 				ADFC9E0A2053F7D400449767 /* UserAgreementController.swift in Sources */,
 				ADFC9E062053F73D00449767 /* RegisterViewController.swift in Sources */,
 				AD1033491FB6CF070017E81C /* FriendsViewController.swift in Sources */,
@@ -1134,10 +1164,12 @@
 				ADCA97862100DADD00DA0950 /* NetHelper.swift in Sources */,
 				ADEF0DB5212DB117007BF6AE /* ServerListController.swift in Sources */,
 				AD2E9570207E657D009C675B /* FensiBaseController.swift in Sources */,
+				ADC61DDF2144057000AE11B1 /* DarenTableViewController.swift in Sources */,
 				AD2C1EE72026137900E48245 /* PublishFriendViewController.swift in Sources */,
 				ADFB5379213044F600C45441 /* HomeCellFillDateAble.swift in Sources */,
 				AD2E956D207E59F9009C675B /* CollectCell.swift in Sources */,
 				AD128C6A201C702D00A9EDBE /* TTBasePickerView.swift in Sources */,
+				ADC61DE621441C8300AE11B1 /* ZTCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,11 +30,7 @@ class FriendsCollectonViewCell: UICollectionViewCell {
         layer.borderWidth = 1
         layer.borderColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1).cgColor
         
-       // iconimg.image = UIImage (named: "ymtimg2.jpg")
-//        msg.layer.cornerRadius = 5
-//        msg.layer.masksToBounds = true
-        
-        msg.layer.backgroundColor = UIColor.black.withAlphaComponent(0.5).cgColor
+        msg.layer.backgroundColor = UIColor.black.withAlphaComponent(0.2).cgColor
         nameLable.layer.backgroundColor = UIColor.black.withAlphaComponent(0.5).cgColor
     }
 
@@ -68,7 +64,7 @@ class FriendsCollectonViewCell: UICollectionViewCell {
         paragraphStyle.firstLineHeadIndent = 15
         
         let attri:[String:Any] = [
-            NSFontAttributeName:UIFont.systemFont(ofSize: 15) ,
+            NSFontAttributeName:UIFont.boldSystemFont(ofSize: 17) ,
             NSParagraphStyleAttributeName:paragraphStyle,
             NSKernAttributeName:1
         ]

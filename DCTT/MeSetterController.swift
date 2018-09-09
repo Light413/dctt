@@ -24,11 +24,6 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,28 +32,46 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
     }
 
     // MARK: - Table view data source
-
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if User.isLogined() {
+            return 4
+        }
+        
+        return 2
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section,indexPath.row) {
         case (1,0)://清除缓存
             
             break
-        case (1,1)://appstore
+        case (1,1)://意见反馈
             
             break
             
-        case (1,2):
-            let vc = BaseWebViewController(baseUrl:aboutus_url)
-            vc.title = "关于"
-            self.navigationController?.pushViewController(vc, animated: true)
+        case (1,2)://appstore
+
+            break
+        case (1,3)://分享好友
+            
+            break
+        case (2,_):
+            showMsg("退出会清除用户登录信息", title: "确定退出", handler: { [unowned self] in
+                self._logout()
+            })
+
+            break
+            
+        case (3,_):
+            showMsg("注销会清除用户信息及发布内容", title: "确定注销", handler: { [unowned self] in
+                
+            })
+
             break
             
         default: break
         }
         if indexPath.section == 2 {
-            showMsg("退出登录会清除当前用户信息", title: "退出", handler: { [unowned self] in
-                self._logout()
-            })
         }
         
         

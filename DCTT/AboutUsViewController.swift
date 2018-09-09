@@ -9,11 +9,15 @@
 import UIKit
 
 class AboutUsViewController: MeBaseTableViewController {
-
+    @IBOutlet weak var appversion: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let info = Bundle.main.infoDictionary {
+            appversion.text = "当前版本" + String.isNullOrEmpty(info["CFBundleShortVersionString"])
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +26,37 @@ class AboutUsViewController: MeBaseTableViewController {
     }
     
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var vc:BaseWebViewController!
+        
+        switch (indexPath.section,indexPath.row) {
+        case (1,0):
+            vc = BaseWebViewController(baseUrl:aboutus_url)
+            vc.title = "郸城头条介绍"
+            break
+        case (1,1):
+            vc = BaseWebViewController(baseUrl:usehelp_url)
+            vc.title = "使用帮助"
+            break
+        case (1,2):
+            vc = BaseWebViewController(baseUrl:user_agreement_url)
+            vc.title = "用户协议"
+            break
+        case (1,3):
+            vc = BaseWebViewController(baseUrl:disclaimer_url)
+            vc.title = "免责声明"
+            break
+        case (1,4):
+            vc = BaseWebViewController(baseUrl:contactus_url)
+            vc.title = "联系我们"
+            break
+
+        default:return
+        }
+        
+       self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

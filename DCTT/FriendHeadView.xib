@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,12 +25,12 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前女友是我小姨子的上司，小姨子工作犯错要被开除，老婆让我找前女友求求情。于是我打了电话，前女友问明情况后说：“她让你找我，你就找我？你有没脑子的？明摆着在试探！我要是为了你帮这个忙，她一定整死你信不信？”" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsR-CE-mM8">
-                    <rect key="frame" x="8" y="71.5" width="359" height="97.5"/>
-                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
+                    <rect key="frame" x="0.0" y="96.5" width="375" height="101.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                     <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <size key="shadowOffset" width="0.0" height="-2"/>
+                    <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="local-icon" translatesAutoresizingMaskIntoConstraints="NO" id="0zC-hG-4oz">
                     <rect key="frame" x="8" y="218" width="10" height="14"/>
@@ -53,15 +54,15 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fsR-CE-mM8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8Ur-P5-4Xr"/>
                 <constraint firstAttribute="bottom" secondItem="hlG-Gz-9Io" secondAttribute="bottom" id="CZo-bh-d1c"/>
-                <constraint firstItem="fsR-CE-mM8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Ees-nS-vrk"/>
+                <constraint firstItem="fsR-CE-mM8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ees-nS-vrk"/>
                 <constraint firstItem="hlG-Gz-9Io" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FyT-iV-8LP"/>
                 <constraint firstAttribute="bottom" secondItem="0zC-hG-4oz" secondAttribute="bottom" constant="8" id="KJk-fp-ReZ"/>
                 <constraint firstItem="48X-UC-A7J" firstAttribute="centerY" secondItem="At0-nx-7LJ" secondAttribute="centerY" id="LdW-dx-O8X"/>
                 <constraint firstItem="At0-nx-7LJ" firstAttribute="leading" secondItem="0zC-hG-4oz" secondAttribute="trailing" constant="5" id="Ppr-s0-MiN"/>
                 <constraint firstItem="fsR-CE-mM8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RA8-sN-2X7"/>
                 <constraint firstItem="hlG-Gz-9Io" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VqJ-tB-oqn"/>
+                <constraint firstItem="0zC-hG-4oz" firstAttribute="top" secondItem="fsR-CE-mM8" secondAttribute="bottom" constant="20" id="dAk-FZ-bF4"/>
                 <constraint firstItem="yRD-wg-bPu" firstAttribute="centerY" secondItem="48X-UC-A7J" secondAttribute="centerY" id="g8k-48-2wn"/>
                 <constraint firstItem="0zC-hG-4oz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="kiM-Jw-wXY"/>
                 <constraint firstItem="0zC-hG-4oz" firstAttribute="centerY" secondItem="At0-nx-7LJ" secondAttribute="centerY" id="otW-xW-d7c"/>
@@ -81,7 +82,7 @@
         </view>
     </objects>
     <resources>
-        <image name="back_bg.png" width="640" height="346"/>
-        <image name="local-icon" width="35" height="35"/>
+        <image name="back_bg.png" width="333" height="180"/>
+        <image name="local-icon" width="17" height="17"/>
     </resources>
 </document>

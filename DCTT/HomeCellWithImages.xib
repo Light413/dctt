@@ -83,6 +83,7 @@
                 <outlet property="ig1" destination="8Vg-6U-xde" id="3jj-ZQ-3QD"/>
                 <outlet property="ig2" destination="MJt-y9-5Jv" id="X9C-pr-f13"/>
                 <outlet property="ig3" destination="5Gy-ij-cCw" id="BU0-3L-ApV"/>
+                <outlet property="image_h" destination="UWf-ek-Qcx" id="uDz-iC-tTn"/>
                 <outlet property="msg" destination="hV9-nH-RoG" id="vRy-EC-ody"/>
                 <outlet property="name" destination="Ma0-hF-Ntn" id="EQN-nQ-wAJ"/>
                 <outlet property="time" destination="3No-zZ-lUs" id="s89-4e-iOU"/>
