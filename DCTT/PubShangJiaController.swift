@@ -18,9 +18,9 @@ class PubShangJiaController: PubBaseTableViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCellReuseIdentifier")
+//        collectionView.delegate = self
+//        collectionView.dataSource = self
+//        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCellReuseIdentifier")
         
     }
 

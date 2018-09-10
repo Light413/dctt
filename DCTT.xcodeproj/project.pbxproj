@@ -165,6 +165,8 @@
 		ADCA97882100DB4500DA0950 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97872100DB4500DA0950 /* Tools.swift */; };
 		ADD7CE19211C88DF00A33F3B /* MeHomeCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7CE18211C88DF00A33F3B /* MeHomeCell2.swift */; };
 		ADD7CE1B211C8C4800A33F3B /* MeHomeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7CE1A211C8C4800A33F3B /* MeHomeListController.swift */; };
+		ADDAF3802146B61A00B70EBB /* TableCellWithCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDAF37E2146B61A00B70EBB /* TableCellWithCollectionView.swift */; };
+		ADDAF3812146B61A00B70EBB /* TableCellWithCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADDAF37F2146B61A00B70EBB /* TableCellWithCollectionView.xib */; };
 		ADDEA990210F630D007C1CBA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDEA98F210F630D007C1CBA /* Notification.swift */; };
 		ADE12F9D211E9DA5002B8854 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE12F9A211E9DA4002B8854 /* Icon-60.png */; };
 		ADE12F9E211E9DA5002B8854 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE12F9B211E9DA4002B8854 /* Icon-60@2x.png */; };
@@ -356,6 +358,8 @@
 		ADCA97872100DB4500DA0950 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		ADD7CE18211C88DF00A33F3B /* MeHomeCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeCell2.swift; sourceTree = "<group>"; };
 		ADD7CE1A211C8C4800A33F3B /* MeHomeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeListController.swift; sourceTree = "<group>"; };
+		ADDAF37E2146B61A00B70EBB /* TableCellWithCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellWithCollectionView.swift; sourceTree = "<group>"; };
+		ADDAF37F2146B61A00B70EBB /* TableCellWithCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCellWithCollectionView.xib; sourceTree = "<group>"; };
 		ADDEA98F210F630D007C1CBA /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		ADE12F9A211E9DA4002B8854 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
 		ADE12F9B211E9DA4002B8854 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
@@ -711,6 +715,8 @@
 				AD1BEBFF2029EF6B003E334C /* PubTypeCollectionReusableView.swift */,
 				AD1BEC002029EF6B003E334C /* PubTypeCollectionReusableView.xib */,
 				AD20275A204C453000E538CD /* PubBaseTextViewCell.swift */,
+				ADDAF37E2146B61A00B70EBB /* TableCellWithCollectionView.swift */,
+				ADDAF37F2146B61A00B70EBB /* TableCellWithCollectionView.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -939,6 +945,7 @@
 				AD0E32C8212EF983009E26BC /* home_bg_gray@2x.jpeg in Resources */,
 				AD1BEC022029EF6B003E334C /* PubTypeCollectionReusableView.xib in Resources */,
 				AD21DF62202750FD002FE181 /* TableViewCellTextView.xib in Resources */,
+				ADDAF3812146B61A00B70EBB /* TableCellWithCollectionView.xib in Resources */,
 				A1C4023B1FCCF9A6005BAA9A /* cell_background.png in Resources */,
 				ADE12F9E211E9DA5002B8854 /* Icon-60@2x.png in Resources */,
 				A1B8E4942006066F001E156E /* HomeDetailHeadView.xib in Resources */,
@@ -1122,6 +1129,7 @@
 				AD21DF61202750FD002FE181 /* TableViewCellTextView.swift in Sources */,
 				AD20F3C22067DD57003BDE17 /* MeCollectController.swift in Sources */,
 				AD00B9B9201B6EB90015A876 /* BaseDetailController.swift in Sources */,
+				ADDAF3802146B61A00B70EBB /* TableCellWithCollectionView.swift in Sources */,
 				AD10333F1FB6CD920017E81C /* BaseTabbarController.swift in Sources */,
 				AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */,
 				A1FD18332112D63D000F0E91 /* TTPickerImageAble.swift in Sources */,
