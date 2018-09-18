@@ -23,8 +23,23 @@ class FriendRootController: BaseViewController {
         navigationItem.titleView = title_v()
         
        _cellPageController = addCellPageController()
+        
+        ///
+        let item = getBarButtonItem(title: "发布话题", action: #selector(publishZtAction))
+        self.navigationItem.rightBarButtonItem = item
     }
 
+    func rightNavigationItem() -> UIBarButtonItem{
+        let rightbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 40, height: 30))
+        rightbtn.setTitle("发布话题", for: .normal)
+        rightbtn.setTitleColor(tt_BarColor , for: .normal)
+        rightbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        rightbtn.addTarget(self, action: #selector(publishZtAction), for: .touchUpInside)
+        let rightitem = UIBarButtonItem.init(customView: rightbtn)
+        
+        return rightitem
+    }
+    
     func title_v() -> UIView {
         var attri = TTHeadTextAttribute()
         attri.itemWidth = 50
@@ -49,10 +64,10 @@ class FriendRootController: BaseViewController {
 //            vcArr.append(v)
 //        }
         
-        let v1 = ZTTableViewController()
+        let v1 = ZTTableViewController("0")
         vcArr.append(v1)
         
-        let v2 = DarenTableViewController()
+        let v2 = ZTTableViewController("1")
         vcArr.append(v2)
         
         let rec = CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height:kCurrentScreenHeight - 49 )
@@ -87,3 +102,15 @@ extension FriendRootController:TTHeadViewDelegate,TTPageViewControllerDelegate {
     
 }
 
+extension FriendRootController:AddButtonItemProtocol {
+    func publishZtAction() {
+        
+        let vc = UIStoryboard.init(name: "Publish", bundle: nil).instantiateViewController(withIdentifier: "pub_zt_id")
+        
+        
+        let nav = BaseNavigationController (rootViewController:vc)
+        UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
+    }
+    
+    
+}

@@ -14,12 +14,14 @@ class HomerListViewController: BaseTableViewController {
     var pageNumber:Int = 1;
     
     private var _type:String!
+    private var _category:String!
     
-    
-    init(_ type:String) {
+    ///type:小分类 , category:大分类 sy-首页 life-生活服务
+    init(_ type:String , category:String = "sy") {
         super.init(nibName: nil, bundle: nil)
         
         _type = type
+        _category = category
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -69,16 +71,17 @@ class HomerListViewController: BaseTableViewController {
         //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
         var subType = 0
         switch _type! {
-            case "0":subType = 0;break
-            case "1":subType = 1;break
-            case "2":subType = 2;break
-            case "3":subType = 3; break
-            case "4":subType = 4;break
-            case "5":subType = 5;break
-            default:break
+            case "0":subType = 0;break//最新
+            case "1":subType = 1;break//最热
+            case "2":subType = 2;break//nouse
+            case "3":subType = 3; break//nouse
+            case "4":subType = 4;break//nouse
+            case "5":subType = 5;break//nouse
+            case "6":subType = 6;break//nouse
+            default: subType = Int(_type)!; break
         }
         
-        let d = ["category":"sy" , "subType":subType] as [String : Any]
+        let d = ["category":_category! , "subType":subType] as [String : Any]
         
         AlamofireHelper.post(url: home_list_url, parameters: d, successHandler: {[weak self] (res) in
             HUD.dismiss()

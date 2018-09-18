@@ -10,18 +10,40 @@ import UIKit
 
 class PubJiaoYouController: PubBaseTableViewController {
 
-    @IBOutlet weak var collectionView: UICollectionView!
 
+    @IBOutlet weak var imgagesCell: TableCellWithCollectionView!
+    
+    @IBOutlet weak var textCell: UITextView!
+    
+    @IBOutlet weak var textCellOther: UITextView!
+    
+    @IBOutlet weak var typeSeg: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCellReuseIdentifier")
+        imgagesCell.superVC = self
         
+        sourceTextView = textCell
     }
 
+    override func willPost() {
+        imgDataArr = imgagesCell.imagesArr
+    }
+    
+    override func startPost(_ ig:[UIImage]? = nil)  {
+        guard let uid = User.uid() else { HUD.showText("请前往登录", view: view);return}
+        
+        let sjInfo = ["type":String.isNullOrEmpty(typeSeg.selectedSegmentIndex),
+                      "content":String.isNullOrEmpty(textCell.text),
+                      "hope":String.isNullOrEmpty(textCellOther.text)]
+        
+        _post(uid, pars: sjInfo, ig: ig)
+        
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

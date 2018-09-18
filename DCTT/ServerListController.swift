@@ -40,7 +40,7 @@ class ServerListController: UITableViewController {
     
     func loadData() {
         //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
-        let d = ["type":0]
+        let d = ["category":"sy"]
         
         AlamofireHelper.post(url: home_list_url, parameters: d, successHandler: {[weak self] (res) in
             HUD.dismiss()

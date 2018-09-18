@@ -1,33 +1,21 @@
 //
-//  PubQuestionController.swift
+//  ServerDetailController.swift
 //  DCTT
-//  发布提问-可添加附件图片
-//  Created by wyg on 2018/3/2.
+//
+//  Created by wyg on 2018/9/18.
 //  Copyright © 2018年 Light.W. All rights reserved.
 //
 
 import UIKit
 
-class PubQuestionController: PubBaseTableViewController{
+class ServerDetailController: BaseDetailController {
 
-    @IBOutlet weak var collectionView: UICollectionView!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCellReuseIdentifier")
     }
 
-    
-
-    
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

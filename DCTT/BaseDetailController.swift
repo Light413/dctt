@@ -10,21 +10,27 @@ import UIKit
 import IQKeyboardManagerSwift
 
 class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewDataSource {
+    ///详情ID
     var pid:String!
-    var _tableview:UITableView!
+    
+    ///动态详情数据
+    var data:[String:Any]!
     
     ///评论
     var commentDataArr = [[String:Any]]()
     
+    var _tableview:UITableView!
+
     var headView:HomeDetailHeadView!
     var headFooterView:HomeDetailFooterView!
-    
     private let kSectionViewFooterHeight:CGFloat = 100
     private var _commentNumber:UILabel!
     private var _readCnt:[String:Any]?
     private var _isScBtn:UIButton! //是否收藏
+    private var viewModel:DetailViewM!
+    private var imgArr = [String]();
     
-    //设置评论数
+    ///设置评论数
     var commentNumbers:Int {
         get{
             return 0
@@ -78,7 +84,12 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
                 ss.commentNumbers = ss.commentDataArr.count;
             }
             
-            ss._tableview.reloadSections([1], with: .automatic)
+            //无动画刷新列表
+            UIView.performWithoutAnimation {
+                ss._tableview.reloadSections([1], with: .none)
+
+            }
+            
         }) { (err) in
             HUD.show(info: "获取评论失败,请稍后重试")
             print(err?.localizedDescription);
@@ -87,9 +98,6 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         }
         
     }
-    
-    
-    
     
     //MARK: - Init
     override func viewDidLoad() {
@@ -101,6 +109,9 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         addRightNavigationItem()
         
         loadReadCnt()
+        
+        getImages()
+
     }
 
     init(_ _id:String) {
@@ -113,150 +124,107 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     }
     
     func initSubview()  {
-        _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 49), style: .grouped)
+        viewModel = DetailViewM.init(self)
+        
+        _tableview = viewModel.tableView
         _tableview.delegate = self
         _tableview.dataSource = self
-        _tableview.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        _tableview.showsVerticalScrollIndicator = false
-        _tableview.separatorStyle = .none
-        _tableview.backgroundColor = UIColor.white
-        
-        //Register Cell
-        _tableview.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCellReuseIdentifier")
-        view.addSubview(_tableview)
-        
-        _tableview.register(UINib (nibName: "HomeDetailCommentCell", bundle: nil), forCellReuseIdentifier: "HomeDetailCommentCellIdentifier")
-        _tableview.register(UINib (nibName: "HomeDetailImgCell", bundle: nil), forCellReuseIdentifier: "HomeDetailImgCellIdentifier")
-        
-        //计算Cell高度
-        _tableview.estimatedRowHeight = 70
-        _tableview.rowHeight = UITableViewAutomaticDimension
-        
-        //headView
-        let headview = Bundle.main.loadNibNamed("HomeDetailHeadView", owner: nil, options: nil)?.last as! HomeDetailHeadView
-        _tableview.tableHeaderView = headview
-        headView = headview
-        
+
         //bottom comment btn
-        addBottomBar()
-        
-    }
-
-    //toolBar
-    func addBottomBar()  {
-        let toolBar = UIToolbar.init(frame: CGRect (x: 0, y: _tableview.frame.maxY, width: kCurrentScreenWidth, height: 49))
-        toolBar.barTintColor = tt_defafault_barColor //UIColor.white
-        
-        let btn_frame = CGRect (x: 0, y: 10, width: 120, height: 30)
-        let writeBtn = UIButton (frame: btn_frame)
-        writeBtn.setTitle("我要评论...", for: .normal)
-        writeBtn.setTitleColor(UIColor.darkGray, for: .normal)
-        writeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        writeBtn.layer.cornerRadius = 5
-        writeBtn.layer.masksToBounds = true
-        writeBtn.backgroundColor = UIColor.white
-        writeBtn.setImage(UIImage (named: "writeicon_review_dynamic"), for: .normal);
-        writeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 50)
-        writeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0)
-        writeBtn.tag = 100
-        writeBtn.addTarget(self, action: #selector(toolBarButtonClicked(_ :)), for: .touchUpInside)
-        let writeItem = UIBarButtonItem (customView: writeBtn)
-        
-        //评论数
-        let commentNumber = UIButton (frame: CGRect (x: 0, y: 10, width: 60, height: 30))
-        commentNumber.setTitleColor(UIColor.darkGray, for: .normal)
-        commentNumber.layer.cornerRadius = 5
-        commentNumber.layer.masksToBounds = true
-        commentNumber.setImage(UIImage (named: "tab_comment"), for: .normal);
-        commentNumber.imageEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0)
-        commentNumber.tag = 101
-        commentNumber.addTarget(self, action: #selector(toolBarButtonClicked(_ :)), for: .touchUpInside)
-        
-        let numLable = UILabel()
-        numLable.font = UIFont.systemFont(ofSize: 8)
-        numLable.textColor = UIColor.white
-        numLable.textAlignment = .center
-        numLable.backgroundColor = kButtonTitleColor
-        numLable.layer.cornerRadius = 5
-        numLable.layer.masksToBounds = true
-        //numLable.sizeToFit()
-        _commentNumber = numLable
-        
-        commentNumber.addSubview(numLable)
-        let commentNumberItem = UIBarButtonItem (customView: commentNumber)
-
-        //收藏
-        let scBtn = UIButton (frame: CGRect (x: 0, y: 5, width: 80, height: 35))
-        scBtn.setImage(UIImage (named: "likeicon_actionbar_details"), for: .normal)
-        scBtn.setImage(UIImage (named: "likeicon_actionbar_details_press"), for: .selected)
-        scBtn.imageEdgeInsets = UIEdgeInsetsMake(5, 10, 5, 45)//2020
-        scBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 2, 0, 0)
-        scBtn.setTitle("收藏", for: .normal)
-        scBtn.setTitle("已收藏", for: .selected)
-        scBtn.setTitleColor(UIColor.darkGray, for: .normal)
-        scBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        scBtn.tag = 102
-        scBtn.addTarget(self, action: #selector(toolBarButtonClicked(_ :)), for: .touchUpInside)
-        
-        _isScBtn = scBtn
-        let scItem = UIBarButtonItem (customView: scBtn)
-        
-        let flex = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        
-        toolBar.items = [writeItem,commentNumberItem,flex,scItem]
-        
-        view.addSubview(toolBar)
+        _isScBtn = viewModel._isScBtn
+        _commentNumber = viewModel._commentNumber
     }
     
-    func toolBarButtonClicked(_ button:UIButton) {
-        switch button.tag {
-        case 100://写评论
-            IQKeyboardManager.sharedManager().enable = false
-            IQKeyboardManager.sharedManager().enableAutoToolbar = false
-            let post_v = TTPostCommentView.init(frame:UIScreen.main.bounds)
-            post_v.pid = pid
-            
-            UIApplication.shared.keyWindow?.addSubview(post_v)
-            break
-        case 102://收藏
-            HUD.show()
-            
-            let d = ["pid":pid! ,
-                     "type": button.isSelected ? "3" : "2" ,
-                     "uid":User.uid()!]
-            
-            AlamofireHelper.post(url: post_detail_url, parameters: d, successHandler: { (res) in
-                button.isSelected = !button.isSelected
-                
-                HUD.show(successInfo: button.isSelected ? "收藏成功" : "取消收藏")
-            }) { (error) in
-                HUD.show(info: "请求失败,请稍后重试")
+    func getImages()  {
+        let images = String.isNullOrEmpty(data["images"])
+        if images.lengthOfBytes(using: String.Encoding.utf8) > 50 {
+            let arr = images.components(separatedBy: ",")
+            if arr.count > 0 {
+                imgArr = imgArr + arr
             }
-
-            
-            break
-        case 103://举报
-            
-            break
-        default:break
         }
+  
     }
- 
+    
+    ///可有子类重写获取不同的cell
+    func getCell(_ tableView:UITableView , indexPath:IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCellReuseIdentifier", for: indexPath);
+        
+        return cell
+    }
+    
     
     //MARK: - UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0 ;
+        if section == 0 {
+            return 1 +  lroundf(ceilf(Float(imgArr.count) / 3.0) ) // + pic 个数
+        }else{
+            //...没有评论或加载失败的处理
+            return commentDataArr.count //评论数
+        }
+        
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCellReuseIdentifier", for: indexPath)
- 
-        cell.selectionStyle = .none
+        var cell = getCell(tableView, indexPath: indexPath)
         
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                let _text = String.isNullOrEmpty(data["content"])
+                cell.textLabel?.numberOfLines = 0
+                cell.textLabel?.textColor = UIColor.black
+                
+                let paragraphStyle = NSMutableParagraphStyle.init()
+                paragraphStyle.lineSpacing = 5
+                paragraphStyle.lineBreakMode = .byCharWrapping
+                paragraphStyle.firstLineHeadIndent = 30
+                
+                let dic:[String:Any] = [NSFontAttributeName:UIFont.systemFont(ofSize: 17) , NSParagraphStyleAttributeName:paragraphStyle,NSKernAttributeName:1]
+                let attriStr = NSAttributedString.init(string: _text, attributes: dic)
+                cell.textLabel?.attributedText = attriStr
+            }else{//带有图的cell
+                cell = tableView.dequeueReusableCell(withIdentifier: "HomeDetailImgCell3Identifier", for: indexPath) as! HomeDetailImgCell3
+                
+                /////
+                let row = indexPath.row - 1
+                let igs = imagesWithIndex(row)
+                (cell as! HomeDetailImgCell3).tapActionHandler = {[weak self] i in
+                    if  let ss = self {
+                        let index = row * 3 + i
+                        let vc  = TTImagePreviewController2()
+                        vc.index = index - 1
+                        vc.dataArry = ss.imgArr
+                        
+                        ss.navigationController?.present(vc, animated: false, completion: nil)
+                    }
+                    
+                }
+                
+                (cell as! HomeDetailImgCell3).fill(igs)
+                
+            }
+        }else{
+            cell = tableView.dequeueReusableCell(withIdentifier: "HomeDetailCommentCellIdentifier", for: indexPath)
+            let d = commentDataArr[indexPath.row]
+            (cell as! HomeDetailCommentCell).fill(d)
+            (cell as! HomeDetailCommentCell).avatarClickedAction = {[weak self] in
+                guard let ss = self else {return}
+                
+                let vc = MeHomePageController.init(style:.plain)
+                if let uid = d["uid"] as? String {
+                    vc.uid = uid
+                }
+                
+                ss.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        
+        
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -282,6 +250,21 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     }
     
 
+    //MARK: -
+    func imagesWithIndex(_ index:Int) -> [String] {
+        var arr = [String]()
+        for i in index * 3 ..< imgArr.count{
+            let origin = imgArr[i]
+            arr.append(origin)
+            if arr.count >= 3 {
+                break
+            }
+        }
+        
+        return arr
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

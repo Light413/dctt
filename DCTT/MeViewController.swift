@@ -14,13 +14,13 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
     var _topBgView:UIView!
     
-    let _titleArr = ["我的主页","消息",/*"关注",*/"收藏","粉丝关注",/*"意见反馈",*/"设置"]
+    let _titleArr = ["我的主页","消息","收藏","粉丝关注","历史记录","设置"]
     let _imgArr = ["uc_account",
                    "uc_message",
                    /*"uc_danzi",*/
                 "uc_shouc",
                 "uc_app",
-                //"uc_add",
+                "uc_zhaop",
                 "uc_system"]
 
     override func viewDidLoad() {
@@ -231,8 +231,12 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             case 3:
                 vc = FensiBaseController()
                 break
-
-            case 4://意见反馈
+                
+            case 4:
+                vc = HistoryViewController()
+                break
+                
+            case 5://设置
                 vc =  UIStoryboard (name: "me", bundle: nil).instantiateViewController(withIdentifier: "me_setter_sbid");
                 
                 //vc = FackBackViewController();

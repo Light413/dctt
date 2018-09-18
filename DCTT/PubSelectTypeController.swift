@@ -138,9 +138,6 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let d = dataArray[indexPath.section][indexPath.row]
         let item_id = d["item_id"]!
-        let item_key = d["item_key"]!
-        
-        kPublish_type_info = d
 
         _dismiss { [weak self]  in
             guard let strongSelf = self else {return }
@@ -148,28 +145,19 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
             
             switch item_id {
             case "id001"://发布新鲜事
-                var _row = 0
-                switch (indexPath.section,indexPath.row) {
-                    case (0,0): _row = 1; break
-                    case (0,2): _row = 2; break
-                    case (0,3): _row = 3; break
-                    case (0,4): _row = 4; break
-                    case (0,5): _row = 5; break
-                    case (0,1): _row = 6; break
-                    default:break
-                }
+
+                vc = PublishViewController.init(info:d)
+                break;
                 
-                vc = PublishViewController("\(_row)"); break;
-                
-            case "id002"://朋友圈
-                vc = PublishFriendViewController(); break;
+//            case "id002"://朋友圈
+//                vc = PublishFriendViewController(); break;
                 
             case "id003"://房屋信息 - 问答
                 vc =  //BaseVCWithTableView() //
                 strongSelf.controllerWith(identifierId: "pub_fangwu_id")
                 break
                 
-            case "id004","id008"://商家信息
+            case "id004"://商家信息
                 vc = strongSelf.controllerWith(identifierId: "pub_shangjia_id")
                 break
                 
@@ -184,13 +172,15 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
             case "id007"://打车出行
                 vc = strongSelf.controllerWith(identifierId: "pub_dache_id")
                 break
-                
-            /*case "id008"://快递物流 通商家信息
-                vc = strongSelf.controllerWith(identifierId: "pub_jiaoyou_id")
-                return; break*/
-                
+
             default:return
             }
+            
+            if vc .isKind(of: PubBaseTableViewController.self){
+                print(".....")
+                (vc as! PubBaseTableViewController).typeInfo = d
+            }
+            
             
             let nav = BaseNavigationController (rootViewController:vc)
             UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
@@ -216,7 +206,7 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize (width: collectionview.frame.width, height: section == 0 ? 50 : 50)
+        return CGSize (width: collectionview.frame.width, height: section == 0 ? 0 : 50)
     }
     
     //MARK: - 
@@ -231,16 +221,5 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

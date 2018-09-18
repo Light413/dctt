@@ -10,34 +10,49 @@ import UIKit
 
 class PubShangJiaController: PubBaseTableViewController {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var imgagesCell: TableCellWithCollectionView!
+    @IBOutlet weak var textCell: UITextView!
+  
+    @IBOutlet weak var sj_name: UITextField!
     
+    @IBOutlet weak var sj_address: UITextField!
+    
+    @IBOutlet weak var sj_tel: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
-//        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCellReuseIdentifier")
         
+        imgagesCell.superVC = self
+        
+        sourceTextView = textCell
     }
 
+    override func willPost() {
+        imgDataArr = imgagesCell.imagesArr
+    }
+    
+    override func startPost(_ ig:[UIImage]? = nil)  {
+        guard let uid = User.uid() else { HUD.showText("请前往登录", view: view);return}
+        guard String.isNullOrEmpty(sj_name.text).lengthOfBytes(using: String.Encoding.utf8) > 0 else{ HUD.showText("请输入商家名称", view: view);return}
+        guard String.isNullOrEmpty(sj_address.text).lengthOfBytes(using: String.Encoding.utf8) > 0 else{ HUD.showText("请输入商家地址", view: view);return}
+        guard String.isNullOrEmpty(sj_tel.text).lengthOfBytes(using: String.Encoding.utf8) > 0 else{ HUD.showText("请输入联系方式", view: view);return}
+        
+        let sjInfo = ["name":String.isNullOrEmpty(sj_name.text),
+                      "address":String.isNullOrEmpty(sj_address.text),
+                      "tel":String.isNullOrEmpty(sj_tel.text),
+                      "content":String.isNullOrEmpty(textCell.text)]
+        
+        _post(uid, pars: sjInfo, ig: ig)
+        
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -8,12 +8,18 @@
 
 import UIKit
 
-class ZTTableViewCell: UITableViewCell {
+class ZTTableViewCell: UITableViewCell ,HomeCellFillDateAble{
 
     @IBOutlet weak var bg: UIView!
     
+    @IBOutlet weak var title: UILabel!
     @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var user: UILabel!
+    @IBOutlet weak var user_avatar: UIImageView!
     
+    
+    
+    @IBOutlet weak var date: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,12 +30,29 @@ class ZTTableViewCell: UITableViewCell {
         bg.layer.cornerRadius = 5        
         bg.layer.masksToBounds = true
         
+    }
+
+    func fill(_ d:[String:Any]) {
+        
+        fillData(msg: content, user: user, date: date, data: d)
+        
+        date.text = "发布于 \(date.text!)"
+        let cc = String.isNullOrEmpty(d["content"])
+        do{
+            let jsonObject = try JSONSerialization.jsonObject(with: cc.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.allowFragments)
+            let obj = jsonObject as! [String:String]
+            title.text = "#" +  String.isNullOrEmpty(obj["title"])
+        }catch {
+            
+        }
+        
+        
         
         /////////////msg
         let paragraphStyle = NSMutableParagraphStyle.init()
         paragraphStyle.lineSpacing = 5
-        paragraphStyle.lineBreakMode = .byCharWrapping
-        paragraphStyle.firstLineHeadIndent = 30
+        paragraphStyle.lineBreakMode = .byTruncatingTail //byCharWrapping
+        paragraphStyle.firstLineHeadIndent = 5
         
         let attri:[String:Any] = [
             NSFontAttributeName:UIFont.systemFont(ofSize: 16) ,
@@ -37,17 +60,23 @@ class ZTTableViewCell: UITableViewCell {
             //NSKernAttributeName:1
         ]
         
-        let str = "前女友是我小姨子的上司，小姨子工作犯错要被开除，老婆让我找前女友求求情。于是我打了电话，前女友问明情况后说：“她让你找我，你就找我？你有没脑子的？明摆着在试探！我要是为了你帮这个忙，她一定整死你信不信？”"//String.isNullOrEmpty(d["content"])
-        let attriStr = NSAttributedString.init(string: str, attributes: attri)
-        content.attributedText = attriStr
-        content.lineBreakMode = .byTruncatingTail;
+        let str = content.text 
+        content.text = nil
         
+        let attriStr = NSAttributedString.init(string: str!, attributes: attri)
+        content.attributedText = attriStr
+        
+        
+        guard let dic = d["user"] as? [String:Any] else {return}
+        if let igurl = dic["avatar"] as? String {
+            let url = URL.init(string: igurl)
+            user_avatar.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    override func prepareForReuse() {
+        title.text = nil
+        content.text = nil
     }
     
 }

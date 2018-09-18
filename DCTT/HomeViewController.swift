@@ -35,7 +35,16 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
 
     func _init() {
         //head
-        let titles = ["最新","热门","问答","活动","吐槽","娱乐"]//["最新","热门","问答","段子","美食","商家"]
+        let titles = ["最新","热门","问答","活动","吐槽","娱乐","互助"]
+        let titlesId = [
+            "最新":"0",
+            "热门":"1",
+            "问答":"12",
+            "活动":"14",
+            "吐槽":"13",
+            "娱乐":"15",
+            "互助":"11"
+        ]
         
         var attri = TTHeadTextAttribute()
         attri.itemWidth = 50
@@ -48,7 +57,9 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         
         ////pagevc
         for i in 0..<titles.count {
-            let v = HomerListViewController("\(i)");
+            let t = titles[i]
+            
+            let v = HomerListViewController(String.isNullOrEmpty(titlesId[t]));
             //v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h - 49)
             vcArr.append(v)
         }

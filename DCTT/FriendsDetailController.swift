@@ -9,7 +9,7 @@
 import UIKit
 
 class FriendsDetailController: BaseDetailController{
-    var data:[String:Any]!
+    //var data:[String:Any]!
     
     private var imgArr = [String]()
     

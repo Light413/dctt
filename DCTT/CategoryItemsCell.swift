@@ -17,6 +17,8 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
     
     var numberOfItem = 0
     
+    var cellSelectedAction:(([String:String]) -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -86,9 +88,8 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = FriendsDetailController("")
+
         
-        //self.navigationController?.pushViewController(vc, animated: true)
     }
 
     
@@ -97,7 +98,15 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
         pageCtr.currentPage = Int.init(n)
     }
     
+    func itemClickedAction(_ button:UIButton){
+        if let handler = cellSelectedAction {
+            let d = dataArray[button.tag];
+            handler(d)
+        }
+    }
+    
     func cellWithAddItemButton(_ cell:UICollectionViewCell,indexPath:IndexPath) {
+        
         for _v in cell.contentView.subviews {
             if _v is UIButton {
                 _v.removeFromSuperview();
@@ -117,10 +126,12 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
             let btn = UIButton (frame: CGRect (x: w * CGFloat(_col), y: h * CGFloat(_row), width: w, height: h))
             
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-            
-            let d = dataArray[i + row * 8]
+            let index = i + row * 8
+            let d = dataArray[index]
             let str = d["item_title"]
             btn.setTitle(str!, for: .normal)
+            btn.tag = index
+            btn.addTarget(self, action: #selector(itemClickedAction(_ :)), for: .touchUpInside)
             
             //btn.setTitle(dataArray[i + row * 8 ], for: .normal)
             btn.setTitleColor(UIColor.darkGray, for: .normal)
@@ -134,6 +145,7 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
         }
 
         
+
         
 //        for i in 0..<2 {
 //            for j in 0..<4 {
@@ -155,13 +167,5 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
         
     }
     
-    
-    
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
 }

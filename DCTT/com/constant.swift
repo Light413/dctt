@@ -89,7 +89,6 @@ let kPublishTypeTitle = [
 ]
 
 var kPublish_type_title:String!
-var kPublish_type_info:[String:String]!
 
 
 //////TEST

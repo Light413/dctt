@@ -23,7 +23,7 @@
                         <rect key="frame" x="10" y="5" width="300" height="189.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="前女友是我小姨子的上司，小姨子工作犯错要被开除，老婆让我找前女友求求情。于是我打了电话，前女友问明情况后说：“她让你找我，你就找我？你有没脑子的？明摆着在试探！我要是为了你帮这个忙，她一定整死你信不信？”" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vaf-cF-hSt">
-                                <rect key="frame" x="10" y="54" width="280" height="95.5"/>
+                                <rect key="frame" x="10" y="51" width="280" height="95.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -41,8 +41,8 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="#好多年不联系的同学突然找你借钱大伙该怎么办？#" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2r-x6-nF1">
-                                <rect key="frame" x="15" y="10" width="270" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="#好多年不联系的同学突然找你借钱大伙该怎么办？#" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2r-x6-nF1">
+                                <rect key="frame" x="15" y="10" width="270" height="33"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -53,9 +53,15 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-12-19 13:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdK-NT-fhV">
+                                <rect key="frame" x="98" y="163" width="100" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="0SK-z4-gxm" firstAttribute="top" secondItem="Vaf-cF-hSt" secondAttribute="bottom" constant="5" id="D3B-TA-tXe"/>
+                            <constraint firstItem="0SK-z4-gxm" firstAttribute="top" secondItem="Vaf-cF-hSt" secondAttribute="bottom" constant="8" id="D3B-TA-tXe"/>
                             <constraint firstItem="Vaf-cF-hSt" firstAttribute="top" secondItem="B2r-x6-nF1" secondAttribute="bottom" constant="8" id="DAw-Cs-2Pu"/>
                             <constraint firstItem="Vaf-cF-hSt" firstAttribute="leading" secondItem="mHC-Fh-p44" secondAttribute="leading" constant="10" id="IfS-ll-jkz"/>
                             <constraint firstItem="0SK-z4-gxm" firstAttribute="leading" secondItem="Vaf-cF-hSt" secondAttribute="leading" id="PqC-Ni-ssI"/>
@@ -64,6 +70,8 @@
                             <constraint firstItem="3La-bN-CuH" firstAttribute="leading" secondItem="0SK-z4-gxm" secondAttribute="trailing" constant="5" id="YTX-53-f5M"/>
                             <constraint firstItem="3La-bN-CuH" firstAttribute="centerY" secondItem="0SK-z4-gxm" secondAttribute="centerY" id="Ykj-7Z-i2w"/>
                             <constraint firstItem="B2r-x6-nF1" firstAttribute="top" secondItem="mHC-Fh-p44" secondAttribute="top" constant="10" id="kUL-Dd-hhy"/>
+                            <constraint firstItem="IdK-NT-fhV" firstAttribute="leading" secondItem="3La-bN-CuH" secondAttribute="trailing" constant="10" id="ks7-fO-fWK"/>
+                            <constraint firstItem="IdK-NT-fhV" firstAttribute="centerY" secondItem="3La-bN-CuH" secondAttribute="centerY" id="kzz-OG-i2o"/>
                             <constraint firstAttribute="bottom" secondItem="0SK-z4-gxm" secondAttribute="bottom" constant="5" id="lLe-72-6Ft"/>
                             <constraint firstItem="B2r-x6-nF1" firstAttribute="leading" secondItem="mHC-Fh-p44" secondAttribute="leading" constant="15" id="vnC-5I-6cy"/>
                         </constraints>
@@ -80,6 +88,10 @@
             <connections>
                 <outlet property="bg" destination="mHC-Fh-p44" id="S37-om-FId"/>
                 <outlet property="content" destination="Vaf-cF-hSt" id="dpX-nQ-BlH"/>
+                <outlet property="date" destination="IdK-NT-fhV" id="jSF-gq-DAl"/>
+                <outlet property="title" destination="B2r-x6-nF1" id="zeU-o8-97m"/>
+                <outlet property="user" destination="3La-bN-CuH" id="40X-Vo-Prk"/>
+                <outlet property="user_avatar" destination="0SK-z4-gxm" id="PJW-5W-4xf"/>
             </connections>
             <point key="canvasLocation" x="-102" y="-15"/>
         </tableViewCell>

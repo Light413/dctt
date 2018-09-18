@@ -12,7 +12,24 @@ protocol HomeCellFillDateAble {}
 
 extension HomeCellFillDateAble {
     func fillData(msg content:UILabel , user name:UILabel , date:UILabel , data d:[String:Any]){
-        content.text = String.isNullOrEmpty(d["content"])
+        let type = String.isNullOrEmpty(d["type"])
+        switch type {
+        case "6","21","22","23","24","25"://生活服务类信息
+            let cc = String.isNullOrEmpty(d["content"])
+            do{
+                let jsonObject = try JSONSerialization.jsonObject(with: cc.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.allowFragments)
+                let obj = jsonObject as! [String:String]
+                content.text = String.isNullOrEmpty(obj["content"])
+
+            }catch {
+                
+            }
+            
+            break
+            
+        default:content.text = String.isNullOrEmpty(d["content"]); break
+        }
+
         
         if let u_info = d["user"] as? [String:Any]  {
             var s = ""
@@ -28,9 +45,9 @@ extension HomeCellFillDateAble {
             name.text = s
             
             date.text = Date.dateFormatterWithString(String.isNullOrEmpty(d["postDate"]))
-            
-            
         }
+        
+        
     }
     
 }

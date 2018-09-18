@@ -16,28 +16,15 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="动态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGR-0o-BRQ">
-                    <rect key="frame" x="144.5" y="17" width="31" height="18"/>
-                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                    <rect key="frame" x="145.5" y="16.5" width="29" height="17"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ov-5N-z1g">
-                    <rect key="frame" x="0.0" y="6" width="320" height="1"/>
-                    <color key="backgroundColor" red="0.92538958787918091" green="0.92554813623428345" blue="0.92537957429885864" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="SNL-bi-uT5"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="7Ov-5N-z1g" secondAttribute="trailing" id="5Gn-SV-O0j"/>
-                <constraint firstItem="hGR-0o-BRQ" firstAttribute="top" secondItem="7Ov-5N-z1g" secondAttribute="bottom" constant="10" id="BpO-vv-Ujt"/>
-                <constraint firstItem="7Ov-5N-z1g" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="IQY-A7-ntB"/>
+                <constraint firstItem="hGR-0o-BRQ" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="Wlv-2R-SjJ"/>
                 <constraint firstItem="hGR-0o-BRQ" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="o6s-U9-KYw"/>
-                <constraint firstAttribute="bottom" secondItem="hGR-0o-BRQ" secondAttribute="bottom" constant="15" id="oVe-uU-6Zx"/>
             </constraints>
             <connections>
                 <outlet property="title" destination="hGR-0o-BRQ" id="h2T-43-RBy"/>

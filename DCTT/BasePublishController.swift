@@ -8,24 +8,54 @@
 
 import UIKit
 import Photos
+import RxSwift
+import RxCocoa
 
 class BasePublishController: BaseViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
+    ///选择的图片
     var imgDataArr = [Any]()
+    
+    //最大图片数
+    var kMaxImagesNumber:Int = 9
+    
+    //发布类型信息
+    var typeInfo:[String:String]?
+    var typeId:String!
     
     var _colloectionview:UICollectionView!
     
-    var kMaxImagesNumber:Int = 9
+    
     private var presentViewController:UINavigationController!
     
     var textCell:PublishTextCell!
     
-    //MARK:
+    var publishBtn:UIButton!
+    
+    //MARK: -
+    init( info : [String:String]?) {
+        super.init(nibName: nil, bundle: nil)
+        
+        typeInfo = info
+        
+        if let _info = info , let type = _info["item_key"] {
+            typeId = type
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
+    let disposeBag = DisposeBag.init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor.white
-        if kPublish_type_info != nil {
-            title = kPublish_type_info["item_title"]
+        if let info  = typeInfo {
+            title = info["item_title"]
             
         }
         
@@ -51,7 +81,20 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         
         ///监听图片选择完成事件
         NotificationCenter.default.addObserver(self, selector: #selector(selectImageCompletionNotification(_ :)), name: NSNotification.Name (rawValue: "notification_selectedimage_completion"), object: nil)
+        
+        
+        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        ///publish
+        let obserable =  textCell.textview.rx.text.orEmpty.map{($0.lengthOfBytes(using: String.Encoding.utf8)) > 0}.shareReplay(1)
+
+        obserable.bindTo(publishBtn.ex_isEnabled).addDisposableTo(disposeBag);
+    }
+    
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -82,10 +125,12 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
     func rightNavigationItem() -> UIBarButtonItem{
         let rightbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 40, height: 30))
         rightbtn.setTitle("发布", for: .normal)
-        rightbtn.setTitleColor(tt_BarColor , for: .normal)
+        rightbtn.setTitleColor(UIColor.lightGray , for: .normal)
         rightbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         rightbtn.addTarget(self, action: #selector(submintBtnAction), for: .touchUpInside)
         let rightitem = UIBarButtonItem.init(customView: rightbtn)
+        
+        publishBtn = rightbtn
         
         return rightitem
     }

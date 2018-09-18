@@ -13,7 +13,7 @@
 		</dict>
 		<dict>
 			<key>item_title</key>
-			<string>朋友圈</string>
+			<string>互助</string>
 			<key>item_id</key>
 			<string>id001</string>
 			<key>item_key</key>
@@ -55,7 +55,7 @@
 	<array>
 		<dict>
 			<key>item_key</key>
-			<string>22</string>
+			<string>20</string>
 			<key>item_title</key>
 			<string>吃喝玩乐</string>
 			<key>item_id</key>
@@ -63,7 +63,7 @@
 		</dict>
 		<dict>
 			<key>item_key</key>
-			<string>24</string>
+			<string>21</string>
 			<key>item_title</key>
 			<string>求职招聘</string>
 			<key>item_id</key>
@@ -71,9 +71,9 @@
 		</dict>
 		<dict>
 			<key>item_key</key>
-			<string>21</string>
+			<string>22</string>
 			<key>item_title</key>
-			<string>商家</string>
+			<string>商家主页</string>
 			<key>item_id</key>
 			<string>id004</string>
 		</dict>
@@ -87,7 +87,7 @@
 		</dict>
 		<dict>
 			<key>item_key</key>
-			<string>25</string>
+			<string>24</string>
 			<key>item_title</key>
 			<string>房屋信息</string>
 			<key>item_id</key>
@@ -95,7 +95,7 @@
 		</dict>
 		<dict>
 			<key>item_key</key>
-			<string>26</string>
+			<string>25</string>
 			<key>item_title</key>
 			<string>打车出行</string>
 			<key>item_id</key>
@@ -103,7 +103,7 @@
 		</dict>
 		<dict>
 			<key>item_key</key>
-			<string>29</string>
+			<string>26</string>
 			<key>item_title</key>
 			<string>二手交易</string>
 			<key>item_id</key>
@@ -111,7 +111,7 @@
 		</dict>
 		<dict>
 			<key>item_key</key>
-			<string>215</string>
+			<string>27</string>
 			<key>item_title</key>
 			<string>便民信息</string>
 			<key>item_id</key>

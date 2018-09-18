@@ -7,37 +7,55 @@
 //
 
 import UIKit
+import Photos
+import RxSwift
+import RxCocoa
 
-class PubBaseTableViewController: UITableViewController ,UICollectionViewDelegate,UICollectionViewDataSource {
-    
+class PubBaseTableViewController: UITableViewController{
     var t_barTintColor:UIColor?
     
-    override func awakeFromNib() {
-        //tableView.contentInset = UIEdgeInsetsMake(10, 10, 10, -10)
-        
-        title = kPublish_type_info["item_title"]
-        
-    }
+    ///发布按钮
+    var publishBtn:UIButton!
+    ///发布内容
+    var sourceTextView:UITextView!
+    ///选择的图片
+    var imgDataArr = [Any]()
+    ///发布类型信息
+    var typeInfo:[String:String]?
+    var typeId:String!
     
+    let disposeBag = DisposeBag.init();
     
-    
+    //MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        ////navigationItem
+        view.backgroundColor = tt_bg_color
         navigationItem.leftBarButtonItem = leftNavigationItem()
         navigationItem.rightBarButtonItem = rightNavigationItem()
 
-        ///////
+        tableView.showsVerticalScrollIndicator = false
+        
+        if let _info = typeInfo , let type = _info["item_key"] {
+            typeId = type
+            
+            title = _info["item_title"]
+        }
+        
         
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        _addObserve(sourceTextView)
+    }
+    
+    func _addObserve(_ source:UITextView) {
+        let obserable =  source.rx.text.orEmpty.map{($0.lengthOfBytes(using: String.Encoding.utf8)) > 0}.shareReplay(1)
+        
+        obserable.bindTo(publishBtn.ex_isEnabled).addDisposableTo(disposeBag);
+    }
     
     func leftNavigationItem() -> UIBarButtonItem {
         let leftbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
@@ -52,119 +70,97 @@ class PubBaseTableViewController: UITableViewController ,UICollectionViewDelegat
     func rightNavigationItem() -> UIBarButtonItem{
         let rightbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
         rightbtn.setTitle("发布", for: .normal)
-        rightbtn.setTitleColor(UIColor.darkGray , for: .normal)//kAirplaneCell_head_selected_color
+        rightbtn.setTitleColor(UIColor.lightGray , for: .normal)//kAirplaneCell_head_selected_color
         rightbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        rightbtn.addTarget(self, action: #selector(previewAction), for: .touchUpInside)
+        rightbtn.addTarget(self, action: #selector(submintBtnAction), for: .touchUpInside)
         let rightitem = UIBarButtonItem.init(customView: rightbtn)
+        
+        publishBtn = rightbtn
         
         return rightitem
     }
     
+    
+    
     //MARK: - Actions
+    func submintBtnAction(){
+        willPost()
+        guard imgDataArr.count > 0 else {startPost(); return}
+        var images = [UIImage]()
+        //获取相册图片
+        let requestOption = PHImageRequestOptions.init()
+        requestOption.resizeMode = .fast
+        requestOption.isSynchronous = true
+        let size = CGSize(width: 400, height: 400)
+        let group = DispatchGroup.init()
+        
+        for i in 0..<imgDataArr.count {
+            let obj = imgDataArr[i]
+            
+            group.enter()
+            if obj is PHAsset {
+                PHImageManager.default().requestImage(for: obj as! PHAsset, targetSize: size, contentMode: .aspectFit, options: requestOption, resultHandler: {(img, dic) in
+                    if let ig = img{
+                        images.append(ig)
+                    }
+                    
+                    group.leave()
+                })
+            }else if obj is UIImage {
+                images.append(obj as! UIImage);
+                group.leave()
+            }
+            
+        }
+        
+        group.notify(queue: DispatchQueue.main) {[weak self ] in
+            guard let ss = self else {return}
+            ss.startPost(images)
+        }
+        
+    }
+    
+    ///将要发布的预处理,有子类实现具体操作
+    func willPost() {}
+    func startPost(_ ig:[UIImage]? = nil) {}
+    
+    //有子类调用，请求网络
+    func _post(_ uid:String , pars:[String:String],ig:[UIImage]? = nil)  {
+        var contentJsonStr = ""
+        do{
+            let data = try JSONSerialization.data(withJSONObject: pars, options: []);
+            contentJsonStr = NSString.init(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+        }catch{
+            print(error.localizedDescription)
+        }
+        
+        
+        HUD.show()
+        let d = ["uid":uid,
+                 "content":String.isNullOrEmpty(contentJsonStr),
+                 "type":typeId!]
+        
+        AlamofireHelper.upload(to: publish_url, parameters: d, uploadFiles: ig, successHandler: { [weak self] (res) in
+            print(res)
+            HUD.show(successInfo: "发布成功!");
+            guard let ss = self else {return}
+            
+            ss.dismiss(animated: true, completion: nil)
+            
+        }) {
+            print("upload faile");
+        }
+    }
+    
+    
     func navigationBackButtonAction() {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func previewAction() {}
-    func submintBtnAction(){}
-    
-    
-    //MARK: - 
-    //MARK:
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UICollectionViewCellReuseIdentifier", for: indexPath)
-        
-        for _v in cell.contentView.subviews {
-            _v.removeFromSuperview();
-        }
-        
-        let igv = UIImageView (frame: CGRect (x: (cell.frame.width - 30)/2, y: (cell.frame.height - 30)/2, width: 30, height: 30))
-        igv.image = UIImage (named: "addicon_repost")
-        cell.contentView.addSubview(igv)
-        cell.backgroundColor = UIColor (colorLiteralRed: 244/255.0, green: 245/255.0, blue: 246/255.0, alpha: 1)
-        
-        
-        return cell
-    }
-    
-    
-    
-    
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
