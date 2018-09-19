@@ -245,7 +245,7 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let d = dataArray[indexPath.row]
         let pid =  String.isNullOrEmpty(d["pid"])
-        let vc = ServerDetailController(pid)
+        let vc = ServerDetailController(pid,type:kCategory_life)
         
         vc.data = d
         

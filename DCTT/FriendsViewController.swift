@@ -151,7 +151,7 @@ class FriendsViewController: BaseViewController,UICollectionViewDelegate,UIColle
 
         let d = dataArray[indexPath.row]
         let pid =  String.isNullOrEmpty(d["pid"])
-        let vc = FriendsDetailController(pid)
+        let vc = FriendsDetailController(pid,type:"----")
         
         vc.data = d
         

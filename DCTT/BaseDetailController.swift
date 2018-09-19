@@ -10,6 +10,9 @@ import UIKit
 import IQKeyboardManagerSwift
 
 class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewDataSource {
+    ///信息类别(首页详情， 生活服务详情，专题详情)
+    var category:String!
+    
     ///详情ID
     var pid:String!
     
@@ -51,8 +54,13 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     func loadReadCnt() {
         //...未登录的问题还没处理
         
+        let d = ["pid":pid! ,
+                 "type":"0",
+                 "uid":User.uid()!,
+                 "category":category!
+        ]
         
-        AlamofireHelper.post(url: post_detail_url, parameters: ["pid":pid! , "type":"0","uid":User.uid()!], successHandler: {[weak self] (res) in
+        AlamofireHelper.post(url: post_detail_url, parameters: d, successHandler: {[weak self] (res) in
             guard let body = res["body"] as? [String:Any] else {return}
             guard let ss = self else {return}
             if let footview = ss.headFooterView {
@@ -65,14 +73,18 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
             ss._isScBtn.isSelected = String.isNullOrEmpty(body["sc"]) == "1"
             
         }) { (error) in
-            //HUD.dismiss()
+            //HUD.dismiss()6ed4688d98ffba10b85198fbc5e38e6b
+            print(error?.localizedDescription)
         }
         
     }
     
     ///获取评论
     func loadComment() {
-        let d = ["type":"get","pid":pid!]
+        let d = ["type":"get",
+                 "pid":pid!,
+                 "category":category!
+        ]
         
         AlamofireHelper.post(url: comment_url, parameters: d, successHandler: {[weak self] (res) in
             guard let arr = res["body"] as? [[String:Any]] else {return}
@@ -115,9 +127,10 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
 
     }
 
-    init(_ _id:String) {
+    init(_ _id:String , type _category:String) {
         super.init(nibName: nil, bundle: nil)
         pid = _id
+        category = _category
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -126,6 +139,7 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     
     func initSubview()  {
         viewModel = DetailViewM.init(self)
+        viewModel.category = category
         
         _tableview = viewModel.tableView
         _tableview.delegate = self
@@ -236,6 +250,8 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard section == 0 else { return nil}
         guard let v = Bundle.main.loadNibNamed("HomeDetailFooterView", owner: nil, options: nil)?.last as? HomeDetailFooterView else{return nil}
+        v.category = category
+        
         headFooterView = v
         
         if let readcnt = _readCnt {

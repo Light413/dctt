@@ -14,6 +14,7 @@ class HomeDetailFooterView: UIView {
     @IBOutlet weak var readCnt: UILabel!
     
     var _d:[String:Any]?
+    var category:String!
     
     override func awakeFromNib() {
         zanBtn.contentHorizontalAlignment = .center
@@ -34,7 +35,7 @@ class HomeDetailFooterView: UIView {
         }
         
         HUD.show()
-        let d = ["pid":pid , "type":"1" ,"postby":uid , "uid":User.uid()!]
+        let d = ["pid":pid , "type":"1" ,"postby":uid , "uid":User.uid()!,"category":category!]
 
         AlamofireHelper.post(url: post_detail_url, parameters: d, successHandler: {[weak self] (res) in
             guard let ss = self else {return}

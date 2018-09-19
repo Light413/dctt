@@ -66,6 +66,7 @@ enum ImageCellTpye {
 
 ///类型信息，与plist 对应
 let kPublishTypeInfo = [
+    "6":"话题",
     "10":"新鲜事",
     "11":"朋友圈",
     "12":"提问",
@@ -85,6 +86,11 @@ let kPublishTypeInfo = [
 //    "215":"其他",
 
 ]
+
+///信息类别
+let kCategory_home = "sy" //首页
+let kCategory_zt = "zt" //专题
+let kCategory_life = "life"//生活服务
 
 var kPublish_type_title:String!
 

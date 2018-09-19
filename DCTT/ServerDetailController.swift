@@ -15,12 +15,17 @@ class ServerDetailController: BaseDetailController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         _type = String.isNullOrEmpty(data["type"])
         
         title = kPublishTypeInfo[_type]
         
         switch _type! {
+        case "6"://专题
+            _cellReuseIdentifier = "ZTDetailCellIdentifier"
+            _tableview.register(UINib (nibName: "ZTDetailCell", bundle: nil), forCellReuseIdentifier: "ZTDetailCellIdentifier")
+            break
+            
         case "21","24","25"://求职、房屋、打车
             _cellReuseIdentifier = "QiuzhiCellIdentifier"
             _tableview.register(UINib (nibName: "QiuzhiCell", bundle: nil), forCellReuseIdentifier: "QiuzhiCellIdentifier")
@@ -40,8 +45,19 @@ class ServerDetailController: BaseDetailController {
         }
         
         
+        /////TTPostCommentSuccessNotification
+        NotificationCenter.default.addObserver(self, selector: #selector(postCommentSuccessAction(_ :)), name: TTPostCommentSuccessNotification, object: nil)
+        
+        loadComment()
     }
-
+    
+    func postCommentSuccessAction(_ noti:NSNotification) {
+        loadComment()
+    }
+    
+    
+    
+    
     override func getCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         if _cellReuseIdentifier != nil {
             let cell = tableView.dequeueReusableCell(withIdentifier: _cellReuseIdentifier, for: indexPath)

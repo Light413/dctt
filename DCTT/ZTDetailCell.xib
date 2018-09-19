@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ZTDetailCellIdentifier" id="v59-7e-7Lf" customClass="ZTDetailCell" customModule="DCTT" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v59-7e-7Lf" id="dCt-w4-UCJ">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rrx-2U-wY5">
+                        <rect key="frame" x="10" y="15" width="300" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是一个帅气的，努力向上的男生，不抽烟喝酒，工作积极，热爱生活。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dW9-Nv-YDp">
+                        <rect key="frame" x="10" y="51.5" width="300" height="41"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rrx-2U-wY5" firstAttribute="top" secondItem="dCt-w4-UCJ" secondAttribute="top" constant="15" id="3J8-mS-Wge"/>
+                    <constraint firstItem="dW9-Nv-YDp" firstAttribute="top" secondItem="rrx-2U-wY5" secondAttribute="bottom" constant="15" id="Pov-nc-bOa"/>
+                    <constraint firstItem="dW9-Nv-YDp" firstAttribute="leading" secondItem="rrx-2U-wY5" secondAttribute="leading" id="SaV-fb-1BA"/>
+                    <constraint firstAttribute="trailing" secondItem="dW9-Nv-YDp" secondAttribute="trailing" constant="10" id="bN5-xI-gjy"/>
+                    <constraint firstItem="rrx-2U-wY5" firstAttribute="leading" secondItem="dCt-w4-UCJ" secondAttribute="leading" constant="10" id="gfh-At-qrx"/>
+                    <constraint firstAttribute="trailing" secondItem="rrx-2U-wY5" secondAttribute="trailing" constant="10" id="yVc-8g-FAW"/>
+                    <constraint firstAttribute="bottom" secondItem="dW9-Nv-YDp" secondAttribute="bottom" priority="250" constant="15" id="zdq-fy-vWd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="Ety-7f-LNp"/>
+            <connections>
+                <outlet property="content" destination="dW9-Nv-YDp" id="xXe-gN-U2q"/>
+                <outlet property="title" destination="rrx-2U-wY5" id="dh3-xF-rcU"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

@@ -149,7 +149,7 @@ class HomerListViewController: BaseTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let d = dataArray[indexPath.row]
         let pid =  String.isNullOrEmpty(d["pid"])
-        let vc = _category! == "life" ? ServerDetailController(pid) : HomeDetailController(pid)
+        let vc = _category! == "life" ? ServerDetailController(pid , type:kCategory_life) : HomeDetailController(pid , type:kCategory_home)
         
         vc.data = d
         

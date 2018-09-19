@@ -83,14 +83,14 @@ extension HomeCellFillDateAble {
         
         let attributes = [NSForegroundColorAttributeName:UIColor.white,
                           NSBackgroundColorAttributeName:UIColorFromHex(rgbValue: 0xE92D13),
-                          NSFontAttributeName:UIFont.systemFont(ofSize: 13),
+                          NSFontAttributeName:UIFont.systemFont(ofSize: 15),
                           //NSShadowAttributeName:shade
                           ]
-        let headTitle = String.isNullOrEmpty(kPublishTypeInfo[type]) + " "
+        let headTitle = " " + String.isNullOrEmpty(kPublishTypeInfo[type]) + "  "
         let des = headTitle + s;
         
         let attri = NSMutableAttributedString.init(string: des)
-        attri.addAttributes(attributes, range: NSRange.init(location: 0, length: 4))
+        attri.addAttributes(attributes, range: NSRange.init(location: 0, length: 6))
         return (String.isNullOrEmpty(category ?? "") == "life") ? nil : attri
     }
     

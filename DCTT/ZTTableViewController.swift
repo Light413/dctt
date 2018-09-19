@@ -118,6 +118,15 @@ class ZTTableViewController: BaseTableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let d = dataArray[indexPath.row]
+        let pid =  String.isNullOrEmpty(d["pid"])
+        let vc = ServerDetailController(pid,type:kCategory_zt)
+        
+        vc.data = d
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
 
 

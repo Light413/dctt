@@ -9,6 +9,8 @@ import UIKit
 import IQKeyboardManagerSwift
 
 class DetailViewM: NSObject {
+    var category:String!
+    
     var tableView:UITableView {
         get{
             return _tableview;
@@ -162,7 +164,9 @@ class DetailViewM: NSObject {
             
             let d = ["pid":pid! ,
                      "type": button.isSelected ? "3" : "2" ,
-                     "uid":User.uid()!]
+                     "uid":User.uid()!,
+                     "category":category!
+            ]
             
             AlamofireHelper.post(url: post_detail_url, parameters: d, successHandler: { (res) in
                 button.isSelected = !button.isSelected
