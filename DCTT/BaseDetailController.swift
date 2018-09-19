@@ -23,7 +23,7 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
 
     var headView:HomeDetailHeadView!
     var headFooterView:HomeDetailFooterView!
-    private let kSectionViewFooterHeight:CGFloat = 100
+    private let kSectionViewFooterHeight:CGFloat = 150
     private var _commentNumber:UILabel!
     private var _readCnt:[String:Any]?
     private var _isScBtn:UIButton! //是否收藏
@@ -49,7 +49,8 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     //MARK: - Load data
     //阅读量，点赞
     func loadReadCnt() {
-        //...
+        //...未登录的问题还没处理
+        
         
         AlamofireHelper.post(url: post_detail_url, parameters: ["pid":pid! , "type":"0","uid":User.uid()!], successHandler: {[weak self] (res) in
             guard let body = res["body"] as? [String:Any] else {return}
@@ -129,7 +130,8 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         _tableview = viewModel.tableView
         _tableview.delegate = self
         _tableview.dataSource = self
-
+        _tableview.sectionHeaderHeight = 0.01;
+        
         //bottom comment btn
         _isScBtn = viewModel._isScBtn
         _commentNumber = viewModel._commentNumber
@@ -149,6 +151,19 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     ///可有子类重写获取不同的cell
     func getCell(_ tableView:UITableView , indexPath:IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCellReuseIdentifier", for: indexPath);
+        
+        let _text = String.isNullOrEmpty(data["content"])
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.textColor = UIColor.black
+        
+        let paragraphStyle = NSMutableParagraphStyle.init()
+        paragraphStyle.lineSpacing = 5
+        paragraphStyle.lineBreakMode = .byCharWrapping
+        paragraphStyle.firstLineHeadIndent = 30
+        
+        let dic:[String:Any] = [NSFontAttributeName:UIFont.systemFont(ofSize: 17) , NSParagraphStyleAttributeName:paragraphStyle,NSKernAttributeName:1]
+        let attriStr = NSAttributedString.init(string: _text, attributes: dic)
+        cell.textLabel?.attributedText = attriStr
         
         return cell
     }
@@ -170,22 +185,11 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = getCell(tableView, indexPath: indexPath)
+        var cell:UITableViewCell!
         
         if indexPath.section == 0 {
             if indexPath.row == 0 {
-                let _text = String.isNullOrEmpty(data["content"])
-                cell.textLabel?.numberOfLines = 0
-                cell.textLabel?.textColor = UIColor.black
-                
-                let paragraphStyle = NSMutableParagraphStyle.init()
-                paragraphStyle.lineSpacing = 5
-                paragraphStyle.lineBreakMode = .byCharWrapping
-                paragraphStyle.firstLineHeadIndent = 30
-                
-                let dic:[String:Any] = [NSFontAttributeName:UIFont.systemFont(ofSize: 17) , NSParagraphStyleAttributeName:paragraphStyle,NSKernAttributeName:1]
-                let attriStr = NSAttributedString.init(string: _text, attributes: dic)
-                cell.textLabel?.attributedText = attriStr
+                cell = getCell(tableView, indexPath: indexPath)
             }else{//带有图的cell
                 cell = tableView.dequeueReusableCell(withIdentifier: "HomeDetailImgCell3Identifier", for: indexPath) as! HomeDetailImgCell3
                 
@@ -245,11 +249,7 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         return section == 0 ? kSectionViewFooterHeight : 0.01
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return  0.01
-    }
     
-
     //MARK: -
     func imagesWithIndex(_ index:Int) -> [String] {
         var arr = [String]()

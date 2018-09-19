@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class HomeCellWithImage: UITableViewCell {
+class HomeCellWithImage: HomeListBaseCell {
 
     @IBOutlet weak var msg: UILabel!
     
@@ -25,7 +25,7 @@ class HomeCellWithImage: UITableViewCell {
     }
 
     
-    func fill(_ d:[String:Any]) {
+    override func fill(_ d:[String:Any]) {
         fillData(msg: msg, user: name, date: time, data: d)
 
         

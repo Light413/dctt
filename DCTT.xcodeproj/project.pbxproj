@@ -109,6 +109,8 @@
 		AD1BA1F6205D1C1200B7C29C /* MeHomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BA1F5205D1C1200B7C29C /* MeHomePageController.swift */; };
 		AD1BEC012029EF6B003E334C /* PubTypeCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BEBFF2029EF6B003E334C /* PubTypeCollectionReusableView.swift */; };
 		AD1BEC022029EF6B003E334C /* PubTypeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD1BEC002029EF6B003E334C /* PubTypeCollectionReusableView.xib */; };
+		AD1DB7AE2151EAE2004BFF76 /* ServerBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1DB7AD2151EAE2004BFF76 /* ServerBaseCell.swift */; };
+		AD1DB7B0215230DB004BFF76 /* HomeListBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1DB7AF215230DB004BFF76 /* HomeListBaseCell.swift */; };
 		AD202751204C385A00E538CD /* PubShangJiaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD202750204C385900E538CD /* PubShangJiaController.swift */; };
 		AD202753204C388100E538CD /* PubJiaoYouController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD202752204C388100E538CD /* PubJiaoYouController.swift */; };
 		AD202755204C389500E538CD /* PubQiuzhiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD202754204C389500E538CD /* PubQiuzhiViewController.swift */; };
@@ -164,6 +166,13 @@
 		ADC61DEC2144217400AE11B1 /* ZTTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61DEA2144217400AE11B1 /* ZTTableViewCell.swift */; };
 		ADC61DED2144217400AE11B1 /* ZTTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADC61DEB2144217400AE11B1 /* ZTTableViewCell.xib */; };
 		ADC87BD4214FFD1F00B273C3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC87BD3214FFD1F00B273C3 /* HistoryViewController.swift */; };
+		ADC8EBEB21513C74008E5696 /* JiaoyouCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC8EBE921513C74008E5696 /* JiaoyouCell.swift */; };
+		ADC8EBEC21513C74008E5696 /* JiaoyouCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADC8EBEA21513C74008E5696 /* JiaoyouCell.xib */; };
+		ADC8EBEF21515096008E5696 /* QiuzhiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC8EBED21515096008E5696 /* QiuzhiCell.swift */; };
+		ADC8EBF021515096008E5696 /* QiuzhiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADC8EBEE21515096008E5696 /* QiuzhiCell.xib */; };
+		ADC8EBF3215150B2008E5696 /* ShangjiaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC8EBF1215150B2008E5696 /* ShangjiaCell.swift */; };
+		ADC8EBF4215150B2008E5696 /* ShangjiaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADC8EBF2215150B2008E5696 /* ShangjiaCell.xib */; };
+		ADC8EBFE215158CC008E5696 /* CellParseJsonAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC8EBFD215158CC008E5696 /* CellParseJsonAble.swift */; };
 		ADCA97862100DADD00DA0950 /* NetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97852100DADC00DA0950 /* NetHelper.swift */; };
 		ADCA97882100DB4500DA0950 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97872100DB4500DA0950 /* Tools.swift */; };
 		ADD7CE19211C88DF00A33F3B /* MeHomeCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7CE18211C88DF00A33F3B /* MeHomeCell2.swift */; };
@@ -307,6 +316,8 @@
 		AD1BA1F5205D1C1200B7C29C /* MeHomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeHomePageController.swift; sourceTree = "<group>"; };
 		AD1BEBFF2029EF6B003E334C /* PubTypeCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubTypeCollectionReusableView.swift; sourceTree = "<group>"; };
 		AD1BEC002029EF6B003E334C /* PubTypeCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PubTypeCollectionReusableView.xib; sourceTree = "<group>"; };
+		AD1DB7AD2151EAE2004BFF76 /* ServerBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerBaseCell.swift; sourceTree = "<group>"; };
+		AD1DB7AF215230DB004BFF76 /* HomeListBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListBaseCell.swift; sourceTree = "<group>"; };
 		AD202750204C385900E538CD /* PubShangJiaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubShangJiaController.swift; sourceTree = "<group>"; };
 		AD202752204C388100E538CD /* PubJiaoYouController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubJiaoYouController.swift; sourceTree = "<group>"; };
 		AD202754204C389500E538CD /* PubQiuzhiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubQiuzhiViewController.swift; sourceTree = "<group>"; };
@@ -362,6 +373,13 @@
 		ADC61DEA2144217400AE11B1 /* ZTTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTTableViewCell.swift; sourceTree = "<group>"; };
 		ADC61DEB2144217400AE11B1 /* ZTTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTTableViewCell.xib; sourceTree = "<group>"; };
 		ADC87BD3214FFD1F00B273C3 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		ADC8EBE921513C74008E5696 /* JiaoyouCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JiaoyouCell.swift; sourceTree = "<group>"; };
+		ADC8EBEA21513C74008E5696 /* JiaoyouCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JiaoyouCell.xib; sourceTree = "<group>"; };
+		ADC8EBED21515096008E5696 /* QiuzhiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiuzhiCell.swift; sourceTree = "<group>"; };
+		ADC8EBEE21515096008E5696 /* QiuzhiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QiuzhiCell.xib; sourceTree = "<group>"; };
+		ADC8EBF1215150B2008E5696 /* ShangjiaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShangjiaCell.swift; sourceTree = "<group>"; };
+		ADC8EBF2215150B2008E5696 /* ShangjiaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShangjiaCell.xib; sourceTree = "<group>"; };
+		ADC8EBFD215158CC008E5696 /* CellParseJsonAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellParseJsonAble.swift; sourceTree = "<group>"; };
 		ADCA97852100DADC00DA0950 /* NetHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetHelper.swift; sourceTree = "<group>"; };
 		ADCA97872100DB4500DA0950 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		ADD7CE18211C88DF00A33F3B /* MeHomeCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeCell2.swift; sourceTree = "<group>"; };
@@ -446,6 +464,7 @@
 			isa = PBXGroup;
 			children = (
 				ADFB5378213044F600C45441 /* HomeCellFillDateAble.swift */,
+				AD1DB7AF215230DB004BFF76 /* HomeListBaseCell.swift */,
 				A1CE83911FC3C0AC00DAF90F /* HomeCell.swift */,
 				A1CE83921FC3C0AC00DAF90F /* HomeCell.xib */,
 				AD14CC5D1FE8027A003FBE0B /* HomeCellWithImage.swift */,
@@ -590,6 +609,14 @@
 				AD0FAF9E20444C0A008A386E /* CategoryItemsCell.swift */,
 				AD0FAF9F20444C0A008A386E /* CategoryItemsCell.xib */,
 				A1C1E82020454EBB003D1F07 /* CategorySectionHeaderView.swift */,
+				ADC8EBE921513C74008E5696 /* JiaoyouCell.swift */,
+				ADC8EBEA21513C74008E5696 /* JiaoyouCell.xib */,
+				ADC8EBED21515096008E5696 /* QiuzhiCell.swift */,
+				ADC8EBEE21515096008E5696 /* QiuzhiCell.xib */,
+				ADC8EBF1215150B2008E5696 /* ShangjiaCell.swift */,
+				ADC8EBF2215150B2008E5696 /* ShangjiaCell.xib */,
+				ADC8EBFD215158CC008E5696 /* CellParseJsonAble.swift */,
+				AD1DB7AD2151EAE2004BFF76 /* ServerBaseCell.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -975,16 +1002,19 @@
 				AD1633C620235D4900B2D009 /* PubSelectTypeController.xib in Resources */,
 				A184F9031FD7D19D004504D9 /* Assets.xcassets in Resources */,
 				AD0FAFA120444C0A008A386E /* CategoryItemsCell.xib in Resources */,
+				ADC8EBEC21513C74008E5696 /* JiaoyouCell.xib in Resources */,
 				A148A2A81FD658180052DDF3 /* video_allshare@2x.png in Resources */,
 				A148A2A41FD6494B0052DDF3 /* publish_image@2x.png in Resources */,
 				A1CE839F1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib in Resources */,
 				AD128C77201CCD9500A9EDBE /* PubFriendCell.xib in Resources */,
 				AD0BD4EE2009FE980088D5E7 /* HomeDetailImgCell.xib in Resources */,
 				AD2178E4207FB2EC00B99069 /* WechatIMG10.jpeg in Resources */,
+				ADC8EBF021515096008E5696 /* QiuzhiCell.xib in Resources */,
 				ADC61DE721441C8300AE11B1 /* ZTCollectionViewCell.xib in Resources */,
 				AD14CC641FE802B6003FBE0B /* HomeCellWithImages.xib in Resources */,
 				AD10332F1FB6CD4E0017E81C /* error.png in Resources */,
 				A1E741AD1FD90F1600942219 /* Localizable.strings in Resources */,
+				ADC8EBF4215150B2008E5696 /* ShangjiaCell.xib in Resources */,
 				A148A2AC1FD687B50052DDF3 /* PublishTextCell.xib in Resources */,
 				A148A2B01FD687DD0052DDF3 /* PublishImageCell.xib in Resources */,
 			);
@@ -1075,6 +1105,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC8EBFE215158CC008E5696 /* CellParseJsonAble.swift in Sources */,
 				AD128C72201CC57200A9EDBE /* PublishServerController.swift in Sources */,
 				AD1B54EA1FEC01FE00B2F985 /* HomerListViewController.swift in Sources */,
 				A1783C031FCC128F00E4AB06 /* AllCategoryCell.swift in Sources */,
@@ -1108,9 +1139,11 @@
 				A1B8E492200603B1001E156E /* HomeDetailHeadView.swift in Sources */,
 				AD1033411FB6CD920017E81C /* BaseViewController.swift in Sources */,
 				A1A047AD1FD53C910057CC17 /* TTRefreshHeader.swift in Sources */,
+				AD1DB7AE2151EAE2004BFF76 /* ServerBaseCell.swift in Sources */,
 				AD0BD502200A34270088D5E7 /* FriendHeadView.swift in Sources */,
 				ADFC9E042053F72500449767 /* LoginViewController.swift in Sources */,
 				A1C172091FD631E2006BAAA0 /* TTPublishView.swift in Sources */,
+				ADC8EBEB21513C74008E5696 /* JiaoyouCell.swift in Sources */,
 				AD16EDA4204848C60072A266 /* PubBaseTableViewController.swift in Sources */,
 				A1E1B02F1FDA90E8002D6BDC /* TTImageBaseViewController.swift in Sources */,
 				AD1033311FB6CD4E0017E81C /* HUD.swift in Sources */,
@@ -1125,6 +1158,7 @@
 				AD21014F208108D300558CAB /* TTBaseTableViewController.swift in Sources */,
 				AD2187D8205E186E00E8C93F /* MeHomeCell.swift in Sources */,
 				AD1BEC012029EF6B003E334C /* PubTypeCollectionReusableView.swift in Sources */,
+				ADC8EBEF21515096008E5696 /* QiuzhiCell.swift in Sources */,
 				AD1033361FB6CD4E0017E81C /* themeColor.swift in Sources */,
 				ADFC9E082053F75B00449767 /* FindPwdController.swift in Sources */,
 				ADC61DEC2144217400AE11B1 /* ZTTableViewCell.swift in Sources */,
@@ -1178,6 +1212,7 @@
 				AD00300A201DF9C500A72A16 /* PubWriteCell.swift in Sources */,
 				ADCA97882100DB4500DA0950 /* Tools.swift in Sources */,
 				AD10332D1FB6CD4E0017E81C /* constant.swift in Sources */,
+				AD1DB7B0215230DB004BFF76 /* HomeListBaseCell.swift in Sources */,
 				AD14CC5F1FE8027A003FBE0B /* HomeCellWithImage.swift in Sources */,
 				ADEF746C214A02D700DCE926 /* TTProtocol.swift in Sources */,
 				ADED55612121D294005C8EE6 /* HomeDetailImgCell3.swift in Sources */,
@@ -1195,6 +1230,7 @@
 				ADC61DDF2144057000AE11B1 /* DarenTableViewController.swift in Sources */,
 				AD2C1EE72026137900E48245 /* PublishFriendViewController.swift in Sources */,
 				ADFB5379213044F600C45441 /* HomeCellFillDateAble.swift in Sources */,
+				ADC8EBF3215150B2008E5696 /* ShangjiaCell.swift in Sources */,
 				AD2E956D207E59F9009C675B /* CollectCell.swift in Sources */,
 				AD128C6A201C702D00A9EDBE /* TTBasePickerView.swift in Sources */,
 				ADC61DE621441C8300AE11B1 /* ZTCollectionViewCell.swift in Sources */,

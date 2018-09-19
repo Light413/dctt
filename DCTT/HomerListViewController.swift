@@ -122,33 +122,25 @@ class HomerListViewController: BaseTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let d = dataArray[indexPath.row]
         let type =  Int(String.isNullOrEmpty(d["imageNum"])) ?? 0
-        
         var identifier :String = "HomeCellReuseIdentifierId"
-        var cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
 
         switch type {
-        case 0:
-            (cell as! HomeCell).fill(d)
+        case 0: identifier = "HomeCellReuseIdentifierId";break
             
-            break
         case let n where n < 3:
             identifier = "HomeCellWithImageIdentifierId"
-            cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
-            (cell as! HomeCellWithImage).fill(d)
             break
+            
         case let n where n >= 3:
+            identifier = "HomeCellWithImagesIdentifierId"; break
             
-            identifier = "HomeCellWithImagesIdentifierId"
-            cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
-            (cell as! HomeCellWithImages).fill(d)
-            
-            break
         default:break
         }
         
-
+        let cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath) as! HomeListBaseCell
+        cell.type = _category
+        cell.fill(d)
         
-        //cell.textLabel?.text = dataArray[indexPath.row]
         cell.selectionStyle = .default
         return cell
     }
@@ -157,7 +149,7 @@ class HomerListViewController: BaseTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let d = dataArray[indexPath.row]
         let pid =  String.isNullOrEmpty(d["pid"])
-        let vc = HomeDetailController(pid)
+        let vc = _category! == "life" ? ServerDetailController(pid) : HomeDetailController(pid)
         
         vc.data = d
         
@@ -170,15 +162,4 @@ class HomerListViewController: BaseTableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

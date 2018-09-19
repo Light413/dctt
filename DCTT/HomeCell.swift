@@ -8,14 +8,14 @@
 
 import UIKit
 
-class HomeCell: UITableViewCell {
+class HomeCell: HomeListBaseCell {
     @IBOutlet weak var msg: UILabel!
     
     @IBOutlet weak var name: UILabel!
     
     @IBOutlet weak var time: UILabel!
     
-    func fill(_ d:[String:Any]) {
+    override func fill(_ d:[String:Any]) {
         fillData(msg: msg, user: name, date: time, data: d)
     }
     

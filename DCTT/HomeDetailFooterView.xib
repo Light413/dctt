@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HomeDetailFooterView" customModule="DCTT" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阅读" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uun-D0-muT">
@@ -45,19 +45,25 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全部评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9o2-0d-Vvz">
-                    <rect key="frame" x="10" y="77.5" width="49.5" height="14.5"/>
+                    <rect key="frame" x="10" y="127.5" width="49.5" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MO-Ie-Hly">
-                    <rect key="frame" x="0.0" y="58.5" width="320" height="3"/>
+                    <rect key="frame" x="0.0" y="108.5" width="320" height="3"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="3" id="6n4-RD-Zg3"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示: 在平台发布的信息图片属用户自主行为，不代表平台的意见或观点，平台不对该信息承担任何责任。若发现虚假信息等违法行为请举报。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juU-wr-55e">
+                    <rect key="frame" x="10" y="54.5" width="300" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -67,12 +73,15 @@
                 <constraint firstAttribute="bottom" secondItem="9o2-0d-Vvz" secondAttribute="bottom" constant="8" id="5zw-SC-nDn"/>
                 <constraint firstItem="6MO-Ie-Hly" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6eh-Nb-Fya"/>
                 <constraint firstAttribute="trailing" secondItem="yhJ-lF-cde" secondAttribute="trailing" constant="30" id="ItJ-Pk-5HS"/>
-                <constraint firstItem="6MO-Ie-Hly" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="10" id="JR5-xn-m2S"/>
+                <constraint firstItem="6MO-Ie-Hly" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="35" id="JR5-xn-m2S"/>
                 <constraint firstItem="qug-e5-dZ7" firstAttribute="leading" secondItem="Uun-D0-muT" secondAttribute="trailing" constant="2" id="Kd1-kQ-3uA"/>
                 <constraint firstItem="qug-e5-dZ7" firstAttribute="centerY" secondItem="Uun-D0-muT" secondAttribute="centerY" id="NNB-sL-Mm0"/>
                 <constraint firstItem="6MO-Ie-Hly" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PVi-Rg-PLi"/>
                 <constraint firstItem="Uun-D0-muT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="QLV-xM-qHB"/>
+                <constraint firstItem="juU-wr-55e" firstAttribute="top" secondItem="Uun-D0-muT" secondAttribute="bottom" constant="20" id="gUM-Ef-bYK"/>
                 <constraint firstAttribute="trailing" secondItem="6MO-Ie-Hly" secondAttribute="trailing" id="hyj-08-ZOE"/>
+                <constraint firstItem="juU-wr-55e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="j0A-TF-CST"/>
+                <constraint firstItem="juU-wr-55e" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jvf-tl-gNC"/>
                 <constraint firstItem="9o2-0d-Vvz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="k3A-n2-dSu"/>
                 <constraint firstItem="yhJ-lF-cde" firstAttribute="centerY" secondItem="qug-e5-dZ7" secondAttribute="centerY" id="ki0-MI-yJt"/>
             </constraints>

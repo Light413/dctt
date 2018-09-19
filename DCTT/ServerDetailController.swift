@@ -10,26 +10,59 @@ import UIKit
 
 class ServerDetailController: BaseDetailController {
 
+    private var _type:String!
+    private var _cellReuseIdentifier:String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        _type = String.isNullOrEmpty(data["type"])
+        
+        title = kPublishTypeInfo[_type]
+        
+        switch _type! {
+        case "21","24","25"://求职、房屋、打车
+            _cellReuseIdentifier = "QiuzhiCellIdentifier"
+            _tableview.register(UINib (nibName: "QiuzhiCell", bundle: nil), forCellReuseIdentifier: "QiuzhiCellIdentifier")
+            break
+        case "22"://商家
+            _cellReuseIdentifier = "ShangjiaCellIdentifier"
+            _tableview.register(UINib (nibName: "ShangjiaCell", bundle: nil), forCellReuseIdentifier: "ShangjiaCellIdentifier")
+            break
+            
+        case "23"://交友
+            _cellReuseIdentifier = "JiaoyouCellIdentifier"
+            _tableview.register(UINib (nibName: "JiaoyouCell", bundle: nil), forCellReuseIdentifier: "JiaoyouCellIdentifier")
+
+            break
+        default:
+            break
+        }
+        
+        
     }
 
+    override func getCell(_ tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        if _cellReuseIdentifier != nil {
+            let cell = tableView.dequeueReusableCell(withIdentifier: _cellReuseIdentifier, for: indexPath)
+                as! ServerBaseCell
+            
+            cell.fill(data)
+            
+            return cell
+
+        }else {
+            return super.getCell(tableView, indexPath: indexPath)
+        }
+        
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
