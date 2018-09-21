@@ -22,6 +22,7 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
 
     ////
     private var dataArray = [[String:Any]]()
+    fileprivate var selectedTypeInfo:[String:String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,6 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         
         //////
         loadData();
-
     }
     
     var _tableview:UITableView!
@@ -52,7 +52,6 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         _tableview.rowHeight = UITableViewAutomaticDimension
         _tableview.tableFooterView = UIView();
         _tableview.showsVerticalScrollIndicator = false
-        
         _tableview.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
         
         _tableview.register(UINib (nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCellReuseIdentifierId")
@@ -81,6 +80,15 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         
         _tableview.mj_footer = footer
         
+        NotificationCenter.default.addObserver(self, selector: #selector(hasPublishSuccessNoti(_:)), name: kHasPublishedSuccessNotification, object: nil)
+    }
+    
+    ///发布成功，更新对应的列表
+    func hasPublishSuccessNoti(_ noti:Notification) {
+        if let info = noti.userInfo , let type = info["type"] as? String{
+            guard let i = Int(type) , i >= 20 else {return}
+            _tableview.mj_header.beginRefreshing()
+        }
     }
     
     func loadData() {
@@ -144,10 +152,16 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
             
             cell.cellSelectedAction = {[weak self] d in
                 guard let ss = self else {return}
+                ss.selectedTypeInfo = d
+                
                 let type = d["item_key"]!
                 let t = d["item_title"];
                 let v = HomerListViewController.init(type,category:"life")
                 v.title = t
+                
+                let rightItem = ss.getBarButtonItem(image: UIImage (named: "tabbar_icon_more")!, action: #selector(ss.publishAction))
+                
+                v.navigationItem.rightBarButtonItem = rightItem
                 
                 ss.navigationController?.pushViewController(v, animated: true)
                 
@@ -313,3 +327,64 @@ extension AllViewController:TTHeadViewDelegate,TTPageViewControllerDelegate {
     
 }
 
+///在分类中跳转发布
+extension AllViewController : AddButtonItemProtocol {
+
+    func publishAction() {
+        toPublishWithType(selectedTypeInfo)
+    }
+    
+    
+    func toPublishWithType(_ d : [String:String]) {
+
+        let item_id = d["item_id"]!
+        
+        let strongSelf = self
+        var vc : UIViewController
+        
+        switch item_id {
+        case "id001"://发布新鲜事
+            
+            vc = PublishViewController.init(info:d)
+            break;
+
+        case "id003"://房屋信息 - 问答
+            vc =  //BaseVCWithTableView() //
+                strongSelf.controllerWith(identifierId: "pub_fangwu_id")
+            break
+            
+        case "id004"://商家信息
+            vc = strongSelf.controllerWith(identifierId: "pub_shangjia_id")
+            break
+            
+        case "id005"://交友
+            vc = strongSelf.controllerWith(identifierId: "pub_jiaoyou_id")
+            break
+            
+        case "id006"://求职招聘
+            vc = strongSelf.controllerWith(identifierId: "pub_qiuzhi_id")
+            break
+            
+        case "id007"://打车出行
+            vc = strongSelf.controllerWith(identifierId: "pub_dache_id")
+            break
+            
+        default:return
+        }
+        
+        if vc .isKind(of: PubBaseTableViewController.self){
+            (vc as! PubBaseTableViewController).typeInfo = d
+        }
+        
+        
+        let nav = BaseNavigationController (rootViewController:vc)
+        UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
+    }
+    
+    func controllerWith(_ storyboarName:String = "Publish" , identifierId:String) -> UIViewController {
+        let v = UIStoryboard.init(name: storyboarName, bundle: nil).instantiateViewController(withIdentifier: identifierId)
+        
+        return v
+    }
+    
+}

@@ -26,6 +26,8 @@ class PublishViewController: BasePublishController {
             HUD.show(successInfo: "发布成功!");
             guard let ss = self else {return}
             
+            NotificationCenter.default.post(name: kHasPublishedSuccessNotification, object: nil, userInfo: ["type":ss.typeId!])
+            
             ss.dismiss(animated: true, completion: nil)
             
         }) {

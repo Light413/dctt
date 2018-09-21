@@ -58,7 +58,9 @@ class ZTTableViewController: BaseTableViewController {
     
     func loadData() {
         HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
-        let d = ["category":"friend","subType":0] as [String : Any]
+        let d = ["category":"friend",
+                 "subType":Int(_type!)!
+            ] as [String : Any]
         
         AlamofireHelper.post(url: home_list_url, parameters: d, successHandler: {[weak self] (res) in
             HUD.dismiss()

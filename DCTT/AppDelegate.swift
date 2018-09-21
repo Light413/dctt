@@ -9,13 +9,16 @@
 import UIKit
 import CoreLocation
 import IQKeyboardManagerSwift
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegate,CLLocationManagerDelegate{
 
     var window: UIWindow?
     let _locationManager = CLLocationManager.init();
-
+    var _networkReachabilityManager:NetworkReachabilityManager!;
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow (frame: UIScreen.main.bounds)
@@ -33,6 +36,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
     func _initSys()  {
         HUD.config()
 
+        _networkReachabilityManager = NetworkReachabilityManager(host: "www.baidu.com")
+        _networkReachabilityManager.listener = { status in
+            print("Network Status Changed: \(status)")
+        }
+        
+        _networkReachabilityManager.startListening()
+        
+        
         IQKeyboardManager.sharedManager().enable = true
         UIApplication.shared.applicationIconBadgeNumber = 0
         sleep(2)

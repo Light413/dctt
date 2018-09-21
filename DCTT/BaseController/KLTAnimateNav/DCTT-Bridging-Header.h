@@ -9,7 +9,6 @@
 #ifndef DCTT_Bridging_Header_h
 #define DCTT_Bridging_Header_h
 #import "KLTNavigationController.h"
-
 //#import "UINavigationController+FDFullscreenPopGesture.h"
 
 #endif /* DCTT_Bridging_Header_h */

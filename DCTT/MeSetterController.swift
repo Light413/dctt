@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
 
@@ -24,8 +25,20 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ImageCache.default.calculateDiskCacheSize { size in
+            let cache = Double.init(size) / 1024.0 / 1024.0
+            let s = size == 0 ? "0" : NSString.init(format: "%.2f", cache)
+            self.cacheSize.text = "\(s)MB"
+            
+            print("Used disk size by bytes: \(size)")
+        }
+
     }
 
+    deinit {
+        print(self.description)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -43,6 +56,13 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section,indexPath.row) {
         case (1,0)://清除缓存
+            showMsg("清除图片及缓存数据", title: "确定", handler: { [unowned self] in
+                HUD.show(withStatus: "清除缓存")
+                ImageCache.default.clearDiskCache(completion: {
+                    HUD.show(successInfo: "清除完成")
+                    self.cacheSize.text = "0MB"
+                })
+            })
             
             break
         case (1,1)://意见反馈

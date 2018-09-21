@@ -207,11 +207,16 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             }
 
 
-            
-            
-            
             return
         } else if indexPath.section == 1 {
+            if indexPath.row < 5 {
+                guard User.isLogined() else {
+                    HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
+                    return
+                }
+            }
+
+
             var vc:UIViewController!
             
             switch indexPath.row {

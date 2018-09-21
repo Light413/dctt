@@ -50,7 +50,7 @@ class MeHomeListController: UITableViewController {
     
     func loadData() {
         //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
-        guard let uid = User.uid() else {return}
+        guard let uid = uid else {return}
         let d = ["category":"sy" , "uid": uid]
         
         HUD.show()

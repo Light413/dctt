@@ -86,6 +86,7 @@ class PubBaseTableViewController: UITableViewController{
     func submintBtnAction(){
         willPost()
         guard imgDataArr.count > 0 else {startPost(); return}
+        
         var images = [UIImage]()
         //获取相册图片
         let requestOption = PHImageRequestOptions.init()
@@ -144,6 +145,8 @@ class PubBaseTableViewController: UITableViewController{
             print(res)
             HUD.show(successInfo: "发布成功!");
             guard let ss = self else {return}
+            
+            NotificationCenter.default.post(name: kHasPublishedSuccessNotification, object: nil, userInfo: ["type":ss.typeId!])
             
             ss.dismiss(animated: true, completion: nil)
             

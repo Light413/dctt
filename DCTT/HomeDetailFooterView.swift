@@ -25,6 +25,12 @@ class HomeDetailFooterView: UIView {
     }
     
     @IBAction func zanBtnAction(_ sender: UIButton) {
+        guard User.isLogined() else {
+            HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
+            return
+        }
+        
+
         guard let dic = _d else{return}
         guard let pid = dic["pid"] as? String else {return}
         guard let uid = dic["uid"] as? String else {return}

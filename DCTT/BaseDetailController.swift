@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import MJRefresh
 
 class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewDataSource {
     ///信息类别(首页详情， 生活服务详情，专题详情)
@@ -21,7 +22,8 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     
     ///评论
     var commentDataArr = [[String:Any]]()
-    
+    var pageNumber:Int = 1;
+
     var _tableview:UITableView!
 
     var headView:HomeDetailHeadView!
@@ -32,14 +34,13 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     private var _isScBtn:UIButton! //是否收藏
     private var viewModel:DetailViewM!
     private var imgArr = [String]();
+    private var loadCommentSuccess:Bool = true //标记评论加载成功
     
     ///设置评论数
     var commentNumbers:Int {
-        get{
-            return 0
-        }
-        
+        get{return 0 }
         set{
+            guard newValue > 0 else {return}
             let num:NSString = NSString.init(string: "\(newValue)")
             _commentNumber.text = String.init(num)
             
@@ -54,11 +55,15 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     func loadReadCnt() {
         //...未登录的问题还没处理
         
-        let d = ["pid":pid! ,
+        var d = ["pid":pid! ,
                  "type":"0",
-                 "uid":User.uid()!,
+                 //"uid":User.uid()!,
                  "category":category!
         ]
+        
+        if User.isLogined() {
+            d["uid"] = User.uid()!
+        }
         
         AlamofireHelper.post(url: post_detail_url, parameters: d, successHandler: {[weak self] (res) in
             guard let body = res["body"] as? [String:Any] else {return}
@@ -73,7 +78,6 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
             ss._isScBtn.isSelected = String.isNullOrEmpty(body["sc"]) == "1"
             
         }) { (error) in
-            //HUD.dismiss()6ed4688d98ffba10b85198fbc5e38e6b
             print(error?.localizedDescription)
         }
         
@@ -83,31 +87,42 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     func loadComment() {
         let d = ["type":"get",
                  "pid":pid!,
-                 "category":category!
-        ]
+                 "category":category!,
+                 "pageNumber":pageNumber
+            ] as [String : Any]
         
         AlamofireHelper.post(url: comment_url, parameters: d, successHandler: {[weak self] (res) in
             guard let arr = res["body"] as? [[String:Any]] else {return}
             guard let ss = self else {return}
+            ss.loadCommentSuccess = true
             
-            ss.commentDataArr.removeAll()
+            if ss.pageNumber == 1 { ss.commentDataArr.removeAll();}
+            if ss._tableview.mj_header.isRefreshing(){ss._tableview.mj_header.endRefreshing()}
+            else if ss._tableview.mj_footer.isRefreshing() {ss._tableview.mj_footer.endRefreshing()}
+            
+            if ss._tableview.mj_footer.isHidden && arr.count > 0 {ss._tableview.mj_footer.isHidden = false}
             
             ss.commentDataArr = ss.commentDataArr + arr
-            if arr.count > 0 {
-                ss.commentNumbers = ss.commentDataArr.count;
-            }
+            ss.commentNumbers = ss.commentDataArr.count;
+            if arr.count < 20 { ss._tableview.mj_footer.state = .noMoreData}
             
-            //无动画刷新列表
+            //刷新列表
             UIView.performWithoutAnimation {
                 ss._tableview.reloadSections([1], with: .none)
-
             }
+        }) { [weak self](err) in
+            guard let ss = self else {return}
+            ss.loadCommentSuccess = false
             
-        }) { (err) in
+            if ss._tableview.mj_header.isRefreshing(){ss._tableview.mj_header.endRefreshing()}
+            else if ss._tableview.mj_footer.isRefreshing() {ss._tableview.mj_footer.endRefreshing()}
+            
+            UIView.performWithoutAnimation {
+                ss._tableview.reloadSections([1], with: .none)
+                
+            }
             HUD.show(info: "获取评论失败,请稍后重试")
             print(err?.localizedDescription);
-            
-            //点击重试
         }
         
     }
@@ -145,6 +160,26 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         _tableview.delegate = self
         _tableview.dataSource = self
         _tableview.sectionHeaderHeight = 0.01;
+        
+        //refresh
+        let header = TTRefreshHeader.init(refreshingBlock: {[weak self] in
+            guard let strongSelf = self else{return}
+            strongSelf.pageNumber = 1
+            strongSelf._tableview.mj_footer.state = .idle
+            strongSelf.loadComment()
+        })
+        
+        _tableview.mj_header = header;
+        
+        
+        let footer = TTRefreshFooter  {  [weak self] in
+            guard let strongSelf = self else{return}
+            strongSelf.pageNumber = strongSelf.pageNumber + 1
+            strongSelf.loadComment();
+        }
+        
+        _tableview.mj_footer = footer
+        _tableview.mj_footer.isHidden = true
         
         //bottom comment btn
         _isScBtn = viewModel._isScBtn
@@ -187,12 +222,17 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1 +  lroundf(ceilf(Float(imgArr.count) / 3.0) ) // + pic 个数
         }else{
-            //...没有评论或加载失败的处理
-            return commentDataArr.count //评论数
+            //没有评论或加载失败
+            if commentDataArr.count == 0 {
+                return 1
+            }
+            
+            return loadCommentSuccess ?  commentDataArr.count : commentDataArr.count + 1//评论数
         }
         
     }
@@ -226,18 +266,28 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
                 
             }
         }else{
-            cell = tableView.dequeueReusableCell(withIdentifier: "HomeDetailCommentCellIdentifier", for: indexPath)
-            let d = commentDataArr[indexPath.row]
-            (cell as! HomeDetailCommentCell).fill(d)
-            (cell as! HomeDetailCommentCell).avatarClickedAction = {[weak self] in
-                guard let ss = self else {return}
-                
-                let vc = MeHomePageController.init(style:.plain)
-                if let uid = d["uid"] as? String {
-                    vc.uid = uid
+            if commentDataArr.count == 0 {
+                cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCellReuseIdentifier", for: indexPath)
+                cell.textLabel?.text = loadCommentSuccess ? "暂无评论" : "加载评论失败,点击重试"
+                cell.textLabel?.font = UIFont.systemFont(ofSize: 13)
+                cell.textLabel?.textColor = UIColor.lightGray
+                cell.textLabel?.textAlignment = .center
+            }
+            else
+            {
+                cell = tableView.dequeueReusableCell(withIdentifier: "HomeDetailCommentCellIdentifier", for: indexPath)
+                let d = commentDataArr[indexPath.row]
+                (cell as! HomeDetailCommentCell).fill(d)
+                (cell as! HomeDetailCommentCell).avatarClickedAction = {[weak self] in
+                    guard let ss = self else {return}
+                    
+                    let vc = MeHomePageController.init(style:.plain)
+                    if let uid = d["uid"] as? String {
+                        vc.uid = uid
+                    }
+                    
+                    ss.navigationController?.pushViewController(vc, animated: true)
                 }
-                
-                ss.navigationController?.pushViewController(vc, animated: true)
             }
         }
         
@@ -265,6 +315,11 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         return section == 0 ? kSectionViewFooterHeight : 0.01
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard commentDataArr.count == 0 else {return}
+        guard !loadCommentSuccess else {return}
+        loadComment()
+    }
     
     //MARK: -
     func imagesWithIndex(_ index:Int) -> [String] {

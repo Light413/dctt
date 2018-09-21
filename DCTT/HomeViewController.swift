@@ -35,7 +35,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
 
     func _init() {
         //head
-        let titles = ["最新","热门","问答","活动","吐槽","娱乐","互助"]
+        let titles = ["最新","热门","问答","活动","吐槽","求助","娱乐"]
         let titlesId = [
             "最新":"0",
             "热门":"1",
@@ -43,7 +43,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
             "活动":"14",
             "吐槽":"13",
             "娱乐":"15",
-            "互助":"11"
+            "求助":"11"
         ]
         
         var attri = TTHeadTextAttribute()

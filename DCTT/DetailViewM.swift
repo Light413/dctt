@@ -150,6 +150,11 @@ class DetailViewM: NSObject {
     }
     
     func toolBarButtonClicked(_ button:UIButton) {
+        guard User.isLogined() else {
+            HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
+            return
+        }
+
         switch button.tag {
         case 100://写评论
             IQKeyboardManager.sharedManager().enable = false

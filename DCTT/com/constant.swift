@@ -18,7 +18,6 @@ let kCurrentScreenWidth = UIScreen.main.bounds.width
 let kCurrentScreenHeight = UIScreen.main.bounds.height
 var APP_IS_BACKGROUND:Bool = false //app是否处于后台
 
-///url
 //let BASE_URL = "http://192.168.1.104:80/tt/"
 let BASE_URL = "http://39.106.164.101:80/tt/"
 let home_list_url = "getPostList.php"
@@ -30,6 +29,7 @@ let update_profile_url = "updateProfile.php"
 let comment_url = "comment.php"
 let post_detail_url = "detail.php"
 
+///html
 let user_agreement_url = "userAgreement.html"
 let aboutus_url = "aboutus.html"
 let contactus_url = "contactus.html"
@@ -124,6 +124,11 @@ public func imgWithColor(_ color:UIColor) -> UIImage? {
 }
 
 
+///提示登录
+let kPleaseToLogin = "请先登录!"
+
+///发布新动态成功通知
+let kHasPublishedSuccessNotification = NSNotification.Name.init("kHasPublishedSuccessNotification")
 
 
 
