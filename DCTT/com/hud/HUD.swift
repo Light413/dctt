@@ -60,7 +60,7 @@ class HUD: NSObject {
         hud.contentColor = UIColor.white
         hud.offset = CGPoint (x: 0, y: -30)
         
-        hud.hide(animated: true, afterDelay: 2);
+        hud.hide(animated: true, afterDelay: 1);
     }
     
     static func dimissHudView(_  view: UIView){

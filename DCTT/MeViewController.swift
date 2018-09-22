@@ -14,13 +14,13 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
     var _topBgView:UIView!
     
-    let _titleArr = ["我的主页","消息","收藏","粉丝关注","历史记录","设置"]
+    let _titleArr = ["我的主页","消息","收藏","粉丝关注",/*"历史记录",*/"设置"]
     let _imgArr = ["uc_account",
                    "uc_message",
                    /*"uc_danzi",*/
                 "uc_shouc",
                 "uc_app",
-                "uc_zhaop",
+                /*"uc_zhaop",*/
                 "uc_system"]
 
     override func viewDidLoad() {
@@ -209,7 +209,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
             return
         } else if indexPath.section == 1 {
-            if indexPath.row < 5 {
+            if indexPath.row < 4 {
                 guard User.isLogined() else {
                     HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
                     return
@@ -237,11 +237,11 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
                 vc = FensiBaseController()
                 break
                 
-            case 4:
-                vc = HistoryViewController()
-                break
+//            case 4:
+//                vc = HistoryViewController()
+//                break
                 
-            case 5://设置
+            case 4://设置
                 vc =  UIStoryboard (name: "me", bundle: nil).instantiateViewController(withIdentifier: "me_setter_sbid");
                 
                 //vc = FackBackViewController();

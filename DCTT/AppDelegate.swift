@@ -153,11 +153,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
     }
 
 
-    //MARK:
+    //MARK: -
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController.tabBarItem.tag == 2 {
             #if true
-                
+            guard User.isLogined() else {
+                HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
+                return false
+            }
+            
             let typevc = PubSelectTypeController()
             let navi = BaseNavigationController(rootViewController: typevc)
             UIApplication.shared.keyWindow?.rootViewController?.present(navi, animated: true, completion: nil)

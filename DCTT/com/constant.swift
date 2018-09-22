@@ -28,6 +28,9 @@ let update_profile_url = "updateProfile.php"
 
 let comment_url = "comment.php"
 let post_detail_url = "detail.php"
+let get_sc_url = "getsc.php"
+
+
 
 ///html
 let user_agreement_url = "userAgreement.html"
@@ -125,7 +128,7 @@ public func imgWithColor(_ color:UIColor) -> UIImage? {
 
 
 ///提示登录
-let kPleaseToLogin = "请先登录!"
+let kPleaseToLogin = "请登录后操作!"
 
 ///发布新动态成功通知
 let kHasPublishedSuccessNotification = NSNotification.Name.init("kHasPublishedSuccessNotification")

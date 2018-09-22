@@ -111,6 +111,9 @@
 		AD1BA1F6205D1C1200B7C29C /* MeHomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BA1F5205D1C1200B7C29C /* MeHomePageController.swift */; };
 		AD1BEC012029EF6B003E334C /* PubTypeCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BEBFF2029EF6B003E334C /* PubTypeCollectionReusableView.swift */; };
 		AD1BEC022029EF6B003E334C /* PubTypeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD1BEC002029EF6B003E334C /* PubTypeCollectionReusableView.xib */; };
+		AD1CD66F215650D400F1E026 /* MeHomeViewM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1CD66E215650D400F1E026 /* MeHomeViewM.swift */; };
+		AD1CD67121567F4600F1E026 /* starsky_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1CD67021567F4500F1E026 /* starsky_bg@2x.jpg */; };
+		AD1CD673215682B600F1E026 /* head_bg@2x.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD1CD672215682B500F1E026 /* head_bg@2x.jpeg */; };
 		AD1DB7AE2151EAE2004BFF76 /* ServerBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1DB7AD2151EAE2004BFF76 /* ServerBaseCell.swift */; };
 		AD1DB7B0215230DB004BFF76 /* HomeListBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1DB7AF215230DB004BFF76 /* HomeListBaseCell.swift */; };
 		AD202751204C385A00E538CD /* PubShangJiaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD202750204C385900E538CD /* PubShangJiaController.swift */; };
@@ -320,6 +323,9 @@
 		AD1BA1F5205D1C1200B7C29C /* MeHomePageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeHomePageController.swift; sourceTree = "<group>"; };
 		AD1BEBFF2029EF6B003E334C /* PubTypeCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubTypeCollectionReusableView.swift; sourceTree = "<group>"; };
 		AD1BEC002029EF6B003E334C /* PubTypeCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PubTypeCollectionReusableView.xib; sourceTree = "<group>"; };
+		AD1CD66E215650D400F1E026 /* MeHomeViewM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeViewM.swift; sourceTree = "<group>"; };
+		AD1CD67021567F4500F1E026 /* starsky_bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "starsky_bg@2x.jpg"; sourceTree = "<group>"; };
+		AD1CD672215682B500F1E026 /* head_bg@2x.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "head_bg@2x.jpeg"; sourceTree = "<group>"; };
 		AD1DB7AD2151EAE2004BFF76 /* ServerBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerBaseCell.swift; sourceTree = "<group>"; };
 		AD1DB7AF215230DB004BFF76 /* HomeListBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListBaseCell.swift; sourceTree = "<group>"; };
 		AD202750204C385900E538CD /* PubShangJiaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubShangJiaController.swift; sourceTree = "<group>"; };
@@ -507,7 +513,9 @@
 				A148A2A71FD658180052DDF3 /* video_allshare@2x.png */,
 				A1B5A6421FC4174400871676 /* ymtimg2.jpg */,
 				A1B5A6441FC41F2200871676 /* sunrise.jpg */,
+				AD1CD67021567F4500F1E026 /* starsky_bg@2x.jpg */,
 				A1E61D1C1FCE8F560080A12D /* back_bg@2x.png */,
+				AD1CD672215682B500F1E026 /* head_bg@2x.jpeg */,
 				AD0E32C7212EF983009E26BC /* home_bg_blue@2x.jpeg */,
 				AD0E32C6212EF983009E26BC /* home_bg_gray@2x.jpeg */,
 				AD1490B31FCB08750053FD31 /* trans-navi-left-button@2x.png */,
@@ -801,6 +809,7 @@
 				ADF6D8FF211B3CD900ECA9F9 /* MeHomeSuperCell.swift */,
 				ADF6D900211B3CD900ECA9F9 /* MeHomeSuperCell.xib */,
 				ADD7CE18211C88DF00A33F3B /* MeHomeCell2.swift */,
+				AD1CD66E215650D400F1E026 /* MeHomeViewM.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -973,6 +982,7 @@
 				A1BCDFF32142102C001AC3CC /* app_logo@3x.png in Resources */,
 				AD21D9BE205520C300E317FF /* MeNotRegisterCell.xib in Resources */,
 				AD1490B41FCB08750053FD31 /* trans-navi-left-button@2x.png in Resources */,
+				AD1CD673215682B600F1E026 /* head_bg@2x.jpeg in Resources */,
 				AD2187DD205E7A6F00E8C93F /* MeHomeHeadView.xib in Resources */,
 				AD1033321FB6CD4E0017E81C /* success.png in Resources */,
 				ADE12F9D211E9DA5002B8854 /* Icon-60.png in Resources */,
@@ -992,6 +1002,7 @@
 				A1BCDFF22142102C001AC3CC /* app_logo@2x.png in Resources */,
 				AD0E32C8212EF983009E26BC /* home_bg_gray@2x.jpeg in Resources */,
 				AD1BEC022029EF6B003E334C /* PubTypeCollectionReusableView.xib in Resources */,
+				AD1CD67121567F4600F1E026 /* starsky_bg@2x.jpg in Resources */,
 				AD21DF62202750FD002FE181 /* TableViewCellTextView.xib in Resources */,
 				ADDAF3812146B61A00B70EBB /* TableCellWithCollectionView.xib in Resources */,
 				A1C4023B1FCCF9A6005BAA9A /* cell_background.png in Resources */,
@@ -1126,6 +1137,7 @@
 				AD202759204C38B000E538CD /* PubDacheViewController.swift in Sources */,
 				AD20F3CA2067EDE1003BDE17 /* FackBackViewController.swift in Sources */,
 				AD2187DB205E7A5300E8C93F /* MeHomeHeadView.swift in Sources */,
+				AD1CD66F215650D400F1E026 /* MeHomeViewM.swift in Sources */,
 				A1C1E82120454EBC003D1F07 /* CategorySectionHeaderView.swift in Sources */,
 				AD10332E1FB6CD4E0017E81C /* Extension.swift in Sources */,
 				A148A2AF1FD687DD0052DDF3 /* PublishImageCell.swift in Sources */,

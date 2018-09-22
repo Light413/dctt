@@ -460,9 +460,6 @@
                                                 <constraint firstItem="nLA-ru-kO2" firstAttribute="leading" secondItem="SHu-E3-Pzw" secondAttribute="leadingMargin" constant="10" id="jNX-Qg-7Ff"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="JXc-u3-Oez" kind="show" id="wDc-q9-tJH"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="hZR-08-ov6">
                                         <rect key="frame" x="0.0" y="85" width="375" height="50"/>
@@ -683,6 +680,7 @@
                     <connections>
                         <outlet property="apnsStatus" destination="Ifx-ql-Ow2" id="LFD-UP-6Ie"/>
                         <outlet property="cacheSize" destination="x68-bX-i8y" id="G6K-re-uYf"/>
+                        <segue destination="JXc-u3-Oez" kind="show" identifier="showProfileSegueId" id="Eca-ii-yIg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ngz-7r-yAo" userLabel="First Responder" sceneMemberID="firstResponder"/>

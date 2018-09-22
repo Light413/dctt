@@ -9,7 +9,7 @@
 import UIKit
 
 class ZTTableViewController: BaseTableViewController {
-    private var _type:String!
+    private var _type:String!//最新，热门
     var pageNumber:Int = 1;
 
     init(_ type:String) {

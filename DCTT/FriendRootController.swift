@@ -105,6 +105,11 @@ extension FriendRootController:TTHeadViewDelegate,TTPageViewControllerDelegate {
 extension FriendRootController:AddButtonItemProtocol {
     func publishZtAction() {
         
+        guard User.isLogined() else {
+            HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
+            return
+        }
+        
         let vc = UIStoryboard.init(name: "Publish", bundle: nil).instantiateViewController(withIdentifier: "pub_zt_id")
         
         

@@ -8,86 +8,73 @@
 
 import UIKit
 
-class MeCollectController: MeBaseTableViewController {
+class MeCollectController: MeBaseTableViewController ,AddButtonItemProtocol,ShowAlertControllerAble{
 
+    var pageNumber:Int = 1;
+    var dataArray = [[String:Any]]();
+    
+    var viewM:MeHomeViewM!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "收藏";
         
         tableView.register(UINib (nibName: "MeHomeCell", bundle: nil), forCellReuseIdentifier: "MeHomeCellIdentifier")
-        tableView.estimatedRowHeight = 80;
-        tableView.rowHeight = UITableViewAutomaticDimension
 
         //tableView.register(UINib (nibName: "CollectCell", bundle: nil), forCellReuseIdentifier: "CollectCellIdentifier")
-        //tableView.rowHeight = 90
+        _initSubviews()
+
+        
+
+    }
+    
+    
+    
+    func _getBarButtonItem(title : String? = nil , image:UIImage? = nil , action : Selector) -> UIBarButtonItem{
+        let rightbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 60, height: 60))
+        rightbtn.setTitle(title, for: .normal)
+        rightbtn.setTitleColor(UIColor.darkGray , for: .normal)
+        rightbtn.setImage(image, for: .normal)
+        rightbtn.setImage(image, for: .highlighted)
+        rightbtn.imageEdgeInsets = UIEdgeInsetsMake(10, 15, 10, 5)
+        
+        rightbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        rightbtn.addTarget(self, action: action , for: .touchUpInside)
+        
+        
+        let rightitem = UIBarButtonItem.init(customView: rightbtn)
+        
+        return rightitem
     }
 
+    
+    func deleteAction() {
+        
+        showMsg("删除所有收藏?", title: "删除") { () in
+            
+        }
+    }
+    
+    func _initSubviews() {
+        let rightItem = _getBarButtonItem(image: UIImage (named: "delete_allshare")!, action: #selector(deleteAction))
+        
+        navigationItem.rightBarButtonItem = rightItem
+        
+        viewM = MeHomeViewM.init(self , isFromPublish: false)
+        
+        tableView = viewM.tableview
+    }
+    
+
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 10
-    }
-
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MeHomeCellIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

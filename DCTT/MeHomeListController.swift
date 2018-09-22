@@ -14,6 +14,8 @@ class MeHomeListController: UITableViewController {
     private var canScroll:Bool = false;
     private var dataArray = [[String:Any]]()
     
+    var viewM:MeHomeViewM!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,12 +29,31 @@ class MeHomeListController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(noti(_ :)), name: NSNotification.Name (rawValue: "childCanScrollNotification"), object: nil)
 
         //////
-        loadData();
+        //loadData();
         loadProfile()
+        
+        //view model
+        viewM = MeHomeViewM.init(self)
+        viewM._scrollViewDidScroll = { [weak self] scrollView in
+            guard let ss = self else {return}
+            
+            if !ss.canScroll && kchildViewCanScroll == false {
+                scrollView.contentOffset = CGPoint.zero
+            }
+            
+            if scrollView.contentOffset.y <= 0 {
+                if ss.canScroll || kchildViewCanScroll {
+                    ss.canScroll = false
+                    NotificationCenter.default.post(name: NSNotification.Name (rawValue: "superCanScrollNotification"), object: nil)
+                    
+                }
+            }
+        }
+        
+        tableView = viewM.tableview
     }
     
     func loadProfile() {
-        //"cdbd1bd27dbf0fe4ae76b08f9462c983"
         guard let u = uid else {return}
         let d:[String:Any] = ["uid":u, "type":3]
         
@@ -44,39 +65,9 @@ class MeHomeListController: UITableViewController {
                 NotificationCenter.default.post(name: NSNotification.Name.init("updateProfileNotification"), object: nil, userInfo: user)
             }
         }) { (err) in
-            
+            print("加载用户资料失败")
+            print(err?.localizedDescription)
         }
-    }
-    
-    func loadData() {
-        //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
-        guard let uid = uid else {return}
-        let d = ["category":"sy" , "uid": uid]
-        
-        HUD.show()
-        AlamofireHelper.post(url: home_list_url, parameters: d, successHandler: {[weak self] (res) in
-            HUD.dismiss()
-            
-            guard let ss = self else {return}
-            
-            if let arr = res["body"] as? [[String:Any]] {
-                ss.dataArray = ss.dataArray + arr;
-//                if arr.count < 20 {
-//                    ss.tableView.mj_footer.state = .noMoreData
-//                }else{
-//                    ss.tableView.mj_footer.isHidden = false
-//                }
-            }else {
-//                ss.tableView.mj_footer.state = .noMoreData
-            }
-            
-            
-            ss.tableView.reloadData()
-        }) { (error) in
-            HUD.dismiss()
-        }
-        
-        
     }
     
     
@@ -99,24 +90,6 @@ class MeHomeListController: UITableViewController {
             }
         }
     }
-    
-    //MARK:-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataArray.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier :String = "MeHomeCellIdentifier"
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MeHomeCell
-        
-        let d = dataArray[indexPath.row]
-        cell.fill(d)
-        cell.selectionStyle = .none
-        
-        return cell
-        
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

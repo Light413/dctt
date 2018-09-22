@@ -331,6 +331,11 @@ extension AllViewController:TTHeadViewDelegate,TTPageViewControllerDelegate {
 extension AllViewController : AddButtonItemProtocol {
 
     func publishAction() {
+        guard User.isLogined() else {
+            HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
+            return
+        }
+
         toPublishWithType(selectedTypeInfo)
     }
     

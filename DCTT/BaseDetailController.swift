@@ -155,6 +155,7 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     func initSubview()  {
         viewModel = DetailViewM.init(self)
         viewModel.category = category
+        viewModel.type = String.isNullOrEmpty(data["type"])
         
         _tableview = viewModel.tableView
         _tableview.delegate = self

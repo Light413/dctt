@@ -36,7 +36,6 @@ class HomerListViewController: BaseTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(hasPublishSuccessNoti(_:)), name: kHasPublishedSuccessNotification, object: nil)
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCellReuseIdentifier")
-
         tableView.register(UINib (nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCellReuseIdentifierId")
         tableView.register(UINib (nibName: "HomeCellWithImage", bundle: nil), forCellReuseIdentifier: "HomeCellWithImageIdentifierId")
         tableView.register(UINib (nibName: "HomeCellWithImages", bundle: nil), forCellReuseIdentifier: "HomeCellWithImagesIdentifierId")
@@ -51,8 +50,7 @@ class HomerListViewController: BaseTableViewController {
         })
         
         tableView.mj_header = header;
-        
-        
+                
         let footer = TTRefreshFooter  {  [weak self] in
             guard let strongSelf = self else{return}
             strongSelf.pageNumber = strongSelf.pageNumber + 1
@@ -67,8 +65,7 @@ class HomerListViewController: BaseTableViewController {
         
         if let delegate = UIApplication.shared.delegate as? AppDelegate{
             guard delegate._networkReachabilityManager.isReachable else {
-                HUD.showText("貌似网络不太好,请稍后重试", view: self.view)
-                return
+                HUD.showText("貌似网络不太好,请稍后重试", view: self.view); return
             }
         }
         
@@ -90,11 +87,6 @@ class HomerListViewController: BaseTableViewController {
         switch _type! {
             case "0":subType = 0;break//最新
             case "1":subType = 1;break//最热
-            case "2":subType = 2;break//nouse
-            case "3":subType = 3; break//nouse
-            case "4":subType = 4;break//nouse
-            case "5":subType = 5;break//nouse
-            case "6":subType = 6;break//nouse
             default: subType = Int(_type)!; break
         }
         
@@ -130,7 +122,6 @@ class HomerListViewController: BaseTableViewController {
                 ss.tableView.mj_footer.state = .noMoreData
             }
             
-            
             ss.tableView.reloadData()
             //print(res);
         }) {[weak self] (error) in
@@ -140,8 +131,6 @@ class HomerListViewController: BaseTableViewController {
             if ss.tableView.mj_header.isRefreshing(){ss.tableView.mj_header.endRefreshing()}
             else if ss.tableView.mj_footer.isRefreshing() {ss.tableView.mj_footer.endRefreshing()}
         }
-
-        
     }
     
     
@@ -167,10 +156,10 @@ class HomerListViewController: BaseTableViewController {
         }
         
         let d = dataArray[indexPath.row]
-        let type =  Int(String.isNullOrEmpty(d["imageNum"])) ?? 0
+        let igNum =  Int(String.isNullOrEmpty(d["imageNum"])) ?? 0
         var identifier :String = "HomeCellReuseIdentifierId"
 
-        switch type {
+        switch igNum {
         case 0: identifier = "HomeCellReuseIdentifierId";break
             
         case let n where n < 3:

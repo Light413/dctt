@@ -71,7 +71,7 @@ class MeHomeHeadView: UIView {
 //        let dic:[String:Any] = [NSFontAttributeName:UIFont.systemFont(ofSize: 17) , NSParagraphStyleAttributeName:paragraphStyle,NSKernAttributeName:1]
         
         let attriStr = NSMutableAttributedString.init(string: notesStr)
-        attriStr.addAttributes([NSFontAttributeName:UIFont.systemFont(ofSize: 14) , NSForegroundColorAttributeName:UIColor.darkGray], range: NSRange.init(location: 0, length: 3));
+        attriStr.addAttributes([NSFontAttributeName:UIFont.systemFont(ofSize: 13) , NSForegroundColorAttributeName:UIColor.darkGray], range: NSRange.init(location: 0, length: 3));
         
         mark.attributedText = attriStr
         

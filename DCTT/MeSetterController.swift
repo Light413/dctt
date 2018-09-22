@@ -55,6 +55,15 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section,indexPath.row) {
+        case (0,0):
+            guard User.isLogined() else {
+                HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
+                return
+            }
+
+            self.performSegue(withIdentifier: "showProfileSegueId", sender: nil)
+            break
+            
         case (1,0)://清除缓存
             showMsg("清除图片及缓存数据", title: "确定", handler: { [unowned self] in
                 HUD.show(withStatus: "清除缓存")
@@ -66,7 +75,11 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
             
             break
         case (1,1)://意见反馈
-            
+            guard User.isLogined() else {
+                HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
+                return
+            }
+
             break
             
         case (1,2)://appstore
@@ -76,14 +89,14 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
             
             break
         case (2,_):
-            showMsg("退出会清除用户登录信息", title: "确定退出", handler: { [unowned self] in
+            showMsg("将要删除登录信息", title: "退出", handler: { [unowned self] in
                 self._logout()
             })
 
             break
             
         case (3,_):
-            showMsg("注销会清除用户信息及发布内容", title: "确定注销", handler: { [unowned self] in
+            showMsg("将要删除用户全部信息及发布内容", title: "注销", handler: { [unowned self] in
                 
             })
 

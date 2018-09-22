@@ -7,7 +7,7 @@
 //
 
 import UIKit
-let _IMG_HEIGHT : CGFloat = 240
+let _IMG_HEIGHT : CGFloat = 220
 import SwiftTTPageController
 
 enum HomePageType:Int {
@@ -21,14 +21,14 @@ class MeHomePageController: MeBaseTableViewController {
     var uid:String!
     
     var imgv:UIImageView!
-    let sectionHeight:CGFloat = 50
+    let sectionHeight:CGFloat = 45
     
     var canScroll:Bool = true
 
     //////////
     var _cellPageController:TTPageViewController!
     var _cellSectionHeadView:TTHeadView!
-    let sectionHeadTitles = ["动态","问答"]
+    let sectionHeadTitles = ["动态"]
     var _meInfoView:MeHomeHeadView!
     
     private var kuserName:String = ""
@@ -50,7 +50,7 @@ class MeHomePageController: MeBaseTableViewController {
             vcArr.append(v)
         }
         
-        let rec = CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height:kCurrentScreenHeight - 64 - sectionHeight)
+        let rec = CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height:kCurrentScreenHeight - 44 - sectionHeight)
         let pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)
         
         self.addChildViewController(pagevc)
@@ -75,14 +75,14 @@ class MeHomePageController: MeBaseTableViewController {
     func _initSubview()  {
         let bg = UIView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _IMG_HEIGHT + 0))
         imgv = UIImageView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _IMG_HEIGHT))
-        imgv.image = UIImage (named: "back_bg")
+        imgv.image = UIImage (named: "head_bg@2x.jpeg")
         imgv.contentMode = .scaleToFill
         bg.addSubview(imgv)
 
         /////meinfo
         let meinfo = Bundle.main.loadNibNamed("MeHomeHeadView", owner: nil, options: nil)?.first as! MeHomeHeadView
-        meinfo.frame = CGRect  (x: 0, y:_IMG_HEIGHT - 180, width: bg.frame.width, height: 180)
-        meinfo.backgroundColor = UIColor.white
+        meinfo.frame = CGRect  (x: 0, y:_IMG_HEIGHT - 160, width: bg.frame.width, height: 160)
+        meinfo.backgroundColor = tt_defafault_barColor //UIColor.white
         bg.addSubview(meinfo)
         _meInfoView = meinfo;
         
@@ -101,7 +101,7 @@ class MeHomePageController: MeBaseTableViewController {
         
         //tableView.register(UINib (nibName: "MeHomeSuperCell", bundle: nil), forCellReuseIdentifier: "MeHomeSuperCellIdentifier")
         tableView.register(MeHomeCell2.self, forCellReuseIdentifier: "MeHomeSuperCellIdentifier")
-        tableView.rowHeight = kCurrentScreenHeight - 64 - sectionHeight
+        tableView.rowHeight = kCurrentScreenHeight - 44 - sectionHeight
         tableView.showsVerticalScrollIndicator = false
         
         NotificationCenter.default.addObserver(self, selector: #selector(noti(_ :)), name: NSNotification.Name (rawValue: "superCanScrollNotification"), object: nil)
@@ -142,7 +142,7 @@ class MeHomePageController: MeBaseTableViewController {
     
 
     //MARK: -
-    let _offset_y:CGFloat = 50
+    let _offset_y:CGFloat = 55
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let _y = scrollView.contentOffset.y + 0
         if _y <= 0 {
@@ -173,8 +173,17 @@ class MeHomePageController: MeBaseTableViewController {
         }
         
     navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor.white.withAlphaComponent(_y > 40 ? 1 : 0)), for: .default)
-        if _y > 0 {
+
+        
+        if _y > 60 {
             title = kuserName
+//            if _y > 40 {
+//
+//               let v = UIView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 64))
+//                v.backgroundColor = UIColor.red
+//
+//                self.navigationController?.navigationBar.addSubview(v)
+//            }
         }else{
             title = nil
         }
@@ -223,13 +232,15 @@ extension MeHomePageController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let bg = UIView (frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: sectionHeight))
-        bg.backgroundColor = UIColor.white
+        bg.backgroundColor = tt_bg_color //UIColor.white
         
         var attri = TTHeadTextAttribute()
         attri.itemWidth = 60
-        let topview  = TTHeadView (frame: CGRect (x: 8, y: 8, width: tableView.frame.width - 20, height: 35), titles: sectionHeadTitles, delegate: self ,textAttributes:attri)
-        bg.addSubview(topview)
+        attri.selectedFontSize  = 14
+        attri.selectedTextColor = UIColor.darkGray
         
+        let topview  = TTHeadView (frame: CGRect (x: 0, y: 5, width: tableView.frame.width - 20, height: 35), titles: sectionHeadTitles, delegate: self ,textAttributes:attri)
+        bg.addSubview(topview)
         _cellSectionHeadView = topview
 
         return bg

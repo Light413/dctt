@@ -10,6 +10,7 @@ import IQKeyboardManagerSwift
 
 class DetailViewM: NSObject {
     var category:String!
+    var type:String!
     
     var tableView:UITableView {
         get{
@@ -111,7 +112,7 @@ class DetailViewM: NSObject {
         commentNumber.setImage(UIImage (named: "tab_comment"), for: .normal);
         commentNumber.imageEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0)
         commentNumber.tag = 101
-        commentNumber.addTarget(self, action: targetAction, for: .touchUpInside)
+        //commentNumber.addTarget(self, action: targetAction, for: .touchUpInside)
         
         let numLable = UILabel()
         numLable.font = UIFont.systemFont(ofSize: 8)
@@ -170,7 +171,8 @@ class DetailViewM: NSObject {
             let d = ["pid":pid! ,
                      "type": button.isSelected ? "3" : "2" ,
                      "uid":User.uid()!,
-                     "category":category!
+                     "category":category!,
+                     "subType" : type!
             ]
             
             AlamofireHelper.post(url: post_detail_url, parameters: d, successHandler: { (res) in
