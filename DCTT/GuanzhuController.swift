@@ -159,7 +159,7 @@ class GuanzhuController: MeBaseTableViewController {
         guard let uid = dic["user_id"] as? String else {return}
         
         let vc = MeHomePageController.init(style:.plain)
-        vc.uid = uid;
+        vc.uid = uid;//
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
