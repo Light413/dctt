@@ -7,7 +7,7 @@
 //
 
 import UIKit
-let _IMG_HEIGHT : CGFloat = 220
+let _IMG_HEIGHT : CGFloat = 350
 import SwiftTTPageController
 
 enum HomePageType:Int {
@@ -58,10 +58,9 @@ class MeHomePageController: MeBaseTableViewController {
         return pagevc
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    /*override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isTranslucent = true
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,12 +69,13 @@ class MeHomePageController: MeBaseTableViewController {
         navigationController?.navigationBar.isTranslucent = false
     navigationController?.navigationBar.setBackgroundImage(imgWithColor(tt_defafault_barColor.withAlphaComponent(1)), for: .default)
 
-    }
+//        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }*/
     
     func _initSubview()  {
         let bg = UIView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _IMG_HEIGHT + 0))
         imgv = UIImageView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _IMG_HEIGHT))
-        imgv.image = UIImage (named: "head_bg@2x.jpeg")
+        imgv.image = UIImage (named: "back_bg@2x")
         imgv.contentMode = .scaleToFill
         bg.addSubview(imgv)
 
@@ -92,7 +92,7 @@ class MeHomePageController: MeBaseTableViewController {
         tableView.tableFooterView = UIView()
         bg.backgroundColor = UIColor.clear
         
-        navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor (red: 250/255.0, green: 251/255.0, blue: 253/255.0, alpha: 0).withAlphaComponent(0)), for: UIBarPosition.top, barMetrics: .default)
+        //navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor (red: 250/255.0, green: 251/255.0, blue: 253/255.0, alpha: 0).withAlphaComponent(0)), for: UIBarPosition.top, barMetrics: .default)
         
         //tableView.register(UINib (nibName: "MeHomeCell", bundle: nil), forCellReuseIdentifier: "MeHomeCellIdentifier")
 //        tableView.estimatedRowHeight = 80;
@@ -107,6 +107,7 @@ class MeHomePageController: MeBaseTableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(noti(_ :)), name: NSNotification.Name (rawValue: "superCanScrollNotification"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateProfile(_ :)), name: NSNotification.Name.init("updateProfileNotification"), object: nil)
+        
     }
     
     func updateProfile(_ noti:Notification) {
@@ -142,7 +143,7 @@ class MeHomePageController: MeBaseTableViewController {
     
 
     //MARK: -
-    let _offset_y:CGFloat = 55
+    let _offset_y:CGFloat = 55 - 64
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let _y = scrollView.contentOffset.y + 0
         if _y <= 0 {
@@ -185,13 +186,18 @@ class MeHomePageController: MeBaseTableViewController {
 //                self.navigationController?.navigationBar.addSubview(v)
 //            }
         }else{
-            title = nil
+            title = ""
         }
         
     }
     
     
-    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        //_cellPageController.removeFromParentViewController()
+        
+        print(self.description)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -233,17 +239,18 @@ extension MeHomePageController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let bg = UIView (frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: sectionHeight))
         bg.backgroundColor = tt_bg_color //UIColor.white
-        
+
         var attri = TTHeadTextAttribute()
         attri.itemWidth = 60
         attri.selectedFontSize  = 14
         attri.selectedTextColor = UIColor.darkGray
-        
+
         let topview  = TTHeadView (frame: CGRect (x: 0, y: 5, width: tableView.frame.width - 20, height: 35), titles: sectionHeadTitles, delegate: self ,textAttributes:attri)
         bg.addSubview(topview)
         _cellSectionHeadView = topview
 
         return bg
+
     }
     
     

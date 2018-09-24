@@ -58,7 +58,6 @@ class LoginViewController: UITableViewController{
                      ]
             
             AlamofireRequest(login_url, parameter: d) {[weak self] (res) in
-                //print(res)
                 if let d = res["body"] as? [String:Any] {
                     do {
                         let data =  try JSONSerialization.data(withJSONObject: d, options: [])
@@ -69,8 +68,6 @@ class LoginViewController: UITableViewController{
                     }catch {
                         print(error.localizedDescription)
                     }
-                    
-                    
                 }
                 
                 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeHomeListController: UITableViewController {
+class MeHomeListController: UITableViewController  , ShowAlertControllerAble {
     var uid:String!
     
     private var canScroll:Bool = false;
@@ -34,6 +34,7 @@ class MeHomeListController: UITableViewController {
         
         //view model
         viewM = MeHomeViewM.init(self)
+        viewM.noDataTipMsg = "还没有发布过动态"
         viewM._scrollViewDidScroll = { [weak self] scrollView in
             guard let ss = self else {return}
             
@@ -57,16 +58,26 @@ class MeHomeListController: UITableViewController {
         guard let u = uid else {return}
         let d:[String:Any] = ["uid":u, "type":3]
         
-        AlamofireHelper.post(url: update_profile_url, parameters: d, successHandler: { (res) in
+        AlamofireHelper.post(url: update_profile_url, parameters: d, successHandler: { [weak self](res) in
             guard String.isNullOrEmpty(res["status"]) == "200" else { return;}
             guard let user = res["body"] as? [String:Any] else {return}
+            
+            guard let ss = self else {return}
+            let uid = String.isNullOrEmpty(user["user_id"])
+            ss.viewM.user_id = uid
             
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: NSNotification.Name.init("updateProfileNotification"), object: nil, userInfo: user)
             }
-        }) { (err) in
+        }) { [weak self] (err) in
             print("加载用户资料失败")
             print(err?.localizedDescription)
+         
+            guard let ss = self else {return}
+            ss.showMsg("加载用户资料失败,请点击重试", title: "重试", handler: {
+                
+                ss.loadProfile()
+            })
         }
     }
     
@@ -75,6 +86,11 @@ class MeHomeListController: UITableViewController {
     func noti(_ noti:NSNotification) {
         canScroll = true
         //print("child can")
+    }
+    
+    deinit {
+        print(self.description)
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {

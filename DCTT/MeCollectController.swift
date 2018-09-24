@@ -62,6 +62,7 @@ class MeCollectController: MeBaseTableViewController ,AddButtonItemProtocol,Show
         navigationItem.rightBarButtonItem = rightItem
         
         viewM = MeHomeViewM.init(self , isFromPublish: false)
+        viewM.user_id = User.uid()
         
         tableView = viewM.tableview
     }

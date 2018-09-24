@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,7 +43,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJW-KD-fDC">
-                        <rect key="frame" x="236" y="22.5" width="60" height="25"/>
+                        <rect key="frame" x="239" y="22.5" width="60" height="25"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Vfi-5h-NoH"/>
                             <constraint firstAttribute="height" constant="25" id="umC-kI-WUD"/>
@@ -58,9 +58,12 @@
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="gzAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wFP-J8-3BU"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人生短暂，好好珍惜每一段时光" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2Y-Sf-bpe">
-                        <rect key="frame" x="60" y="33" width="168" height="26"/>
+                        <rect key="frame" x="60" y="33" width="171" height="26"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -69,7 +72,7 @@
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="N2Y-Sf-bpe" secondAttribute="bottom" id="1Te-DM-vdt"/>
                     <constraint firstItem="FFO-bG-hWi" firstAttribute="leading" secondItem="2ci-Mz-cty" secondAttribute="trailing" constant="8" id="6ay-bt-W68"/>
-                    <constraint firstItem="zJW-KD-fDC" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-8" id="OJa-YD-Kke"/>
+                    <constraint firstItem="zJW-KD-fDC" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-5" id="OJa-YD-Kke"/>
                     <constraint firstItem="N2Y-Sf-bpe" firstAttribute="leading" secondItem="FFO-bG-hWi" secondAttribute="leading" id="VKv-ns-lhP"/>
                     <constraint firstItem="2ci-Mz-cty" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="b8I-sE-9O8"/>
                     <constraint firstItem="2ci-Mz-cty" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="swY-z7-DDI"/>
@@ -81,7 +84,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="avantar" destination="2ci-Mz-cty" id="fMA-tj-U0B"/>
                 <outlet property="guanzhu_btn" destination="zJW-KD-fDC" id="sz0-wZ-DXX"/>
+                <outlet property="mark" destination="N2Y-Sf-bpe" id="lbd-gO-hGr"/>
+                <outlet property="name" destination="FFO-bG-hWi" id="wR1-aV-LNA"/>
             </connections>
         </tableViewCell>
     </objects>

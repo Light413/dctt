@@ -167,10 +167,28 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
     ///显示相册视图
     func showImagePicker()  {
         guard PHPhotoLibrary.authorizationStatus() == .authorized else {
-            HUD.showText("请在系统设置中允许访问相册", view: view)
+            //HUD.showText("请在系统设置中允许访问相册", view: view)
+
+            PHPhotoLibrary.requestAuthorization { [weak self](status) in
+                guard let ss = self else {return}
+                
+                DispatchQueue.main.async {
+                    if status == PHAuthorizationStatus.authorized {
+                        print("Allow");
+                        ss._showTTImagePickerViewController()
+                    }else {
+                        HUD.showText("请在系统设置中允许访问相册", view: UIApplication.shared.keyWindow!)
+                        print("Not Allow");
+                    }
+                }
+            }
             return
         }
         
+        self._showTTImagePickerViewController()
+    }
+    
+    func _showTTImagePickerViewController()  {
         let vc = TTImagePickerViewController()
         //最大选择的数
         vc.maxImagesNumber = kMaxImagesNumber - imgDataArr.count
@@ -186,9 +204,9 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         
         presentViewController = UINavigationController(rootViewController:vc)
         self.navigationController?.present(presentViewController, animated: true, completion: nil)
+
+        
     }
-    
-    
     
     //MARK: - Actions
     func navigationBackButtonAction() {
@@ -386,16 +404,17 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
 extension BasePublishController:UIImagePickerControllerDelegate ,UINavigationControllerDelegate{
     
     func showCarema() {
-        let vc = UIImagePickerController.init()
-        vc.delegate = self
-        vc.allowsEditing = true
         
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {HUD.show(info: "NO Camera Available");return}
         guard AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == .authorized else {
-            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (b) in
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { [weak self](b) in
+                
+                guard let ss = self else {return}
+                
                 DispatchQueue.main.async {
                     if b {
                         print("Allow");
+                        ss._showCarema()
                     }else {
                         HUD.show(info: "Allow access to the camera in Settings");
                         print("Not Allow");
@@ -404,13 +423,18 @@ extension BasePublishController:UIImagePickerControllerDelegate ,UINavigationCon
             }); return
         }
         
+        _showCarema()
+    }
+
+    func _showCarema()  {
+        let vc = UIImagePickerController.init()
+        vc.delegate = self
+        vc.allowsEditing = true
         vc.sourceType = .camera
         
         
         self.navigationController?.present(vc, animated: true, completion: nil)
-        
     }
-
     
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

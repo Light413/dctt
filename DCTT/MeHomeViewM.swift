@@ -12,6 +12,12 @@ class MeHomeViewM: NSObject {
     var category:String!
     var type:String!
     
+    ///用户ID
+    var user_id:String!
+    
+    ///无数据提示
+    var noDataTipMsg = "还没有数据"
+    
     ///所属类型
     var isMyFromPublish:Bool = true //默认我的主页-发布
     
@@ -37,7 +43,7 @@ class MeHomeViewM: NSObject {
         
         _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 0 - 0), style: .plain)
         _tableview.showsVerticalScrollIndicator = false
-        //_tableview.separatorStyle = .none
+        _tableview.separatorStyle = .none
         _tableview.backgroundColor = UIColor.white
         _tableview.delegate = self;
         _tableview.dataSource = self
@@ -82,15 +88,14 @@ class MeHomeViewM: NSObject {
     
     
     func loadData() {
-        HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
-        
-        guard let uid = User.uid() else {return}
+        guard let uid = user_id else {return}
         let d = ["category":"sy" ,
                  "uid": uid ,
                  "pageNumber":pageNumber,
                  "type":isMyFromPublish ? 0 : 1 ,
                  ] as [String : Any]
         
+        HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
         
         AlamofireHelper.post(url: get_sc_url, parameters: d, successHandler: {[weak self] (res) in
             HUD.dismiss()
@@ -119,8 +124,13 @@ class MeHomeViewM: NSObject {
                 ss._tableview.mj_footer.state = .noMoreData
             }
             
+            if ss.dataArray.count == 0 {
+                ss._tableview.separatorStyle = .none;
+            }else{
+                ss._tableview.separatorStyle = .singleLine;
+            }
+            
             ss._tableview.reloadData()
-            //print(res);
         }) {[weak self] (error) in
             HUD.dismiss()
             guard let ss = self else {return}
@@ -136,15 +146,15 @@ class MeHomeViewM: NSObject {
 extension MeHomeViewM:UITableViewDelegate,UITableViewDataSource{
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dataArray.count
+        return dataArray.count == 0 ? 1 : dataArray.count
     }
     
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if dataArray.count == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCellReuseIdentifier", for: indexPath)
-            cell.textLabel?.text = "还没有数据"
-            cell.textLabel?.font = UIFont.systemFont(ofSize: 12)
+            cell.textLabel?.text = noDataTipMsg
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 13)
             cell.textLabel?.textColor = UIColor.lightGray
             cell.textLabel?.textAlignment = .center
             cell.isUserInteractionEnabled = false

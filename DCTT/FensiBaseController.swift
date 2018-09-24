@@ -38,16 +38,15 @@ class FensiBaseController: UIViewController,TTPageViewControllerDelegate,TTHeadV
     func _initSubviews()  {
         
         let titles = ["关注","粉丝"]
-        topview  = TTHeadView (frame: CGRect (x: 0, y: 0, width: 130, height: 40), titles: titles, delegate: self)
+        topview  = TTHeadView (frame: CGRect (x: 0, y: 0, width: 100, height: 40), titles: titles, delegate: self)
         //view.addSubview(topview)
         topview.backgroundColor = UIColor.white
-//        topview.textAttribute = TTHeadTextAttribute.init(defaultColor: UIColor.lightGray, defaultSize: 16, selectedColor: UIColor.black, selectedSize: 16)
-        
+
         navigationItem.titleView = topview
         
         ////pagevc
-        for _ in 0..<titles.count {
-            let v = GuanzhuController();
+        for i in 0..<titles.count {
+            let v = GuanzhuController(i);
             vcArr.append(v)
         }
         
@@ -57,6 +56,8 @@ class FensiBaseController: UIViewController,TTPageViewControllerDelegate,TTHeadV
         self.addChildViewController(pagevc)
         view.addSubview(pagevc.view)
     }
+    
+
     
     //MARK: -
     func tt_headViewSelectedAt(_ index: Int) {
@@ -75,16 +76,6 @@ class FensiBaseController: UIViewController,TTPageViewControllerDelegate,TTHeadV
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

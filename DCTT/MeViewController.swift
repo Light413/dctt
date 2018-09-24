@@ -33,10 +33,14 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         
         NotificationCenter.default.addObserver(self, selector: #selector(loginSuccessNoti(_ :)), name: userLoginedSuccessNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateUserInfo(_ :)), name: updateUserInfoNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadUserInfo), name: updateUserInfoNotification, object: nil)
+        
+        loadUserInfo()
     }
 
-    func updateUserInfo(_ noti:Notification)  {
+    
+    ///获取用户最新信息
+    func loadUserInfo()  {
         guard let uid = User.uid() else {
             _tableView.reloadData()
             return

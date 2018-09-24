@@ -12,6 +12,44 @@ class FensiCell: UITableViewCell {
 
     @IBOutlet weak var guanzhu_btn: UIButton!
     
+    @IBOutlet weak var avantar: UIImageView!
+    
+    @IBOutlet weak var name: UILabel!
+    
+    @IBOutlet weak var mark: UILabel!
+    
+    @IBAction func gzAction(_ sender: UIButton) {
+        
+        
+    }
+    
+    
+    func fill(_ d:[String:Any]) {
+        guard let dic = d["user"] as? [String:Any] else {return}
+        
+        if let igurl = dic["avatar"] as? String {
+            let url = URL.init(string: igurl)
+            avantar.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
+        }
+        
+        var s = ""
+        let _name = String.isNullOrEmpty(dic["name"]);
+        if _name.lengthOfBytes(using: String.Encoding.utf8) > 0  {
+            s = _name;
+        }
+        else
+            if let name = dic["nickName"] as? String {
+                s = name;
+        }
+        name.text = s
+        
+        
+        let notes = String.isNullOrEmpty(dic["notes"])
+        let notesStr =  (notes.lengthOfBytes(using: String.Encoding.utf8) > 0 ? notes : "暂无介绍")
+        mark.text = notesStr
+        
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
