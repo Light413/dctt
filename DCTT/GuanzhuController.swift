@@ -35,7 +35,7 @@ class GuanzhuController: MeBaseTableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCellReuseIdentifier")
         tableView.backgroundColor = UIColor.white
         
-        tableView.rowHeight = 70;
+        tableView.rowHeight = 80;
         
         //refresh
         let header = TTRefreshHeader.init(refreshingBlock: {[weak self] in
@@ -103,6 +103,7 @@ class GuanzhuController: MeBaseTableViewController {
             
             if ss.dataArray.count == 0 {
                 ss.tableView.separatorStyle = .none;
+                ss.tableView.mj_footer.isHidden = true
             }else{
                 ss.tableView.separatorStyle = .singleLine;
             }
@@ -147,7 +148,7 @@ class GuanzhuController: MeBaseTableViewController {
 
         let d = dataArray[indexPath.row]
         
-        cell.fill(d);
+        cell.fill(d , isWatched: _type == 0);
         
         return cell
     }

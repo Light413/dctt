@@ -53,8 +53,6 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     //MARK: - Load data
     //阅读量，点赞
     func loadReadCnt() {
-        //...未登录的问题还没处理
-        
         var d = ["pid":pid! ,
                  "type":"0",
                  //"uid":User.uid()!,
@@ -218,6 +216,62 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         return cell
     }
     
+    //MARK: - Action
+    
+    ///举报别人的帖子，删除自己的帖子
+    override func _rightItemAction()  {
+        guard User.isLogined() else {
+            HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
+            return
+        }
+        
+        let author_id = String.isNullOrEmpty(data["uid"])
+        guard let uid = User.uid() else {return}
+        let isme = author_id == uid//是本人吗
+        
+        let alertViewContronller = UIAlertController.init(title: isme ? "确定删除这条动态?" : "举报该作者的这条动态?", message: nil, preferredStyle: .actionSheet)
+        
+        
+        let action2 = UIAlertAction.init(title: isme ? "删除" : "举报", style: .destructive, handler: {[weak self] (action) in
+            
+            guard let ss = self else {return}
+            if isme {
+                ss._deleteMYPost()
+            } else {
+                ss._jubao()
+            }
+        })
+        
+        let action3 = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
+        
+        alertViewContronller.addAction(action2)
+        alertViewContronller.addAction(action3)
+        
+        self.navigationController?.present(alertViewContronller, animated: true, completion: nil)
+    }
+    
+    
+    ///举报该动态
+    func _jubao() {
+        
+    }
+    
+    ///删除我的动态
+    func _deleteMYPost() {
+        guard let myid = User.uid() else {return}
+        let d = ["uid":myid , "type":0] as [String : Any]
+        
+        HUD.show()
+        AlamofireHelper.post(url: delete_sc_url, parameters: d, successHandler: {[weak self] (res) in
+            HUD.show(successInfo: "删除成功")
+            guard let ss = self else {return}
+            ss.navigationController?.popViewController(animated: true)
+            
+        }) { (error) in
+            HUD.show(info: "删除失败,请重试")
+        }
+
+    }
     
     //MARK: - UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {

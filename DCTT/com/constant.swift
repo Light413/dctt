@@ -30,7 +30,7 @@ let comment_url = "comment.php"
 let post_detail_url = "detail.php"
 let get_sc_url = "getsc.php"
 let fans_url = "fan.php"
-
+let delete_sc_url = "deletesc.php"
 
 ///html
 let user_agreement_url = "userAgreement.html"

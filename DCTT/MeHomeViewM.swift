@@ -82,10 +82,7 @@ class MeHomeViewM: NSObject {
         _tableview.tableFooterView = UIView()
         
         _tableview.mj_header.beginRefreshing()
-        
-        
     }
-    
     
     func loadData() {
         guard let uid = user_id else {return}
@@ -126,6 +123,7 @@ class MeHomeViewM: NSObject {
             
             if ss.dataArray.count == 0 {
                 ss._tableview.separatorStyle = .none;
+                ss._tableview.mj_footer.isHidden = true
             }else{
                 ss._tableview.separatorStyle = .singleLine;
             }
@@ -133,10 +131,15 @@ class MeHomeViewM: NSObject {
             ss._tableview.reloadData()
         }) {[weak self] (error) in
             HUD.dismiss()
+            print(error?.localizedDescription)
+            
             guard let ss = self else {return}
             //ss.loadDataSuccess = false
             if ss._tableview.mj_header.isRefreshing(){ss._tableview.mj_header.endRefreshing()}
             else if ss._tableview.mj_footer.isRefreshing() {ss._tableview.mj_footer.endRefreshing()}
+            
+            print("MeHomeViewM loadData Fail")
+            ss.loadData()
         }
     }
     

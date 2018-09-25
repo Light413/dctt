@@ -85,9 +85,9 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
         case (1,2)://appstore
 
             break
-        case (1,3)://分享好友
-            
-            break
+//        case (1,3)://分享好友
+//
+//            break
         case (2,_):
             showMsg("将要删除登录信息", title: "退出", handler: { [unowned self] in
                 self._logout()

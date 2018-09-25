@@ -7,7 +7,9 @@
 //
 
 import UIKit
-let _IMG_HEIGHT : CGFloat = 350
+let _kTableViewHeaderHeight : CGFloat = 250//350
+let _kTableViewMeInfoHeight:CGFloat = 170
+
 import SwiftTTPageController
 
 enum HomePageType:Int {
@@ -17,6 +19,10 @@ enum HomePageType:Int {
 
 class MeHomePageController: MeBaseTableViewController {
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     var type:HomePageType = .me
     var uid:String!
     
@@ -58,30 +64,33 @@ class MeHomePageController: MeBaseTableViewController {
         return pagevc
     }
     
-    /*override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isTranslucent = true
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage (named: "back_bg@2x"), for: .default)
+        //navigationController?.navigationBar.isTranslucent = true
     }
-    
+ 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        navigationController?.navigationBar.isTranslucent = false
-    navigationController?.navigationBar.setBackgroundImage(imgWithColor(tt_defafault_barColor.withAlphaComponent(1)), for: .default)
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+//        navigationController?.navigationBar.isTranslucent = false
+//    navigationController?.navigationBar.setBackgroundImage(imgWithColor(tt_defafault_barColor.withAlphaComponent(1)), for: .default)
 
 //        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }*/
+    }
     
     func _initSubview()  {
-        let bg = UIView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _IMG_HEIGHT + 0))
-        imgv = UIImageView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _IMG_HEIGHT))
+        let bg = UIView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _kTableViewHeaderHeight + 0))
+        imgv = UIImageView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _kTableViewHeaderHeight))
         imgv.image = UIImage (named: "back_bg@2x")
         imgv.contentMode = .scaleToFill
         bg.addSubview(imgv)
 
         /////meinfo
         let meinfo = Bundle.main.loadNibNamed("MeHomeHeadView", owner: nil, options: nil)?.first as! MeHomeHeadView
-        meinfo.frame = CGRect  (x: 0, y:_IMG_HEIGHT - 160, width: bg.frame.width, height: 160)
+        meinfo.frame = CGRect  (x: 0, y:_kTableViewHeaderHeight - _kTableViewMeInfoHeight, width: bg.frame.width, height: _kTableViewMeInfoHeight)
         meinfo.backgroundColor = tt_defafault_barColor //UIColor.white
         bg.addSubview(meinfo)
         _meInfoView = meinfo;
@@ -91,6 +100,8 @@ class MeHomePageController: MeBaseTableViewController {
         tableView.tableHeaderView = bg
         tableView.tableFooterView = UIView()
         bg.backgroundColor = UIColor.clear
+        
+        
         
         //navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor (red: 250/255.0, green: 251/255.0, blue: 253/255.0, alpha: 0).withAlphaComponent(0)), for: UIBarPosition.top, barMetrics: .default)
         
@@ -149,35 +160,37 @@ class MeHomePageController: MeBaseTableViewController {
         if _y <= 0 {
             //navigationController?.navigationBar.isTranslucent = true
             
-            let s  = -_y / _IMG_HEIGHT
+            let s  = -_y / _kTableViewHeaderHeight
             let w = scrollView.frame.width * (1 + s)
-            let h = _IMG_HEIGHT * (1 + s)
+            let h = _kTableViewHeaderHeight * (1 + s)
 
             imgv.frame = CGRect (x: -scrollView.frame.size.width * s * 0.5, y: _y - 0, width: w, height: h)
 
         }
         
-        if _y >= _IMG_HEIGHT - _offset_y {
+        if _y >= _kTableViewHeaderHeight - _offset_y {
             if canScroll {
                 canScroll = false
-                scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT - _offset_y)
+                scrollView.contentOffset = CGPoint (x: 0, y: _kTableViewHeaderHeight - _offset_y)
                 
                 NotificationCenter.default.post(name: NSNotification.Name (rawValue: "childCanScrollNotification"), object: nil)
                 kchildViewCanScroll = true
             }else {
-                scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT - _offset_y)
+                scrollView.contentOffset = CGPoint (x: 0, y: _kTableViewHeaderHeight - _offset_y)
             }
         } else {
             if !canScroll {
-               scrollView.contentOffset = CGPoint (x: 0, y: _IMG_HEIGHT - _offset_y)
+               scrollView.contentOffset = CGPoint (x: 0, y: _kTableViewHeaderHeight - _offset_y)
             }
         }
         
-    navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor.white.withAlphaComponent(_y > 40 ? 1 : 0)), for: .default)
+    //navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor.white.withAlphaComponent(_y > 40 ? 1 : 0)), for: .default)
 
         
         if _y > 60 {
-            title = kuserName
+            //title = kuserName
+        //navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor.white.withAlphaComponent(_y > 40 ? 1 : 0)), for: .default)
+            
 //            if _y > 40 {
 //
 //               let v = UIView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 64))
@@ -186,7 +199,8 @@ class MeHomePageController: MeBaseTableViewController {
 //                self.navigationController?.navigationBar.addSubview(v)
 //            }
         }else{
-            title = ""
+//            title = ""
+//            navigationController?.navigationBar.setBackgroundImage(UIImage (named: "back_bg@2x"), for: .default)
         }
         
     }

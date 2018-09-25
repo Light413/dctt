@@ -110,7 +110,7 @@ class MeHomeHeadView: UIView {
 
     
     func _checkIsWatched() {
-        _watchAction(0, msg: nil)
+        _watchAction(0, msg: "加载完成")
     }
     
     ///0:检测是否关注 1:添加关注 2:取消关注
@@ -121,7 +121,6 @@ class MeHomeHeadView: UIView {
         
         HUD.show()
         AlamofireHelper.post(url: fans_url, parameters: d, successHandler: { [weak self](res) in
-            print(res)
             HUD.show(successInfo: String.isNullOrEmpty(msg))
             
             guard let ss = self else {return}

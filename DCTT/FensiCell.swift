@@ -18,14 +18,19 @@ class FensiCell: UITableViewCell {
     
     @IBOutlet weak var mark: UILabel!
     
+    private var _isWatched:Bool = true
+    
     @IBAction func gzAction(_ sender: UIButton) {
         
         
     }
     
     
-    func fill(_ d:[String:Any]) {
+    func fill(_ d:[String:Any] , isWatched:Bool = true) {
         guard let dic = d["user"] as? [String:Any] else {return}
+        
+        _isWatched = isWatched
+        guanzhu_btn.setTitle(_isWatched ? "取消关注" : "关注", for: .normal)
         
         if let igurl = dic["avatar"] as? String {
             let url = URL.init(string: igurl)

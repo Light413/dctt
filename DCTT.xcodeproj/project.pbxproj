@@ -162,6 +162,7 @@
 		AD69FA4E2149079D00465F21 /* TTImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD69FA4D2149079D00465F21 /* TTImagePicker.swift */; };
 		AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */; };
 		AD6A983C201A12CB00E7C5AE /* HomeDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */; };
+		AD87FD022159F30600FEB395 /* ETNavBarTransparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87FD012159F30600FEB395 /* ETNavBarTransparent.swift */; };
 		ADC61DDF2144057000AE11B1 /* DarenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61DDE2144057000AE11B1 /* DarenTableViewController.swift */; };
 		ADC61DE22144058900AE11B1 /* DarenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61DE02144058900AE11B1 /* DarenCell.swift */; };
 		ADC61DE32144058900AE11B1 /* DarenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADC61DE12144058900AE11B1 /* DarenCell.xib */; };
@@ -374,6 +375,7 @@
 		AD69FA4D2149079D00465F21 /* TTImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTImagePicker.swift; sourceTree = "<group>"; };
 		AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailFooterView.swift; sourceTree = "<group>"; };
 		AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailFooterView.xib; sourceTree = "<group>"; };
+		AD87FD012159F30600FEB395 /* ETNavBarTransparent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETNavBarTransparent.swift; sourceTree = "<group>"; };
 		ADC61DDE2144057000AE11B1 /* DarenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarenTableViewController.swift; sourceTree = "<group>"; };
 		ADC61DE02144058900AE11B1 /* DarenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarenCell.swift; sourceTree = "<group>"; };
 		ADC61DE12144058900AE11B1 /* DarenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DarenCell.xib; sourceTree = "<group>"; };
@@ -681,6 +683,7 @@
 			children = (
 				A1E853C81FC690E100E8DB85 /* KLTAnimateNav */,
 				AD1033391FB6CD920017E81C /* BaseNavigationController.swift */,
+				AD87FD012159F30600FEB395 /* ETNavBarTransparent.swift */,
 				AD10333A1FB6CD920017E81C /* BaseTabbarController.swift */,
 				AD10333B1FB6CD920017E81C /* BaseTableViewController.swift */,
 				AD10333C1FB6CD920017E81C /* BaseViewController.swift */,
@@ -1132,6 +1135,7 @@
 				A1E1B02D1FDA7AEF002D6BDC /* TTImagePreviewController.swift in Sources */,
 				ADD7CE1B211C8C4800A33F3B /* MeHomeListController.swift in Sources */,
 				ADC61DE92144215C00AE11B1 /* ZTTableViewController.swift in Sources */,
+				AD87FD022159F30600FEB395 /* ETNavBarTransparent.swift in Sources */,
 				AD202755204C389500E538CD /* PubQiuzhiViewController.swift in Sources */,
 				AD2E9572207E65D2009C675B /* GuanzhuController.swift in Sources */,
 				AD202759204C38B000E538CD /* PubDacheViewController.swift in Sources */,

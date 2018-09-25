@@ -25,8 +25,6 @@ class MeCollectController: MeBaseTableViewController ,AddButtonItemProtocol,Show
         //tableView.register(UINib (nibName: "CollectCell", bundle: nil), forCellReuseIdentifier: "CollectCellIdentifier")
         _initSubviews()
 
-        
-
     }
     
     
@@ -50,11 +48,33 @@ class MeCollectController: MeBaseTableViewController ,AddButtonItemProtocol,Show
 
     
     func deleteAction() {
-        
-        showMsg("删除所有收藏?", title: "删除") { () in
+        guard viewM.dataArray.count > 0 else {return}
+        showMsg("删除所有收藏?", title: "删除") { [weak self] in
+            guard let ss = self else {return}
             
+            ss._delete()
         }
     }
+    
+    func _delete() {
+        guard let myid = User.uid() else {return}
+        let d = ["uid":myid , "type":1] as [String : Any]
+        
+        HUD.show()
+        AlamofireHelper.post(url: delete_sc_url, parameters: d, successHandler: {[weak self] (res) in
+            HUD.show(successInfo: "删除成功")
+            guard let ss = self else {return}
+            ss.viewM.pageNumber = 1;
+            ss.viewM.tableview.mj_header.beginRefreshing()
+            
+        }) { (error) in
+            HUD.show(info: "删除失败,请重试")
+        }
+    }
+    
+    
+    
+    
     
     func _initSubviews() {
         let rightItem = _getBarButtonItem(image: UIImage (named: "delete_allshare")!, action: #selector(deleteAction))
