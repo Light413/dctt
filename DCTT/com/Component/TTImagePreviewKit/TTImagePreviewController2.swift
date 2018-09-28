@@ -69,11 +69,14 @@ class TTImagePreviewController2: UIViewController{
     
     func addTooBar() {
         let _alpha:Float = 0.5
-        _topBar = UIToolbar.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 60))
-        _topBar.barStyle = .black
+        //_topBar = UIView(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 60))
+        _topBar = UIToolbar.init(frame: CGRect (x: 0, y: kIsIPhoneX ? 44 : 0, width: kCurrentScreenWidth, height: 60))
+        _topBar.barStyle = .default
         _topBar.isTranslucent = true
         _topBar.setBackgroundImage(imageWithColor(UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: _alpha)), forToolbarPosition: .any , barMetrics: .default)
         view.addSubview(_topBar)
+        _topBar.layoutIfNeeded()
+        
         topBarTitle = UILabel.init(frame: CGRect (x: (_topBar.frame.width - 120)/2, y: (_topBar.frame.height - 40)/2, width: 120, height: 40))
         topBarTitle.textAlignment = .center
         topBarTitle.textColor = UIColor.white
@@ -95,7 +98,9 @@ class TTImagePreviewController2: UIViewController{
         _bottomBar.setBackgroundImage(imageWithColor(UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: _alpha)), forToolbarPosition: .any , barMetrics: .default)
         view.addSubview(_bottomBar)
         
-        let selectbtn = UIButton (frame: CGRect (x: kCurrentScreenWidth - 50, y: 0, width: 40, height: 40))
+        _bottomBar.layoutIfNeeded()
+        
+        let selectbtn = UIButton (frame: CGRect (x: kCurrentScreenWidth - 80, y: 0, width: 40, height: 40))
         selectbtn.setTitle("保存", for: .normal)
         selectbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         selectbtn.addTarget(self, action: #selector(saveImageAction(_:)), for: .touchUpInside)
@@ -172,8 +177,8 @@ extension TTImagePreviewController2 : UICollectionViewDelegate , UICollectionVie
                 guard let strongSelf = self else {return}
                 
                 if !strongSelf._toolBarIsHiden {
-                    strongSelf._topBar.transform = CGAffineTransform.init(translationX: 0, y: -strongSelf._topBar.frame.height)
-                    strongSelf._bottomBar.transform = CGAffineTransform.init(translationX: 0, y:strongSelf._bottomBar.frame.height)
+                    strongSelf._topBar.transform = CGAffineTransform.init(translationX: 0, y: -strongSelf._topBar.frame.height - (kIsIPhoneX ? 44 : 0))
+                    strongSelf._bottomBar.transform = CGAffineTransform.init(translationX: 0, y:strongSelf._bottomBar.frame.height + 0)
                 }else{
                     strongSelf._topBar.transform = CGAffineTransform.identity
                     strongSelf._bottomBar.transform = CGAffineTransform.identity

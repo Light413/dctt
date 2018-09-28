@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         window?.makeKeyAndVisible()
         
         _initSys()
+        
         return true
     }
 
@@ -51,11 +52,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         //_initLocationServices()
         //_initNotification()
 
+        _initShare()
     }
     
+    ///分享初始化
+    func _initShare() {
+        ShareSDK.registerActivePlatforms(
+            [
+                //SSDKPlatformType.typeWechat.rawValue,
+                SSDKPlatformType.typeQQ.rawValue,
+                
+                SSDKPlatformType.subTypeWechatSession.rawValue,
+                
+                SSDKPlatformType.subTypeWechatTimeline.rawValue,
+                
+                ],
+            onImport: {(platform : SSDKPlatformType) -> Void in
+                switch platform
+                {
+                case SSDKPlatformType.typeWechat:
+                    ShareSDKConnector.connectWeChat(WXApi.classForCoder())
+                    
+                case SSDKPlatformType.typeQQ:
+                    ShareSDKConnector.connectQQ(QQApiInterface.classForCoder(), tencentOAuthClass: TencentOAuth.classForCoder())
+                default:
+                    break
+                }
+        },
+            onConfiguration: {(platform : SSDKPlatformType , appInfo : NSMutableDictionary?) -> Void in
+                switch platform
+                {
+                case SSDKPlatformType.typeWechat:
+                    //设置微信应用信息
+                    appInfo?.ssdkSetupWeChat(byAppId: "wxb2eb04bf9f024905",
+                                             appSecret: "d4624c36b6795d1d99dcf0547af5443d")
+                case SSDKPlatformType.typeQQ:
+                    //设置QQ应用信息
+                    appInfo?.ssdkSetupQQ(byAppId: "1104880067",
+                                         appKey: "pqNu2AWR1n83gdML",
+                                         authType: SSDKAuthTypeWeb)
+                default:
+                    break
+                }
+        })
+    }
     
-    
-    //开启定位
+    ///开启定位
     func _initLocationServices() {
         if CLLocationManager.locationServicesEnabled() {
             if CLLocationManager.authorizationStatus() == .denied {

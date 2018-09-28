@@ -41,7 +41,7 @@ class DetailViewM: NSObject {
         pid = vc?.pid
         targetAction = #selector(toolBarButtonClicked(_:))
         
-        _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64 - 49), style: .grouped)
+        _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - kNavigationBarHeight - kBottomToolBarHeight), style: .grouped)
         _tableview.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         _tableview.showsVerticalScrollIndicator = false
         _tableview.separatorStyle = .none

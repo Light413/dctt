@@ -14,7 +14,7 @@ class TTPublishView: UIView {
     var _maskView:UIView!
     var _contentview:UIView!
     
-    let kContentViewHeight:CGFloat = 220
+    let kContentViewHeight:CGFloat = 220  + (kIsIPhoneX ? 30 : 0)
     let kAnimateDuration = 0.25
     
     typealias completeHandlerType = ((Int)->())
@@ -31,31 +31,49 @@ class TTPublishView: UIView {
         _contentview = UIView (frame: CGRect (x: 0, y: frame.height, width: frame.width, height: kContentViewHeight))
         _contentview.backgroundColor = kTableviewBackgroundColor
         
-        let cancleBtn = UIButton (frame: CGRect (x: 0, y: _contentview.frame.height - 50, width: _contentview.frame.width, height: 50))
+        let cancleBtn = UIButton (frame: CGRect (x: 0, y: _contentview.frame.height - 50  - (kIsIPhoneX ? 30 : 0), width: _contentview.frame.width, height: 50  + (kIsIPhoneX ? 30 : 0)))
         cancleBtn.setTitle("取消", for: .normal)
         cancleBtn.addTarget(self, action: #selector(cancleBtnClick), for: .touchUpInside)
-        cancleBtn.setTitleColor(UIColor (red: 212/255.0, green: 61/255.0, blue: 61/255.0, alpha: 1), for: .normal)
+        cancleBtn.setTitleColor(UIColor.darkGray, for: .normal)
         cancleBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         cancleBtn.backgroundColor = UIColor.white
         _contentview.addSubview(cancleBtn)
         
-        let titles = ["动态","朋友圈","服务"]
-        let imgs = ["publish_write","publish_image","video_allshare"]
+        let titleLable = UILabel (frame: CGRect (x: 0, y: 15, width: frame.width, height: 20))
+        _contentview.addSubview(titleLable)
+        titleLable.text = "分享到"
+        titleLable.textAlignment = .center
+        titleLable.font = UIFont.systemFont(ofSize: 15)
         
-        let _x = [0.5,2,3.5]
-        let _w = frame.width / 5
+        //-0-0-0-0- 5 4 121212121 = 13
+        let titles = ["朋友圈","微信好友","QQ","QQ空间"]
+        let icon_imgs = ["icon_share_wechat_timeline","icon_share_wechat_friends","icon_share_qq","icon_share_qzone"]
+        
+        let _w = frame.width / 17.0
         for index in 0..<titles.count {
-            let btn = UIButton (frame: CGRect (x: _w  * (CGFloat(_x[index])) , y: 35, width: _w, height: _w + 20))
-            btn.setTitle(titles[index], for: .normal)
-            btn.setTitleColor(UIColor.darkGray, for: .normal)
-            btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+//            let btn = UIButton (frame: CGRect (x: _w  * (CGFloat(_x[index])) , y: 35, width: _w, height: _w + 20))
+            let btn = UIButton (frame: CGRect (x: _w  * (CGFloat(index + 1)) + _w * 3 * (CGFloat(index)) , y: 55, width: _w * 3, height: _w * 3 + 0))
             
-            btn.setImage(UIImage (named: imgs[index]), for: .normal)
-            btn.setImage(UIImage (named: imgs[index]), for: .highlighted)
+//            btn.setTitle(titles[index], for: .normal)
+//            btn.setTitleColor(UIColor.darkGray, for: .normal)
+//            btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
             
-            btn.titleEdgeInsets = UIEdgeInsetsMake(_w + 5, -_w, 0, 0)
-            btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 20, 0)
+            btn.setImage(UIImage (named: icon_imgs[index]), for: .normal)
+            btn.setImage(UIImage (named: icon_imgs[index]), for: .highlighted)
+            
+//            btn.titleEdgeInsets = UIEdgeInsetsMake(_w + 5, -_w, 0, 0)
+//            btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 20, 0)
 
+            let t = UILabel (frame: CGRect (x: 0, y: btn.frame.maxY + 10, width: _w * 3, height: 20))
+            t.center = CGPoint.init(x: btn.center.x, y: t.center.y)
+            t.font = UIFont.systemFont(ofSize: 11)
+            t.textColor = UIColor.darkGray
+            t.textAlignment = .center
+            
+            t.text = titles[index]
+            
+            _contentview.addSubview(t)
+            
             btn.tag = 101 + index
             btn.addTarget(self, action: #selector(ditributeClick(_:)), for: .touchUpInside)
             _contentview.addSubview(btn)

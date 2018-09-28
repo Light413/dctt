@@ -22,6 +22,25 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wxb2eb04bf9f024905</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>QQ41DB21C3</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>Icon files_nouse (iOS 5)</key>
@@ -38,8 +57,38 @@
 			<true/>
 		</dict>
 	</dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>wechat</string>
+		<string>weixin</string>
+		<string>mqzoneopensdk</string>
+		<string>mqzoneopensdkapi</string>
+		<string>mqzoneopensdkapi19</string>
+		<string>mqzoneopensdkapiV2</string>
+		<string>mqqOpensdkSSoLogin</string>
+		<string>mqqopensdkapiV2</string>
+		<string>mqqopensdkapiV3</string>
+		<string>wtloginmqq2</string>
+		<string>mqqapi</string>
+		<string>mqqwpa</string>
+		<string>mqzone</string>
+		<string>mqq</string>
+		<string>mqqopensdkapiV4</string>
+		<string>tim</string>
+		<string>timapi</string>
+		<string>timopensdkfriend</string>
+		<string>timwpa</string>
+		<string>timOpensdkSSoLogin</string>
+		<string>wtlogintim</string>
+		<string>timopensdkapiV4</string>
+		<string>timapiV1</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MOBAppSecret</key>
+	<string>02a50eabe16cf757c253888792f5af67</string>
+	<key>MOBAppkey</key>
+	<string>2803e9fa0ba26</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -48,11 +97,13 @@
 	<key>NSCameraUsageDescription</key>
 	<string>允许在使用中访问相机</string>
 	<key>NSLocationUsageDescription</key>
-	<string>使用位置</string>
+	<string>允许在使用中访问您的位置</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>允许在使用中访问您的位置</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>允许在使用中访问相册</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>允许在使用中访问相册以便保存到相册</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

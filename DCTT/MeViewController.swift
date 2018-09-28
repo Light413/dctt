@@ -42,9 +42,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     ///获取用户最新信息
     func loadUserInfo()  {
         guard let uid = User.uid() else {
-            _tableView.reloadData()
-            return
-            
+            _tableView.reloadData();  return
         }
         
         let d = ["uid":uid, "type":"3"]
@@ -68,17 +66,31 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         }
     }
     
+    func updateScore() {
+        guard let uid = User.uid() else {
+            _tableView.reloadData();  return
+        }
+        
+        let d = ["uid":uid, "type":"1","score":5] as [String : Any]
+        
+        AlamofireHelper.post(url: update_profile_url, parameters: d, successHandler: {[weak self] (res) in
+                HUD.showText("积分+5", view: UIApplication.shared.keyWindow!)
+                guard let ss = self else {return}
+                ss.loadUserInfo()
+        }) { (err) in
+            
+        }
+
+    }
+    
     
     func loginSuccessNoti(_ noti:Notification) {
         user_has_logined = User.isLogined()
         
         print("name: \(User.name()) , token: \(User.token()) , uid: \(User.uid())")
+        
         _tableView.reloadData()
-
     }
-    
-    
-    
     
     func topView() -> UIView {
         let _l = UILabel .init(frame: CGRect (x: 0, y: 20, width: kCurrentScreenWidth, height: 44))
@@ -242,7 +254,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
                 break
                 
             case 4://分享
-                
+                _share2()
                 //vc = HistoryViewController()
                 return
                 break
@@ -259,19 +271,69 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             self.navigationController?.pushViewController(vc, animated: true);
             
         }
-        
-        
-        
-
-        
-        
-
 
     }
     
+    let share_titles = ["朋友圈","微信好友","QQ","QQ空间"]
     
+    ///分享操作
+    func _share2() {
+        
+        TTPublishView.show({[weak self] (index) in
+            guard let ss = self else {return}
+
+            switch index {
+            case 1,2:
+                guard  ShareSDK.isClientInstalled(SSDKPlatformType.typeQQ) else {
+                    HUD.showText("没有安装微信客户端", view: UIApplication.shared.keyWindow!)
+                    return
+                }
+                break;
+                
+            case 3, 4:
+                guard  ShareSDK.isClientInstalled(SSDKPlatformType.typeWechat) else {
+                    HUD.showText("没有安装QQ客户端", view: UIApplication.shared.keyWindow!)
+                    return
+                }
+                break;
+
+            default:break;
+                
+            }
+            
+            // 1.创建分享参数
+            let shareParames = NSMutableDictionary()
+            shareParames.ssdkSetupShareParams(byText: "郸城头条APP一个本地生活服务信息平台，动态发布、查看、推广、交友等 来这里看看老家身边的人动态吧。",
+                                              images : UIImage(named: "app_logo"),
+                                              url : URL.init(string: "http://39.106.164.101/tt/webhome.html"),
+                                              title : "对不起我来晚了,赶快把我介绍给你的小伙伴吧",
+                                              type : SSDKContentType.auto)
+
+            let platType = [SSDKPlatformType.subTypeWechatTimeline , SSDKPlatformType.subTypeWechatSession , SSDKPlatformType.subTypeQQFriend,SSDKPlatformType.subTypeQZone]
+            
+            //2.进行单个分享
+            ShareSDK.share(platType[index - 1], parameters: shareParames) {[weak self] (state : SSDKResponseState, nil, entity : SSDKContentEntity?, error :Error?) in
     
+                switch state{
+                    case SSDKResponseState.success:
+                        HUD.showText("分享成功", view: UIApplication.shared.keyWindow!)
+                        guard let ss = self else {return}
+                        
+                        ///添加积分
+                        ss.updateScore()
+                    case SSDKResponseState.fail:
+                        HUD.showText("授权失败", view: UIApplication.shared.keyWindow!)
+                    
+                    case SSDKResponseState.cancel:
+                        HUD.showText("操作取消", view: UIApplication.shared.keyWindow!);
+                    default:break
+                }
     
+            }
+
+        })
+
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

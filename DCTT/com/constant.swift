@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+let kIsIPhoneX = UIScreen.main.bounds.size.equalTo(CGSize (width: 375, height: 812))
+let kNavigationBarHeight:CGFloat = kIsIPhoneX ? 88 : 64
+let kBottomToolBarHeight:CGFloat = kIsIPhoneX ? 80 : 49
+
+
+///
 let kBartintColor =  UIColor (red: 54/255.0, green:  54/255.0, blue:  54/255.0, alpha: 1)
 //let kTableviewHeadViewBgColor = UIColor(red: 84/255.0, green:  150/255.0, blue:  194/255.0, alpha: 1)
 let kTableviewBackgroundColor = UIColor.init(colorLiteralRed: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha: 1)

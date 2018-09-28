@@ -186,9 +186,6 @@
 		ADDAF3802146B61A00B70EBB /* TableCellWithCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDAF37E2146B61A00B70EBB /* TableCellWithCollectionView.swift */; };
 		ADDAF3812146B61A00B70EBB /* TableCellWithCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADDAF37F2146B61A00B70EBB /* TableCellWithCollectionView.xib */; };
 		ADDEA990210F630D007C1CBA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDEA98F210F630D007C1CBA /* Notification.swift */; };
-		ADE12F9D211E9DA5002B8854 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE12F9A211E9DA4002B8854 /* Icon-60.png */; };
-		ADE12F9E211E9DA5002B8854 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE12F9B211E9DA4002B8854 /* Icon-60@2x.png */; };
-		ADE12F9F211E9DA5002B8854 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADE12F9C211E9DA5002B8854 /* Icon-60@3x.png */; };
 		ADE989512120710D004DAAC5 /* FriendRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE989502120710D004DAAC5 /* FriendRootController.swift */; };
 		ADE9C710212930DF00884E8A /* TTImagePreviewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9C70E212930DE00884E8A /* TTImagePreviewController2.swift */; };
 		ADE9C711212930DF00884E8A /* TTImagePreviewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9C70F212930DF00884E8A /* TTImagePreviewCell2.swift */; };
@@ -399,9 +396,6 @@
 		ADDAF37E2146B61A00B70EBB /* TableCellWithCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellWithCollectionView.swift; sourceTree = "<group>"; };
 		ADDAF37F2146B61A00B70EBB /* TableCellWithCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCellWithCollectionView.xib; sourceTree = "<group>"; };
 		ADDEA98F210F630D007C1CBA /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
-		ADE12F9A211E9DA4002B8854 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
-		ADE12F9B211E9DA4002B8854 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
-		ADE12F9C211E9DA5002B8854 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
 		ADE989502120710D004DAAC5 /* FriendRootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRootController.swift; sourceTree = "<group>"; };
 		ADE9C70E212930DE00884E8A /* TTImagePreviewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImagePreviewController2.swift; sourceTree = "<group>"; };
 		ADE9C70F212930DF00884E8A /* TTImagePreviewCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImagePreviewCell2.swift; sourceTree = "<group>"; };
@@ -505,9 +499,6 @@
 			children = (
 				A1BCDFF02142102C001AC3CC /* app_logo@2x.png */,
 				A1BCDFF12142102C001AC3CC /* app_logo@3x.png */,
-				ADE12F9A211E9DA4002B8854 /* Icon-60.png */,
-				ADE12F9B211E9DA4002B8854 /* Icon-60@2x.png */,
-				ADE12F9C211E9DA5002B8854 /* Icon-60@3x.png */,
 				AD2178E3207FB2EC00B99069 /* WechatIMG10.jpeg */,
 				A1C4023A1FCCF9A6005BAA9A /* cell_background.png */,
 				A148A2A31FD6494B0052DDF3 /* publish_image@2x.png */,
@@ -970,7 +961,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADE12F9F211E9DA5002B8854 /* Icon-60@3x.png in Resources */,
 				A1E61D211FCE93E30080A12D /* MePersonInfoCell.xib in Resources */,
 				AD21DF6620275A8B002FE181 /* TableViewCellSwitch.xib in Resources */,
 				AD6A983C201A12CB00E7C5AE /* HomeDetailFooterView.xib in Resources */,
@@ -988,7 +978,6 @@
 				AD1CD673215682B600F1E026 /* head_bg@2x.jpeg in Resources */,
 				AD2187DD205E7A6F00E8C93F /* MeHomeHeadView.xib in Resources */,
 				AD1033321FB6CD4E0017E81C /* success.png in Resources */,
-				ADE12F9D211E9DA5002B8854 /* Icon-60.png in Resources */,
 				A148A2B41FD6A0B70052DDF3 /* PublishCollectionReusableView.xib in Resources */,
 				AD00300F201DF9D900A72A16 /* PubCityCell.xib in Resources */,
 				ADC61DE32144058900AE11B1 /* DarenCell.xib in Resources */,
@@ -1009,7 +998,6 @@
 				AD21DF62202750FD002FE181 /* TableViewCellTextView.xib in Resources */,
 				ADDAF3812146B61A00B70EBB /* TableCellWithCollectionView.xib in Resources */,
 				A1C4023B1FCCF9A6005BAA9A /* cell_background.png in Resources */,
-				ADE12F9E211E9DA5002B8854 /* Icon-60@2x.png in Resources */,
 				A1B8E4942006066F001E156E /* HomeDetailHeadView.xib in Resources */,
 				ADF6D902211B3CD900ECA9F9 /* MeHomeSuperCell.xib in Resources */,
 				ADC61DED2144217400AE11B1 /* ZTTableViewCell.xib in Resources */,
@@ -1110,9 +1098,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DCTT/Pods-DCTT-resources.sh",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Required/ShareSDK.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKUI.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDKUI.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

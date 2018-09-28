@@ -2,16 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "icon_share_qq.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "delete_allshare@2x.png",
+      "filename" : "icon_share_qq@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "delete_allshare@3x.png",
       "scale" : "3x"
     }
   ],

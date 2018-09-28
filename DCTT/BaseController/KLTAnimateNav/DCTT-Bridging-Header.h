@@ -11,4 +11,18 @@
 #import "KLTNavigationController.h"
 //#import "UINavigationController+FDFullscreenPopGesture.h"
 
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+
+//腾讯SDK头文件
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+
+//微信SDK头文件
+#import "WXApi.h"
+
+#import <ShareSDKExtension/ShareSDK+Extension.h>
+
+
 #endif /* DCTT_Bridging_Header_h */
