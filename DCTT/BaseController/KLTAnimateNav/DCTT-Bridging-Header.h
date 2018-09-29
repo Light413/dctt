@@ -24,5 +24,5 @@
 
 #import <ShareSDKExtension/ShareSDK+Extension.h>
 
-
+#import <SMS_SDK/SMSSDK.h>
 #endif /* DCTT_Bridging_Header_h */

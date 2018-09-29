@@ -36,6 +36,13 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         NotificationCenter.default.addObserver(self, selector: #selector(loadUserInfo), name: updateUserInfoNotification, object: nil)
         
         loadUserInfo()
+        
+        ///..
+        SMSSDK.getVerificationCode(by: .SMS, phoneNumber: "18016373660", zone:"86") { (error) in
+            
+            
+            print(error?.localizedDescription)
+        }
     }
 
     

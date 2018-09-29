@@ -227,7 +227,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         let requestOption = PHImageRequestOptions.init()
         requestOption.resizeMode = .fast
         requestOption.isSynchronous = true
-        let size = CGSize(width: 400, height: 400)
+        //let size = CGSize(width: 400, height: 400)
         
         let group = DispatchGroup.init()
         for i in 0..<imgDataArr.count {
@@ -235,8 +235,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
             
             group.enter()
             if obj is PHAsset {
-                
-                PHImageManager.default().requestImage(for: obj as! PHAsset, targetSize: size, contentMode: .aspectFit, options: requestOption, resultHandler: { [weak self ](img, dic) in
+                PHImageManager.default().requestImage(for: obj as! PHAsset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: requestOption, resultHandler: {(img, dic) in
                         if let ig = img{
                             images.append(ig)
                         }

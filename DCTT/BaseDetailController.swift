@@ -256,13 +256,18 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         
     }
     
-    ///删除我的动态
+    ///删除我的动态 9dc0d0bf078855d42e5391ee422056f4
     func _deleteMYPost() {
         guard let myid = User.uid() else {return}
-        let d = ["uid":myid , "type":0] as [String : Any]
+        let d = ["uid":myid ,
+                 "pid": pid!,
+                 "category":category!,
+                 "type":0] as [String : Any]
         
         HUD.show()
         AlamofireHelper.post(url: delete_sc_url, parameters: d, successHandler: {[weak self] (res) in
+            print(res)
+            
             HUD.show(successInfo: "删除成功")
             guard let ss = self else {return}
             ss.navigationController?.popViewController(animated: true)
