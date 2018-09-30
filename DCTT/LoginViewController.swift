@@ -129,7 +129,14 @@ class LoginViewController: UITableViewController{
 
     // MARK: - Table view data source
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "findpassword" {
+                let vc = segue.destination as! RegisterViewController
+                vc.isRegisterAction = false
+            }
+        }
+    }
 }
 
 

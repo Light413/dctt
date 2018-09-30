@@ -11,6 +11,10 @@ import CoreLocation
 import IQKeyboardManagerSwift
 import Alamofire
 
+let bugly_app_id = "6b7becdcc1"
+let bugly_app_key = "c80a1d4b-8a8f-44b7-9734-99c95ba61e53"
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegate,CLLocationManagerDelegate{
 
@@ -50,9 +54,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         sleep(2)
         
         //_initLocationServices()
-        //_initNotification()
+        _initNotification()
 
         _initShare()
+        
+        ///bugly
+        //Bugly.start(withAppId: bugly_app_id)
     }
     
     ///分享初始化
@@ -95,6 +102,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
                     break
                 }
         })
+        
+        
     }
     
     ///开启定位

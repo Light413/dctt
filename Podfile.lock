@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.5.0)
+  - Bugly (2.5.0)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -43,6 +44,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (= 4.5)
+  - Bugly
   - IQKeyboardManagerSwift (= 5.0.0)
   - Kingfisher (= 3.13.0)
   - LKDBHelper (~> 2.4.2)
@@ -63,6 +65,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
   Kingfisher: 7eebf6000ac64401839f10da37f21eefa7d88970
@@ -79,6 +82,6 @@ SPEC CHECKSUMS:
   SwiftTTPageController: c98152e5c656a8df2198317e86023d0390989254
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: b732bbaa3ceec02415bfac3f2d02b1bc795c1905
+PODFILE CHECKSUM: d54a212c61b7c1fdfa7a25cabfd2f5e31a527092
 
 COCOAPODS: 1.4.0

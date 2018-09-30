@@ -21,8 +21,9 @@
 
 //微信SDK头文件
 #import "WXApi.h"
-
 #import <ShareSDKExtension/ShareSDK+Extension.h>
-
 #import <SMS_SDK/SMSSDK.h>
+#import <SMS_SDK/SMSSDK+ContactFriends.h>
+
+#import <Bugly/Bugly.h>
 #endif /* DCTT_Bridging_Header_h */

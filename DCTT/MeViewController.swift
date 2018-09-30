@@ -37,12 +37,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         
         loadUserInfo()
         
-        ///..
-        SMSSDK.getVerificationCode(by: .SMS, phoneNumber: "18016373660", zone:"86") { (error) in
-            
-            
-            print(error?.localizedDescription)
-        }
+
     }
 
     

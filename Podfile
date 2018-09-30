@@ -17,8 +17,10 @@ pod 'Kingfisher', '3.13.0'
 pod 'IQKeyboardManagerSwift', '5.0.0'
 pod 'SwiftTTPageController'
 
-pod 'mob_smssdk'
+###第三方平台
+pod 'Bugly'
 
+pod 'mob_smssdk'
 ###sharesdk MOBFoundation (3.1.9),mob_sharesdk (4.1.4)
 pod 'mob_sharesdk'
 pod 'mob_sharesdk/ShareSDKUI'
