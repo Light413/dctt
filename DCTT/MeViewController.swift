@@ -14,13 +14,14 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
     var _topBgView:UIView!
     
-    let _titleArr = ["我的主页","消息","收藏","粉丝关注","分享给好友","设置"]
+    let _titleArr = ["我的主页","消息","收藏","粉丝关注","分享给好友","意见反馈","设置"]
     let _imgArr = ["uc_account",
                    "uc_message",
                    /*"uc_danzi",*/
                 "uc_shouc",
                 "uc_app",
                 "uc_zhaop",
+                "uc_feedback",
                 "uc_system"]
 
     override func viewDidLoad() {
@@ -89,9 +90,14 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     func loginSuccessNoti(_ noti:Notification) {
         user_has_logined = User.isLogined()
         
-        print("name: \(User.name()) , token: \(User.token()) , uid: \(User.uid())")
+        //print("name: \(User.name()) , token: \(User.token()) , uid: \(User.uid())")
         
         _tableView.reloadData()
+        
+        ///更新设备信息
+        guard let delegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        guard let token = delegate.myDeviceToken else {return}
+        delegate.upDeviceInfo(token)
     }
     
     func topView() -> UIView {
@@ -175,7 +181,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0:return user_has_logined ? 200 : 150
+        case 0:return user_has_logined ? 200 : 180
             default:return 55
         }
     }
@@ -259,14 +265,14 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
                 _share2()
                 //vc = HistoryViewController()
                 return
+            case 5:
+                vc =  UIStoryboard (name: "me", bundle: nil).instantiateViewController(withIdentifier: "feedback_id");
+                
                 break
                 
-            case 5://设置
+            case 6://设置
                 vc =  UIStoryboard (name: "me", bundle: nil).instantiateViewController(withIdentifier: "me_setter_sbid");
-                
-                //vc = FackBackViewController();
                 break
-//
             default:break
             }
         
@@ -321,7 +327,12 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
                         HUD.showText("分享成功", view: UIApplication.shared.keyWindow!)
                         guard let ss = self else {return}
                         
-                        ///添加积分
+                        guard User.isLogined() else {
+                            HUD.showText("感谢您的分享", view: UIApplication.shared.keyWindow!)
+                            return
+                        }
+                        
+                        ///登录添加积分
                         ss.updateScore()
                     case SSDKResponseState.fail:
                         HUD.showText("授权失败", view: UIApplication.shared.keyWindow!)
@@ -331,7 +342,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
                     default:break
                 }
     
-            }//
+            }
 
         })
 
@@ -341,16 +352,5 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

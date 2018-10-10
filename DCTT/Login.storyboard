@@ -29,41 +29,41 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="zyi-Mg-Ozs">
-                                        <rect key="frame" x="0.0" y="36" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="150" id="zyi-Mg-Ozs">
+                                        <rect key="frame" x="0.0" y="36" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zyi-Mg-Ozs" id="i17-Uo-lQm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lanuch_icon" translatesAutoresizingMaskIntoConstraints="NO" id="JHY-4W-wr9">
-                                                    <rect key="frame" x="152.5" y="5" width="70" height="70"/>
+                                                    <rect key="frame" x="137.5" y="15" width="100" height="100"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="70" id="ARO-F7-d6p"/>
-                                                        <constraint firstAttribute="width" constant="70" id="ChP-s6-rze"/>
+                                                        <constraint firstAttribute="height" constant="100" id="ARO-F7-d6p"/>
+                                                        <constraint firstAttribute="width" constant="100" id="ChP-s6-rze"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="JHY-4W-wr9" firstAttribute="centerY" secondItem="i17-Uo-lQm" secondAttribute="centerY" id="Jcu-cZ-eCn"/>
+                                                <constraint firstItem="JHY-4W-wr9" firstAttribute="centerY" secondItem="i17-Uo-lQm" secondAttribute="centerY" constant="-10" id="Jcu-cZ-eCn"/>
                                                 <constraint firstItem="JHY-4W-wr9" firstAttribute="centerX" secondItem="i17-Uo-lQm" secondAttribute="centerX" id="swO-LZ-cfD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="Oi6-WH-Yog">
-                                        <rect key="frame" x="0.0" y="116" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="186" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oi6-WH-Yog" id="ZmH-We-SVm">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Vc3-dc-frC">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Vc3-dc-frC">
                                                     <rect key="frame" x="26" y="18.5" width="323" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Kgv-NC-EeL"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="dkH-CX-rFk" id="oy5-J3-GyM"/>
@@ -91,16 +91,16 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="Jwm-8U-7Ks">
-                                        <rect key="frame" x="0.0" y="176" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="246" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jwm-8U-7Ks" id="tzO-zS-lP7">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="z6T-2Z-Qcn">
-                                                    <rect key="frame" x="26" y="30" width="323" height="19"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="z6T-2Z-Qcn">
+                                                    <rect key="frame" x="26" y="27" width="323" height="22"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="dkH-CX-rFk" id="Yv3-wW-IjP"/>
@@ -132,7 +132,7 @@
                             <tableViewSection id="dud-xu-yX9">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="80" id="zz9-av-eHB">
-                                        <rect key="frame" x="0.0" y="272" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="342" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zz9-av-eHB" id="5GC-1u-rwb">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
@@ -144,7 +144,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="45" id="8e7-rG-puV"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="登录">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>

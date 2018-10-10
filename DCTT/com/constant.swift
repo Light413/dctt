@@ -31,14 +31,16 @@ let publish_url = "publish.php"
 let register_url = "register.php"
 let login_url = "login.php"
 let update_profile_url = "updateProfile.php"
+let update_deviceInfo_url = "updateDeviceInfo.php"
+let get_msglist_url = "message.php"
 
 let comment_url = "comment.php"
 let post_detail_url = "detail.php"
 let get_sc_url = "getsc.php"
 let fans_url = "fan.php"
 let delete_sc_url = "deletesc.php"
+let feedback_url = "feedback.php"
 
-///html
 let user_agreement_url = "userAgreement.html"
 let aboutus_url = "aboutus.html"
 let contactus_url = "contactus.html"

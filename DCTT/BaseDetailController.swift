@@ -64,9 +64,10 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         }
         
         AlamofireHelper.post(url: post_detail_url, parameters: d, successHandler: {[weak self] (res) in
-            guard let body = res["body"] as? [String:Any] else {return}
+            guard var body = res["body"] as? [String:Any] else {return}
             guard let ss = self else {return}
             if let footview = ss.headFooterView {
+                body["content"] = String.isNullOrEmpty(ss.data["content"])
               footview.fill(body)
             }
             
@@ -364,7 +365,8 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         
         headFooterView = v
         
-        if let readcnt = _readCnt {
+        if var readcnt = _readCnt {
+            readcnt["content"] = String.isNullOrEmpty(data["content"])
             v.fill(readcnt)
         }
         

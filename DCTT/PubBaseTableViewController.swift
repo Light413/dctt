@@ -58,7 +58,7 @@ class PubBaseTableViewController: UITableViewController{
     }
     
     func leftNavigationItem() -> UIBarButtonItem {
-        let leftbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
+        let leftbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 60, height: 30))
         leftbtn.setTitle("取消", for: .normal)
         leftbtn.setTitleColor(UIColor.darkGray, for: .normal)
         leftbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
@@ -68,7 +68,7 @@ class PubBaseTableViewController: UITableViewController{
     }
     
     func rightNavigationItem() -> UIBarButtonItem{
-        let rightbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
+        let rightbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 60, height: 30))
         rightbtn.setTitle("发布", for: .normal)
         rightbtn.setTitleColor(UIColor.lightGray , for: .normal)//kAirplaneCell_head_selected_color
         rightbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)

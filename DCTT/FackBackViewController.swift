@@ -7,42 +7,55 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class FackBackViewController: PublishViewController {
+
+class FackBackViewController: MeBaseTableViewController {
+
+    @IBOutlet weak var cell: PubBaseTextViewCell!
+    
+    var publishBtn:UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.leftBarButtonItem = leftBarButtonItem()
-        navigationItem.rightBarButtonItem = nil
-        
-        title = "意见反馈"
+        navigationItem.rightBarButtonItem = rightNavigationItem()
     }
 
-    func leftBarButtonItem() -> UIBarButtonItem {
-        let backbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
-        backbtn.setImage(UIImage (named: "leftbackicon_sdk_login"), for: .normal)
-        backbtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10)
-        backbtn.addTarget(self, action: #selector(navigationBackButtonAction), for: .touchUpInside)
-        let leftitem = UIBarButtonItem.init(customView: backbtn)
+    func rightNavigationItem() -> UIBarButtonItem{
+        let rightbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 40, height: 30))
+        rightbtn.setTitle("发布", for: .normal)
+        rightbtn.setTitleColor(tt_BarColor , for: .normal)
+        rightbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        rightbtn.addTarget(self, action: #selector(submintBtnAction), for: .touchUpInside)
+        let rightitem = UIBarButtonItem.init(customView: rightbtn)
         
-        return leftitem
+        publishBtn = rightbtn
         
-    }
-
-   override func navigationBackButtonAction() {
-        self.navigationController?.popViewController(animated: true)
+        return rightitem
     }
 
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    func submintBtnAction() {
+        guard let s = cell._text else {HUD.showText("输入内容不能为空", view: UIApplication.shared.keyWindow!); return}
+        var d = ["content" : s , "type":"add"]
         
-        if (self.navigationController?.navigationBar.isHidden)! {
-            self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        if let uid = User.uid() {
+            d["uid"] = uid
         }
         
+        HUD.show(withStatus: "数据提交中")
+        AlamofireHelper.post(url: feedback_url, parameters: d, successHandler: {[weak self] (res) in
+            HUD.show(successInfo: "提交成功,再次感谢您的支持和关注")
+            guard let ss = self else {return}
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                ss.navigationController?.popViewController(animated: true)
+            })
+            
+        }) { (err) in
+            HUD.showText("提交失败,请稍后重试", view: UIApplication.shared.keyWindow!)
+        }
     }
 
     

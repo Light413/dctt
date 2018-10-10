@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import IQKeyboardManagerSwift
 import Alamofire
+import UserNotifications
 
 let bugly_app_id = "6b7becdcc1"
 let bugly_app_key = "c80a1d4b-8a8f-44b7-9734-99c95ba61e53"
@@ -18,8 +19,10 @@ let bugly_app_key = "c80a1d4b-8a8f-44b7-9734-99c95ba61e53"
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegate,CLLocationManagerDelegate{
 
+    var myDeviceToken:String?
+    
     var window: UIWindow?
-    let _locationManager = CLLocationManager.init();
+    private let _locationManager = CLLocationManager.init();
     var _networkReachabilityManager:NetworkReachabilityManager!;
     
     
@@ -154,6 +157,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
  
     func _initNotification() {
         UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings.init(types: [.alert,.sound,.badge], categories: nil))
+        
+//        if #available(iOS 10.0, *) {
+//            UNUserNotificationCenter.current().requestAuthorization(options: .alert) { (b,error) in
+//                
+//            }
+//
+//            UNUserNotificationCenter.current().setNotificationCategories(<#T##categories: Set<UNNotificationCategory>##Set<UNNotificationCategory>#>)
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//
+//        UIApplication.shared.registerForRemoteNotifications()
     }
     
     func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
@@ -169,7 +184,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         
         print(token)
         
-
+        ///上传token
+        myDeviceToken = token
+        self.upDeviceInfo(token)
     }
  
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
@@ -204,6 +221,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
     }
 
 
+    ///更新设备信息
+    func upDeviceInfo(_ token:String) {
+        #if arch(i386) || arch(x86_64)
+            return;
+        #endif
+        
+        guard let uid = User.uid() else {return}
+        AlamofireHelper.post(url: update_deviceInfo_url, parameters: ["uid":uid , "deviceType":1 , "token":token], successHandler: { (res) in
+            print(res)
+        })
+        
+    }
+    
+    
+    
     //MARK: -
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController.tabBarItem.tag == 2 {

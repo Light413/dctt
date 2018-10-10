@@ -14,6 +14,7 @@ let TTPostCommentSuccessNotification = NSNotification.Name.init(rawValue: "TTPos
 class TTPostCommentView: UIView {
 
     var pid:String!
+    var category:String!
     
     private var _textView:UITextView!
     private var _maskView:UIView!
@@ -120,7 +121,11 @@ class TTPostCommentView: UIView {
         
         guard let uid = User.uid() else {return}
         
-        let d = ["type":"add","pid":pid!,"uid":uid , "content":String.isNullOrEmpty(_textView.text)]
+        let d = ["type":"add",
+                 "pid":pid!,
+                 "uid":uid ,
+                 "category":category!,
+                 "content":String.isNullOrEmpty(_textView.text)]
         
         AlamofireHelper.post(url: comment_url, parameters: d, successHandler: {[weak self] (res) in
             print(res)

@@ -25,7 +25,7 @@ class FriendRootController: BaseViewController {
        _cellPageController = addCellPageController()
         
         ///
-        let item = getBarButtonItem(title: "发布话题", action: #selector(publishZtAction))
+        let item = getBarButtonItem(title: "发布", action: #selector(publishZtAction))
         self.navigationItem.rightBarButtonItem = item
     }
 

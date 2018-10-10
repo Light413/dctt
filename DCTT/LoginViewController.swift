@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class LoginViewController: UITableViewController{
     @IBOutlet weak var phoneNumber: UITextField!
@@ -16,7 +18,8 @@ class LoginViewController: UITableViewController{
     @IBOutlet weak var loginBtn: UIButton!
     
     
-    
+    let disposeBag = DisposeBag.init();
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +43,20 @@ class LoginViewController: UITableViewController{
         self.title = "手机号登陆"
         
         view.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(dimissKeyboar(_ :))))
+        
+        
+        let _phone =  phoneNumber.rx.text.orEmpty.map{($0.lengthOfBytes(using: String.Encoding.utf8)) > 0}.shareReplay(1)
+        let _pwd =  pwd.rx.text.orEmpty.map{($0.lengthOfBytes(using: String.Encoding.utf8)) > 0}.shareReplay(1)
+        
+        Observable.combineLatest(_phone, _pwd) { $0 && $1}.subscribe {[weak self] (e) in
+            guard let  ss = self else {return}
+            if let b = e.element {
+                ss.loginBtn.isEnabled = b
+                ss.loginBtn.backgroundColor = b ?  UIColorFromHex(rgbValue: 0xC70F2B) : kTableviewBackgroundColor
+            }
+            }.addDisposableTo(disposeBag)
+
+        
         
     }
 

@@ -20,6 +20,7 @@ class RegisterViewController: UITableViewController {
     @IBOutlet weak var getCodeBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
     
+    ///注册或修改密码(默认注册操作)
     var isRegisterAction:Bool = true
     
     let getCodeBtnBgColorDefault = UIColorFromHex(rgbValue: 0xC70F2B)
@@ -49,7 +50,7 @@ class RegisterViewController: UITableViewController {
             guard let  ss = self else {return}
             if let b = e.element {
                 ss.registerBtn.isEnabled = b
-                ss.registerBtn.backgroundColor = b ?  UIColorFromHex(rgbValue: 0xC70F2B) : UIColor.lightGray
+                ss.registerBtn.backgroundColor = b ?  UIColorFromHex(rgbValue: 0xC70F2B) : kTableviewBackgroundColor
             }
         }.addDisposableTo(disposeBag)
         
@@ -106,10 +107,9 @@ class RegisterViewController: UITableViewController {
             
             break
             
-        case 2://注册
+        case 2://注册/修改密码
             guard String.isNullOrEmpty(pwd.text) == String.isNullOrEmpty(repwd.text) else {
-                HUD.showText("两次密码不一致", view: UIApplication.shared.keyWindow!)
-                return
+                HUD.showText("两次密码不一致", view: UIApplication.shared.keyWindow!); return
             }
             
             SMSSDK.enableAppContactFriends(false)
@@ -128,19 +128,20 @@ class RegisterViewController: UITableViewController {
             }
             
             func _submint() {
-                let d = ["phone_number":String.isNullOrEmpty(phone.text),
-                         "pwd":String.isNullOrEmpty(pwd.text),
-                         ]
+                var d = ["phone_number":String.isNullOrEmpty(phone.text),
+                         "pwd":String.isNullOrEmpty(pwd.text)]
+                
+                if !isRegisterAction {
+                    d["isModify"] = "1";
+                }
                 
                 ///注册-找回密码
                 AlamofireRequest(register_url, parameter: d , successHandler : { [weak self](res) in
-                    print(res)
-                    HUD.show(successInfo: "注册成功")
+                    HUD.show(successInfo:"操作成功,请前往登录")
                     
                     guard let ss = self else {return}
                     ss.navigationController?.popViewController(animated: true)
                 })
-
             }
             
             break

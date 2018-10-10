@@ -26,19 +26,19 @@ class PubBaseTextViewCell: UITableViewCell ,UITextViewDelegate{
             }
         }
         
-        let paragraphStyle = NSMutableParagraphStyle.init()
-        paragraphStyle.lineSpacing = 3
-        paragraphStyle.lineBreakMode = .byCharWrapping
-        //paragraphStyle.firstLineHeadIndent = 0
-        
-        let dic:[String:Any] = [
-            NSFontAttributeName:UIFont.systemFont(ofSize: 16) ,
-            NSParagraphStyleAttributeName:paragraphStyle,
-            NSKernAttributeName:1
-        ]
-        
-        let attriStr = NSAttributedString.init(string: textView.text, attributes: dic)
-        textView.attributedText = attriStr
+//        let paragraphStyle = NSMutableParagraphStyle.init()
+//        paragraphStyle.lineSpacing = 3
+//        paragraphStyle.lineBreakMode = .byCharWrapping
+//        //paragraphStyle.firstLineHeadIndent = 0
+//        
+//        let dic:[String:Any] = [
+//            NSFontAttributeName:UIFont.systemFont(ofSize: 16) ,
+//            NSParagraphStyleAttributeName:paragraphStyle,
+//            NSKernAttributeName:1
+//        ]
+//        
+//        let attriStr = NSAttributedString.init(string: textView.text, attributes: dic)
+//        textView.attributedText = attriStr
         
         _text = textView.text
     }

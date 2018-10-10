@@ -41,8 +41,8 @@ class HomeDetailFooterView: UIView {
         }
         
         HUD.show()
-        let d = ["pid":pid , "type":"1" ,"postby":uid , "uid":User.uid()!,"category":category!]
-
+        let d = ["pid":pid , "type":"1" ,"postby":uid , "uid":User.uid()!,"category":category! , "postContent":String.isNullOrEmpty(dic["content"])]
+        
         AlamofireHelper.post(url: post_detail_url, parameters: d, successHandler: {[weak self] (res) in
             guard let ss = self else {return}
             ///+1 不能取消点赞

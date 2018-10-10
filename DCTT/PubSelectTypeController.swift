@@ -124,7 +124,7 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         cell.contentView.addSubview(_t)
         _t.text = str
         _t.textAlignment = .center
-        _t.font = UIFont.systemFont(ofSize: 16)
+        _t.font = UIFont.systemFont(ofSize: 15)
         //_t.textColor = UIColorFromHex(rgbValue: 0x483D8B)
         
         cell.layer.borderWidth = 1

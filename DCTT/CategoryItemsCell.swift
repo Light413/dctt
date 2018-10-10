@@ -115,7 +115,7 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
         
         let w = cell.frame.width / 4.0
         let h = cell.frame.height / 2.0
-        let icon_w:CGFloat = 35
+        let icon_w:CGFloat = 30
         
         let row = indexPath.row
         let num = (dataArray.count - indexPath.row * 8)
@@ -135,7 +135,8 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
             
             //btn.setTitle(dataArray[i + row * 8 ], for: .normal)
             btn.setTitleColor(UIColor.darkGray, for: .normal)
-            btn.setImage(UIImage.init(named: "item_0\(i + 1)"), for: .normal)
+            btn.setImage(UIImage.init(named: "item_new_0\(i + 1)"), for: .normal)
+            btn.setImage(UIImage.init(named: "item_new_0\(i + 1)"), for: .highlighted)
             
             btn.imageEdgeInsets = UIEdgeInsetsMake((h - icon_w) / 2.0, (w - icon_w) / 2.0, (h - icon_w) / 2.0, (w - icon_w) / 2.0)
             btn.titleEdgeInsets = UIEdgeInsetsMake(h - 20, -50, 0, 0)

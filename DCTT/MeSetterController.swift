@@ -47,7 +47,7 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         if User.isLogined() {
-            return 4
+            return 3
         }
         
         return 2

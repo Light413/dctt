@@ -162,6 +162,7 @@ class DetailViewM: NSObject {
             IQKeyboardManager.sharedManager().enableAutoToolbar = false
             let post_v = TTPostCommentView.init(frame:UIScreen.main.bounds)
             post_v.pid = pid
+            post_v.category = category
             
             UIApplication.shared.keyWindow?.addSubview(post_v)
             break
