@@ -41,8 +41,8 @@ class BaseWebViewController: BaseViewController,UIWebViewDelegate,UIGestureRecog
         longpress.delegate = self
         webview.addGestureRecognizer(longpress)
         
-        let req = URLRequest.init(url: URL.init(string: BASE_URL + _url!)!)
-        
+        var req = URLRequest.init(url: URL.init(string: BASE_URL + _url!)!)
+        req.cachePolicy = .reloadIgnoringLocalCacheData
         HUD.show()
         webview.loadRequest(req)
     }

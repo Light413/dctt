@@ -15,28 +15,56 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
     @IBOutlet weak var cacheSize: UILabel!
     @IBOutlet weak var appVersion: UILabel!
     
+    @IBOutlet weak var sw: UISwitch!
     
     @IBAction func pushSwitch(_ sender: UISwitch) {
-        
+        guard let url = URL.init(string: UIApplicationOpenSettingsURLString) else {return}
+        guard UIApplication.shared.canOpenURL(url) else {return}
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:]) {[weak self] (res) in
+                guard let ss = self else {return}
+                ss._displayNotificationStatus(res)
+            }
+        } else {
+            // Fallback on earlier versions
+           UIApplication.shared.openURL(url)
+        }
         
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(setter_notification(_ :)), name: NSNotification.Name.init("setter_notification_status"), object: nil)
+        
+        let settings = UIApplication.shared.currentUserNotificationSettings
+        let open = Int((settings?.types)!.rawValue) != 0
+        _displayNotificationStatus(open);
+        
         ImageCache.default.calculateDiskCacheSize { size in
             let cache = Double.init(size) / 1024.0 / 1024.0
             let s = size == 0 ? "0" : NSString.init(format: "%.2f", cache)
             self.cacheSize.text = "\(s)MB"
-            
-            print("Used disk size by bytes: \(size)")
         }
 
+        
     }
 
-    deinit {
-        print(self.description)
+    func setter_notification(_ noti:Notification)  {
+        if let u  = noti.userInfo!["is"] as? Bool {
+            _displayNotificationStatus(u)
+        }
+    }
+    
+    
+    ///显示通知开关状态
+    func _displayNotificationStatus(_ b:Bool) {
+        apnsStatus.text = b ? "已开启" :"已关闭"
+        sw.isOn = b
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,19 +103,21 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
             
             break
         case (1,1)://意见反馈
-            guard User.isLogined() else {
-                HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
-                return
-            }
+//            guard User.isLogined() else {
+//                HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
+//                return
+//            }
 
+            let vc =  UIStoryboard (name: "me", bundle: nil).instantiateViewController(withIdentifier: "feedback_id");
+            self.navigationController?.pushViewController(vc, animated: true)
             break
             
         case (1,2)://appstore
-
+            //给我评分 ////qq-444934666  dyt-1093404718
+            let str = "itms-apps://itunes.apple.com/app/id\(444934666)";
+            UIApplication.shared.openURL(URL.init(string: str)!)
             break
-//        case (1,3)://分享好友
-//
-//            break
+
         case (2,_):
             showMsg("将要删除登录信息", title: "退出", handler: { [unowned self] in
                 self._logout()

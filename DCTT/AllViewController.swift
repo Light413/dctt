@@ -81,6 +81,8 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         _tableview.mj_footer = footer
         
         NotificationCenter.default.addObserver(self, selector: #selector(hasPublishSuccessNoti(_:)), name: kHasPublishedSuccessNotification, object: nil)
+        
+        _tableview.mj_header.beginRefreshing()
     }
     
     ///发布成功，更新对应的列表
@@ -92,7 +94,7 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
     }
     
     func loadData() {
-        HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
+        //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
         let d = ["category":"life","subType":0] as [String : Any]
         
         AlamofireHelper.post(url: home_list_url, parameters: d, successHandler: {[weak self] (res) in

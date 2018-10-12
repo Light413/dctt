@@ -41,11 +41,12 @@ let fans_url = "fan.php"
 let delete_sc_url = "deletesc.php"
 let feedback_url = "feedback.php"
 
-let user_agreement_url = "userAgreement.html"
-let aboutus_url = "aboutus.html"
-let contactus_url = "contactus.html"
-let disclaimer_url = "disclaimer.html"
-let usehelp_url = "usehelp.html"
+let user_agreement_url = "p/userAgreement.html"
+let aboutus_url = "p/aboutus.html"
+let contactus_url = "p/contactus.html"
+let disclaimer_url = "p/disclaimer.html"
+let usehelp_url = "p/usehelp.html"
+let privacy_agreement_url = "p/userPrivacy.html"
 
 ///
 let Loading = {HUD.show()}

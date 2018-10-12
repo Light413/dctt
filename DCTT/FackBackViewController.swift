@@ -25,7 +25,7 @@ class FackBackViewController: MeBaseTableViewController {
 
     func rightNavigationItem() -> UIBarButtonItem{
         let rightbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 40, height: 30))
-        rightbtn.setTitle("发布", for: .normal)
+        rightbtn.setTitle("提交", for: .normal)
         rightbtn.setTitleColor(tt_BarColor , for: .normal)
         rightbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         rightbtn.addTarget(self, action: #selector(submintBtnAction), for: .touchUpInside)

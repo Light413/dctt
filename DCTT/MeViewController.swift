@@ -14,14 +14,20 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
     var _topBgView:UIView!
     
-    let _titleArr = ["我的主页","消息","收藏","粉丝关注","分享给好友","意见反馈","设置"]
+    let _titleArr = ["我的主页",
+                     "消息",
+                     "收藏",
+                     "粉丝关注",
+                     "分享给好友",
+                     //"意见反馈",
+                     "设置"]
     let _imgArr = ["uc_account",
                    "uc_message",
                    /*"uc_danzi",*/
                 "uc_shouc",
                 "uc_app",
                 "uc_zhaop",
-                "uc_feedback",
+                //"uc_feedback",
                 "uc_system"]
 
     override func viewDidLoad() {
@@ -203,7 +209,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             cell = tableView.dequeueReusableCell(withIdentifier: "MeViewControllerCellIdentifier")
             if cell == nil {
                 cell = UITableViewCell.init(style: .value1, reuseIdentifier: "MeViewControllerCellIdentifier")
-                cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
+                cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
                 cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15)
             }
             cell.textLabel?.text = _titleArr[indexPath.row]
@@ -265,12 +271,12 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
                 _share2()
                 //vc = HistoryViewController()
                 return
-            case 5:
+            /*case 5:
                 vc =  UIStoryboard (name: "me", bundle: nil).instantiateViewController(withIdentifier: "feedback_id");
                 
-                break
+                break*/
                 
-            case 6://设置
+            case 5://设置
                 vc =  UIStoryboard (name: "me", bundle: nil).instantiateViewController(withIdentifier: "me_setter_sbid");
                 break
             default:break

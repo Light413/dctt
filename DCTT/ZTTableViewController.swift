@@ -52,12 +52,12 @@ class ZTTableViewController: BaseTableViewController {
         tableView.mj_footer = footer
 
         
-        loadData()
+        tableView.mj_header.beginRefreshing()
     }
 
     
     func loadData() {
-        HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
+        //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
         let d = ["category":"friend",
                  "subType":Int(_type!)!
             ] as [String : Any]

@@ -32,7 +32,7 @@ class AboutUsViewController: MeBaseTableViewController {
         switch (indexPath.section,indexPath.row) {
         case (1,0):
             vc = BaseWebViewController(baseUrl:aboutus_url)
-            vc.title = "郸城头条介绍"
+            vc.title = "简介"
             break
         case (1,1):
             vc = BaseWebViewController(baseUrl:usehelp_url)
@@ -43,10 +43,16 @@ class AboutUsViewController: MeBaseTableViewController {
             vc.title = "用户协议"
             break
         case (1,3):
+            vc = BaseWebViewController(baseUrl:privacy_agreement_url)
+            vc.title = "隐私政策"
+
+            break
+        case (1,4):
             vc = BaseWebViewController(baseUrl:disclaimer_url)
             vc.title = "免责声明"
             break
-        case (1,4):
+            
+        case (1,5):
             vc = BaseWebViewController(baseUrl:contactus_url)
             vc.title = "联系我们"
             break

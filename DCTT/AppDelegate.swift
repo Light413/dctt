@@ -156,19 +156,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
     }
  
     func _initNotification() {
-        UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings.init(types: [.alert,.sound,.badge], categories: nil))
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound, .badge]) { (b,error) in
+                if b {
+                    print("ios10 授权通知成功")
+                }
+            }
+
+        } else {
+            // Fallback on earlier versions
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings.init(types: [.alert,.sound,.badge], categories: nil))
+        }
         
-//        if #available(iOS 10.0, *) {
-//            UNUserNotificationCenter.current().requestAuthorization(options: .alert) { (b,error) in
-//                
-//            }
-//
-//            UNUserNotificationCenter.current().setNotificationCategories(<#T##categories: Set<UNNotificationCategory>##Set<UNNotificationCategory>#>)
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//
-//        UIApplication.shared.registerForRemoteNotifications()
     }
     
     func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
@@ -197,7 +196,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         print(#function)
     }
     
-    
+
+
+
+
+
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -210,26 +213,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        let settings = UIApplication.shared.currentUserNotificationSettings
+        let open = Int((settings?.types)!.rawValue) != 0
+        
+        NotificationCenter.default.post(name: NSNotification.Name.init("setter_notification_status"), object: nil, userInfo: ["is":open])
     }
 
 
-    ///更新设备信息
+    ///更新设备信息，忽略模拟器
     func upDeviceInfo(_ token:String) {
         #if arch(i386) || arch(x86_64)
             return;
-        #endif
-        
+        #endif        
         guard let uid = User.uid() else {return}
         AlamofireHelper.post(url: update_deviceInfo_url, parameters: ["uid":uid , "deviceType":1 , "token":token], successHandler: { (res) in
-            print(res)
+            //print(res)
         })
         
     }
