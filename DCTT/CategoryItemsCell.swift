@@ -18,6 +18,7 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
     var numberOfItem = 0
     
     var cellSelectedAction:(([String:String]) -> Void)?
+    var nums : [[String:Any]]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,8 +26,19 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
         
         _init()
         
+        _getNumber()
     }
 
+    ///获取分类下的帖子数
+    func _getNumber() {
+        AlamofireHelper.post(url: get_servernumber_url, parameters: nil, successHandler: { [weak self](res) in
+            guard let ss = self else {return}
+            guard let arr = res["body"] as? [[String:Any]] else {return}
+            ss.nums = arr
+            ss._collectionView.reloadData()
+        })
+        
+    }
     
     func _init() {
         let path = Bundle.main.path(forResource: "all_category_item", ofType: "plist")
@@ -85,14 +97,6 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
         return cell
     }
     
-    
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        
-    }
-
-    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let n = scrollView.contentOffset.x / scrollView.frame.width
         pageCtr.currentPage = Int.init(n)
@@ -143,30 +147,45 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
             
             cell.contentView.addSubview(btn)
             
+            
+            if let ns = nums {
+                ////添加动态数
+                let numLable = UILabel()
+                numLable.font = UIFont.systemFont(ofSize: 10)
+                numLable.textColor = UIColor.white
+                numLable.textAlignment = .center
+                numLable.backgroundColor = kButtonTitleColor
+                numLable.layer.cornerRadius = 5
+                numLable.layer.masksToBounds = true
+                
+                let type = String.isNullOrEmpty(d["item_key"]);
+                let n = _number(type, arr: ns)
+                
+                let num:NSString = NSString.init(string: "\(n)")
+                numLable.text = String.init(num)
+                
+                let size = num.boundingRect(with: CGSize.init(width: 50, height: 10), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName:numLable.font], context: nil)
+                let _num_w :CGFloat = size.width + 10 > 20 ? size.width + 10 : 20
+                numLable.frame = CGRect (x: w - _num_w - 10, y: 15, width: _num_w, height: 12)
+                
+                btn.addSubview(numLable)
+            }
+
         }
 
-        
 
-        
-//        for i in 0..<2 {
-//            for j in 0..<4 {
-//                let btn = UIButton (frame: CGRect (x: w * CGFloat(j), y: h * CGFloat(i), width: w, height: h))
-//                
-//                btn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-//                btn.setTitle(dataArray[i * 4 + j], for: .normal)
-//                btn.setTitleColor(UIColor.darkGray, for: .normal)
-//                btn.setImage(UIImage.init(named: "item_0\(j + 1)"), for: .normal)
-//                
-//                btn.imageEdgeInsets = UIEdgeInsetsMake((h - icon_w) / 2.0, (w - icon_w) / 2.0, (h - icon_w) / 2.0, (w - icon_w) / 2.0)
-//                btn.titleEdgeInsets = UIEdgeInsetsMake(h - 20, -50, 0, 0)
-//
-//                cell.contentView.addSubview(btn)
-//                
-//            }
-//
-//        }
-        
     }
     
+    func _number(_ type:String , arr:[[String:Any]]) -> String {
+        for d in arr {
+            let k = String.isNullOrEmpty(d["type"])
+            if k == type {
+                return String.isNullOrEmpty(d["num"])
+            }
+        }
+        
+        
+        return "0"
+    }
     
 }

@@ -40,6 +40,7 @@ let get_sc_url = "getsc.php"
 let fans_url = "fan.php"
 let delete_sc_url = "deletesc.php"
 let feedback_url = "feedback.php"
+let get_servernumber_url = "getNumberWithType.php"
 
 let user_agreement_url = "p/userAgreement.html"
 let aboutus_url = "p/aboutus.html"

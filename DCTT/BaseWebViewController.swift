@@ -22,6 +22,13 @@ class BaseWebViewController: BaseViewController,UIWebViewDelegate,UIGestureRecog
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let b = self.navigationController?.navigationBar.isHidden , b{
+            self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

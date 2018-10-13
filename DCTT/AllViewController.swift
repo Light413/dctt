@@ -20,6 +20,8 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
     
     var canScroll:Bool = true
 
+    var _categoryItemCell:CategoryItemsCell?
+    
     ////
     private var dataArray = [[String:Any]]()
     fileprivate var selectedTypeInfo:[String:String]!
@@ -29,9 +31,6 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         automaticallyAdjustsScrollViewInsets = false;
 
         _init()
-        
-        //////
-        loadData();
     }
     
     var _tableview:UITableView!
@@ -67,6 +66,10 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
             strongSelf.pageNumber = 1
             strongSelf._tableview.mj_footer.state = .idle
             strongSelf.loadData()
+            
+            if let cell = strongSelf._categoryItemCell {
+                cell._getNumber()
+            }
         })
         
         _tableview.mj_header = header;
@@ -151,6 +154,8 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         if indexPath.section == 0 {
             let identifier = "CategoryItemsCellReuseIdentifier"
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! CategoryItemsCell
+            
+            _categoryItemCell = cell
             
             cell.cellSelectedAction = {[weak self] d in
                 guard let ss = self else {return}

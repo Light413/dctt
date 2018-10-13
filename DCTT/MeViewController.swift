@@ -202,6 +202,14 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             
             if user_has_logined {
                 (cell as! MePersonInfoCell).fill();
+                (cell as! MePersonInfoCell).cellBtnClickedAction = {[weak self] in
+                    guard let ss = self else {return}
+                    let vc = BaseWebViewController(baseUrl:usehelp_url)
+                    vc.title = "使用帮助"
+                    
+                    ss.navigationController?.pushViewController(vc, animated: true)
+                    
+                }
             }
             
             return cell;

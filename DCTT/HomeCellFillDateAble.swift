@@ -82,8 +82,8 @@ extension HomeCellFillDateAble {
         //shade.shadowColor = UIColor.lightGray.cgColor
         
         let attributes = [NSForegroundColorAttributeName:UIColor.white,
-                          NSBackgroundColorAttributeName:UIColorFromHex(rgbValue: 0xE92D13),
-                          NSFontAttributeName:UIFont.systemFont(ofSize: 15),
+                          NSBackgroundColorAttributeName: tt_themeColor,//tt_HomeBarColor
+                          NSFontAttributeName:UIFont.systemFont(ofSize: 14),
                           //NSShadowAttributeName:shade
                           ]
         let headTitle = " " + String.isNullOrEmpty(kPublishTypeInfo[type]) + "  "

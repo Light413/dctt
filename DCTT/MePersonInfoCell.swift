@@ -21,6 +21,16 @@ class MePersonInfoCell: UITableViewCell {
     @IBOutlet weak var fansCnt: UILabel!
     @IBOutlet weak var score: UILabel!
 
+    var cellBtnClickedAction:(() -> Void)?
+    
+    @IBAction func helpBtnAction(_ sender: UIButton) {
+        if let a = cellBtnClickedAction {
+            a();
+        }
+        
+    }
+    
+    
     func fill()  {
         guard let dic = User.default.userInfo() else {return}
         name.text = User.name()
