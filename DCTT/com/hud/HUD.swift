@@ -51,8 +51,8 @@ class HUD: NSObject {
     }
     
     ////
-    static func showText(_ text:String , view: UIView){
-        let hud =  MBProgressHUD.showAdded(to: view, animated: true);
+    static func showText(_ text:String , view: UIView? = UIApplication.shared.keyWindow){
+        let hud =  MBProgressHUD.showAdded(to: view!, animated: true);
         hud.label.text = text
         hud.label.numberOfLines = 0
         hud.mode = .text;

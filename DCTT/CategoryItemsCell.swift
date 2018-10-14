@@ -161,12 +161,15 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
                 let type = String.isNullOrEmpty(d["item_key"]);
                 let n = _number(type, arr: ns)
                 
-                let num:NSString = NSString.init(string: "\(n)")
+                let _n = Int(n)
+                if _n! == 0 {continue;}
+                
+                let num:NSString = NSString.init(string: "\(_n!)")
                 numLable.text = String.init(num)
                 
                 let size = num.boundingRect(with: CGSize.init(width: 50, height: 10), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName:numLable.font], context: nil)
                 let _num_w :CGFloat = size.width + 10 > 20 ? size.width + 10 : 20
-                numLable.frame = CGRect (x: w - _num_w - 10, y: 15, width: _num_w, height: 12)
+                numLable.frame = CGRect (x: w * 0.5 + 10, y: 15, width: _num_w, height: 12)
                 
                 btn.addSubview(numLable)
             }

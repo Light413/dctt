@@ -36,7 +36,7 @@ class HomeDetailFooterView: UIView {
         guard let uid = dic["uid"] as? String else {return}
         
         guard !sender.isSelected else {
-            HUD.showText("已经点赞!", view: self)
+            HUD.showText("已经点赞!")
             return;
         }
         

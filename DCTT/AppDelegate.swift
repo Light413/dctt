@@ -63,6 +63,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         
         ///bugly
         //Bugly.start(withAppId: bugly_app_id)
+        
+        //...
+        PgyManager.shared().isFeedbackEnabled = false
+        
+        PgyManager.shared().start(withAppId: "506c1b60173240545b0da25424e200e3")
     }
     
     ///分享初始化

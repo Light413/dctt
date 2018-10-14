@@ -252,7 +252,7 @@ extension MeHomePageController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let bg = UIView (frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: sectionHeight))
-        bg.backgroundColor = tt_bg_color //UIColor.white
+        bg.backgroundColor = UIColor.white
 
         var attri = TTHeadTextAttribute()
         attri.itemWidth = 60

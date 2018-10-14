@@ -46,8 +46,9 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
             "求助":"11"
         ]
         
+        let _w :CGFloat = 50.0 * CGFloat(titles.count) < kCurrentScreenWidth ? 55 : 50
         var attri = TTHeadTextAttribute()
-        attri.itemWidth = 50
+        attri.itemWidth = _w
         attri.defaultFontSize = 16
         attri.selectedFontSize = 17
         

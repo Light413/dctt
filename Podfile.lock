@@ -32,6 +32,8 @@ PODS:
   - mob_smssdk (3.2.1):
     - MOBFoundation
   - MOBFoundation (3.1.9)
+  - Pgyer (2.8.9)
+  - PgyUpdate (1.6)
   - RxCocoa (3.0.0):
     - RxSwift (~> 3.0)
   - RxDataSources (1.0.4):
@@ -56,6 +58,8 @@ DEPENDENCIES:
   - mob_sharesdk/ShareSDKPlatforms/WeChat
   - mob_sharesdk/ShareSDKUI
   - mob_smssdk
+  - Pgyer
+  - PgyUpdate
   - RxCocoa (= 3.0)
   - RxDataSources (~> 1.0.4)
   - RxSwift (= 3.0)
@@ -75,6 +79,8 @@ SPEC CHECKSUMS:
   mob_sharesdk: 765cc2fd2fac0a6fd7c3e6c2b10d729ad006c608
   mob_smssdk: edc462704cc07c6d245eee16c4c09ac4f4d53e61
   MOBFoundation: 11500153c10d83e4ac341f6ad6301b3998ce6db2
+  Pgyer: 830654e51e23f754cce5d8b3ea9ba72be68452eb
+  PgyUpdate: cd6c2ada5928f36a9f904d8f96a9b3b53e190755
   RxCocoa: 0a2f3ae381cf16f4021a4cee7a4420f83058a965
   RxDataSources: b3389acc5fe2eefb8fcd81a2b76a876ad08bc82a
   RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
@@ -82,6 +88,6 @@ SPEC CHECKSUMS:
   SwiftTTPageController: c98152e5c656a8df2198317e86023d0390989254
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: d54a212c61b7c1fdfa7a25cabfd2f5e31a527092
+PODFILE CHECKSUM: 504f483be8cdff0c6949e861bd0db10ce8765faf
 
 COCOAPODS: 1.4.0

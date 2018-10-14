@@ -28,4 +28,8 @@ pod 'mob_sharesdk/ShareSDKPlatforms/QQ'
 pod 'mob_sharesdk/ShareSDKPlatforms/WeChat'
 pod 'mob_sharesdk/ShareSDKExtension'
 
+###正式发布时删除
+pod 'Pgyer'
+pod 'PgyUpdate'
+
 end

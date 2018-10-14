@@ -254,7 +254,21 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     
     ///举报该动态
     func _jubao() {
+        guard let myid = User.uid() else {return}
+        let d = ["uid":myid ,
+                 "pid": pid!,
+                 "category":category!,
+                 ] as [String : Any]
         
+        HUD.show()
+
+        AlamofireHelper.post(url: jubao_url, parameters: d, successHandler: { (res) in
+            guard let msg = res["msg"] as? String else {HUD.dismiss(); return}
+            HUD.show(successInfo: msg)
+        }) { (err) in
+            HUD.show(info: (err?.localizedDescription)!)
+        }
+
     }
     
     ///删除我的动态 9dc0d0bf078855d42e5391ee422056f4

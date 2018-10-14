@@ -95,6 +95,7 @@ class RegisterViewController: UITableViewController {
             _timer.fireDate = Date.distantPast
             
             ///获取验证码
+            HUD.showText("已发送验证码", view: UIApplication.shared.keyWindow!)
             SMSSDK.getVerificationCode(by: .SMS, phoneNumber: String.isNullOrEmpty(phone.text), zone: "86", template: nil) { (error) in
                 if let er = error {
                     print(er.localizedDescription)

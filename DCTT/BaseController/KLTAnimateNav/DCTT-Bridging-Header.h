@@ -26,4 +26,8 @@
 #import <SMS_SDK/SMSSDK+ContactFriends.h>
 
 #import <Bugly/Bugly.h>
+
+#import <PgySDK/PgyManager.h>
+#import <PgyUpdate/PgyUpdateManager.h>
+
 #endif /* DCTT_Bridging_Header_h */

@@ -33,6 +33,7 @@ let login_url = "login.php"
 let update_profile_url = "updateProfile.php"
 let update_deviceInfo_url = "updateDeviceInfo.php"
 let get_msglist_url = "message.php"
+let jubao_url = "jubao.php"
 
 let comment_url = "comment.php"
 let post_detail_url = "detail.php"
