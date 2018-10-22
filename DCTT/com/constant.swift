@@ -82,9 +82,11 @@ enum ImageCellTpye {
 let kPublishTypeInfo = [
     "6":"话题",
     "10":"新鲜事",
-    "11":"朋友圈",
+    "11":"求助",
     "12":"提问",
-    "13":"段子",
+    "13":"吐槽",
+    "14":"活动",
+    "15":"娱乐",
     "20":"吃喝玩乐",
     "21":"求职招聘",
     "22":"商家主页",
@@ -143,7 +145,7 @@ let kPleaseToLogin = "请登录后操作!"
 
 ///发布新动态成功通知
 let kHasPublishedSuccessNotification = NSNotification.Name.init("kHasPublishedSuccessNotification")
-
+let kAPPKeyWindow = UIApplication.shared.keyWindow
 
 
 

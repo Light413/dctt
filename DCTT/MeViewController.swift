@@ -327,7 +327,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             let shareParames = NSMutableDictionary()
             shareParames.ssdkSetupShareParams(byText: "郸城头条APP一个本地生活服务信息平台，动态发布、查看、推广、交友等 来这里看看老家身边的人动态吧。",
                                               images : UIImage(named: "app_logo"),
-                                              url : URL.init(string: "http://39.106.164.101/tt/webhome.html"),
+                                              url : URL.init(string: "http://dancheng0394.com"),
                                               title : "对不起我来晚了,赶快把我介绍给你的小伙伴吧",
                                               type : SSDKContentType.auto)
 

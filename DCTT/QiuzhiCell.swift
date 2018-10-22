@@ -27,7 +27,7 @@ class QiuzhiCell: ServerBaseCell {
         if let d = objectFrom(cc) {
             let index = String.isNullOrEmpty(d["type"])
             subType.text = type(dic, subType: index)
-            detailDes.text = String.isNullOrEmpty(d["content"])
+            detailDes.text = isHasNewLine(String.isNullOrEmpty(d["content"]))
         }
 
     }

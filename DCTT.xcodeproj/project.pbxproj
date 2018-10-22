@@ -153,12 +153,20 @@
 		AD2E9572207E65D2009C675B /* GuanzhuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2E9571207E65D2009C675B /* GuanzhuController.swift */; };
 		AD312DBA2150C9E700034273 /* DetailViewM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD312DB92150C9E700034273 /* DetailViewM.swift */; };
 		AD312DBC215101C600034273 /* ServerDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD312DBB215101C600034273 /* ServerDetailController.swift */; };
+		AD344988217E1E680086F5F5 /* HistoryTodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD344987217E1E680086F5F5 /* HistoryTodayController.swift */; };
+		AD34498B217E23A60086F5F5 /* TodayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD344989217E23A60086F5F5 /* TodayViewCell.swift */; };
+		AD34498C217E23A60086F5F5 /* TodayViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD34498A217E23A60086F5F5 /* TodayViewCell.xib */; };
+		AD344990217E2BFD0086F5F5 /* HistoryDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD34498F217E2BFD0086F5F5 /* HistoryDetailController.swift */; };
 		AD3CB6C8211203BA00681E65 /* AlamofireRequestAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CB6C7211203BA00681E65 /* AlamofireRequestAble.swift */; };
 		AD3CB6CA211206DC00681E65 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CB6C9211206DB00681E65 /* AlamofireHelper.swift */; };
 		AD3CB6CC211210D500681E65 /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CB6CB211210D500681E65 /* BaseWebViewController.swift */; };
 		AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */; };
 		AD4200222007AFCA00096CF7 /* HomeDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */; };
 		AD6338002083974900BC84B1 /* MeSetterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6337FF2083974900BC84B1 /* MeSetterController.swift */; };
+		AD645C2E217E343C0062AF91 /* life.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD645C2D217E343C0062AF91 /* life.storyboard */; };
+		AD645C30217E347C0062AF91 /* TodayDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD645C2F217E347C0062AF91 /* TodayDetailCell.swift */; };
+		AD645C33217E36610062AF91 /* _TodayDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD645C31217E36610062AF91 /* _TodayDetailCell.swift */; };
+		AD645C34217E36610062AF91 /* _TodayDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD645C32217E36610062AF91 /* _TodayDetailCell.xib */; };
 		AD69FA4E2149079D00465F21 /* TTImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD69FA4D2149079D00465F21 /* TTImagePicker.swift */; };
 		AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */; };
 		AD6A983C201A12CB00E7C5AE /* HomeDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */; };
@@ -363,12 +371,20 @@
 		AD2E9571207E65D2009C675B /* GuanzhuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuanzhuController.swift; sourceTree = "<group>"; };
 		AD312DB92150C9E700034273 /* DetailViewM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewM.swift; sourceTree = "<group>"; };
 		AD312DBB215101C600034273 /* ServerDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDetailController.swift; sourceTree = "<group>"; };
+		AD344987217E1E680086F5F5 /* HistoryTodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTodayController.swift; sourceTree = "<group>"; };
+		AD344989217E23A60086F5F5 /* TodayViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewCell.swift; sourceTree = "<group>"; };
+		AD34498A217E23A60086F5F5 /* TodayViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayViewCell.xib; sourceTree = "<group>"; };
+		AD34498F217E2BFD0086F5F5 /* HistoryDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailController.swift; sourceTree = "<group>"; };
 		AD3CB6C7211203BA00681E65 /* AlamofireRequestAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequestAble.swift; sourceTree = "<group>"; };
 		AD3CB6C9211206DB00681E65 /* AlamofireHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
 		AD3CB6CB211210D500681E65 /* BaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebViewController.swift; sourceTree = "<group>"; };
 		AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailCommentCell.swift; sourceTree = "<group>"; };
 		AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailCommentCell.xib; sourceTree = "<group>"; };
 		AD6337FF2083974900BC84B1 /* MeSetterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSetterController.swift; sourceTree = "<group>"; };
+		AD645C2D217E343C0062AF91 /* life.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = life.storyboard; sourceTree = "<group>"; };
+		AD645C2F217E347C0062AF91 /* TodayDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayDetailCell.swift; sourceTree = "<group>"; };
+		AD645C31217E36610062AF91 /* _TodayDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TodayDetailCell.swift; sourceTree = "<group>"; };
+		AD645C32217E36610062AF91 /* _TodayDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = _TodayDetailCell.xib; sourceTree = "<group>"; };
 		AD69FA4D2149079D00465F21 /* TTImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTImagePicker.swift; sourceTree = "<group>"; };
 		AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailFooterView.swift; sourceTree = "<group>"; };
 		AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailFooterView.xib; sourceTree = "<group>"; };
@@ -579,6 +595,9 @@
 				AD10334C1FB6D1A40017E81C /* AllViewController.swift */,
 				ADEF0DB4212DB117007BF6AE /* ServerListController.swift */,
 				AD312DBB215101C600034273 /* ServerDetailController.swift */,
+				AD344987217E1E680086F5F5 /* HistoryTodayController.swift */,
+				AD34498F217E2BFD0086F5F5 /* HistoryDetailController.swift */,
+				AD645C2D217E343C0062AF91 /* life.storyboard */,
 			);
 			name = Servers;
 			sourceTree = "<group>";
@@ -624,6 +643,11 @@
 				AD1DB7AD2151EAE2004BFF76 /* ServerBaseCell.swift */,
 				AD1AD5622152A75100DE6096 /* ZTDetailCell.swift */,
 				AD1AD5632152A75100DE6096 /* ZTDetailCell.xib */,
+				AD344989217E23A60086F5F5 /* TodayViewCell.swift */,
+				AD34498A217E23A60086F5F5 /* TodayViewCell.xib */,
+				AD645C31217E36610062AF91 /* _TodayDetailCell.swift */,
+				AD645C32217E36610062AF91 /* _TodayDetailCell.xib */,
+				AD645C2F217E347C0062AF91 /* TodayDetailCell.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -987,6 +1011,7 @@
 				AD21DF5C20274461002FE181 /* Publish.storyboard in Resources */,
 				A1E61D1D1FCE8F560080A12D /* back_bg@2x.png in Resources */,
 				AD2E956E207E59F9009C675B /* CollectCell.xib in Resources */,
+				AD34498C217E23A60086F5F5 /* TodayViewCell.xib in Resources */,
 				A189DEFE1FCFABCD007911D2 /* area.plist in Resources */,
 				AD2178E0207FB1B700B99069 /* FensiCell.xib in Resources */,
 				AD0BD504200A34350088D5E7 /* FriendHeadView.xib in Resources */,
@@ -1014,7 +1039,9 @@
 				A148A2A81FD658180052DDF3 /* video_allshare@2x.png in Resources */,
 				A148A2A41FD6494B0052DDF3 /* publish_image@2x.png in Resources */,
 				A1CE839F1FC40D3D00DAF90F /* FriendsCollectonViewCell.xib in Resources */,
+				AD645C2E217E343C0062AF91 /* life.storyboard in Resources */,
 				AD128C77201CCD9500A9EDBE /* PubFriendCell.xib in Resources */,
+				AD645C34217E36610062AF91 /* _TodayDetailCell.xib in Resources */,
 				AD0BD4EE2009FE980088D5E7 /* HomeDetailImgCell.xib in Resources */,
 				AD2178E4207FB2EC00B99069 /* WechatIMG10.jpeg in Resources */,
 				ADC8EBF021515096008E5696 /* QiuzhiCell.xib in Resources */,
@@ -1127,6 +1154,7 @@
 				AD1033471FB6CEA00017E81C /* MeViewController.swift in Sources */,
 				A1E1B02D1FDA7AEF002D6BDC /* TTImagePreviewController.swift in Sources */,
 				ADD7CE1B211C8C4800A33F3B /* MeHomeListController.swift in Sources */,
+				AD645C33217E36610062AF91 /* _TodayDetailCell.swift in Sources */,
 				ADC61DE92144215C00AE11B1 /* ZTTableViewController.swift in Sources */,
 				AD87FD022159F30600FEB395 /* ETNavBarTransparent.swift in Sources */,
 				AD202755204C389500E538CD /* PubQiuzhiViewController.swift in Sources */,
@@ -1145,6 +1173,7 @@
 				AD202753204C388100E538CD /* PubJiaoYouController.swift in Sources */,
 				AD1033351FB6CD4E0017E81C /* Reachability.m in Sources */,
 				ADEAE5041FB6C8F50048F876 /* AppDelegate.swift in Sources */,
+				AD344990217E2BFD0086F5F5 /* HistoryDetailController.swift in Sources */,
 				AD21DF5E20274DC7002FE181 /* BaseVCWithTableView.swift in Sources */,
 				AD20275B204C453000E538CD /* PubBaseTextViewCell.swift in Sources */,
 				AD20F3C02067DC6B003BDE17 /* MessageViewController.swift in Sources */,
@@ -1199,6 +1228,7 @@
 				ADDAF3802146B61A00B70EBB /* TableCellWithCollectionView.swift in Sources */,
 				AD1AD5642152A75100DE6096 /* ZTDetailCell.swift in Sources */,
 				AD10333F1FB6CD920017E81C /* BaseTabbarController.swift in Sources */,
+				AD344988217E1E680086F5F5 /* HistoryTodayController.swift in Sources */,
 				AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */,
 				A1FD18332112D63D000F0E91 /* TTPickerImageAble.swift in Sources */,
 				AD0FAFA020444C0A008A386E /* CategoryItemsCell.swift in Sources */,
@@ -1222,6 +1252,7 @@
 				A117530C1FC7B0DF00888516 /* KLTNavigationController.m in Sources */,
 				AD20F3C72067DEA4003BDE17 /* MessageCell.swift in Sources */,
 				ADE989512120710D004DAAC5 /* FriendRootController.swift in Sources */,
+				AD34498B217E23A60086F5F5 /* TodayViewCell.swift in Sources */,
 				AD0BD4ED2009FE980088D5E7 /* HomeDetailImgCell.swift in Sources */,
 				A1BCDFF521421634001AC3CC /* AboutUsViewController.swift in Sources */,
 				AD1033421FB6CD920017E81C /* BaseViewControllerWithTable.swift in Sources */,
@@ -1248,6 +1279,7 @@
 				AD2C1EE72026137900E48245 /* PublishFriendViewController.swift in Sources */,
 				ADFB5379213044F600C45441 /* HomeCellFillDateAble.swift in Sources */,
 				ADC8EBF3215150B2008E5696 /* ShangjiaCell.swift in Sources */,
+				AD645C30217E347C0062AF91 /* TodayDetailCell.swift in Sources */,
 				AD2E956D207E59F9009C675B /* CollectCell.swift in Sources */,
 				AD128C6A201C702D00A9EDBE /* TTBasePickerView.swift in Sources */,
 				ADC61DE621441C8300AE11B1 /* ZTCollectionViewCell.swift in Sources */,

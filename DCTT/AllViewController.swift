@@ -31,6 +31,16 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         automaticallyAdjustsScrollViewInsets = false;
 
         _init()
+        
+        ///
+        let item = getBarButtonItem(image: UIImage (named: "history2")!, action: #selector(toxiaozhishi))
+        self.navigationItem.rightBarButtonItem = item
+    }
+    
+    ///历史上的今天
+    func toxiaozhishi(){
+        let vc = HistoryTodayController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     var _tableview:UITableView!

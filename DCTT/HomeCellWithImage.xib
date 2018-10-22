@@ -19,23 +19,24 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用swift3.0写项目且又没熟读官方API文档的小朋友，在基于控制器。档的小朋友，在基于控制器。" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hn2-CB-Jjp">
-                        <rect key="frame" x="21" y="10.5" width="201" height="61"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数据异常(测试状态)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hn2-CB-Jjp">
+                        <rect key="frame" x="21" y="10.5" width="201" height="53"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快乐的小丸子" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roy-3a-mZO">
-                        <rect key="frame" x="21" y="79.5" width="74" height="14.5"/>
+                        <rect key="frame" x="21" y="71.5" width="74" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14.5" id="UXJ-hS-5vr"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="f3l-KW-lMd"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-12-19 22:10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaC-xj-OB5">
-                        <rect key="frame" x="105" y="79.5" width="99.5" height="14.5"/>
+                        <rect key="frame" x="105" y="71.5" width="99.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -50,7 +51,6 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="NaC-xj-OB5" firstAttribute="centerY" secondItem="roy-3a-mZO" secondAttribute="centerY" id="5rU-46-8y8"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="OSy-t7-zuj" secondAttribute="bottom" constant="5" id="7My-rT-n0n"/>
                     <constraint firstItem="NaC-xj-OB5" firstAttribute="height" secondItem="roy-3a-mZO" secondAttribute="height" id="8du-37-FBF"/>
                     <constraint firstItem="OSy-t7-zuj" firstAttribute="leading" secondItem="hn2-CB-Jjp" secondAttribute="trailing" constant="2" id="Gam-bV-bjB"/>
                     <constraint firstAttribute="bottomMargin" secondItem="roy-3a-mZO" secondAttribute="bottom" constant="3" id="Hh5-UK-YTC"/>

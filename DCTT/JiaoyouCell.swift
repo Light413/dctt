@@ -32,7 +32,7 @@ class JiaoyouCell: ServerBaseCell {
         let cc = String.isNullOrEmpty(dic["content"])
         if let d = objectFrom(cc) {
             sex.text = String.isNullOrEmpty(d["type"]) == "0" ? "我是男生" : "我是女生"
-            meInfo.text = String.isNullOrEmpty(d["content"])
+            meInfo.text = isHasNewLine(String.isNullOrEmpty(d["content"]))
             wantYou.text = String.isNullOrEmpty(d["hope"])
         }
 

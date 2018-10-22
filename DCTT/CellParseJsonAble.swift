@@ -9,13 +9,15 @@
 import Foundation
 protocol CellParseJsonAble {
     func fill(_ dic:[String:Any])
+    func isHasNewLine(_ s:String) -> String
+    
 }
 
 extension CellParseJsonAble {
     func objectFrom(_ jsonStr:String) -> [String:Any]? {
-        
+        let cc = jsonStr.replacingOccurrences(of: "\n", with: "&&")
         do{
-            let jsonObject = try JSONSerialization.jsonObject(with: jsonStr.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.allowFragments)
+            let jsonObject = try JSONSerialization.jsonObject(with: cc.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.allowFragments)
             let obj = jsonObject as! [String:String]
             return obj
             
@@ -24,7 +26,14 @@ extension CellParseJsonAble {
         }
 
     }
-   
+}
+
+extension CellParseJsonAble {
+    ///检测是否换行,对应解析操作
+    func isHasNewLine(_ s:String) -> String {
+        return s.replacingOccurrences(of: "&&", with: "\n")
+    }
+    
 }
 
 extension ServerBaseCell:CellParseJsonAble{}

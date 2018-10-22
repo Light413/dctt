@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="_TodayViewCellIdentifier" id="HSL-83-IN5" customClass="_TodayDetailCell" customModule="DCTT" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HSL-83-IN5" id="1BC-cw-nrn">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAn-Qi-cVg">
+                        <rect key="frame" x="21" y="26" width="278" height="25"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCV-FI-mo5">
+                        <rect key="frame" x="21" y="71" width="278" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="VAn-Qi-cVg" firstAttribute="leading" secondItem="1BC-cw-nrn" secondAttribute="leadingMargin" constant="5" id="AnD-bg-IXr"/>
+                    <constraint firstItem="OCV-FI-mo5" firstAttribute="leading" secondItem="VAn-Qi-cVg" secondAttribute="leading" id="FPx-5W-Xlb"/>
+                    <constraint firstItem="OCV-FI-mo5" firstAttribute="top" secondItem="VAn-Qi-cVg" secondAttribute="bottom" constant="20" id="VFR-fp-YWT"/>
+                    <constraint firstItem="VAn-Qi-cVg" firstAttribute="top" secondItem="1BC-cw-nrn" secondAttribute="topMargin" constant="15" id="XZ0-Sa-UG1"/>
+                    <constraint firstAttribute="bottom" secondItem="OCV-FI-mo5" secondAttribute="bottom" constant="8" id="bLn-hc-5gn"/>
+                    <constraint firstItem="OCV-FI-mo5" firstAttribute="trailing" secondItem="VAn-Qi-cVg" secondAttribute="trailing" id="q5P-5F-0G6"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="VAn-Qi-cVg" secondAttribute="trailing" constant="5" id="s1e-fp-psI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="svL-wP-CsP"/>
+            <connections>
+                <outlet property="e_content" destination="OCV-FI-mo5" id="esb-eB-ZGh"/>
+                <outlet property="e_title" destination="VAn-Qi-cVg" id="ukb-e7-Rsr"/>
+            </connections>
+            <point key="canvasLocation" x="-81" y="33"/>
+        </tableViewCell>
+    </objects>
+</document>

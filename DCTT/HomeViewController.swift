@@ -25,7 +25,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false;
 
-        //t_barTintColor = tt_HomeBarColor
+        //t_barTintColor = t_barTintColor
         //self.navigationController?.navigationBar.barTintColor = t_barTintColor
         
         _init()

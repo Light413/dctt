@@ -28,12 +28,13 @@ class ShangjiaCell: ServerBaseCell {
     
     override func fill(_ dic:[String:Any]) {
         let cc = String.isNullOrEmpty(dic["content"])
+        
         if let d = objectFrom(cc) {
             name.text = String.isNullOrEmpty(d["name"])
             let size = String.isNullOrEmpty(d["name"]).boundingRect(with: CGSize.init(width: self.frame.width, height: 50), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName:name.font], context: nil)
             name_w.constant = size.width + 20
             
-            detailDes.text = String.isNullOrEmpty(d["content"])
+            detailDes.text = isHasNewLine(String.isNullOrEmpty(d["content"]))
             address.text = String.isNullOrEmpty(d["address"])
             tel.text = String.isNullOrEmpty(d["tel"])
         }
