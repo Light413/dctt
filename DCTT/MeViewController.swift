@@ -353,7 +353,8 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
                     
                     case SSDKResponseState.cancel:
                         HUD.showText("操作取消", view: UIApplication.shared.keyWindow!);
-                    default:break
+                    default:HUD.showText("无效操作", view: UIApplication.shared.keyWindow!);
+                    break
                 }
     
             }

@@ -103,18 +103,23 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
             
             break
         case (1,1)://意见反馈
-//            guard User.isLogined() else {
-//                HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
-//                return
-//            }
+            guard User.isLogined() else {
+                HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
+                return
+            }
 
+            ///https://support.qq.com/product/41118
             let vc =  UIStoryboard (name: "me", bundle: nil).instantiateViewController(withIdentifier: "feedback_id");
+            
+                //BaseWebViewController(baseUrl:"https://support.qq.com/product/41118",isFullUrl:true)
+            
+            vc.title = "意见反馈"
             self.navigationController?.pushViewController(vc, animated: true)
             break
             
         case (1,2)://appstore
             //给我评分 ////qq-444934666  dyt-1093404718
-            let str = "itms-apps://itunes.apple.com/app/id\(444934666)";
+            let str = "itms-apps://itunes.apple.com/app/id\(1440109512)";
             UIApplication.shared.openURL(URL.init(string: str)!)
             break
 
@@ -126,9 +131,9 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
             break
             
         case (3,_):
-            showMsg("将要删除用户全部信息及发布内容", title: "注销", handler: { [unowned self] in
-                
-            })
+//            showMsg("将要删除用户全部信息及发布内容", title: "注销", handler: { [unowned self] in
+//
+//            })
 
             break
             

@@ -15,6 +15,12 @@ import UserNotifications
 let bugly_app_id = "6b7becdcc1"
 let bugly_app_key = "c80a1d4b-8a8f-44b7-9734-99c95ba61e53"
 
+///微信开放平台ID
+let wxAppId = "wx99c8b9a7590b0c04"
+let wxAppSecret = "01554d9297c4f65b6094a00cf6ef1f3e"
+///QQ开发平台
+let qqAppId = "101511561"
+let qqAppKey = "b08bacb33bc8d4cd6ad00ce8ebbdf662"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegate,CLLocationManagerDelegate{
@@ -99,12 +105,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
                 {
                 case SSDKPlatformType.typeWechat:
                     //设置微信应用信息
-                    appInfo?.ssdkSetupWeChat(byAppId: "wxb2eb04bf9f024905",
-                                             appSecret: "d4624c36b6795d1d99dcf0547af5443d")
+                    appInfo?.ssdkSetupWeChat(byAppId: wxAppId,
+                                             appSecret: wxAppSecret)
                 case SSDKPlatformType.typeQQ:
                     //设置QQ应用信息
-                    appInfo?.ssdkSetupQQ(byAppId: "1104880067",
-                                         appKey: "pqNu2AWR1n83gdML",
+                    appInfo?.ssdkSetupQQ(byAppId: qqAppId,
+                                         appKey: qqAppKey,
                                          authType: SSDKAuthTypeWeb)
                 default:
                     break

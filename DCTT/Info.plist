@@ -29,7 +29,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wxb2eb04bf9f024905</string>
+				<string>wx99c8b9a7590b0c04</string>
 			</array>
 		</dict>
 		<dict>
@@ -37,12 +37,12 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>QQ41DB21C3</string>
+				<string>QQ060CF189</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>181010</string>
+	<string>181026</string>
 	<key>Icon files_nouse (iOS 5)</key>
 	<dict>
 		<key>CFBundlePrimaryIcon</key>

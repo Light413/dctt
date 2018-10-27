@@ -49,6 +49,8 @@ let contactus_url = "p/contactus.html"
 let disclaimer_url = "p/disclaimer.html"
 let usehelp_url = "p/usehelp.html"
 let privacy_agreement_url = "p/userPrivacy.html"
+let feedbackList_url = "p/feedbackList.html"
+
 
 ///
 let Loading = {HUD.show()}

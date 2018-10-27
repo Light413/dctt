@@ -12,10 +12,12 @@ class BaseWebViewController: BaseViewController,UIWebViewDelegate,UIGestureRecog
 
     private var webview: UIWebView!
     private var _url:String!
+    private var _isFullUrl:Bool = false
     
-    init(baseUrl url :String) {
+    init(baseUrl url :String ,isFullUrl:Bool = false) {
         super.init(nibName: nil, bundle: nil)
         _url = url
+        _isFullUrl = isFullUrl
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,7 +50,7 @@ class BaseWebViewController: BaseViewController,UIWebViewDelegate,UIGestureRecog
         longpress.delegate = self
         webview.addGestureRecognizer(longpress)
         
-        var req = URLRequest.init(url: URL.init(string: BASE_URL + _url!)!)
+        var req = URLRequest.init(url: URL.init(string: _isFullUrl ? _url! : BASE_URL + _url!)!)
         req.cachePolicy = .reloadIgnoringLocalCacheData
         HUD.show()
         webview.loadRequest(req)

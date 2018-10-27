@@ -21,8 +21,21 @@ class FackBackViewController: MeBaseTableViewController {
         super.viewDidLoad()
 
         navigationItem.rightBarButtonItem = rightNavigationItem()
+        
+        let btn = UIButton (frame: CGRect (x: 0, y: kCurrentScreenHeight - 50 - 64, width: kCurrentScreenWidth, height: 50))
+        btn.backgroundColor =  UIColor.orange
+        btn.setTitle("看看大伙说的啥", for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        btn.setTitleColor(UIColor.white, for: .normal)
+        btn.addTarget(self, action: #selector(jump), for: .touchUpInside)
+        self.view.addSubview(btn)
     }
 
+    func jump() {
+        let v = BaseWebViewController(baseUrl:feedbackList_url)
+        v.title = "最新留言"
+        self.navigationController?.pushViewController(v, animated: true)
+    }
     func rightNavigationItem() -> UIBarButtonItem{
         let rightbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 40, height: 30))
         rightbtn.setTitle("提交", for: .normal)
