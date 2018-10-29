@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         
         IQKeyboardManager.sharedManager().enable = true
         UIApplication.shared.applicationIconBadgeNumber = 0
-        sleep(2)
+        sleep(1)
         
         //_initLocationServices()
         _initNotification()
@@ -68,12 +68,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         _initShare()
         
         ///bugly
-        //Bugly.start(withAppId: bugly_app_id)
+        Bugly.start(withAppId: bugly_app_id)
         
         //...
-        PgyManager.shared().isFeedbackEnabled = false
-        
-        PgyManager.shared().start(withAppId: "506c1b60173240545b0da25424e200e3")
+//        PgyManager.shared().isFeedbackEnabled = false
+//        PgyManager.shared().start(withAppId: "9c9fb0ff56e817a981d4140ac9f949ba")
     }
     
     ///分享初始化

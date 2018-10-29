@@ -1,15 +1,8 @@
 PODS:
   - Alamofire (4.5.0)
   - Bugly (2.5.0)
-  - FMDB (2.7.5):
-    - FMDB/standard (= 2.7.5)
-  - FMDB/standard (2.7.5)
   - IQKeyboardManagerSwift (5.0.0)
   - Kingfisher (3.13.0)
-  - LKDBHelper (2.4.7):
-    - LKDBHelper/standard (= 2.4.7)
-  - LKDBHelper/standard (2.4.7):
-    - FMDB
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.12)
   - mob_sharesdk (4.1.4):
@@ -32,8 +25,6 @@ PODS:
   - mob_smssdk (3.2.1):
     - MOBFoundation
   - MOBFoundation (3.1.9)
-  - Pgyer (2.8.9)
-  - PgyUpdate (1.6)
   - RxCocoa (3.0.0):
     - RxSwift (~> 3.0)
   - RxDataSources (1.0.4):
@@ -49,7 +40,6 @@ DEPENDENCIES:
   - Bugly
   - IQKeyboardManagerSwift (= 5.0.0)
   - Kingfisher (= 3.13.0)
-  - LKDBHelper (~> 2.4.2)
   - MBProgressHUD (~> 1.1.0)
   - MJRefresh (= 3.1.12)
   - mob_sharesdk
@@ -58,8 +48,6 @@ DEPENDENCIES:
   - mob_sharesdk/ShareSDKPlatforms/WeChat
   - mob_sharesdk/ShareSDKUI
   - mob_smssdk
-  - Pgyer
-  - PgyUpdate
   - RxCocoa (= 3.0)
   - RxDataSources (~> 1.0.4)
   - RxSwift (= 3.0)
@@ -70,17 +58,13 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
-  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
   Kingfisher: 7eebf6000ac64401839f10da37f21eefa7d88970
-  LKDBHelper: a6c63147491654da18f72212f80d67db3a27289c
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   mob_sharesdk: 765cc2fd2fac0a6fd7c3e6c2b10d729ad006c608
   mob_smssdk: edc462704cc07c6d245eee16c4c09ac4f4d53e61
   MOBFoundation: 11500153c10d83e4ac341f6ad6301b3998ce6db2
-  Pgyer: 830654e51e23f754cce5d8b3ea9ba72be68452eb
-  PgyUpdate: cd6c2ada5928f36a9f904d8f96a9b3b53e190755
   RxCocoa: 0a2f3ae381cf16f4021a4cee7a4420f83058a965
   RxDataSources: b3389acc5fe2eefb8fcd81a2b76a876ad08bc82a
   RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
@@ -88,6 +72,6 @@ SPEC CHECKSUMS:
   SwiftTTPageController: c98152e5c656a8df2198317e86023d0390989254
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 504f483be8cdff0c6949e861bd0db10ce8765faf
+PODFILE CHECKSUM: 48cdada0a91e8ed2b18803faa3c90b6944d6ea8c
 
 COCOAPODS: 1.4.0

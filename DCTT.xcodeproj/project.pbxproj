@@ -66,8 +66,6 @@
 		AD0BD4EE2009FE980088D5E7 /* HomeDetailImgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0BD4EC2009FE980088D5E7 /* HomeDetailImgCell.xib */; };
 		AD0BD502200A34270088D5E7 /* FriendHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0BD501200A34270088D5E7 /* FriendHeadView.swift */; };
 		AD0BD504200A34350088D5E7 /* FriendHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0BD503200A34350088D5E7 /* FriendHeadView.xib */; };
-		AD0E32C8212EF983009E26BC /* home_bg_gray@2x.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD0E32C6212EF983009E26BC /* home_bg_gray@2x.jpeg */; };
-		AD0E32C9212EF983009E26BC /* home_bg_blue@2x.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD0E32C7212EF983009E26BC /* home_bg_blue@2x.jpeg */; };
 		AD0FAFA020444C0A008A386E /* CategoryItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0FAF9E20444C0A008A386E /* CategoryItemsCell.swift */; };
 		AD0FAFA120444C0A008A386E /* CategoryItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0FAF9F20444C0A008A386E /* CategoryItemsCell.xib */; };
 		AD10332C1FB6CD4E0017E81C /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD10331D1FB6CD4E0017E81C /* common.swift */; };
@@ -112,8 +110,6 @@
 		AD1BEC012029EF6B003E334C /* PubTypeCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BEBFF2029EF6B003E334C /* PubTypeCollectionReusableView.swift */; };
 		AD1BEC022029EF6B003E334C /* PubTypeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD1BEC002029EF6B003E334C /* PubTypeCollectionReusableView.xib */; };
 		AD1CD66F215650D400F1E026 /* MeHomeViewM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1CD66E215650D400F1E026 /* MeHomeViewM.swift */; };
-		AD1CD67121567F4600F1E026 /* starsky_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AD1CD67021567F4500F1E026 /* starsky_bg@2x.jpg */; };
-		AD1CD673215682B600F1E026 /* head_bg@2x.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD1CD672215682B500F1E026 /* head_bg@2x.jpeg */; };
 		AD1DB7AE2151EAE2004BFF76 /* ServerBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1DB7AD2151EAE2004BFF76 /* ServerBaseCell.swift */; };
 		AD1DB7B0215230DB004BFF76 /* HomeListBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1DB7AF215230DB004BFF76 /* HomeListBaseCell.swift */; };
 		AD202751204C385A00E538CD /* PubShangJiaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD202750204C385900E538CD /* PubShangJiaController.swift */; };
@@ -130,7 +126,6 @@
 		AD21014F208108D300558CAB /* TTBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21014E208108D300558CAB /* TTBaseTableViewController.swift */; };
 		AD2178DF207FB1B700B99069 /* FensiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2178DD207FB1B700B99069 /* FensiCell.swift */; };
 		AD2178E0207FB1B700B99069 /* FensiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD2178DE207FB1B700B99069 /* FensiCell.xib */; };
-		AD2178E4207FB2EC00B99069 /* WechatIMG10.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = AD2178E3207FB2EC00B99069 /* WechatIMG10.jpeg */; };
 		AD2187D5205E02A000E8C93F /* MeBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2187D4205E02A000E8C93F /* MeBaseTableViewController.swift */; };
 		AD2187D8205E186E00E8C93F /* MeHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2187D6205E186E00E8C93F /* MeHomeCell.swift */; };
 		AD2187D9205E186E00E8C93F /* MeHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD2187D7205E186E00E8C93F /* MeHomeCell.xib */; };
@@ -282,8 +277,6 @@
 		AD0BD4EC2009FE980088D5E7 /* HomeDetailImgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailImgCell.xib; sourceTree = "<group>"; };
 		AD0BD501200A34270088D5E7 /* FriendHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendHeadView.swift; sourceTree = "<group>"; };
 		AD0BD503200A34350088D5E7 /* FriendHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendHeadView.xib; sourceTree = "<group>"; };
-		AD0E32C6212EF983009E26BC /* home_bg_gray@2x.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home_bg_gray@2x.jpeg"; sourceTree = "<group>"; };
-		AD0E32C7212EF983009E26BC /* home_bg_blue@2x.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home_bg_blue@2x.jpeg"; sourceTree = "<group>"; };
 		AD0FAF9E20444C0A008A386E /* CategoryItemsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryItemsCell.swift; sourceTree = "<group>"; };
 		AD0FAF9F20444C0A008A386E /* CategoryItemsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryItemsCell.xib; sourceTree = "<group>"; };
 		AD10331D1FB6CD4E0017E81C /* common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
@@ -330,8 +323,6 @@
 		AD1BEBFF2029EF6B003E334C /* PubTypeCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubTypeCollectionReusableView.swift; sourceTree = "<group>"; };
 		AD1BEC002029EF6B003E334C /* PubTypeCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PubTypeCollectionReusableView.xib; sourceTree = "<group>"; };
 		AD1CD66E215650D400F1E026 /* MeHomeViewM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeViewM.swift; sourceTree = "<group>"; };
-		AD1CD67021567F4500F1E026 /* starsky_bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "starsky_bg@2x.jpg"; sourceTree = "<group>"; };
-		AD1CD672215682B500F1E026 /* head_bg@2x.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "head_bg@2x.jpeg"; sourceTree = "<group>"; };
 		AD1DB7AD2151EAE2004BFF76 /* ServerBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerBaseCell.swift; sourceTree = "<group>"; };
 		AD1DB7AF215230DB004BFF76 /* HomeListBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListBaseCell.swift; sourceTree = "<group>"; };
 		AD202750204C385900E538CD /* PubShangJiaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubShangJiaController.swift; sourceTree = "<group>"; };
@@ -348,7 +339,6 @@
 		AD21014E208108D300558CAB /* TTBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTBaseTableViewController.swift; sourceTree = "<group>"; };
 		AD2178DD207FB1B700B99069 /* FensiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FensiCell.swift; sourceTree = "<group>"; };
 		AD2178DE207FB1B700B99069 /* FensiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FensiCell.xib; sourceTree = "<group>"; };
-		AD2178E3207FB2EC00B99069 /* WechatIMG10.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WechatIMG10.jpeg; sourceTree = "<group>"; };
 		AD2187D4205E02A000E8C93F /* MeBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeBaseTableViewController.swift; sourceTree = "<group>"; };
 		AD2187D6205E186E00E8C93F /* MeHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeCell.swift; sourceTree = "<group>"; };
 		AD2187D7205E186E00E8C93F /* MeHomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHomeCell.xib; sourceTree = "<group>"; };
@@ -515,18 +505,13 @@
 			children = (
 				A1BCDFF02142102C001AC3CC /* app_logo@2x.png */,
 				A1BCDFF12142102C001AC3CC /* app_logo@3x.png */,
-				AD2178E3207FB2EC00B99069 /* WechatIMG10.jpeg */,
 				A1C4023A1FCCF9A6005BAA9A /* cell_background.png */,
 				A148A2A31FD6494B0052DDF3 /* publish_image@2x.png */,
 				A148A2A51FD649570052DDF3 /* publish_write@2x.png */,
 				A148A2A71FD658180052DDF3 /* video_allshare@2x.png */,
 				A1B5A6421FC4174400871676 /* ymtimg2.jpg */,
 				A1B5A6441FC41F2200871676 /* sunrise.jpg */,
-				AD1CD67021567F4500F1E026 /* starsky_bg@2x.jpg */,
 				A1E61D1C1FCE8F560080A12D /* back_bg@2x.png */,
-				AD1CD672215682B500F1E026 /* head_bg@2x.jpeg */,
-				AD0E32C7212EF983009E26BC /* home_bg_blue@2x.jpeg */,
-				AD0E32C6212EF983009E26BC /* home_bg_gray@2x.jpeg */,
 				AD1490B31FCB08750053FD31 /* trans-navi-left-button@2x.png */,
 			);
 			path = Test;
@@ -949,8 +934,8 @@
 				TargetAttributes = {
 					ADEAE4FF1FB6C8F50048F876 = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 8R29X3H9MY;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = NZC7MW7CH8;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -994,12 +979,10 @@
 				ADFC9E022053EDCC00449767 /* Login.storyboard in Resources */,
 				AD1033331FB6CD4E0017E81C /* success@2x.png in Resources */,
 				ADEAE50E1FB6C8F50048F876 /* LaunchScreen.storyboard in Resources */,
-				AD0E32C9212EF983009E26BC /* home_bg_blue@2x.jpeg in Resources */,
 				AD2187D9205E186E00E8C93F /* MeHomeCell.xib in Resources */,
 				A1BCDFF32142102C001AC3CC /* app_logo@3x.png in Resources */,
 				AD21D9BE205520C300E317FF /* MeNotRegisterCell.xib in Resources */,
 				AD1490B41FCB08750053FD31 /* trans-navi-left-button@2x.png in Resources */,
-				AD1CD673215682B600F1E026 /* head_bg@2x.jpeg in Resources */,
 				AD2187DD205E7A6F00E8C93F /* MeHomeHeadView.xib in Resources */,
 				AD1033321FB6CD4E0017E81C /* success.png in Resources */,
 				A148A2B41FD6A0B70052DDF3 /* PublishCollectionReusableView.xib in Resources */,
@@ -1017,9 +1000,7 @@
 				AD0BD504200A34350088D5E7 /* FriendHeadView.xib in Resources */,
 				A148A2A61FD649570052DDF3 /* publish_write@2x.png in Resources */,
 				A1BCDFF22142102C001AC3CC /* app_logo@2x.png in Resources */,
-				AD0E32C8212EF983009E26BC /* home_bg_gray@2x.jpeg in Resources */,
 				AD1BEC022029EF6B003E334C /* PubTypeCollectionReusableView.xib in Resources */,
-				AD1CD67121567F4600F1E026 /* starsky_bg@2x.jpg in Resources */,
 				AD21DF62202750FD002FE181 /* TableViewCellTextView.xib in Resources */,
 				ADDAF3812146B61A00B70EBB /* TableCellWithCollectionView.xib in Resources */,
 				A1C4023B1FCCF9A6005BAA9A /* cell_background.png in Resources */,
@@ -1043,7 +1024,6 @@
 				AD128C77201CCD9500A9EDBE /* PubFriendCell.xib in Resources */,
 				AD645C34217E36610062AF91 /* _TodayDetailCell.xib in Resources */,
 				AD0BD4EE2009FE980088D5E7 /* HomeDetailImgCell.xib in Resources */,
-				AD2178E4207FB2EC00B99069 /* WechatIMG10.jpeg in Resources */,
 				ADC8EBF021515096008E5696 /* QiuzhiCell.xib in Resources */,
 				ADC61DE721441C8300AE11B1 /* ZTCollectionViewCell.xib in Resources */,
 				AD14CC641FE802B6003FBE0B /* HomeCellWithImages.xib in Resources */,
@@ -1067,10 +1047,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DCTT/Pods-DCTT-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/LKDBHelper/LKDBHelper.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -1083,10 +1061,8 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LKDBHelper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -1411,16 +1387,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DCTT/DCTT.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8R29X3H9MY;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: YongGuang Wang (GYXZH44DQ7)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = NZC7MW7CH8;
 				INFOPLIST_FILE = DCTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gener-tech.dcttwithpush";
+				PRODUCT_BUNDLE_IDENTIFIER = com.guog.dctt0394;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "63a70c3f-1eaf-4873-b4de-eef6b96c3957";
+				PROVISIONING_PROFILE_SPECIFIER = 99dctt_dev;
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DCTT/BaseController/KLTAnimateNav/DCTT-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -1434,17 +1410,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DCTT/DCTT.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8R29X3H9MY;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: yongguang wang (NZC7MW7CH8)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = NZC7MW7CH8;
 				INFOPLIST_FILE = DCTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gener-tech.dcttwithpush";
+				PRODUCT_BUNDLE_IDENTIFIER = com.guog.dctt0394;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "47eb4dd0-030f-4f5b-8c73-e574be75f5c3";
+				PROVISIONING_PROFILE_SPECIFIER = dctt_distribution;
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DCTT/BaseController/KLTAnimateNav/DCTT-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

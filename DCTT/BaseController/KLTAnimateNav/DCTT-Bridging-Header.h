@@ -27,7 +27,7 @@
 
 #import <Bugly/Bugly.h>
 
-#import <PgySDK/PgyManager.h>
-#import <PgyUpdate/PgyUpdateManager.h>
+//#import <PgySDK/PgyManager.h>
+//#import <PgyUpdate/PgyUpdateManager.h>
 
 #endif /* DCTT_Bridging_Header_h */
