@@ -41,6 +41,66 @@ class Tools: NSObject {
     }
     
    
+    static func showMsg( _ msg:String , title:String , handler:@escaping ((Void) -> Void)) {
+        
+        let vc = UIAlertController.init(title: msg,message: nil, preferredStyle: .alert)
+        let action = UIAlertAction.init(title:"取消", style: .default)
+        let action2 = UIAlertAction.init(title: title, style: .destructive) { (action) in
+            handler();
+        }
+        
+        vc.addAction(action)
+        vc.addAction(action2)
+        UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil);
+    }
+
+    
+    ///不喜欢的动态处理
+    private func _dislikePath() -> String? {
+        guard let p = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {return nil}
+       return p + "/dislike"
+    }
+    
+    func getDislikeData() -> [String:[String]]? {
+        guard let path = _dislikePath() else {return nil}
+        let d = NSKeyedUnarchiver.unarchiveObject(withFile: path) as? [String:[String]]
+        return d
+    }
+    
+    func addDislike(_ pid:String) {
+        var _newArr = [String]()
+        
+        if let d = getDislikeData() , let arr = d["dislike"] {
+            _newArr = arr
+            if (!_newArr.contains(pid)){
+                _newArr.append(pid)
+            }
+            
+        }else{
+            _newArr = [pid]
+        }
+        
+        guard let p = _dislikePath() else {return}
+        NSKeyedArchiver.archiveRootObject(["dislike":_newArr], toFile: p)
+    }
+    
+    func filterDislikeData(_ ds:[[String:Any]]) -> [[String:Any]] {
+        if let _disks = getDislikeData() , let _disksArr = _disks["dislike"] {
+            var new = [[String:Any]]()
+            
+            for d in ds {
+                let pid =  String.isNullOrEmpty(d["pid"])
+                if !_disksArr.contains(pid){
+                    new.append(d)
+                }
+            }
+            
+            return new
+        }else {
+            
+            return ds
+        }
+    }
     
     /*
     //MARK: - show pop

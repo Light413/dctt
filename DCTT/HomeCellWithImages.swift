@@ -21,7 +21,16 @@ class HomeCellWithImages: HomeListBaseCell {
     
     @IBOutlet weak var image_h: NSLayoutConstraint!
     
+    @IBOutlet weak var dislikeBtn: UIButton!
     
+    @IBAction func dislikeAction(_ sender: Any) {
+        Tools.showMsg("不喜欢该动态?", title: "隐藏") { [weak self] in
+            guard let  ss = self else {return}
+            if let b = ss.dislikeBlock {
+                b()
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +39,7 @@ class HomeCellWithImages: HomeListBaseCell {
         let w = (kCurrentScreenWidth - 20) / 3.0
         image_h.constant = w;
         
+        disLikeBtnSetStyle(dislikeBtn)
     }
 
     

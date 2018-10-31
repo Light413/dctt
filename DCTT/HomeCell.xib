@@ -41,10 +41,24 @@
                         <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dr-GD-2fH">
+                        <rect key="frame" x="266" y="49" width="30" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="5Yc-LX-yeP"/>
+                            <constraint firstAttribute="height" constant="20" id="stI-hg-Rs1"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="5" minY="3" maxX="5" maxY="3"/>
+                        <state key="normal" image="dislikeicon_details"/>
+                        <connections>
+                            <action selector="dislikeAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DfA-ca-6MC"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="3dr-GD-2fH" secondAttribute="trailing" constant="8" id="6eT-ms-f5w"/>
                     <constraint firstAttribute="bottomMargin" secondItem="2SM-ei-zK7" secondAttribute="bottom" constant="3" id="7IF-Aa-FL7"/>
                     <constraint firstItem="Wjc-oY-JMp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="ECs-8O-1Te"/>
+                    <constraint firstItem="3dr-GD-2fH" firstAttribute="centerY" secondItem="XM8-0M-xRV" secondAttribute="centerY" id="K9X-Po-z7Y"/>
                     <constraint firstItem="XM8-0M-xRV" firstAttribute="centerY" secondItem="2SM-ei-zK7" secondAttribute="centerY" id="NpP-md-fYh"/>
                     <constraint firstItem="XM8-0M-xRV" firstAttribute="height" secondItem="2SM-ei-zK7" secondAttribute="height" id="Npp-kS-p3N"/>
                     <constraint firstItem="XM8-0M-xRV" firstAttribute="leading" secondItem="2SM-ei-zK7" secondAttribute="trailing" constant="10" id="PdT-D4-CRg"/>
@@ -56,6 +70,7 @@
             </tableViewCellContentView>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
+                <outlet property="dislikeBtn" destination="3dr-GD-2fH" id="2oq-Uk-K2Z"/>
                 <outlet property="msg" destination="Wjc-oY-JMp" id="bfM-O6-Ivk"/>
                 <outlet property="name" destination="2SM-ei-zK7" id="Anc-RQ-c1f"/>
                 <outlet property="time" destination="XM8-0M-xRV" id="GMF-li-cre"/>
@@ -63,4 +78,7 @@
             <point key="canvasLocation" x="-113" y="15"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="dislikeicon_details" width="10" height="10"/>
+    </resources>
 </document>

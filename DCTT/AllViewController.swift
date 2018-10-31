@@ -123,7 +123,8 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
             }
             
             if let arr = res["body"] as? [[String:Any]] {
-                ss.dataArray = ss.dataArray + arr;
+                let new = Tools.default.filterDislikeData(arr)
+                ss.dataArray = ss.dataArray + new;
                 if arr.count < 20 {
                     ss._tableview.mj_footer.state = .noMoreData
                 }else{
@@ -203,32 +204,52 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         let type =  Int(String.isNullOrEmpty(d["imageNum"])) ?? 0
         
         var identifier :String = "HomeCellReuseIdentifierId"
-        var cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
         
         switch type {
-        case 0:
-            (cell as! HomeCell).fill(d)
-            
-            break
-        case let n where n < 3:
-            identifier = "HomeCellWithImageIdentifierId"
-            cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
-            (cell as! HomeCellWithImage).fill(d)
-            break
-        case let n where n >= 3:
-            
-            identifier = "HomeCellWithImagesIdentifierId"
-            cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
-            (cell as! HomeCellWithImages).fill(d)
-            
-            break
+            case 0:
+                //            (cell as! HomeCell).fill(d)
+                
+                break
+            case let n where n < 3:
+                identifier = "HomeCellWithImageIdentifierId"
+                //            cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
+                //            (cell as! HomeCellWithImage).fill(d)
+                break
+            case let n where n >= 3:
+                
+                identifier = "HomeCellWithImagesIdentifierId"
+                //            cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
+                //            (cell as! HomeCellWithImages).fill(d)
+                
+                break
         default:break
         }
 
+        let cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath) as! HomeListBaseCell
+        
+        cell.fill(d)
+        
+        cell.dislikeBlock = {[weak self] in
+            guard let ss = self else {return}
+            ss._dislike(indexPath)
+        }
         
         return cell
         
     }
+    
+    func _dislike(_ index:IndexPath) {
+        let d = dataArray[index.row]
+        let pid =  String.isNullOrEmpty(d["pid"])
+        
+        dataArray.remove(at: index.row)
+        //        tableView.deleteRows(at: [index], with: .left)
+        _tableview.reloadData()
+        
+        Tools.default.addDislike(pid)
+        
+    }
+
     
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        if indexPath.section == 0 {

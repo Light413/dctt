@@ -60,24 +60,43 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示: 在平台发布的信息图片属用户自主行为，不代表平台的意见或观点，平台不对该信息承担任何责任。若发现虚假信息等违法行为请举报。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juU-wr-55e">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示: 在平台发布的信息图片属用户自主行为，平台不对该信息承担任何责任。若发现虚假信息等违法行为请举报。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juU-wr-55e">
                     <rect key="frame" x="10" y="54.5" width="300" height="43"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrK-2Y-dJY">
+                    <rect key="frame" x="140" y="15" width="60" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="aVs-15-SSu"/>
+                        <constraint firstAttribute="height" constant="25" id="mro-sN-tba"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="举报">
+                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="comment_like_icon_press"/>
+                    <connections>
+                        <action selector="jubaoAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="axZ-xd-QJy"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Uun-D0-muT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="0mW-Vf-Ubh"/>
                 <constraint firstAttribute="bottom" secondItem="9o2-0d-Vvz" secondAttribute="bottom" constant="8" id="5zw-SC-nDn"/>
                 <constraint firstItem="6MO-Ie-Hly" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6eh-Nb-Fya"/>
+                <constraint firstItem="yhJ-lF-cde" firstAttribute="centerY" secondItem="hrK-2Y-dJY" secondAttribute="centerY" id="D5h-Ru-HsM"/>
                 <constraint firstAttribute="trailing" secondItem="yhJ-lF-cde" secondAttribute="trailing" constant="30" id="ItJ-Pk-5HS"/>
                 <constraint firstItem="6MO-Ie-Hly" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="35" id="JR5-xn-m2S"/>
                 <constraint firstItem="qug-e5-dZ7" firstAttribute="leading" secondItem="Uun-D0-muT" secondAttribute="trailing" constant="2" id="Kd1-kQ-3uA"/>
                 <constraint firstItem="qug-e5-dZ7" firstAttribute="centerY" secondItem="Uun-D0-muT" secondAttribute="centerY" id="NNB-sL-Mm0"/>
                 <constraint firstItem="6MO-Ie-Hly" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="PVi-Rg-PLi"/>
                 <constraint firstItem="Uun-D0-muT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="QLV-xM-qHB"/>
+                <constraint firstItem="yhJ-lF-cde" firstAttribute="leading" secondItem="hrK-2Y-dJY" secondAttribute="trailing" constant="30" id="Rdh-Rh-hIN"/>
                 <constraint firstItem="juU-wr-55e" firstAttribute="top" secondItem="Uun-D0-muT" secondAttribute="bottom" constant="20" id="gUM-Ef-bYK"/>
                 <constraint firstAttribute="trailing" secondItem="6MO-Ie-Hly" secondAttribute="trailing" id="hyj-08-ZOE"/>
                 <constraint firstItem="juU-wr-55e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="j0A-TF-CST"/>
@@ -88,6 +107,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="jubaoBtn" destination="hrK-2Y-dJY" id="78m-Sj-BaH"/>
                 <outlet property="readCnt" destination="qug-e5-dZ7" id="2WG-Zi-Q9G"/>
                 <outlet property="zanBtn" destination="yhJ-lF-cde" id="pyP-oA-CB5"/>
             </connections>

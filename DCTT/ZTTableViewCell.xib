@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHC-Fh-p44">
                         <rect key="frame" x="10" y="5" width="300" height="189.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="前女友是我小姨子的上司，小姨子工作犯错要被开除，老婆让我找前女友求求情。于是我打了电话，前女友问明情况后说：“她让你找我，你就找我？你有没脑子的？明摆着在试探！我要是为了你帮这个忙，她一定整死你信不信？”" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vaf-cF-hSt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="此条记录数据异常(测试状态)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vaf-cF-hSt">
                                 <rect key="frame" x="10" y="59" width="280" height="87.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -59,10 +59,24 @@
                                 <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpO-kb-xIc">
+                                <rect key="frame" x="260" y="161" width="30" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="nnR-Lb-mc4"/>
+                                    <constraint firstAttribute="width" constant="30" id="wzn-Fu-MRW"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="5" minY="3" maxX="5" maxY="3"/>
+                                <state key="normal" image="dislikeicon_details"/>
+                                <connections>
+                                    <action selector="dislikeAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="doJ-8u-g0P"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="0SK-z4-gxm" firstAttribute="top" secondItem="Vaf-cF-hSt" secondAttribute="bottom" constant="8" id="D3B-TA-tXe"/>
                             <constraint firstItem="Vaf-cF-hSt" firstAttribute="top" secondItem="B2r-x6-nF1" secondAttribute="bottom" constant="8" id="DAw-Cs-2Pu"/>
+                            <constraint firstItem="KpO-kb-xIc" firstAttribute="centerY" secondItem="IdK-NT-fhV" secondAttribute="centerY" id="E7a-Fe-BPC"/>
+                            <constraint firstAttribute="trailing" secondItem="KpO-kb-xIc" secondAttribute="trailing" constant="10" id="Esv-pc-2NN"/>
                             <constraint firstItem="Vaf-cF-hSt" firstAttribute="leading" secondItem="mHC-Fh-p44" secondAttribute="leading" constant="10" id="IfS-ll-jkz"/>
                             <constraint firstItem="0SK-z4-gxm" firstAttribute="leading" secondItem="Vaf-cF-hSt" secondAttribute="leading" id="PqC-Ni-ssI"/>
                             <constraint firstAttribute="trailing" secondItem="B2r-x6-nF1" secondAttribute="trailing" constant="15" id="QQp-n6-70e"/>
@@ -90,6 +104,7 @@
                 <outlet property="bg" destination="mHC-Fh-p44" id="S37-om-FId"/>
                 <outlet property="content" destination="Vaf-cF-hSt" id="dpX-nQ-BlH"/>
                 <outlet property="date" destination="IdK-NT-fhV" id="jSF-gq-DAl"/>
+                <outlet property="dislikeBtn" destination="KpO-kb-xIc" id="AId-TM-2e7"/>
                 <outlet property="title" destination="B2r-x6-nF1" id="zeU-o8-97m"/>
                 <outlet property="user" destination="3La-bN-CuH" id="40X-Vo-Prk"/>
                 <outlet property="user_avatar" destination="0SK-z4-gxm" id="PJW-5W-4xf"/>
@@ -98,6 +113,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="dislikeicon_details" width="10" height="10"/>
         <image name="ymtimg2.jpg" width="160" height="190"/>
     </resources>
 </document>

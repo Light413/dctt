@@ -75,7 +75,8 @@ class ZTTableViewController: BaseTableViewController {
             }
             
             if let arr = res["body"] as? [[String:Any]] {
-                ss.dataArray = ss.dataArray + arr;
+                let new = Tools.default.filterDislikeData(arr)
+                ss.dataArray = ss.dataArray + new;
                 if arr.count < 20 {
                     ss.tableView.mj_footer.state = .noMoreData
                 }else{
@@ -116,7 +117,10 @@ class ZTTableViewController: BaseTableViewController {
         let d = dataArray[indexPath.row]
         cell.fill(d)
 
-
+        cell.dislikeBlock = {[weak self] in
+            guard let ss = self else {return}
+            ss._dislike(indexPath)
+        }
         return cell
     }
     
@@ -130,6 +134,18 @@ class ZTTableViewController: BaseTableViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
+    
+    func _dislike(_ index:IndexPath) {
+        let d = dataArray[index.row]
+        let pid =  String.isNullOrEmpty(d["pid"])
+        
+        dataArray.remove(at: index.row)
+        //        tableView.deleteRows(at: [index], with: .left)
+        tableView.reloadData()
+        
+        Tools.default.addDislike(pid)
+        
+    }
 
 
 }

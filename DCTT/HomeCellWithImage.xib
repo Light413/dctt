@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数据异常(测试状态)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hn2-CB-Jjp">
-                        <rect key="frame" x="21" y="10.5" width="201" height="53"/>
+                        <rect key="frame" x="21" y="10.5" width="211" height="53"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -42,15 +42,28 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OSy-t7-zuj">
-                        <rect key="frame" x="224" y="10.5" width="80" height="70"/>
+                        <rect key="frame" x="234" y="10.5" width="70" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="70" id="2dD-9J-NJz"/>
-                            <constraint firstAttribute="width" constant="80" id="NbU-gE-lZb"/>
+                            <constraint firstAttribute="height" constant="60" id="2dD-9J-NJz"/>
+                            <constraint firstAttribute="width" constant="70" id="NbU-gE-lZb"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qq-A2-AcH">
+                        <rect key="frame" x="275" y="69" width="30" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="EuQ-2s-RUo"/>
+                            <constraint firstAttribute="height" constant="20" id="pk0-0y-kQZ"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="5" minY="3" maxX="5" maxY="3"/>
+                        <state key="normal" image="dislikeicon_details"/>
+                        <connections>
+                            <action selector="dislikeAction:" destination="pIk-X7-1mK" eventType="touchUpInside" id="Gdl-Wj-7UJ"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="NaC-xj-OB5" firstAttribute="centerY" secondItem="roy-3a-mZO" secondAttribute="centerY" id="5rU-46-8y8"/>
+                    <constraint firstAttribute="trailing" secondItem="1qq-A2-AcH" secondAttribute="trailing" constant="15" id="7XC-LK-2f4"/>
                     <constraint firstItem="NaC-xj-OB5" firstAttribute="height" secondItem="roy-3a-mZO" secondAttribute="height" id="8du-37-FBF"/>
                     <constraint firstItem="OSy-t7-zuj" firstAttribute="leading" secondItem="hn2-CB-Jjp" secondAttribute="trailing" constant="2" id="Gam-bV-bjB"/>
                     <constraint firstAttribute="bottomMargin" secondItem="roy-3a-mZO" secondAttribute="bottom" constant="3" id="Hh5-UK-YTC"/>
@@ -62,10 +75,12 @@
                     <constraint firstItem="OSy-t7-zuj" firstAttribute="trailing" secondItem="HtK-cg-MWc" secondAttribute="trailingMargin" id="n34-VF-a80"/>
                     <constraint firstItem="hn2-CB-Jjp" firstAttribute="top" secondItem="HtK-cg-MWc" secondAttribute="top" constant="10" id="v0z-mL-dIA"/>
                     <constraint firstItem="OSy-t7-zuj" firstAttribute="top" secondItem="hn2-CB-Jjp" secondAttribute="top" id="wdN-0t-w8s"/>
+                    <constraint firstItem="1qq-A2-AcH" firstAttribute="centerY" secondItem="NaC-xj-OB5" secondAttribute="centerY" id="wjQ-Dv-rwX"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
+                <outlet property="dislikeBtn" destination="1qq-A2-AcH" id="pBG-xx-lph"/>
                 <outlet property="igv" destination="OSy-t7-zuj" id="Qsl-VV-rzj"/>
                 <outlet property="msg" destination="hn2-CB-Jjp" id="yhf-My-KhT"/>
                 <outlet property="name" destination="roy-3a-mZO" id="fCf-cf-fXT"/>
@@ -74,4 +89,7 @@
             <point key="canvasLocation" x="-136" y="-70"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="dislikeicon_details" width="10" height="10"/>
+    </resources>
 </document>

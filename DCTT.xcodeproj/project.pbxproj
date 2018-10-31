@@ -155,6 +155,7 @@
 		AD3CB6C8211203BA00681E65 /* AlamofireRequestAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CB6C7211203BA00681E65 /* AlamofireRequestAble.swift */; };
 		AD3CB6CA211206DC00681E65 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CB6C9211206DB00681E65 /* AlamofireHelper.swift */; };
 		AD3CB6CC211210D500681E65 /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CB6CB211210D500681E65 /* BaseWebViewController.swift */; };
+		AD3E9D452189EED9000CA0B6 /* JuBaoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3E9D442189EED9000CA0B6 /* JuBaoController.swift */; };
 		AD4200212007AFCA00096CF7 /* HomeDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */; };
 		AD4200222007AFCA00096CF7 /* HomeDetailCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */; };
 		AD6338002083974900BC84B1 /* MeSetterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6337FF2083974900BC84B1 /* MeSetterController.swift */; };
@@ -166,6 +167,7 @@
 		AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */; };
 		AD6A983C201A12CB00E7C5AE /* HomeDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */; };
 		AD87FD022159F30600FEB395 /* ETNavBarTransparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87FD012159F30600FEB395 /* ETNavBarTransparent.swift */; };
+		ADBE083F2189A44E009CF7B6 /* DisLikeBtnStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBE083E2189A44E009CF7B6 /* DisLikeBtnStyle.swift */; };
 		ADC61DDF2144057000AE11B1 /* DarenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61DDE2144057000AE11B1 /* DarenTableViewController.swift */; };
 		ADC61DE22144058900AE11B1 /* DarenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61DE02144058900AE11B1 /* DarenCell.swift */; };
 		ADC61DE32144058900AE11B1 /* DarenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADC61DE12144058900AE11B1 /* DarenCell.xib */; };
@@ -368,6 +370,7 @@
 		AD3CB6C7211203BA00681E65 /* AlamofireRequestAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequestAble.swift; sourceTree = "<group>"; };
 		AD3CB6C9211206DB00681E65 /* AlamofireHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
 		AD3CB6CB211210D500681E65 /* BaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebViewController.swift; sourceTree = "<group>"; };
+		AD3E9D442189EED9000CA0B6 /* JuBaoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuBaoController.swift; sourceTree = "<group>"; };
 		AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailCommentCell.swift; sourceTree = "<group>"; };
 		AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailCommentCell.xib; sourceTree = "<group>"; };
 		AD6337FF2083974900BC84B1 /* MeSetterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeSetterController.swift; sourceTree = "<group>"; };
@@ -379,6 +382,7 @@
 		AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailFooterView.swift; sourceTree = "<group>"; };
 		AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailFooterView.xib; sourceTree = "<group>"; };
 		AD87FD012159F30600FEB395 /* ETNavBarTransparent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETNavBarTransparent.swift; sourceTree = "<group>"; };
+		ADBE083E2189A44E009CF7B6 /* DisLikeBtnStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisLikeBtnStyle.swift; sourceTree = "<group>"; };
 		ADC61DDE2144057000AE11B1 /* DarenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarenTableViewController.swift; sourceTree = "<group>"; };
 		ADC61DE02144058900AE11B1 /* DarenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarenCell.swift; sourceTree = "<group>"; };
 		ADC61DE12144058900AE11B1 /* DarenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DarenCell.xib; sourceTree = "<group>"; };
@@ -606,6 +610,7 @@
 				A1BCDFF421421634001AC3CC /* AboutUsViewController.swift */,
 				AD3CB6CB211210D500681E65 /* BaseWebViewController.swift */,
 				ADC87BD3214FFD1F00B273C3 /* HistoryViewController.swift */,
+				AD3E9D442189EED9000CA0B6 /* JuBaoController.swift */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -823,6 +828,7 @@
 				A1FD18322112D63D000F0E91 /* TTPickerImageAble.swift */,
 				A13A6D6421195B5C00BB0CD9 /* ShowAlertControllerAble.swift */,
 				ADEF746B214A02D700DCE926 /* TTProtocol.swift */,
+				ADBE083E2189A44E009CF7B6 /* DisLikeBtnStyle.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -1159,6 +1165,7 @@
 				A1A047AC1FD53C910057CC17 /* TTRefreshFooter.swift in Sources */,
 				A1B8E492200603B1001E156E /* HomeDetailHeadView.swift in Sources */,
 				AD1033411FB6CD920017E81C /* BaseViewController.swift in Sources */,
+				AD3E9D452189EED9000CA0B6 /* JuBaoController.swift in Sources */,
 				A1A047AD1FD53C910057CC17 /* TTRefreshHeader.swift in Sources */,
 				AD1DB7AE2151EAE2004BFF76 /* ServerBaseCell.swift in Sources */,
 				AD0BD502200A34270088D5E7 /* FriendHeadView.swift in Sources */,
@@ -1168,6 +1175,7 @@
 				AD16EDA4204848C60072A266 /* PubBaseTableViewController.swift in Sources */,
 				A1E1B02F1FDA90E8002D6BDC /* TTImageBaseViewController.swift in Sources */,
 				AD1033311FB6CD4E0017E81C /* HUD.swift in Sources */,
+				ADBE083F2189A44E009CF7B6 /* DisLikeBtnStyle.swift in Sources */,
 				AD312DBA2150C9E700034273 /* DetailViewM.swift in Sources */,
 				A148A2AB1FD687B40052DDF3 /* PublishTextCell.swift in Sources */,
 				ADC61DE22144058900AE11B1 /* DarenCell.swift in Sources */,

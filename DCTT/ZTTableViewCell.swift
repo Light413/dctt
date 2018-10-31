@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ZTTableViewCell: UITableViewCell ,HomeCellFillDateAble{
+class ZTTableViewCell: UITableViewCell ,HomeCellFillDateAble , DisLikeButtonStyle{
 
     @IBOutlet weak var bg: UIView!
     
@@ -18,8 +18,24 @@ class ZTTableViewCell: UITableViewCell ,HomeCellFillDateAble{
     @IBOutlet weak var user_avatar: UIImageView!
     
     
+    @IBOutlet weak var dislikeBtn: UIButton!
     
     @IBOutlet weak var date: UILabel!
+    
+    ///点击不喜欢处理操作
+    var dislikeBlock:(() -> Void)?
+
+    @IBAction func dislikeAction(_ sender: Any) {
+        Tools.showMsg("不喜欢该动态?", title: "隐藏") { [weak self] in
+            guard let  ss = self else {return}
+            if let b = ss.dislikeBlock {
+                b()
+            }
+        }
+
+    }
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +46,7 @@ class ZTTableViewCell: UITableViewCell ,HomeCellFillDateAble{
         bg.layer.cornerRadius = 5        
         bg.layer.masksToBounds = true
         
+        disLikeBtnSetStyle(dislikeBtn)
     }
 
     func fill(_ d:[String:Any]) {
@@ -80,3 +97,5 @@ class ZTTableViewCell: UITableViewCell ,HomeCellFillDateAble{
     }
     
 }
+
+

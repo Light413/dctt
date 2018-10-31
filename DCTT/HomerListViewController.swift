@@ -114,7 +114,8 @@ class HomerListViewController: BaseTableViewController {
                     ss.tableView.mj_footer.isHidden = false
                 }
                 
-                ss.dataArray = ss.dataArray + arr;
+                let new = Tools.default.filterDislikeData(arr)
+                ss.dataArray = ss.dataArray + new;
                 if arr.count < 20 {
                     ss.tableView.mj_footer.state = .noMoreData
                 }
@@ -175,6 +176,10 @@ class HomerListViewController: BaseTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath) as! HomeListBaseCell
         cell.type = _category
         cell.fill(d)
+        cell.dislikeBlock = {[weak self] in
+            guard let ss = self else {return}
+            ss._dislike(indexPath)
+        }
         
         cell.selectionStyle = .default
         return cell
@@ -191,6 +196,18 @@ class HomerListViewController: BaseTableViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    func _dislike(_ index:IndexPath) {
+        let d = dataArray[index.row]
+        let pid =  String.isNullOrEmpty(d["pid"])
+        
+        dataArray.remove(at: index.row)
+//        tableView.deleteRows(at: [index], with: .left)
+        tableView.reloadData()
+        
+        Tools.default.addDislike(pid)
+
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

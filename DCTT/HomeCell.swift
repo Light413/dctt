@@ -14,21 +14,27 @@ class HomeCell: HomeListBaseCell {
     @IBOutlet weak var name: UILabel!
     
     @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var dislikeBtn: UIButton!
     
     override func fill(_ d:[String:Any]) {
         fillData(msg: msg, user: name, date: time, data: d)
     }
     
-
+    @IBAction func dislikeAction(_ sender: Any) {
+        Tools.showMsg("不喜欢该动态?", title: "隐藏") { [weak self] in
+            guard let  ss = self else {return}
+            if let b = ss.dislikeBlock {
+                b()
+            }
+        }
+        
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
+        disLikeBtnSetStyle(dislikeBtn)
     }
     
 }

@@ -13,8 +13,27 @@ class HomeDetailFooterView: UIView {
     @IBOutlet weak var zanBtn: UIButton!
     @IBOutlet weak var readCnt: UILabel!
     
+    @IBOutlet weak var jubaoBtn: UIButton!
     var _d:[String:Any]?
     var category:String!
+    
+    @IBAction func jubaoAction(_ sender: Any) {
+//        Tools.showMsg("发布的虚假信息或违法内容,举报该用户?", title: "举报") { () in
+//            ///...
+//
+//        }
+        
+        let v = UIStoryboard.init(name: "me", bundle: nil).instantiateViewController(withIdentifier: "jubao_id") as! JuBaoController
+        v.postId = ["pid":String.isNullOrEmpty(_d?["pid"]),
+                    "category":String.isNullOrEmpty(_d?["category"])
+        ]
+        
+        
+        let nav = BaseNavigationController(rootViewController: v)
+        UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
+    }
+    
+    
     
     override func awakeFromNib() {
         zanBtn.contentHorizontalAlignment = .center
@@ -22,6 +41,11 @@ class HomeDetailFooterView: UIView {
         zanBtn.layer.masksToBounds = true
         zanBtn.layer.borderWidth = 0.5
         zanBtn.layer.borderColor = UIColor.lightGray.cgColor
+        
+        jubaoBtn.layer.borderWidth = 1
+        jubaoBtn.layer.borderColor = kTableviewBackgroundColor.cgColor
+        jubaoBtn.layer.cornerRadius = 10
+        jubaoBtn.layer.masksToBounds = true
     }
     
     @IBAction func zanBtnAction(_ sender: UIButton) {
@@ -57,6 +81,10 @@ class HomeDetailFooterView: UIView {
     
     func fill(_ d:[String:Any]) {
         _d = d
+        
+        if String.isNullOrEmpty(d["isMySelf"]) == "1" {
+            jubaoBtn.isHidden = true
+        }
         
         if let cnt = Int(String.isNullOrEmpty(d["readCnt"])) {
             readCnt.text = "\(cnt)";

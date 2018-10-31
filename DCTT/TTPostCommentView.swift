@@ -117,6 +117,11 @@ class TTPostCommentView: UIView {
     
     
     func postAction() {
+        guard String.isNullOrEmpty(_textView.text).lengthOfBytes(using: String.Encoding.utf8) > 0 else {
+            HUD.showText("输入内容不能为空", view: kAPPKeyWindow)
+            return
+        }
+        
         HUD.show(withStatus: "发布中")
         
         guard let uid = User.uid() else {return}

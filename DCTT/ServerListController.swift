@@ -48,7 +48,8 @@ class ServerListController: UITableViewController {
             guard let ss = self else {return}
             
             if let arr = res["body"] as? [[String:Any]] {
-                ss.dataArray = ss.dataArray + arr;
+                let new = Tools.default.filterDislikeData(arr)
+                ss.dataArray = ss.dataArray + new;
 //                if arr.count < 20 {
 //                    ss.tableView.mj_footer.state = .noMoreData
 //                }else{
@@ -99,36 +100,55 @@ class ServerListController: UITableViewController {
         let type =  Int(String.isNullOrEmpty(d["imageNum"])) ?? 0
         
         var identifier :String = "HomeCellReuseIdentifierId"
-        var cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
+        
         
         switch type {
         case 0:
-            (cell as! HomeCell).fill(d)
+//            (cell as! HomeCell).fill(d)
             
             break
         case let n where n < 3:
             identifier = "HomeCellWithImageIdentifierId"
-            cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
-            (cell as! HomeCellWithImage).fill(d)
+//            cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
+//            (cell as! HomeCellWithImage).fill(d)
             break
         case let n where n >= 3:
             
             identifier = "HomeCellWithImagesIdentifierId"
-            cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
-            (cell as! HomeCellWithImages).fill(d)
+//            cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
+//            (cell as! HomeCellWithImages).fill(d)
             
             break
         default:break
         }
         
         
+        let cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath) as! HomeListBaseCell
         
-        //cell.textLabel?.text = dataArray[indexPath.row]
+        cell.fill(d)
+        
+        cell.dislikeBlock = {[weak self] in
+            guard let ss = self else {return}
+            ss._dislike(indexPath)
+        }
+        
+        
         cell.selectionStyle = .default
         return cell
     }
     
-    
+    func _dislike(_ index:IndexPath) {
+        let d = dataArray[index.row]
+        let pid =  String.isNullOrEmpty(d["pid"])
+        
+        dataArray.remove(at: index.row)
+        //        tableView.deleteRows(at: [index], with: .left)
+        tableView.reloadData()
+        
+        Tools.default.addDislike(pid)
+        
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

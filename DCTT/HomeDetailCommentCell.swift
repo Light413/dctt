@@ -17,14 +17,25 @@ class HomeDetailCommentCell: UITableViewCell {
     @IBOutlet weak var msgText: UILabel!
     @IBOutlet weak var timeLable: UILabel!
     
+    @IBOutlet weak var jubaoBtn: UIButton!//自己评论的，显示删除
+    
+    var isMySelf = false
+    
     var avatarClickedAction:(() -> Void)?
 
+    var commentId:String!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
 
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(tapIconAction))
         icon.addGestureRecognizer(tapGesture)
+        
+//        zanBtn.layer.borderWidth = 1
+//        zanBtn.layer.borderColor = kTableviewBackgroundColor.cgColor
+//        zanBtn.layer.cornerRadius = 10
+//        zanBtn.layer.masksToBounds = true
     }
     
     func tapIconAction()  {
@@ -34,6 +45,8 @@ class HomeDetailCommentCell: UITableViewCell {
     }
     
     func fill(_ d:[String:Any]) {
+        commentId = String.isNullOrEmpty(d["id"])
+        
         let text = String.isNullOrEmpty(d["content"])
         let paragraphStyle = NSMutableParagraphStyle.init()
         paragraphStyle.lineSpacing = 3
@@ -71,8 +84,21 @@ class HomeDetailCommentCell: UITableViewCell {
         
         timeLable.text = "发布于 " + Date.dateFormatterWithString(String.isNullOrEmpty(d["date"]))
 
+        ///自己评论的，显示删除按钮
+        guard let myId = User.uid() else {return}
+        let _uid = String.isNullOrEmpty(d["uid"]) //评论者ID
+        isMySelf = myId == _uid
+        
+        if isMySelf {
+           jubaoBtn.setTitle("删除", for: .normal)
+        }
     }
 
+    override func prepareForReuse() {
+        jubaoBtn.setTitle("举报", for: .normal)
+    }
+    
+    
     @IBAction func zanBtnAction(_ sender: UIButton) {
         switch sender.tag {
         case 1://赞
@@ -81,12 +107,45 @@ class HomeDetailCommentCell: UITableViewCell {
         case 2://回复
             
             break
+        case 3://举报
+
+            guard !isMySelf else {
+                Tools.showMsg("确定删除这条评论?", title: "删除") {[weak self]  in
+                    guard let ss = self else {return}
+                    ss._deleteMyComment()
+                }
+                
+                return
+            }
             
+            let v = UIStoryboard.init(name: "me", bundle: nil).instantiateViewController(withIdentifier: "jubao_id") as! JuBaoController
+            v.postId = ["pid":commentId!,
+                        "category":"comment"
+            ]
+            
+            
+            let nav = BaseNavigationController(rootViewController: v)
+            UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
+            
+            break
         default:
             break
         }
         
     }
     
-    
+    func _deleteMyComment() {
+        ///删除自己的评论
+        let d = ["type":"delete","id":commentId!]
+        
+        AlamofireHelper.post(url: comment_url, parameters: d, successHandler: { (res) in
+            HUD.show(successInfo: "删除成功")
+            
+            NotificationCenter.default.post(name: kDeleteCommentNotification, object: nil)
+            
+        }) { (err) in
+            HUD.show(info: "删除失败,请稍后重试")
+        }
+
+    }
 }

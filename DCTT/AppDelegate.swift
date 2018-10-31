@@ -120,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
     }
     
     ///开启定位
-    func _initLocationServices() {
+    /*func _initLocationServices() {
         if CLLocationManager.locationServicesEnabled() {
             if CLLocationManager.authorizationStatus() == .denied {
                 let vc = UIAlertController.init(title: nil, message: nil, preferredStyle: .alert)
@@ -163,7 +163,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
                 UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil);
             }
             
-    }
+    }*/
  
     func _initNotification() {
         if #available(iOS 10.0, *) {

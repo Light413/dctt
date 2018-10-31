@@ -96,17 +96,12 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>允许在使用中访问相机</string>
-	<key>NSLocationUsageDescription</key>
-	<string>允许在使用中访问您的位置</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>允许在使用中访问您的位置</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>允许在使用中访问相册以便保存到相册</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>允许在使用中访问相册</string>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>location</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

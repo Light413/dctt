@@ -19,9 +19,22 @@ class HomeCellWithImage: HomeListBaseCell {
     
     @IBOutlet weak var time: UILabel!
     
+    @IBOutlet weak var dislikeBtn: UIButton!
+    
+    @IBAction func dislikeAction(_ sender: Any) {
+        Tools.showMsg("不喜欢该动态?", title: "隐藏") { [weak self] in
+            guard let  ss = self else {return}
+            if let b = ss.dislikeBlock {
+                b()
+            }
+        }
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        disLikeBtnSetStyle(dislikeBtn)
     }
 
     

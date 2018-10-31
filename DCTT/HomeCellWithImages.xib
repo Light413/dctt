@@ -56,6 +56,18 @@
                     <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MJt-y9-5Jv">
                         <rect key="frame" x="119" y="29.5" width="95" height="80"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6b4-Iz-VuV">
+                        <rect key="frame" x="275" y="119" width="30" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="VRI-3Q-7jS"/>
+                            <constraint firstAttribute="width" constant="30" id="lrA-ud-KuV"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="5" minY="3" maxX="5" maxY="3"/>
+                        <state key="normal" image="dislikeicon_details"/>
+                        <connections>
+                            <action selector="dislikeAction:" destination="gfC-ez-z31" eventType="touchUpInside" id="jmK-Iz-aDr"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="5Gy-ij-cCw" firstAttribute="width" secondItem="8Vg-6U-xde" secondAttribute="width" id="0hs-2f-IRv"/>
@@ -65,6 +77,7 @@
                     <constraint firstItem="MJt-y9-5Jv" firstAttribute="leading" secondItem="8Vg-6U-xde" secondAttribute="trailing" constant="3" id="Btx-N6-K6o"/>
                     <constraint firstItem="5Gy-ij-cCw" firstAttribute="leading" secondItem="MJt-y9-5Jv" secondAttribute="trailing" constant="3" id="GzC-SJ-95m"/>
                     <constraint firstItem="5Gy-ij-cCw" firstAttribute="height" secondItem="8Vg-6U-xde" secondAttribute="height" id="IYo-Dh-ZXY"/>
+                    <constraint firstAttribute="trailing" secondItem="6b4-Iz-VuV" secondAttribute="trailing" constant="15" id="K2r-nI-Fkv"/>
                     <constraint firstItem="5Gy-ij-cCw" firstAttribute="centerY" secondItem="8Vg-6U-xde" secondAttribute="centerY" id="Lzr-hC-IFE"/>
                     <constraint firstItem="3No-zZ-lUs" firstAttribute="centerY" secondItem="Ma0-hF-Ntn" secondAttribute="centerY" id="OSq-Ko-3Ya"/>
                     <constraint firstItem="5Gy-ij-cCw" firstAttribute="trailing" secondItem="hV9-nH-RoG" secondAttribute="trailing" id="Wug-XP-MRk"/>
@@ -77,10 +90,12 @@
                     <constraint firstItem="MJt-y9-5Jv" firstAttribute="width" secondItem="8Vg-6U-xde" secondAttribute="width" id="p5w-xP-pD0"/>
                     <constraint firstItem="MJt-y9-5Jv" firstAttribute="centerY" secondItem="8Vg-6U-xde" secondAttribute="centerY" id="s3b-Po-cAD"/>
                     <constraint firstItem="8Vg-6U-xde" firstAttribute="leading" secondItem="hV9-nH-RoG" secondAttribute="leading" id="yTa-Ce-PjQ"/>
+                    <constraint firstItem="6b4-Iz-VuV" firstAttribute="centerY" secondItem="3No-zZ-lUs" secondAttribute="centerY" id="zW9-Q3-IS9"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
+                <outlet property="dislikeBtn" destination="6b4-Iz-VuV" id="vHZ-5l-197"/>
                 <outlet property="ig1" destination="8Vg-6U-xde" id="3jj-ZQ-3QD"/>
                 <outlet property="ig2" destination="MJt-y9-5Jv" id="X9C-pr-f13"/>
                 <outlet property="ig3" destination="5Gy-ij-cCw" id="BU0-3L-ApV"/>
@@ -92,4 +107,7 @@
             <point key="canvasLocation" x="-136" y="-70"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="dislikeicon_details" width="10" height="10"/>
+    </resources>
 </document>

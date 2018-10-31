@@ -36,11 +36,16 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     private var imgArr = [String]();
     private var loadCommentSuccess:Bool = true //标记评论加载成功
     
+    ///是否是自己的发布
+    var isMySelf:Bool = false
+    
     ///设置评论数
     var commentNumbers:Int {
         get{return 0 }
         set{
+            _commentNumber.isHidden = newValue == 0
             guard newValue > 0 else {return}
+
             let num:NSString = NSString.init(string: "\(newValue)")
             _commentNumber.text = String.init(num)
             
@@ -68,6 +73,10 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
             guard let ss = self else {return}
             if let footview = ss.headFooterView {
                 body["content"] = String.isNullOrEmpty(ss.data["content"])
+                body["isMySelf"] = ss.isMySelf ? "1" : "0"
+                body["pid"] = ss.pid!
+                body["category"] = ss.category!
+
               footview.fill(body)
             }
             
@@ -129,18 +138,38 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     //MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let author_id = String.isNullOrEmpty(data["uid"])
+        if let uid = User.uid(){
+            isMySelf = author_id == uid//是本人吗
+        }
         
-        // Do any additional setup after loading the view.
+        
+        if isMySelf {
+            addRightNavigationItem()
+        }
+        
         initSubview()
-        
-        addRightNavigationItem()
         
         loadReadCnt()
         
         getImages()
 
+        
+        ///删除评论通知
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshComment), name: kDeleteCommentNotification, object: nil)
     }
 
+    func refreshComment()  {
+        pageNumber = 1
+        
+        loadComment()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     init(_ _id:String , type _category:String) {
         super.init(nibName: nil, bundle: nil)
         pid = _id
@@ -226,9 +255,8 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
             return
         }
         
-        let author_id = String.isNullOrEmpty(data["uid"])
-        guard let uid = User.uid() else {return}
-        let isme = author_id == uid//是本人吗
+        let isme = isMySelf//是本人吗
+        
         
         let alertViewContronller = UIAlertController.init(title: isme ? "确定删除这条动态?" : "举报该作者的这条动态?", message: nil, preferredStyle: .actionSheet)
         
@@ -381,6 +409,10 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         
         if var readcnt = _readCnt {
             readcnt["content"] = String.isNullOrEmpty(data["content"])
+            readcnt["isMySelf"] = isMySelf ? "1" : "0"
+            readcnt["pid"] = pid!
+            readcnt["category"] = category!
+            
             v.fill(readcnt)
         }
         

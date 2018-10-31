@@ -20,15 +20,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button hidden="YES" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtI-vn-kbo">
-                        <rect key="frame" x="234" y="11" width="60" height="30"/>
+                        <rect key="frame" x="244" y="11" width="50" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="0zG-vS-aEM"/>
-                            <constraint firstAttribute="width" constant="60" id="Tg8-ls-KVa"/>
+                            <constraint firstAttribute="width" constant="50" id="Tg8-ls-KVa"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <inset key="titleEdgeInsets" minX="5" minY="-7" maxX="0.0" maxY="0.0"/>
-                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="7"/>
-                        <state key="normal" title="10" image="comment_like_icon_night">
+                        <state key="normal" title="举报">
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
@@ -57,7 +55,7 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="马克思改变人们的思想，马化腾改变了人们的交流方式，马云改变了我的消费观念" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLO-lq-Tab">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="此条记录数据异常(测试状态)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLO-lq-Tab">
                         <rect key="frame" x="54" y="39" width="240" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="highlightedColor"/>
@@ -85,10 +83,25 @@
                             <action selector="zanBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vuP-gC-dNc"/>
                         </connections>
                     </button>
+                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pP-W1-xcX">
+                        <rect key="frame" x="250" y="69" width="50" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="qTk-G7-wD0"/>
+                            <constraint firstAttribute="height" constant="30" id="u4J-uB-rSb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="举报">
+                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="zanBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0mM-AK-Lcf"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="KLO-lq-Tab" firstAttribute="leading" secondItem="9V5-pM-2st" secondAttribute="leading" id="7ol-RR-Van"/>
                     <constraint firstAttribute="trailingMargin" secondItem="KLO-lq-Tab" secondAttribute="trailing" constant="10" id="8BY-e6-HBy"/>
+                    <constraint firstItem="WtI-vn-kbo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="CLG-7F-qum"/>
                     <constraint firstAttribute="bottom" secondItem="844-gx-LH1" secondAttribute="bottom" constant="8" id="EdX-OD-Dnp"/>
                     <constraint firstItem="844-gx-LH1" firstAttribute="top" secondItem="KLO-lq-Tab" secondAttribute="bottom" constant="8" id="FEe-qc-xvV"/>
                     <constraint firstItem="KLO-lq-Tab" firstAttribute="top" secondItem="9V5-pM-2st" secondAttribute="bottom" constant="8" id="FiE-zp-ESe"/>
@@ -96,8 +109,9 @@
                     <constraint firstItem="LTY-f1-Nyq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Wva-re-4Bb"/>
                     <constraint firstItem="844-gx-LH1" firstAttribute="leading" secondItem="9V5-pM-2st" secondAttribute="leading" id="ZnI-Qd-lh7"/>
                     <constraint firstItem="9V5-pM-2st" firstAttribute="leading" secondItem="LTY-f1-Nyq" secondAttribute="trailing" constant="8" id="bAf-M2-dDF"/>
-                    <constraint firstItem="WtI-vn-kbo" firstAttribute="top" secondItem="9V5-pM-2st" secondAttribute="top" constant="-2" id="egn-kG-c1w"/>
                     <constraint firstAttribute="trailingMargin" secondItem="WtI-vn-kbo" secondAttribute="trailing" constant="10" id="fnq-Ag-qTX"/>
+                    <constraint firstAttribute="bottom" secondItem="2pP-W1-xcX" secondAttribute="bottom" id="nm0-Yc-TQe"/>
+                    <constraint firstAttribute="trailing" secondItem="2pP-W1-xcX" secondAttribute="trailing" constant="20" id="rPe-j4-6Dm"/>
                     <constraint firstItem="9V5-pM-2st" firstAttribute="top" secondItem="LTY-f1-Nyq" secondAttribute="top" constant="2" id="wB5-Ct-mhD"/>
                     <constraint firstItem="sev-Bw-cRc" firstAttribute="leading" secondItem="844-gx-LH1" secondAttribute="trailing" constant="15" id="xGr-nU-wKf"/>
                     <constraint firstItem="LTY-f1-Nyq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="xsJ-nr-Z5E"/>
@@ -106,6 +120,7 @@
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
             <connections>
                 <outlet property="icon" destination="LTY-f1-Nyq" id="8IJ-UA-Xru"/>
+                <outlet property="jubaoBtn" destination="2pP-W1-xcX" id="Mqd-K4-Ap3"/>
                 <outlet property="msgText" destination="KLO-lq-Tab" id="uca-0B-1pR"/>
                 <outlet property="name" destination="9V5-pM-2st" id="4Rw-PJ-uL7"/>
                 <outlet property="timeLable" destination="844-gx-LH1" id="yoI-qp-000"/>
@@ -114,7 +129,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="comment_like_icon_night" width="16" height="16"/>
         <image name="ymtimg2.jpg" width="160" height="190"/>
     </resources>
 </document>
