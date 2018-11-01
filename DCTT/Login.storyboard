@@ -447,20 +447,22 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="30" id="I5T-cy-Xgl">
-                                        <rect key="frame" x="0.0" y="348" width="375" height="30"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="I5T-cy-Xgl">
+                                        <rect key="frame" x="0.0" y="348" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I5T-cy-Xgl" id="FCy-Nk-e8E">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCk-7W-U3R">
-                                                    <rect key="frame" x="10" y="-7.5" width="355" height="45"/>
+                                                    <rect key="frame" x="20" y="12.5" width="111" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="45" id="tYD-i3-TUA"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <state key="normal" title="注册即同意用户协议"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="注册即同意用户协议">
+                                                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="5"/>
@@ -471,11 +473,31 @@
                                                         <action selector="buttonAction:" destination="Y2e-HI-4qL" eventType="touchUpInside" id="SxF-qJ-fr4"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33p-aI-RYP">
+                                                    <rect key="frame" x="281" y="13" width="74" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="lXv-DD-S0V"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="查看隐私政策">
+                                                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBunds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="buttonAction:" destination="Y2e-HI-4qL" eventType="touchUpInside" id="Ecn-S7-9ND"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="eCk-7W-U3R" firstAttribute="leading" secondItem="FCy-Nk-e8E" secondAttribute="leading" constant="10" id="E0C-gL-y05"/>
-                                                <constraint firstItem="eCk-7W-U3R" firstAttribute="centerY" secondItem="FCy-Nk-e8E" secondAttribute="centerY" id="Xgc-c8-V8Z"/>
-                                                <constraint firstAttribute="trailing" secondItem="eCk-7W-U3R" secondAttribute="trailing" constant="10" id="YLW-m9-8UC"/>
+                                                <constraint firstItem="eCk-7W-U3R" firstAttribute="leading" secondItem="FCy-Nk-e8E" secondAttribute="leading" constant="20" id="E0C-gL-y05"/>
+                                                <constraint firstItem="eCk-7W-U3R" firstAttribute="centerY" secondItem="FCy-Nk-e8E" secondAttribute="centerY" constant="5" id="Xgc-c8-V8Z"/>
+                                                <constraint firstAttribute="trailing" secondItem="33p-aI-RYP" secondAttribute="trailing" constant="20" id="i46-qd-qay"/>
+                                                <constraint firstItem="33p-aI-RYP" firstAttribute="centerY" secondItem="eCk-7W-U3R" secondAttribute="centerY" id="pHv-XS-wXl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -499,7 +521,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MUj-38-MaE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2510" y="152"/>
+            <point key="canvasLocation" x="2509.5999999999999" y="151.57421289355324"/>
         </scene>
         <!--Find Pwd Controller-->
         <scene sceneID="xwB-0g-opo">

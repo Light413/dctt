@@ -12,6 +12,9 @@ class MeHomeViewM: NSObject {
     var category:String!
     var type:String!
     
+    ///个人中心和收藏共用
+    var isFromHomePage = false
+    
     ///用户ID
     var user_id:String!
     
@@ -196,6 +199,10 @@ extension MeHomeViewM:UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath) as! HomeListBaseCell
         //cell.type = _category
         cell.fill(d)
+        
+        if isFromHomePage {
+            cell.viewWithTag(100)?.isHidden = true
+        }
         
         cell.selectionStyle = .default
         return cell

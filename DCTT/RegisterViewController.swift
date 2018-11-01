@@ -64,7 +64,7 @@ class RegisterViewController: UITableViewController {
     
     deinit {
         _timer = nil
-        print(self.description)
+//        print(self.description)
     }
     
     func timerAction()  {
@@ -149,7 +149,14 @@ class RegisterViewController: UITableViewController {
             
         case 3:
             let vc = BaseWebViewController(baseUrl:user_agreement_url)
-            vc.title = "用户服务协议"
+            vc.title = "用户协议"
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            break
+            
+        case 4:
+            let vc = BaseWebViewController(baseUrl:privacy_agreement_url)
+            vc.title = "隐私政策"
             self.navigationController?.pushViewController(vc, animated: true)
             
             break

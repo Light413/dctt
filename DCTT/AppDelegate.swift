@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreLocation
+//import CoreLocation
 import IQKeyboardManagerSwift
 import Alamofire
 import UserNotifications
@@ -23,12 +23,12 @@ let qqAppId = "101511561"
 let qqAppKey = "b08bacb33bc8d4cd6ad00ce8ebbdf662"
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegate,CLLocationManagerDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegate{
 
     var myDeviceToken:String?
     
     var window: UIWindow?
-    private let _locationManager = CLLocationManager.init();
+    //private let _locationManager = CLLocationManager.init();
     var _networkReachabilityManager:NetworkReachabilityManager!;
     
     
@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
 
         _networkReachabilityManager = NetworkReachabilityManager(host: "www.baidu.com")
         _networkReachabilityManager.listener = { status in
-            print("Network Status Changed: \(status)")
+            //print("Network Status Changed: \(status)")
         }
         
         _networkReachabilityManager.startListening()
@@ -292,7 +292,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
     
     
     //MARK: - CLLocationManagerDelegate
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    /*func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(#function)
     }
     
@@ -313,7 +313,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
                 break
             default:break
         }
-    }
+    }*/
     
     
 }

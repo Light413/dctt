@@ -47,7 +47,7 @@ class HomeCellWithImage: HomeListBaseCell {
         guard arr.count > 0 else { return}
         
         let url = URL.init(string: arr.first!)
-        igv.kf.setImage(with: url)
+        igv.kf.setImage(with: url, placeholder: UIImage (named: "default_image2"), options: nil, progressBlock: nil, completionHandler:nil)
     }
     
     

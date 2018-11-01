@@ -54,7 +54,7 @@ class HomeCellWithImages: HomeListBaseCell {
             let url = URL.init(string: arr[i])
             
             if let igv = self.contentView.viewWithTag(10 + i) as? UIImageView {
-                igv.kf.setImage(with: url)
+                igv.kf.setImage(with: url, placeholder: UIImage (named: "default_image2"), options: nil, progressBlock: nil, completionHandler:nil)
             }
             
         }

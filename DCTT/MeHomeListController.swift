@@ -63,6 +63,8 @@ class MeHomeListController: UITableViewController  , ShowAlertControllerAble {
     func vm(_ uid:String) {
         //view model
         viewM = MeHomeViewM.init(self)
+        viewM.isFromHomePage = true
+        
         viewM.noDataTipMsg = "还没有发布过动态"
         viewM._scrollViewDidScroll = { [weak self] scrollView in
             guard let ss = self else {return}

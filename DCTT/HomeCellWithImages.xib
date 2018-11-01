@@ -56,7 +56,7 @@
                     <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MJt-y9-5Jv">
                         <rect key="frame" x="119" y="29.5" width="95" height="80"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6b4-Iz-VuV">
+                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6b4-Iz-VuV">
                         <rect key="frame" x="275" y="119" width="30" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="VRI-3Q-7jS"/>
