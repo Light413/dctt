@@ -325,10 +325,10 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             
             // 1.创建分享参数
             let shareParames = NSMutableDictionary()
-            shareParames.ssdkSetupShareParams(byText: "郸城头条APP一个本地生活服务信息平台，动态发布、查看、推广、交友等 来这里看看老家身边的人动态吧。",
+            shareParames.ssdkSetupShareParams(byText: "一个专注于郸城老家生活信息服务平台，如果想在老家找人找工作找对象，宣传推广、了解家里的大事小情那就赶快来吧，小伙伴都在等你奥。",
                                               images : UIImage(named: "app_logo"),
                                               url : URL.init(string: "http://dancheng0394.com"),
-                                              title : "对不起我来晚了,赶快把我介绍给你的小伙伴吧",
+                                              title : "对不起我来晚了,赶快把我介绍给家里的小伙伴吧",
                                               type : SSDKContentType.auto)
 
             let platType = [SSDKPlatformType.subTypeWechatTimeline , SSDKPlatformType.subTypeWechatSession , SSDKPlatformType.subTypeQQFriend,SSDKPlatformType.subTypeQZone]

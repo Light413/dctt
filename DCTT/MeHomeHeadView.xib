@@ -97,30 +97,6 @@
                         <constraint firstAttribute="height" constant="20" id="DDD-z4-sYu"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snp-Tp-mig">
-                    <rect key="frame" x="289" y="47.5" width="70" height="25"/>
-                    <color key="backgroundColor" red="0.92549019607843142" green="0.32156862745098036" blue="0.32156862745098036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="25" id="EgV-7Y-FUJ"/>
-                        <constraint firstAttribute="width" constant="70" id="a7b-4Y-84w"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <state key="normal" title="关注">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <state key="selected" title="取消关注">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="watchAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="tGG-te-2Dn"/>
-                    </connections>
-                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girl" translatesAutoresizingMaskIntoConstraints="NO" id="kas-rm-BCE">
                     <rect key="frame" x="25" y="53" width="14" height="14"/>
                     <constraints>
@@ -134,6 +110,68 @@
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G4a-dC-BLZ">
+                    <rect key="frame" x="159" y="45" width="200" height="30"/>
+                    <subviews>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snp-Tp-mig">
+                            <rect key="frame" x="130" y="3" width="70" height="25"/>
+                            <color key="backgroundColor" red="0.92549019607843142" green="0.32156862745098036" blue="0.32156862745098036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="EgV-7Y-FUJ"/>
+                                <constraint firstAttribute="width" constant="70" id="a7b-4Y-84w"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="关注">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="selected" title="取消关注">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="watchAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="tGG-te-2Dn"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPg-0b-KT1">
+                            <rect key="frame" x="20" y="3" width="85" height="25"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="85" id="1QM-7m-bJn"/>
+                                <constraint firstAttribute="height" constant="25" id="Ggo-Uk-4vK"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <state key="normal" title="加入黑名单">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="selected" title="已拉黑">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="watchAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="DNx-Nc-d8b"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Uy7-ZD-Zvf"/>
+                        <constraint firstItem="Snp-Tp-mig" firstAttribute="leading" secondItem="PPg-0b-KT1" secondAttribute="trailing" constant="25" id="WOG-cJ-iQm"/>
+                        <constraint firstAttribute="width" constant="200" id="XNm-sE-gMa"/>
+                        <constraint firstAttribute="trailing" secondItem="Snp-Tp-mig" secondAttribute="trailing" id="bMi-qY-ReP"/>
+                        <constraint firstItem="Snp-Tp-mig" firstAttribute="centerY" secondItem="G4a-dC-BLZ" secondAttribute="centerY" id="ee1-xV-Fs7"/>
+                        <constraint firstItem="PPg-0b-KT1" firstAttribute="centerY" secondItem="G4a-dC-BLZ" secondAttribute="centerY" id="je0-1h-CaQ"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
                 <constraint firstItem="Jf7-EG-M8H" firstAttribute="top" secondItem="0sy-oR-VlV" secondAttribute="bottom" constant="12" id="4fc-Qr-t0L"/>
@@ -143,6 +181,7 @@
                 <constraint firstItem="eiI-ob-spk" firstAttribute="centerY" secondItem="Jf7-EG-M8H" secondAttribute="centerY" id="Bkw-Mb-Sms"/>
                 <constraint firstItem="kas-rm-BCE" firstAttribute="leading" secondItem="9At-2t-tHN" secondAttribute="leading" id="DYw-b6-uaU"/>
                 <constraint firstItem="R6B-re-9pN" firstAttribute="centerY" secondItem="9At-2t-tHN" secondAttribute="centerY" id="Ddb-Bk-q6j"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="G4a-dC-BLZ" secondAttribute="trailing" constant="16" id="E4v-Hc-Cwj"/>
                 <constraint firstItem="8KI-Kz-1pT" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="ECt-lU-coJ"/>
                 <constraint firstItem="HBG-Y4-YGB" firstAttribute="leading" secondItem="bCw-mN-WPk" secondAttribute="trailing" constant="5" id="Ecx-rW-XQM"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0sy-oR-VlV" secondAttribute="trailing" constant="20" id="G06-l7-wrK"/>
@@ -152,16 +191,15 @@
                 <constraint firstItem="eiI-ob-spk" firstAttribute="leading" secondItem="Jf7-EG-M8H" secondAttribute="trailing" constant="5" id="Ok6-A6-E7a"/>
                 <constraint firstItem="R6B-re-9pN" firstAttribute="leading" secondItem="9At-2t-tHN" secondAttribute="trailing" constant="5" id="QlA-lE-5w9"/>
                 <constraint firstItem="ftk-Gv-gzw" firstAttribute="leading" secondItem="HBG-Y4-YGB" secondAttribute="trailing" constant="30" id="RnW-GM-Z0P"/>
-                <constraint firstItem="Snp-Tp-mig" firstAttribute="centerY" secondItem="kas-rm-BCE" secondAttribute="centerY" id="Sbb-Vc-iCN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8KI-Kz-1pT" secondAttribute="trailing" constant="20" id="SfM-4G-Sjw"/>
                 <constraint firstItem="HBG-Y4-YGB" firstAttribute="centerY" secondItem="bCw-mN-WPk" secondAttribute="centerY" id="USb-Gv-Gvm"/>
                 <constraint firstItem="9At-2t-tHN" firstAttribute="leading" secondItem="0sy-oR-VlV" secondAttribute="leading" id="Vej-au-Kgz"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Snp-Tp-mig" secondAttribute="trailing" constant="16" id="Wl0-W2-j1t"/>
                 <constraint firstItem="lSR-y2-4nz" firstAttribute="centerY" secondItem="ftk-Gv-gzw" secondAttribute="centerY" id="Xnq-cx-o4B"/>
                 <constraint firstItem="9At-2t-tHN" firstAttribute="top" secondItem="kas-rm-BCE" secondAttribute="bottom" constant="10" id="beI-uY-0q8"/>
                 <constraint firstItem="lEN-GP-QKC" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="-35" id="cmU-FQ-Gfb"/>
                 <constraint firstItem="lEN-GP-QKC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="eJW-T0-rdU"/>
                 <constraint firstItem="kas-rm-BCE" firstAttribute="top" secondItem="lEN-GP-QKC" secondAttribute="bottom" constant="8" id="eqj-en-z3O"/>
+                <constraint firstItem="G4a-dC-BLZ" firstAttribute="centerY" secondItem="kas-rm-BCE" secondAttribute="centerY" id="iDf-FN-xuY"/>
                 <constraint firstItem="0sy-oR-VlV" firstAttribute="top" secondItem="9At-2t-tHN" secondAttribute="bottom" constant="8" id="kjI-kg-gom"/>
                 <constraint firstItem="bCw-mN-WPk" firstAttribute="centerY" secondItem="Jf7-EG-M8H" secondAttribute="centerY" id="lOB-cc-SHu"/>
                 <constraint firstItem="L16-d5-Zoh" firstAttribute="centerY" secondItem="kas-rm-BCE" secondAttribute="centerY" id="laN-3t-llR"/>
@@ -176,6 +214,8 @@
             <connections>
                 <outlet property="age" destination="L16-d5-Zoh" id="CFV-kA-hrY"/>
                 <outlet property="avatar" destination="lEN-GP-QKC" id="SRi-Qd-Ijo"/>
+                <outlet property="blackBtn" destination="PPg-0b-KT1" id="Bpo-dA-Yjv"/>
+                <outlet property="buttonBg" destination="G4a-dC-BLZ" id="g8t-t9-b4x"/>
                 <outlet property="city" destination="R6B-re-9pN" id="z6T-2C-5zE"/>
                 <outlet property="fans" destination="HBG-Y4-YGB" id="hg9-EH-ap4"/>
                 <outlet property="mark" destination="0sy-oR-VlV" id="X1V-wH-rY9"/>

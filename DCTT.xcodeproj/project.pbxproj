@@ -167,6 +167,7 @@
 		AD6A983A201A12B700E7C5AE /* HomeDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */; };
 		AD6A983C201A12CB00E7C5AE /* HomeDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */; };
 		AD87FD022159F30600FEB395 /* ETNavBarTransparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD87FD012159F30600FEB395 /* ETNavBarTransparent.swift */; };
+		ADA01B77218DFA0F00B5E702 /* BlackListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA01B76218DFA0F00B5E702 /* BlackListController.swift */; };
 		ADBE083F2189A44E009CF7B6 /* DisLikeBtnStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBE083E2189A44E009CF7B6 /* DisLikeBtnStyle.swift */; };
 		ADC61DDF2144057000AE11B1 /* DarenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61DDE2144057000AE11B1 /* DarenTableViewController.swift */; };
 		ADC61DE22144058900AE11B1 /* DarenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61DE02144058900AE11B1 /* DarenCell.swift */; };
@@ -382,6 +383,7 @@
 		AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailFooterView.swift; sourceTree = "<group>"; };
 		AD6A983B201A12CB00E7C5AE /* HomeDetailFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailFooterView.xib; sourceTree = "<group>"; };
 		AD87FD012159F30600FEB395 /* ETNavBarTransparent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETNavBarTransparent.swift; sourceTree = "<group>"; };
+		ADA01B76218DFA0F00B5E702 /* BlackListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackListController.swift; sourceTree = "<group>"; };
 		ADBE083E2189A44E009CF7B6 /* DisLikeBtnStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisLikeBtnStyle.swift; sourceTree = "<group>"; };
 		ADC61DDE2144057000AE11B1 /* DarenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarenTableViewController.swift; sourceTree = "<group>"; };
 		ADC61DE02144058900AE11B1 /* DarenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarenCell.swift; sourceTree = "<group>"; };
@@ -606,6 +608,7 @@
 				AD20F3C92067EDE1003BDE17 /* FackBackViewController.swift */,
 				AD2E956F207E657D009C675B /* FensiBaseController.swift */,
 				AD2E9571207E65D2009C675B /* GuanzhuController.swift */,
+				ADA01B76218DFA0F00B5E702 /* BlackListController.swift */,
 				AD6337FF2083974900BC84B1 /* MeSetterController.swift */,
 				A1BCDFF421421634001AC3CC /* AboutUsViewController.swift */,
 				AD3CB6CB211210D500681E65 /* BaseWebViewController.swift */,
@@ -1205,6 +1208,7 @@
 				AD10334B1FB6D0D90017E81C /* PublishViewController.swift in Sources */,
 				A1CE83931FC3C0AC00DAF90F /* HomeCell.swift in Sources */,
 				A1E61D201FCE93E30080A12D /* MePersonInfoCell.swift in Sources */,
+				ADA01B77218DFA0F00B5E702 /* BlackListController.swift in Sources */,
 				A117530B1FC7B0DF00888516 /* AnimationContoller.m in Sources */,
 				AD21DF61202750FD002FE181 /* TableViewCellTextView.swift in Sources */,
 				AD20F3C22067DD57003BDE17 /* MeCollectController.swift in Sources */,

@@ -91,7 +91,14 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
 
             self.performSegue(withIdentifier: "showProfileSegueId", sender: nil)
             break
+        case (0,1):
+            guard User.isLogined() else {
+                HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
+                return
+            }
             
+            self.performSegue(withIdentifier: "showBlackListSegueId", sender: nil)
+            break
         case (1,0)://清除缓存
             showMsg("清除图片及缓存数据", title: "确定", handler: { [unowned self] in
                 HUD.show(withStatus: "清除缓存")

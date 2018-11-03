@@ -39,6 +39,8 @@ let comment_url = "comment.php"
 let post_detail_url = "detail.php"
 let get_sc_url = "getsc.php"
 let fans_url = "fan.php"
+let blackList_url = "blackList.php"
+
 let delete_sc_url = "deletesc.php"
 let feedback_url = "feedback.php"
 let get_servernumber_url = "getNumberWithType.php"
