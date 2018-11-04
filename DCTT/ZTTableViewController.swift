@@ -58,10 +58,15 @@ class ZTTableViewController: BaseTableViewController {
     
     func loadData() {
         //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
-        let d = ["category":"friend",
+        var d = ["category":"friend",
                  "subType":Int(_type!)!
             ] as [String : Any]
         
+        ///已登录，过滤黑名单
+        if let myid = User.uid(){
+            d["uid"] = myid
+        }
+
         AlamofireHelper.post(url: home_list_url, parameters: d, successHandler: {[weak self] (res) in
             HUD.dismiss()
             

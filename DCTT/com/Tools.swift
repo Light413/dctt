@@ -82,6 +82,8 @@ class Tools: NSObject {
         
         guard let p = _dislikePath() else {return}
         NSKeyedArchiver.archiveRootObject(["dislike":_newArr], toFile: p)
+        
+        HUD.showText("将不再为你推送此类内容!", view: kAPPKeyWindow)
     }
     
     func filterDislikeData(_ ds:[[String:Any]]) -> [[String:Any]] {

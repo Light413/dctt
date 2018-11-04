@@ -24,7 +24,7 @@ class HomeCellWithImages: HomeListBaseCell {
     @IBOutlet weak var dislikeBtn: UIButton!
     
     @IBAction func dislikeAction(_ sender: Any) {
-        Tools.showMsg("不喜欢该动态?", title: "隐藏") { [weak self] in
+        Tools.showMsg(kNotLikeMsg, title: "确定") { [weak self] in
             guard let  ss = self else {return}
             if let b = ss.dislikeBlock {
                 b()

@@ -90,10 +90,16 @@ class HomerListViewController: BaseTableViewController {
             default: subType = Int(_type)!; break
         }
         
-        let d = ["category":_category! ,
+        var d = ["category":_category! ,
                  "subType":subType ,
                  "pageNumber":pageNumber
             ] as [String : Any]
+        
+        ///已登录，过滤黑名单
+        if let myid = User.uid(){
+            d["uid"] = myid
+        }
+        
         
         AlamofireHelper.post(url: home_list_url, parameters: d, successHandler: {[weak self] (res) in
             HUD.dismiss()

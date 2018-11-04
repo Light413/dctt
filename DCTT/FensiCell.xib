@@ -21,24 +21,24 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_default" translatesAutoresizingMaskIntoConstraints="NO" id="2ci-Mz-cty">
-                        <rect key="frame" x="12" y="20" width="40" height="40"/>
+                        <rect key="frame" x="12" y="15" width="50" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="OTv-Jc-rVa"/>
-                            <constraint firstAttribute="height" constant="40" id="Ou6-sf-rS1"/>
+                            <constraint firstAttribute="width" constant="50" id="OTv-Jc-rVa"/>
+                            <constraint firstAttribute="height" constant="50" id="Ou6-sf-rS1"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="20"/>
+                                <integer key="value" value="25"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="尔等都没我漂亮" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFO-bG-hWi">
-                        <rect key="frame" x="60" y="18" width="107.5" height="18"/>
+                        <rect key="frame" x="70" y="13" width="114.5" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="ptL-Ot-3wJ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -63,7 +63,7 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人生短暂，好好珍惜每一段时光" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2Y-Sf-bpe">
-                        <rect key="frame" x="60" y="41" width="150" height="28"/>
+                        <rect key="frame" x="70" y="36" width="140" height="33"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>

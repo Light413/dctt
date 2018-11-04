@@ -128,17 +128,17 @@ class BlackListController: MeBaseTableViewController {
         let d = dataArray[indexPath.row]
         
         cell.fill(d , isWatched: false);
-        cell.buttonClickedAction = {[weak self] in
-            guard let ss = self else {return}
+        cell.buttonClickedAction = {
             tableView.mj_header.beginRefreshing()
         }
         
+        cell.accessoryType = .none
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let d = dataArray[indexPath.row]
+        /*let d = dataArray[indexPath.row]
         guard let dic = d["user"] as? [String:Any] else {return}
         
         guard let uid = dic["user_id"] as? String else {return}
@@ -146,7 +146,7 @@ class BlackListController: MeBaseTableViewController {
         let vc = MeHomePageController.init(style:.plain)
         vc.uid = uid;//
         
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)*/
     }
     
     

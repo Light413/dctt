@@ -146,6 +146,7 @@ public func imgWithColor(_ color:UIColor) -> UIImage? {
 
 ///提示登录
 let kPleaseToLogin = "请登录后操作!"
+let kNotLikeMsg = "不喜欢这条动态,确定屏蔽?"
 
 ///发布新动态成功通知
 let kHasPublishedSuccessNotification = NSNotification.Name.init("kHasPublishedSuccessNotification")

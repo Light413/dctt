@@ -145,9 +145,9 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         }
         
         
-        if isMySelf {
+//        if isMySelf {
             addRightNavigationItem()
-        }
+//        }
         
         initSubview()
         
@@ -250,30 +250,39 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     
     ///举报别人的帖子，删除自己的帖子
     override func _rightItemAction()  {
-        guard User.isLogined() else {
-            HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
-            return
-        }
+//        guard User.isLogined() else {
+//            HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
+//            return
+//        }
         
         let isme = isMySelf//是本人吗
         
         
-        let alertViewContronller = UIAlertController.init(title: isme ? "确定删除这条动态?" : "举报该作者的这条动态?", message: nil, preferredStyle: .actionSheet)
+        let alertViewContronller = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        
-        let action2 = UIAlertAction.init(title: isme ? "删除" : "举报", style: .destructive, handler: {[weak self] (action) in
-            
+        let action1 = UIAlertAction.init(title: "举报", style: .default, handler: {[weak self] (action) in
             guard let ss = self else {return}
-            if isme {
-                ss._deleteMYPost()
-            } else {
-                ss._jubao()
-            }
+            ss._jubao()
         })
+
+        alertViewContronller.addAction(action1)
+        
+        if isme {
+            let action2 = UIAlertAction.init(title: "删除", style: .default, handler: {[weak self] (action) in
+                
+                Tools.showMsg("确定要删除这条动态?", title: "确定", handler: { () in
+                    guard let ss = self else {return}
+                    ss._deleteMYPost()
+
+                })
+            })
+            
+            alertViewContronller.addAction(action2)
+        }
+
         
         let action3 = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
         
-        alertViewContronller.addAction(action2)
         alertViewContronller.addAction(action3)
         
         self.navigationController?.present(alertViewContronller, animated: true, completion: nil)
@@ -282,7 +291,18 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     
     ///举报该动态
     func _jubao() {
-        guard let myid = User.uid() else {return}
+        let v = UIStoryboard.init(name: "me", bundle: nil).instantiateViewController(withIdentifier: "jubao_id") as! JuBaoController
+        v.postId = ["pid":String.isNullOrEmpty(pid!),
+                    "category":String.isNullOrEmpty(category!)
+        ]
+        
+        
+        let nav = BaseNavigationController(rootViewController: v)
+        UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
+        
+        
+        
+        /*guard let myid = User.uid() else {return}
         let d = ["uid":myid ,
                  "pid": pid!,
                  "category":category!,
@@ -295,7 +315,7 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
             HUD.show(successInfo: msg)
         }) { (err) in
             HUD.show(info: (err?.localizedDescription)!)
-        }
+        }*/
 
     }
     

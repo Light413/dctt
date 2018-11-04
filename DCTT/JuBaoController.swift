@@ -20,7 +20,8 @@ class JuBaoController: MeBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "请输入举报原因";
+        
         ////navigationItem
         navigationItem.leftBarButtonItem = leftNavigationItem()
         navigationItem.rightBarButtonItem = rightNavigationItem()

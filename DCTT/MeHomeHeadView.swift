@@ -137,15 +137,11 @@ class MeHomeHeadView: UIView {
         ///查看他人的主页
         buttonBg.isHidden = false;
         
-        //_checkIsWatched()
+        _checkIsWatched()
         
         _checkBlacked()
     }
 
-    deinit {
-        print(self.description)
-    }
-    
     func _checkIsWatched() {
         _buttonAction(watchOperation)
     }

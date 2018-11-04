@@ -108,7 +108,13 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
     
     func loadData() {
         //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
-        let d = ["category":"life","subType":0] as [String : Any]
+        var d = ["category":"life","subType":0] as [String : Any]
+        
+        ///已登录，过滤黑名单
+        if let myid = User.uid(){
+            d["uid"] = myid
+        }
+
         
         AlamofireHelper.post(url: home_list_url, parameters: d, successHandler: {[weak self] (res) in
             HUD.dismiss()

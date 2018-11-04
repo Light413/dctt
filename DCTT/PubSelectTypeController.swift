@@ -49,10 +49,6 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         
     }
 
-    deinit {
-        print("\(self.self) deinit")
-    }
-
     func _init() {
 
         collectionview.delegate = self
