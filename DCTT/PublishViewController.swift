@@ -9,8 +9,18 @@
 import UIKit
 import Photos
 
-class PublishViewController: BasePublishController {
+class PublishViewController: BasePublishController,ShowAlertControllerAble {
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        ///弹框提示已同意用户协议
+        showTipsBeforePublish()
+
+    }
+    
+    
+    
     override func _post(_ ig:[UIImage]? = nil)  {
         guard let uid = User.uid() else {
             HUD.showText("请前往登录", view: view);return
@@ -34,8 +44,6 @@ class PublishViewController: BasePublishController {
         }
         
     }
-    
-
     
     //MARK:
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

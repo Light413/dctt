@@ -11,7 +11,7 @@ import Photos
 import RxSwift
 import RxCocoa
 
-class PubBaseTableViewController: UITableViewController{
+class PubBaseTableViewController: UITableViewController,ShowAlertControllerAble{
     var t_barTintColor:UIColor?
     
     ///发布按钮
@@ -44,11 +44,15 @@ class PubBaseTableViewController: UITableViewController{
         
         
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         _addObserve(sourceTextView)
+        
+        ///弹框提示已同意用户协议
+        showTipsBeforePublish()
+
     }
     
     func _addObserve(_ source:UITextView) {

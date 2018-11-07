@@ -447,22 +447,25 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="I5T-cy-Xgl">
-                                        <rect key="frame" x="0.0" y="348" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="I5T-cy-Xgl">
+                                        <rect key="frame" x="0.0" y="348" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I5T-cy-Xgl" id="FCy-Nk-e8E">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCk-7W-U3R">
-                                                    <rect key="frame" x="20" y="12.5" width="111" height="45"/>
+                                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCk-7W-U3R">
+                                                    <rect key="frame" x="15" y="10" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="45" id="tYD-i3-TUA"/>
+                                                        <constraint firstAttribute="width" constant="40" id="c4H-1h-WIA"/>
+                                                        <constraint firstAttribute="height" constant="40" id="tYD-i3-TUA"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <state key="normal" title="注册即同意用户协议">
+                                                    <inset key="titleEdgeInsets" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" image="select_reviewbar_all">
                                                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <state key="selected" image="select_reviewbar_all_press"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="5"/>
@@ -473,31 +476,28 @@
                                                         <action selector="buttonAction:" destination="Y2e-HI-4qL" eventType="touchUpInside" id="SxF-qJ-fr4"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33p-aI-RYP">
-                                                    <rect key="frame" x="281" y="13" width="74" height="45"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="45" id="lXv-DD-S0V"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我已阅读并同意郸城头条" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHW-2G-pvm">
+                                                    <rect key="frame" x="47" y="22.5" width="135" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <state key="normal" title="查看隐私政策">
-                                                        <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="5"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBunds" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iS2-VO-MSl">
+                                                    <rect key="frame" x="184" y="16.5" width="61" height="27"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="“用户协议”"/>
                                                     <connections>
-                                                        <action selector="buttonAction:" destination="Y2e-HI-4qL" eventType="touchUpInside" id="Ecn-S7-9ND"/>
+                                                        <action selector="buttonAction:" destination="Y2e-HI-4qL" eventType="touchUpInside" id="H1J-jD-oae"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="eCk-7W-U3R" firstAttribute="leading" secondItem="FCy-Nk-e8E" secondAttribute="leading" constant="20" id="E0C-gL-y05"/>
+                                                <constraint firstItem="iHW-2G-pvm" firstAttribute="leading" secondItem="eCk-7W-U3R" secondAttribute="trailing" constant="-8" id="Bli-Ve-xSq"/>
+                                                <constraint firstItem="iS2-VO-MSl" firstAttribute="leading" secondItem="iHW-2G-pvm" secondAttribute="trailing" constant="2" id="DB6-tn-ut1"/>
+                                                <constraint firstItem="eCk-7W-U3R" firstAttribute="leading" secondItem="FCy-Nk-e8E" secondAttribute="leading" constant="15" id="E0C-gL-y05"/>
+                                                <constraint firstItem="iS2-VO-MSl" firstAttribute="centerY" secondItem="iHW-2G-pvm" secondAttribute="centerY" id="NFl-2u-ckM"/>
                                                 <constraint firstItem="eCk-7W-U3R" firstAttribute="centerY" secondItem="FCy-Nk-e8E" secondAttribute="centerY" constant="5" id="Xgc-c8-V8Z"/>
-                                                <constraint firstAttribute="trailing" secondItem="33p-aI-RYP" secondAttribute="trailing" constant="20" id="i46-qd-qay"/>
-                                                <constraint firstItem="33p-aI-RYP" firstAttribute="centerY" secondItem="eCk-7W-U3R" secondAttribute="centerY" id="pHv-XS-wXl"/>
+                                                <constraint firstItem="iHW-2G-pvm" firstAttribute="centerY" secondItem="eCk-7W-U3R" secondAttribute="centerY" id="kEc-8L-ncY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -517,6 +517,7 @@
                         <outlet property="pwd" destination="KtD-hd-9au" id="JIe-qq-8kA"/>
                         <outlet property="registerBtn" destination="mKa-td-8qm" id="mjy-bP-inT"/>
                         <outlet property="repwd" destination="Fjk-qs-Qax" id="upp-9L-gcK"/>
+                        <outlet property="selectedBtn" destination="eCk-7W-U3R" id="1rb-Kz-LOy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MUj-38-MaE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -745,6 +746,8 @@
     </scenes>
     <resources>
         <image name="lanuch_icon" width="60" height="60"/>
+        <image name="select_reviewbar_all" width="16" height="16"/>
+        <image name="select_reviewbar_all_press" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Qgj-SB-a9W"/>

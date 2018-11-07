@@ -78,8 +78,12 @@ class JuBaoController: MeBaseTableViewController {
             guard let msg = res["msg"] as? String else {HUD.dismiss(); return}
             HUD.show(successInfo: msg)
             
-            guard let ss = self else {return}
-            ss.dismiss(animated: true, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
+                guard let ss = self else {return}
+                ss.dismiss(animated: true, completion: nil)
+            })
+            
+
         }) { (err) in
             HUD.show(info: (err?.localizedDescription)!)
         }

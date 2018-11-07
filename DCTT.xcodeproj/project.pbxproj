@@ -152,6 +152,8 @@
 		AD34498B217E23A60086F5F5 /* TodayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD344989217E23A60086F5F5 /* TodayViewCell.swift */; };
 		AD34498C217E23A60086F5F5 /* TodayViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD34498A217E23A60086F5F5 /* TodayViewCell.xib */; };
 		AD344990217E2BFD0086F5F5 /* HistoryDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD34498F217E2BFD0086F5F5 /* HistoryDetailController.swift */; };
+		AD3C742D2191E5F20029D2CF /* SimplePrivacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3C742B2191E5F20029D2CF /* SimplePrivacyController.swift */; };
+		AD3C742E2191E5F20029D2CF /* SimplePrivacyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD3C742C2191E5F20029D2CF /* SimplePrivacyController.xib */; };
 		AD3CB6C8211203BA00681E65 /* AlamofireRequestAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CB6C7211203BA00681E65 /* AlamofireRequestAble.swift */; };
 		AD3CB6CA211206DC00681E65 /* AlamofireHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CB6C9211206DB00681E65 /* AlamofireHelper.swift */; };
 		AD3CB6CC211210D500681E65 /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3CB6CB211210D500681E65 /* BaseWebViewController.swift */; };
@@ -368,6 +370,8 @@
 		AD344989217E23A60086F5F5 /* TodayViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewCell.swift; sourceTree = "<group>"; };
 		AD34498A217E23A60086F5F5 /* TodayViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodayViewCell.xib; sourceTree = "<group>"; };
 		AD34498F217E2BFD0086F5F5 /* HistoryDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailController.swift; sourceTree = "<group>"; };
+		AD3C742B2191E5F20029D2CF /* SimplePrivacyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePrivacyController.swift; sourceTree = "<group>"; };
+		AD3C742C2191E5F20029D2CF /* SimplePrivacyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimplePrivacyController.xib; sourceTree = "<group>"; };
 		AD3CB6C7211203BA00681E65 /* AlamofireRequestAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequestAble.swift; sourceTree = "<group>"; };
 		AD3CB6C9211206DB00681E65 /* AlamofireHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireHelper.swift; sourceTree = "<group>"; };
 		AD3CB6CB211210D500681E65 /* BaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebViewController.swift; sourceTree = "<group>"; };
@@ -474,6 +478,8 @@
 				A1A642DB1FC567CA0058F63B /* HomeSearchViewController.swift */,
 				A1CE83981FC3F6AA00DAF90F /* HomeDetailController.swift */,
 				AD00B9B8201B6EB90015A876 /* BaseDetailController.swift */,
+				AD3C742B2191E5F20029D2CF /* SimplePrivacyController.swift */,
+				AD3C742C2191E5F20029D2CF /* SimplePrivacyController.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1035,6 +1041,7 @@
 				AD0BD4EE2009FE980088D5E7 /* HomeDetailImgCell.xib in Resources */,
 				ADC8EBF021515096008E5696 /* QiuzhiCell.xib in Resources */,
 				ADC61DE721441C8300AE11B1 /* ZTCollectionViewCell.xib in Resources */,
+				AD3C742E2191E5F20029D2CF /* SimplePrivacyController.xib in Resources */,
 				AD14CC641FE802B6003FBE0B /* HomeCellWithImages.xib in Resources */,
 				AD10332F1FB6CD4E0017E81C /* error.png in Resources */,
 				A1E741AD1FD90F1600942219 /* Localizable.strings in Resources */,
@@ -1202,6 +1209,7 @@
 				AD2178DF207FB1B700B99069 /* FensiCell.swift in Sources */,
 				A148A2B31FD6A0B70052DDF3 /* PublishCollectionReusableView.swift in Sources */,
 				AD21D9C120557C1000E317FF /* MePersonInfoController.swift in Sources */,
+				AD3C742D2191E5F20029D2CF /* SimplePrivacyController.swift in Sources */,
 				A10CB8EB1FE0FD340043391D /* TTImagePreviewCell.swift in Sources */,
 				ADE9C710212930DF00884E8A /* TTImagePreviewController2.swift in Sources */,
 				AD10333E1FB6CD920017E81C /* BaseNavigationController.swift in Sources */,

@@ -31,6 +31,10 @@ class RegisterViewController: UITableViewController {
     
     let disposeBag = DisposeBag.init();
     
+    ///选中同意用户协议
+    @IBOutlet weak var selectedBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = isRegisterAction ? "用户注册" : "修改密码";
@@ -113,6 +117,14 @@ class RegisterViewController: UITableViewController {
                 HUD.showText("两次密码不一致", view: UIApplication.shared.keyWindow!); return
             }
             
+            ///注册操作,是否同意用户协议
+            if isRegisterAction {
+                guard selectedBtn.isSelected else {
+                    HUD.showText("请阅读并同意用户协议", view: kAPPKeyWindow!)
+                    return
+                }
+            }
+            
             SMSSDK.enableAppContactFriends(false)
             HUD.show();
             
@@ -159,6 +171,10 @@ class RegisterViewController: UITableViewController {
             vc.title = "隐私政策"
             self.navigationController?.pushViewController(vc, animated: true)
             
+            break
+            
+        case 5:
+            sender.isSelected = !sender.isSelected
             break
         default:break
         }

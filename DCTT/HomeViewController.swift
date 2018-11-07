@@ -30,9 +30,48 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         
         _init()
 
+        
     }
 
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let has =  UserDefaults.standard.value(forKey: "isFirstLaunch") as? String , has == "1"{
+           return
+        }
+        
+        _showAgreement2()
+    }
+    
+    func _showAgreement() {
+        /*let vc = UIAlertController.init(title: "用户隐私政策概要",message: "\n本《隐私概要》将向你说明:\n1.为了帮助你浏览、发布信息、评论交流、注册认证，我们会收集你的部分必要信息;\n\n2.为了提供以上服务，我们可能会收集联络方式、位置、通讯录等部分敏感信息，你有权拒绝或撤销授权;\n\n3.未经你同意，我们不会从第三方获取、共享或提取你的信息;\n\n4.你可以访问、更正、删除你的个人信息，我们也将提供注销、投诉的方式。如果你点击不同意，我们将仅收集浏览内容所必须的信息，但发布信息、交流评论可能会受到影响。\n\n查看详细的 隐私政策", preferredStyle: .alert)
+        let action = UIAlertAction.init(title:"不同意", style: .cancel){[weak self] (action) in
+            guard let ss  = self else {return}
+            ss.dismiss(animated: true, completion: nil)
+        }
+        
+        action.setValue(UIColor.lightGray, forKey: "titleTextColor")
+        
+        let action2 = UIAlertAction.init(title: "同意", style: .default)
+        
+        vc.addAction(action)
+        vc.addAction(action2)
+                 self.navigationController?.present(vc, animated: true, completion: nil);
+         */
+    }
+    
+    func _showAgreement2() {
+        let vc = SimplePrivacyController()
+        let nav = BaseNavigationController(rootViewController: vc)
+        //        vc.modalPresentationStyle = .popover;
+        //        let rect = CGRect (x: 0, y: 0, width: 300, height: 200)
+        //        vc.view.frame = rect
+        //        vc.preferredContentSize = rect.size
+        //vc.view.backgroundColor = UIColor.red
+        
+        self.present(nav, animated: true, completion: nil);
+    }
+    
     func _init() {
         //head
         let titles = ["最新","热门","问答","活动","吐槽","求助","娱乐"]
