@@ -13,7 +13,6 @@
 动态效果图
 ![](https://github.com/Light413/images/blob/master/dctt/1.gif?raw=true) 
 
-<hr>
 ####效果图1
 ![效果图1](https://github.com/Light413/images/blob/master/dctt/WX1@2x.png?raw=true)
 
