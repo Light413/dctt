@@ -5,7 +5,6 @@
 
 * 网站APP主页：[http://dancheng0394.com](http://dancheng0394.com)
 
-* 安卓端还在开发中
 * iOS 开发环境Xcode9.4.1 ，开发语言Swift3.0以上
 
 >描述：郸城人自己的手中APP，本地生活服务信息发布交流平台。
