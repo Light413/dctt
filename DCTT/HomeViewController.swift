@@ -14,7 +14,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
     var vcArr = [BaseTableViewController]()
     var pagevc :TTPageViewController!
     var topview : TTHeadView!
-    let _logo_title = "郸城头条"//-老家人自己的头条
+    let _logo_title = "郸城头条"
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         get{
@@ -23,19 +23,20 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.white
         automaticallyAdjustsScrollViewInsets = false;
+//        t_barTintColor = UIColor.red;
 
-        //t_barTintColor = t_barTintColor
-        //self.navigationController?.navigationBar.barTintColor = t_barTintColor
-        
         _init()
-
-        
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+//        self.navigationController?.navigationBar.barTintColor = UIColorFromHex(rgbValue: 0xFF4500)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         if let has =  UserDefaults.standard.value(forKey: "isFirstLaunch") as? String , has == "1"{
            return
         }
@@ -43,23 +44,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         _showAgreement2()
     }
     
-    func _showAgreement() {
-        /*let vc = UIAlertController.init(title: "用户隐私政策概要",message: "\n本《隐私概要》将向你说明:\n1.为了帮助你浏览、发布信息、评论交流、注册认证，我们会收集你的部分必要信息;\n\n2.为了提供以上服务，我们可能会收集联络方式、位置、通讯录等部分敏感信息，你有权拒绝或撤销授权;\n\n3.未经你同意，我们不会从第三方获取、共享或提取你的信息;\n\n4.你可以访问、更正、删除你的个人信息，我们也将提供注销、投诉的方式。如果你点击不同意，我们将仅收集浏览内容所必须的信息，但发布信息、交流评论可能会受到影响。\n\n查看详细的 隐私政策", preferredStyle: .alert)
-        let action = UIAlertAction.init(title:"不同意", style: .cancel){[weak self] (action) in
-            guard let ss  = self else {return}
-            ss.dismiss(animated: true, completion: nil)
-        }
-        
-        action.setValue(UIColor.lightGray, forKey: "titleTextColor")
-        
-        let action2 = UIAlertAction.init(title: "同意", style: .default)
-        
-        vc.addAction(action)
-        vc.addAction(action2)
-                 self.navigationController?.present(vc, animated: true, completion: nil);
-         */
-    }
-    
+
     func _showAgreement2() {
         let vc = SimplePrivacyController()
         let nav = BaseNavigationController(rootViewController: vc)
@@ -74,26 +59,33 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
     
     func _init() {
         //head
-        let titles = ["最新","热门","问答","活动","吐槽","求助","娱乐"]
+        let titles = ["最新","热门",
+//                      "新鲜事",
+                      "打听","吐槽","公告"]
         let titlesId = [
             "最新":"0",
             "热门":"1",
-            "问答":"12",
-            "活动":"14",
-            "吐槽":"13",
-            "娱乐":"15",
-            "求助":"11"
+//            "新鲜事":"10",
+            "打听":"11",
+            "吐槽":"12",
+            "公告":"13",
         ]
         
-        let _w :CGFloat = 50.0 * CGFloat(titles.count) < kCurrentScreenWidth ? 55 : 50
+        let _w :CGFloat = 50.0 * CGFloat(titles.count) < kCurrentScreenWidth ? 60 : 55
         var attri = TTHeadTextAttribute()
         attri.itemWidth = _w
-        attri.defaultFontSize = 16
-        attri.selectedFontSize = 17
+        attri.defaultFontSize = 18
+        attri.selectedFontSize = 18
+        attri.selectedTextColor = UIColorFromHex(rgbValue: 0xff4500)
+        attri.bottomLineColor = UIColorFromHex(rgbValue: 0xff4500)
+        attri.bottomLineHeight = 2
         
-        topview  = TTHeadView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth - 30, height: 35), titles: titles, delegate: self ,textAttributes:attri)
-        topview.backgroundColor = UIColor.clear
-        self.navigationItem.titleView = topview
+        let bg = UIView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 35));
+        
+        topview  = TTHeadView (frame: CGRect (x: 0, y: 0, width: _w * CGFloat(titles.count) , height: 35), titles: titles, delegate: self ,textAttributes:attri)
+        topview.backgroundColor = UIColorFromHex(rgbValue: 0xff4500)
+        bg.addSubview(topview);
+        self.navigationItem.titleView = bg
         
         ////pagevc
         for i in 0..<titles.count {
@@ -111,12 +103,14 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         view.addSubview(pagevc.view)
         
         //navigationbar item
-        /*let logo_lable = UILabel (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 30))
+        let logo_lable = UILabel (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 30))
         logo_lable.text = _logo_title
-        logo_lable.font = UIFont.boldSystemFont(ofSize: 18)
-        logo_lable.textColor = UIColor.white
+        logo_lable.font = UIFont.systemFont(ofSize: 17)
+        logo_lable.textColor = UIColorFromHex(rgbValue: 0xdcdcdc);
         logo_lable.textAlignment = .center
+//        navigationItem.titleView = logo_lable;
         
+        /*
         let left_item = UIBarButtonItem.init(customView: logo_lable)
         //navigationItem.leftBarButtonItem = left_item
         

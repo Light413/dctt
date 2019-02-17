@@ -16,7 +16,7 @@ class BaseTableViewController: UITableViewController {
         super.viewDidLoad()
 
         tableView.showsVerticalScrollIndicator = false
-        tableView.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
+//        tableView.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
         
         tableView.tableFooterView = UIView();
     }

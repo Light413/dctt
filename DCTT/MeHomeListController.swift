@@ -13,7 +13,6 @@ class MeHomeListController: UITableViewController  , ShowAlertControllerAble {
     
     private var canScroll:Bool = false;
     private var dataArray = [[String:Any]]()
-    
     var viewM:MeHomeViewM!
     
     override func viewDidLoad() {
@@ -28,8 +27,6 @@ class MeHomeListController: UITableViewController  , ShowAlertControllerAble {
         
         NotificationCenter.default.addObserver(self, selector: #selector(noti(_ :)), name: NSNotification.Name (rawValue: "childCanScrollNotification"), object: nil)
 
-        //////
-        //loadData();
         loadProfile()
     }
     
@@ -41,7 +38,6 @@ class MeHomeListController: UITableViewController  , ShowAlertControllerAble {
             guard String.isNullOrEmpty(res["status"]) == "200" else { return;}
             guard let user = res["body"] as? [String:Any] else {return}
             guard let ss = self else {return}
-            
             let uid = String.isNullOrEmpty(user["user_id"])
             ss.vm(uid)
             
@@ -49,26 +45,19 @@ class MeHomeListController: UITableViewController  , ShowAlertControllerAble {
                 NotificationCenter.default.post(name: NSNotification.Name.init("updateProfileNotification"), object: nil, userInfo: user)
             }
         }) { [weak self] (err) in
-            print("加载用户资料失败")
-            print(err?.localizedDescription)
-         
             guard let ss = self else {return}
             ss.showMsg("加载用户资料失败,请点击重试", title: "重试", handler: {
-                
                 ss.loadProfile()
             })
         }
     }
     
     func vm(_ uid:String) {
-        //view model
         viewM = MeHomeViewM.init(self)
         viewM.isFromHomePage = true
-        
         viewM.noDataTipMsg = "还没有发布过动态"
         viewM._scrollViewDidScroll = { [weak self] scrollView in
             guard let ss = self else {return}
-            
             if !ss.canScroll && kchildViewCanScroll == false {
                 scrollView.contentOffset = CGPoint.zero
             }
@@ -77,14 +66,12 @@ class MeHomeListController: UITableViewController  , ShowAlertControllerAble {
                 if ss.canScroll || kchildViewCanScroll {
                     ss.canScroll = false
                     NotificationCenter.default.post(name: NSNotification.Name (rawValue: "superCanScrollNotification"), object: nil)
-                    
                 }
             }
         }
         
         viewM.user_id = uid
         tableView = viewM.tableview
-
     }
     
     
@@ -95,7 +82,6 @@ class MeHomeListController: UITableViewController  , ShowAlertControllerAble {
     }
     
     deinit {
-        print(self.description)
         NotificationCenter.default.removeObserver(self)
     }
     

@@ -26,7 +26,7 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
         
         _init()
         
-        _getNumber()
+        //_getNumber()
     }
 
     ///获取分类下的帖子数
@@ -148,7 +148,7 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
             cell.contentView.addSubview(btn)
             
             
-            if let ns = nums {
+            /*if let ns = nums {
                 ////添加动态数
                 let numLable = UILabel()
                 numLable.font = UIFont.systemFont(ofSize: 10)
@@ -172,7 +172,7 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
                 numLable.frame = CGRect (x: w * 0.5 + 10, y: 15, width: _num_w, height: 12)
                 
                 btn.addSubview(numLable)
-            }
+            }*/
 
         }
 

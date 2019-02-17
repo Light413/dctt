@@ -145,7 +145,7 @@ class AlamofireHelper: NSObject {
             switch encodingResult {
             case .success(request: let upload, streamingFromDisk: _, streamFileURL:_):
                 upload.validate().responseJSON(completionHandler: {  (res) in
-                    print("111");
+                    print("111");//判断返回的code-200
                     if let success = successHandler , let value = res.result.value as? [String:Any] {
                         success(value);
                     }

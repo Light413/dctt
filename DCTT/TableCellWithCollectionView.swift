@@ -18,20 +18,13 @@ class TableCellWithCollectionView: UITableViewCell {
     
     ///选择的图片
     var imagesArr = [Any]()
-    
     var imagePicker :TTImagePicker!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        
-    }
-
 
     override func layoutSubviews() {
         
         imagePicker.viewController = superVC
-
+        collectionView.frame = self.frame
+        
         self.updateConstraintsIfNeeded()
     }
     
@@ -39,7 +32,6 @@ class TableCellWithCollectionView: UITableViewCell {
         super.init(coder: aDecoder)
         
         let views = Bundle.main.loadNibNamed("TableCellWithCollectionView", owner: self, options: nil)
-       
         if let v = views?.first as? UIView {
             self.addSubview(v)
         }
@@ -49,6 +41,8 @@ class TableCellWithCollectionView: UITableViewCell {
 
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "PublishAddIconCellIdentifier")
         collectionView.register(UINib (nibName: "PublishImageCell", bundle: nil), forCellWithReuseIdentifier: "PublishImageCellIdentifier")
+        
+
         
         collectionView.reloadData()
 
@@ -117,7 +111,7 @@ extension TableCellWithCollectionView:UICollectionViewDelegate,UICollectionViewD
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let _w = (kCurrentScreenWidth - 30) / 3
+        let _w = (collectionView.frame.width - 30) / 3
         
         return CGSize (width: _w, height: 90)
     }

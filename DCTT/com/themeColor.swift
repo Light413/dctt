@@ -20,7 +20,7 @@ func UIColorFromHex(rgbValue: UInt) -> UIColor {
 
 //common
 let kTableview_headView_bgColor = UIColorFromHex(rgbValue: 0x8bb9fc)
-
+let h5_theme_color = UIColorFromHex(rgbValue: 0xff4500)
 
 //Airplane
 let kAirplaneCell_head_normal_color = UIColorFromHex(rgbValue: 0x333333)

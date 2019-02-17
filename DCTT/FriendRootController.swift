@@ -25,7 +25,7 @@ class FriendRootController: BaseViewController {
        _cellPageController = addCellPageController()
         
         ///
-        let item = getBarButtonItem(title: "发布", action: #selector(publishZtAction))
+        let item = getBarButtonItem(title: "创建", action: #selector(publishZtAction))
         self.navigationItem.rightBarButtonItem = item
     }
 
@@ -43,7 +43,7 @@ class FriendRootController: BaseViewController {
     func title_v() -> UIView {
         var attri = TTHeadTextAttribute()
         attri.itemWidth = 50
-        attri.defaultFontSize = 16
+        attri.defaultFontSize = 17
         attri.selectedFontSize = 17
 
         let topview  = TTHeadView (frame: CGRect (x: 0, y: 0, width: 100, height: 35), titles: sectionHeadTitles, delegate: self ,textAttributes:attri)
@@ -99,7 +99,6 @@ extension FriendRootController:TTHeadViewDelegate,TTPageViewControllerDelegate {
     func tt_pageControllerSelectedAt(_ index: Int) {
         _cellSectionHeadView.scrollToItemAtIndex(index)
     }
-    
 }
 
 extension FriendRootController:AddButtonItemProtocol {
@@ -110,11 +109,9 @@ extension FriendRootController:AddButtonItemProtocol {
             return
         }
         
-        let vc = UIStoryboard.init(name: "Publish", bundle: nil).instantiateViewController(withIdentifier: "pub_zt_id")
-        
-        
+        let vc = UIStoryboard.init(name: "Publish", bundle: nil).instantiateViewController(withIdentifier: "pub_zt_id");
         let nav = BaseNavigationController (rootViewController:vc)
-        UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
+                UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
     }
     
     

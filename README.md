@@ -32,4 +32,8 @@
 
 
 #### 简书博客介绍 [https://www.jianshu.com/p/3228bfa3be7d](https://www.jianshu.com/p/3228bfa3be7d)
+
+#### 版本记录
+* 2018-11-09 1.0.0 初始发布
+
 #### 不断更新中，感谢关注。

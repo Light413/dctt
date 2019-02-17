@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="动态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGR-0o-BRQ">
-                    <rect key="frame" x="145.5" y="16.5" width="29" height="17"/>
+                    <rect key="frame" x="15" y="16.5" width="29" height="17"/>
                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -24,7 +24,7 @@
             </subviews>
             <constraints>
                 <constraint firstItem="hGR-0o-BRQ" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="Wlv-2R-SjJ"/>
-                <constraint firstItem="hGR-0o-BRQ" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="o6s-U9-KYw"/>
+                <constraint firstItem="hGR-0o-BRQ" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="15" id="khj-ed-4jF"/>
             </constraints>
             <connections>
                 <outlet property="title" destination="hGR-0o-BRQ" id="h2T-43-RBy"/>

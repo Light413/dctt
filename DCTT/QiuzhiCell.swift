@@ -13,6 +13,8 @@ class QiuzhiCell: ServerBaseCell {
     var infoType:String!
     
     @IBOutlet weak var subType: UILabel!
+   
+    @IBOutlet weak var desTitle: UILabel!
     
     @IBOutlet weak var detailDes: UILabel!
     
@@ -28,6 +30,8 @@ class QiuzhiCell: ServerBaseCell {
             let index = String.isNullOrEmpty(d["type"])
             subType.text = type(dic, subType: index)
             detailDes.text = isHasNewLine(String.isNullOrEmpty(d["content"]))
+            
+            desTitle.text = String.isNullOrEmpty(d["title"])
         }
 
     }
@@ -39,6 +43,8 @@ class QiuzhiCell: ServerBaseCell {
         case "21": return subType == "0" ? "找工作":"招聘"
         case "24": return subType == "0" ? "我是房主":"我要找房"
         case "25": return subType == "0" ? "我是车主":"我要打车";
+            
+        case "23": return subType == "0" ? "我是男生" : "我是女生";
         default:return nil
         }
     }

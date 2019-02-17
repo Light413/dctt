@@ -20,10 +20,10 @@ class BaseTabbarController: UITabBarController {
         
         let itemtitleArr = [
             "首页",
-            "专题",
+            "话题",
             "",
-            "生活服务",
-            "我的"]
+            "郸城生活",
+            "个人中心"]
 
         let icon_normal:Array = [
             "tabbar_icon_home",

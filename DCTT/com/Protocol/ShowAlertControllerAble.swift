@@ -30,7 +30,7 @@ extension ShowAlertControllerAble where Self : UIViewController {
     
     ///发布之前弹框提示
     func showTipsBeforePublish() {
-        let vc = UIAlertController.init(title: "发布须知",message: "\n1.发布内容前请确保已经认真阅读并同意用户协议及服务条款,在[我的-设置-关于我们]中查看完整内容。\n\n2.请发布优质、真实有效信息。若发现虚假、无效、充满负能量的等消极内容会被立即删除，严重者封号处理。", preferredStyle: .alert)
+        /*let vc = UIAlertController.init(title: "发布须知",message: "\n1.发布内容前请确保已经认真阅读并同意用户协议及服务条款,在[我的-设置-关于我们]中查看完整内容。\n\n2.请发布优质、真实有效信息。若发现虚假、无效、充满负能量的等消极内容会被立即删除，严重者封号处理。", preferredStyle: .alert)
         let action = UIAlertAction.init(title:"不同意", style: .cancel){[weak self] (action) in
             guard let ss  = self else {return}
             ss.dismiss(animated: true, completion: nil)
@@ -43,7 +43,7 @@ extension ShowAlertControllerAble where Self : UIViewController {
         
         vc.addAction(action)
         vc.addAction(action2)
-        self.navigationController?.present(vc, animated: true, completion: nil);
+        self.navigationController?.present(vc, animated: true, completion: nil);*/
     }
     
 }

@@ -37,10 +37,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lanuch_icon" translatesAutoresizingMaskIntoConstraints="NO" id="JHY-4W-wr9">
-                                                    <rect key="frame" x="137.5" y="15" width="100" height="100"/>
+                                                    <rect key="frame" x="127.5" y="5" width="120" height="120"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="ARO-F7-d6p"/>
-                                                        <constraint firstAttribute="width" constant="100" id="ChP-s6-rze"/>
+                                                        <constraint firstAttribute="height" constant="120" id="ARO-F7-d6p"/>
+                                                        <constraint firstAttribute="width" constant="120" id="ChP-s6-rze"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -165,7 +165,7 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <state key="normal" title="注册账号">
-                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="titleColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="buttonAction:" destination="dkH-CX-rFk" eventType="touchUpInside" id="8sX-Zj-QCj"/>
@@ -746,8 +746,8 @@
     </scenes>
     <resources>
         <image name="lanuch_icon" width="60" height="60"/>
-        <image name="select_reviewbar_all" width="16" height="16"/>
-        <image name="select_reviewbar_all_press" width="16" height="16"/>
+        <image name="select_reviewbar_all" width="20" height="20"/>
+        <image name="select_reviewbar_all_press" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Qgj-SB-a9W"/>

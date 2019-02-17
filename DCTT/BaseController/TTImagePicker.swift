@@ -65,10 +65,26 @@ class TTImagePicker: NSObject {
     
     func showPhotoLibriary()  {
         guard PHPhotoLibrary.authorizationStatus() == .authorized else {
-            HUD.showText("请在系统设置中允许访问相册", view: (viewController?.view)!)
-            return
+            PHPhotoLibrary.requestAuthorization { [weak self](status) in
+                guard let ss = self else {return}
+                
+                DispatchQueue.main.async {
+                    if status == PHAuthorizationStatus.authorized {
+                        print("Allow");
+                        ss._showTTImagePickerViewController()
+                    }else {
+                        HUD.showText("请在系统设置中允许访问相册", view: UIApplication.shared.keyWindow!)
+                        print("Not Allow");
+                    }
+                }
+            }; return
         }
         
+
+        _showTTImagePickerViewController();
+    }
+
+    func _showTTImagePickerViewController() {
         let vc = TTImagePickerViewController()
         //最大选择数
         vc.maxImagesNumber = maxImageNumber
@@ -80,14 +96,14 @@ class TTImagePicker: NSObject {
             
             
             //strongSelf.presentViewController.dismiss(animated: true, completion: nil)
-            
             NotificationCenter.default.post(name: strongSelf.selectedCompletionNotificationName, object: nil, userInfo: ["images":images])
         }
         
         presentViewController = UINavigationController(rootViewController:vc)
         viewController?.navigationController?.present(presentViewController, animated: true, completion: nil)
     }
-
+    
+    
     func showCamera() {
         let vc = UIImagePickerController.init()
         vc.delegate = self

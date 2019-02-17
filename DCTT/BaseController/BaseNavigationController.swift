@@ -25,7 +25,7 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
 //        navigationBar.setBackgroundImage(UIImage (named: "navigationbar_bg"), for: .default)
 
         //navigationBar.shadowImage = UIImage();
-        navigationBar.setBackgroundImage(imageWithColor(tt_defafault_barColor), for: .default)
+//        navigationBar.setBackgroundImage(imageWithColor(tt_defafault_barColor), for: .default)
     }
     
     func imageWithColor(_ color:UIColor) -> UIImage? {

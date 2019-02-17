@@ -16,12 +16,16 @@ class HomeCellWithImages: HomeListBaseCell {
     @IBOutlet weak var ig2: UIImageView!
     @IBOutlet weak var ig3: UIImageView!
     
+    @IBOutlet weak var avatarImg: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var time: UILabel!
     
     @IBOutlet weak var image_h: NSLayoutConstraint!
     
     @IBOutlet weak var dislikeBtn: UIButton!
+    @IBOutlet weak var readCnt: UILabel!
+    
+    @IBOutlet weak var Itemtype: UILabel!
     
     @IBAction func dislikeAction(_ sender: Any) {
         Tools.showMsg(kNotLikeMsg, title: "确定") { [weak self] in
@@ -45,6 +49,20 @@ class HomeCellWithImages: HomeListBaseCell {
     
     override func fill(_ d:[String:Any]) {
         fillData(msg: msg, user: name, date: time, data: d)
+        
+        var _type = "新鲜事"
+        if let t = d["type"]{
+            _type = kPublishTypeInfo["\(t)"]!;
+        }
+        
+        readCnt.text = "阅读" +  String.isNullOrEmpty(d["readCnt"]);
+        Itemtype.text = _type
+        
+        if let u = d["user"] as? [String:Any]{
+            if let u_avatar = u["avatar_thumb"] as? String{
+                avatarImg.kf.setImage(with: URL.init(string: u_avatar));
+            }
+        }
         
         let images = String.isNullOrEmpty(d["images"])
 

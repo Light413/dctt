@@ -26,6 +26,7 @@ class PubShangJiaController: PubBaseTableViewController {
         imgagesCell.superVC = self
         
         sourceTextView = textCell
+        
     }
 
     override func willPost() {

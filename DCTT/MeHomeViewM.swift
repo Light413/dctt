@@ -44,21 +44,16 @@ class MeHomeViewM: NSObject {
         superController = vc
         isMyFromPublish = isFromPublish
         
-        _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 0 - 0), style: .plain)
+        _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight), style: .plain)
         _tableview.showsVerticalScrollIndicator = false
         _tableview.separatorStyle = .none
         _tableview.backgroundColor = UIColor.white
         _tableview.delegate = self;
         _tableview.dataSource = self
-        
-        _tableview.register(UINib (nibName: "ZTTableViewCell", bundle: nil), forCellReuseIdentifier: "ZTTableViewCellIdentifier")
-        
-        
+
         _tableview.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCellReuseIdentifier")
-        _tableview.register(UINib (nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCellReuseIdentifierId")
-        _tableview.register(UINib (nibName: "HomeCellWithImage", bundle: nil), forCellReuseIdentifier: "HomeCellWithImageIdentifierId")
-        _tableview.register(UINib (nibName: "HomeCellWithImages", bundle: nil), forCellReuseIdentifier: "HomeCellWithImagesIdentifierId")
-        _tableview.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCellReuseIdentifier")
+        _tableview.register(UINib (nibName: "MeHomeListCell", bundle: nil), forCellReuseIdentifier: "MeHomeListCellIdentifier")
+
         
         //refresh
         let header = TTRefreshHeader.init(refreshingBlock: {[weak self] in
@@ -78,12 +73,9 @@ class MeHomeViewM: NSObject {
         
         _tableview.mj_footer = footer
         _tableview.mj_footer.isHidden = true
-        
         _tableview.rowHeight = UITableViewAutomaticDimension
         _tableview.estimatedRowHeight = 80
-        
         _tableview.tableFooterView = UIView()
-        
         _tableview.mj_header.beginRefreshing()
     }
     
@@ -103,7 +95,6 @@ class MeHomeViewM: NSObject {
             //ss.loadDataSuccess = true
             
             if ss.pageNumber == 1{ ss.dataArray.removeAll()}
-            
             if ss._tableview.mj_header.isRefreshing(){
                 ss._tableview.mj_header.endRefreshing()
             }else if ss._tableview.mj_footer.isRefreshing() {
@@ -140,8 +131,6 @@ class MeHomeViewM: NSObject {
             //ss.loadDataSuccess = false
             if ss._tableview.mj_header.isRefreshing(){ss._tableview.mj_header.endRefreshing()}
             else if ss._tableview.mj_footer.isRefreshing() {ss._tableview.mj_footer.endRefreshing()}
-            
-            print("MeHomeViewM loadData Fail")
             ss.loadData()
         }
     }
@@ -155,8 +144,7 @@ extension MeHomeViewM:UITableViewDelegate,UITableViewDataSource{
         return dataArray.count == 0 ? 1 : dataArray.count
     }
     
-    
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if dataArray.count == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCellReuseIdentifier", for: indexPath)
             cell.textLabel?.text = noDataTipMsg
@@ -168,39 +156,15 @@ extension MeHomeViewM:UITableViewDelegate,UITableViewDataSource{
         }
         
         let d = dataArray[indexPath.row]
-        
-        if let type = Int(String.isNullOrEmpty(d["type"])) , type == 6 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ZTTableViewCellIdentifier", for: indexPath) as! ZTTableViewCell
-            
-            cell.fill(d)
-            
-            
-            return cell
-            
-        }
-        
-        
-        let igNum =  Int(String.isNullOrEmpty(d["imageNum"])) ?? 0
-        var identifier :String = "HomeCellReuseIdentifierId"
-        
-        switch igNum {
-        case 0: identifier = "HomeCellReuseIdentifierId";break
-            
-        case let n where n < 3:
-            identifier = "HomeCellWithImageIdentifierId"
-            break
-            
-        case let n where n >= 3:
-            identifier = "HomeCellWithImagesIdentifierId"; break
-            
-        default:break
-        }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath) as! HomeListBaseCell
-        //cell.type = _category
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MeHomeListCellIdentifier", for: indexPath) as! MeHomeListCell
         cell.fill(d)
         
-        if isFromHomePage {
+        cell.dislikeBlock = {[weak self] in
+            guard let ss = self else {return}
+            ss._dislike(indexPath)
+        }
+        
+        if !isFromHomePage {
             cell.viewWithTag(100)?.isHidden = true
         }
         
@@ -211,22 +175,14 @@ extension MeHomeViewM:UITableViewDelegate,UITableViewDataSource{
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let d = dataArray[indexPath.row]
         let pid =  String.isNullOrEmpty(d["pid"])
-        
         var _category = kCategory_home
         
         if let type = Int(String.isNullOrEmpty(d["type"])) {
             switch type {
-            case 10..<20:
-                _category = kCategory_home
-                break;
-                
-            case 6: _category = kCategory_zt
-                break
-            case 20..<30 :
-                _category = kCategory_life
-                break
-                
-            default:break
+                case 10..<20: _category = kCategory_home;break;
+                case 6: _category = kCategory_zt; break
+                case 20..<30 :_category = kCategory_life; break
+                default:break
             }
         }
         
@@ -245,6 +201,29 @@ extension MeHomeViewM:UITableViewDelegate,UITableViewDataSource{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let s = _scrollViewDidScroll {
             s(scrollView)
+        }
+    }
+    
+    func _dislike(_ index:IndexPath) {
+        let d = dataArray[index.row]
+        let pid =  String.isNullOrEmpty(d["pid"])
+        let cat = getItemCategory(String.isNullOrEmpty(d["type"]))
+        
+        guard let myid = User.uid() else {return}
+        let _d = ["uid":myid ,
+                 "pid": pid,
+                 "category":cat,
+                 "type":0] as [String : Any]
+        
+        HUD.show()
+        AlamofireHelper.post(url: delete_sc_url, parameters: _d, successHandler: {[weak self] (res) in
+            guard let ss = self else{return}
+            ss.dataArray.remove(at: index.row)
+            //tableView.deleteRows(at: [index], with: .left)
+            ss.tableview.reloadData()
+            HUD.show(successInfo: "删除成功")
+        }) { (error) in
+            HUD.show(info: "删除失败,请重试")
         }
     }
     

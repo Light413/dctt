@@ -7,7 +7,7 @@
 //
 
 import UIKit
-let _kTableViewHeaderHeight : CGFloat = 250//350
+let _kTableViewHeaderHeight : CGFloat = 220//350
 let _kTableViewMeInfoHeight:CGFloat = 170
 
 import SwiftTTPageController
@@ -18,17 +18,14 @@ enum HomePageType:Int {
 }
 
 class MeHomePageController: MeBaseTableViewController {
-
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
     var type:HomePageType = .me
     var uid:String!
-    
     var imgv:UIImageView!
-    let sectionHeight:CGFloat = 45
-    
+    let sectionHeight:CGFloat = 35
     var canScroll:Bool = true
 
     //////////
@@ -36,7 +33,6 @@ class MeHomePageController: MeBaseTableViewController {
     var _cellSectionHeadView:TTHeadView!
     let sectionHeadTitles = ["动态"]
     var _meInfoView:MeHomeHeadView!
-    
     private var kuserName:String = ""
     
     //MARK: -
@@ -48,15 +44,16 @@ class MeHomePageController: MeBaseTableViewController {
     func addCellPageController() -> TTPageViewController {
         ////pagevc
         var vcArr = [UIViewController]()
+        let rec = CGRect (x: 0, y: 0, width: UIScreen.main.bounds.size.width > 320 ? kCurrentScreenWidth - 80 : kCurrentScreenWidth, height:kCurrentScreenHeight - 44 - sectionHeight)
         
         for _ in 0..<sectionHeadTitles.count {
             let v = MeHomeListController();
             v.uid = uid
-            
             vcArr.append(v)
         }
         
-        let rec = CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height:kCurrentScreenHeight - 44 - sectionHeight)
+        ////....待完善
+
         let pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)
         
         self.addChildViewController(pagevc)
@@ -67,7 +64,7 @@ class MeHomePageController: MeBaseTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage (named: "back_bg@2x"), for: .default)
+//        navigationController?.navigationBar.setBackgroundImage(UIImage (named: "back_bg@2x"), for: .default)
         //navigationController?.navigationBar.isTranslucent = true
     }
  
@@ -75,15 +72,11 @@ class MeHomePageController: MeBaseTableViewController {
         super.viewWillDisappear(animated)
 
         navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-//        navigationController?.navigationBar.isTranslucent = false
-//    navigationController?.navigationBar.setBackgroundImage(imgWithColor(tt_defafault_barColor.withAlphaComponent(1)), for: .default)
-
-//        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func _initSubview()  {
-        let bg = UIView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _kTableViewHeaderHeight + 0))
-        imgv = UIImageView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _kTableViewHeaderHeight))
+        let bg = UIView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: _kTableViewHeaderHeight ))
+        imgv = UIImageView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: 0))
         imgv.image = UIImage (named: "back_bg@2x")
         imgv.contentMode = .scaleToFill
         bg.addSubview(imgv)
@@ -151,21 +144,20 @@ class MeHomePageController: MeBaseTableViewController {
         //print("super can")
     }
 
-    
-
     //MARK: -
     let _offset_y:CGFloat = 55 - 64
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let _y = scrollView.contentOffset.y + 0
         if _y <= 0 {
-            //navigationController?.navigationBar.isTranslucent = true
-            
+            /*//navigationController?.navigationBar.isTranslucent = true
             let s  = -_y / _kTableViewHeaderHeight
             let w = scrollView.frame.width * (1 + s)
             let h = _kTableViewHeaderHeight * (1 + s)
-
             imgv.frame = CGRect (x: -scrollView.frame.size.width * s * 0.5, y: _y - 0, width: w, height: h)
-
+        */
+            title = "";
+        }else{
+            title = kuserName
         }
         
         if _y >= _kTableViewHeaderHeight - _offset_y {
@@ -183,34 +175,13 @@ class MeHomePageController: MeBaseTableViewController {
                scrollView.contentOffset = CGPoint (x: 0, y: _kTableViewHeaderHeight - _offset_y)
             }
         }
-        
-    //navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor.white.withAlphaComponent(_y > 40 ? 1 : 0)), for: .default)
-
-        
-        if _y > 60 {
-            //title = kuserName
-        //navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor.white.withAlphaComponent(_y > 40 ? 1 : 0)), for: .default)
-            
-//            if _y > 40 {
-//
-//               let v = UIView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 64))
-//                v.backgroundColor = UIColor.red
-//
-//                self.navigationController?.navigationBar.addSubview(v)
-//            }
-        }else{
-//            title = ""
-//            navigationController?.navigationBar.setBackgroundImage(UIImage (named: "back_bg@2x"), for: .default)
-        }
-        
     }
     
     
     deinit {
         NotificationCenter.default.removeObserver(self)
         //_cellPageController.removeFromParentViewController()
-        
-        print(self.description)
+        //print(self.description)
     }
     
     override func didReceiveMemoryWarning() {
@@ -237,14 +208,6 @@ extension MeHomePageController {
         cell.selectionStyle = .none
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = HomeDetailController("....",type:"....")
-//        
-//        self.navigationController?.pushViewController(vc, animated: true)
-        
-    }
-
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return sectionHeight
@@ -256,18 +219,15 @@ extension MeHomePageController {
 
         var attri = TTHeadTextAttribute()
         attri.itemWidth = 60
-        attri.selectedFontSize  = 14
+        attri.selectedFontSize  = 15
         attri.selectedTextColor = UIColor.darkGray
-
+        attri.bottomLineColor = tt_themeColor
+        
         let topview  = TTHeadView (frame: CGRect (x: 0, y: 5, width: tableView.frame.width - 20, height: 35), titles: sectionHeadTitles, delegate: self ,textAttributes:attri)
         bg.addSubview(topview)
         _cellSectionHeadView = topview
-
         return bg
-
     }
-    
-    
 }
 
 extension MeHomePageController:TTHeadViewDelegate,TTPageViewControllerDelegate {
@@ -280,11 +240,6 @@ extension MeHomePageController:TTHeadViewDelegate,TTPageViewControllerDelegate {
     }
     
 }
-
-
-
-
-
 class MeInfoTableView: UITableView ,UIGestureRecognizerDelegate{
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return true

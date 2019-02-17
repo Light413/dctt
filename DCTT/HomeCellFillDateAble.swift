@@ -18,7 +18,7 @@ extension HomeCellFillDateAble {
         let type = String.isNullOrEmpty(d["type"])
         
         switch type {
-        case "6","21","22","23","24","25"://专题、生活服务类信息
+        case "6","21","22","23","24","25" , "20" , "26" , "27"://专题、生活服务类信息
             var cc = String.isNullOrEmpty(d["content"])
             cc = cc.replacingOccurrences(of: "\n", with: " ")
             
@@ -45,18 +45,7 @@ extension HomeCellFillDateAble {
 
             }catch {
                 print(error.localizedDescription)
-            }
-            
-            break
-        case "20" , "26" , "27":
-            let s = String.isNullOrEmpty(d["content"])
-            if let attri = _attributeString(s, type: type) {
-                content.attributedText = attri
-            }else{
-                content.text = s;
-            }
-            
-            break
+            }; break
             
         default:
             var ss = String.isNullOrEmpty(d["content"]);
@@ -104,9 +93,12 @@ extension HomeCellFillDateAble {
     
     ///生活服务分类特殊显示
     func _attributeString(_ s:String , type:String?) -> NSAttributedString? {
+        
+        return NSMutableAttributedString.init(string: s);
+        
+        
         let shade = NSShadow.init()
         shade.shadowBlurRadius = 5
-        //shade.shadowColor = UIColor.lightGray.cgColor
         
         let paragraphStyle = NSMutableParagraphStyle.init()
          paragraphStyle.lineSpacing = 3

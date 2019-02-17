@@ -30,6 +30,8 @@ let home_list_url = "getPostList.php"
 let publish_url = "publish.php"
 let register_url = "register.php"
 let login_url = "login.php"
+let get_checkcode_url = "sendCheckCode.php"//获取验证码
+
 let update_profile_url = "updateProfile.php"
 let update_deviceInfo_url = "updateDeviceInfo.php"
 let get_msglist_url = "message.php"
@@ -86,14 +88,14 @@ enum ImageCellTpye {
 let kPublishTypeInfo = [
     "6":"话题",
     "10":"新鲜事",
-    "11":"求助",
-    "12":"提问",
-    "13":"吐槽",
+    "11":"打听",
+    "12":"吐槽",
+    "13":"公告",
     "14":"活动",
     "15":"娱乐",
     "20":"吃喝玩乐",
     "21":"求职招聘",
-    "22":"商家主页",
+    "22":"商家信息",
     "23":"相亲交友",
     "24":"房屋信息",
     "25":"打车出行",
@@ -117,13 +119,23 @@ var kPublish_type_title:String!
 
 //////TEST
 var user_has_logined = User.isLogined()
-
 var kchildViewCanScroll:Bool = false
 
 
+//根据type获取动态分类（首页、专题、生活）
+func getItemCategory(_ type:String)  -> String {
+    var _category = kCategory_life;
+    let _type = type;
+    switch (_type){
+        case "10","11","12","13","14","15": _category = kCategory_home;break;
+        case "6":_category = kCategory_zt;break;
+        default:break;
+    }
+    
+    return _category;
+}
 
 
-//MARK: - methods
 public func imgWithColor(_ color:UIColor) -> UIImage? {
     let ret = CGRect (x: 0, y: 0, width: 1, height: 1)
     

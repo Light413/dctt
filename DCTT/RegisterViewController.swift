@@ -91,7 +91,7 @@ class RegisterViewController: UITableViewController {
         switch sender.tag {
         case 1://获取验证码
             guard sender.isEnabled else {return}
-            guard String.isNullOrEmpty(phone.text).lengthOfBytes(using: String.Encoding.utf8) > 10 else {HUD.showText("输入正确的手机号码", view: UIApplication.shared.keyWindow!); return}
+            guard String.isNullOrEmpty(phone.text).lengthOfBytes(using: String.Encoding.utf8) == 11 else {HUD.showText("输入正确的手机号码", view: UIApplication.shared.keyWindow!); return}
             
             sender.isEnabled = false
             getCodeBtn.setTitle("\(_cnt)s", for: .normal)
@@ -99,22 +99,31 @@ class RegisterViewController: UITableViewController {
             _timer.fireDate = Date.distantPast
             
             ///获取验证码
-            HUD.showText("已发送验证码", view: UIApplication.shared.keyWindow!)
-            SMSSDK.getVerificationCode(by: .SMS, phoneNumber: String.isNullOrEmpty(phone.text), zone: "86", template: nil) { (error) in
-                if let er = error {
-                    print(er.localizedDescription)
-                    HUD.showText("获取验证码失败,请稍后重试", view: _keyWindow)
-                }else{
-                    print("get code success")
-                }
-                
+            AlamofireRequest(get_checkcode_url, parameter: ["phoneNumber":String.isNullOrEmpty(phone.text)]) { (res) in
+                HUD.showText("已发送验证码", view: UIApplication.shared.keyWindow!)
             }
+            
+            
+//            SMSSDK.getVerificationCode(by: .SMS, phoneNumber: String.isNullOrEmpty(phone.text), zone: "86", template: nil) { (error) in
+//                if let er = error {
+//                    print(er.localizedDescription)
+//                    HUD.showText("获取验证码失败,请稍后重试", view: _keyWindow)
+//                }else{
+//                    print("get code success")
+//                }
+//
+//            }
             
             break
             
         case 2://注册/修改密码
             guard String.isNullOrEmpty(pwd.text) == String.isNullOrEmpty(repwd.text) else {
                 HUD.showText("两次密码不一致", view: UIApplication.shared.keyWindow!); return
+            }
+            
+            guard String.isNullOrEmpty(code.text).lengthOfBytes(using: String.Encoding.utf8) == 4 else {
+                HUD.showText("请输入正确的验证码", view: kAPPKeyWindow!)
+                return;
             }
             
             ///注册操作,是否同意用户协议
@@ -128,34 +137,35 @@ class RegisterViewController: UITableViewController {
             SMSSDK.enableAppContactFriends(false)
             HUD.show();
             
-            SMSSDK.commitVerificationCode(String.isNullOrEmpty(code.text), phoneNumber: String.isNullOrEmpty(phone.text), zone: "86") { (error) in
-                if let er = error {
-                    print(er.localizedDescription)
-                    HUD.showText("验证失败,请稍后重试", view: _keyWindow)
-                    HUD.dismiss()
-                }else{
-                    print("verification")
-                    _submint()
-                }
-
+//            SMSSDK.commitVerificationCode(String.isNullOrEmpty(code.text), phoneNumber: String.isNullOrEmpty(phone.text), zone: "86") { (error) in
+//                if let er = error {
+//                    print(er.localizedDescription)
+//                    HUD.showText("验证失败,请稍后重试", view: _keyWindow)
+//                    HUD.dismiss()
+//                }else{
+//                    print("verification")
+//                    _submint()
+//                }
+//
+//            }
+           
+            var d = ["phone_number":String.isNullOrEmpty(phone.text),
+                     "pwd":String.isNullOrEmpty(pwd.text),
+                     "code":String.isNullOrEmpty(code.text)
+                     ]
+            
+            if !isRegisterAction {
+                d["isModify"] = "1";
             }
             
-            func _submint() {
-                var d = ["phone_number":String.isNullOrEmpty(phone.text),
-                         "pwd":String.isNullOrEmpty(pwd.text)]
+            ///注册-找回密码
+            AlamofireRequest(register_url, parameter: d , successHandler : { [weak self](res) in
+                HUD.show(successInfo:"操作成功,请前往登录")
                 
-                if !isRegisterAction {
-                    d["isModify"] = "1";
-                }
-                
-                ///注册-找回密码
-                AlamofireRequest(register_url, parameter: d , successHandler : { [weak self](res) in
-                    HUD.show(successInfo:"操作成功,请前往登录")
-                    
-                    guard let ss = self else {return}
-                    ss.navigationController?.popViewController(animated: true)
-                })
-            }
+                guard let ss = self else {return}
+                ss.navigationController?.popViewController(animated: true)
+            })
+            
             
             break
             

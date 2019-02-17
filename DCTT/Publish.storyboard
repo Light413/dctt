@@ -28,7 +28,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入话题" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W7T-wO-6YT">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入标题" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W7T-wO-6YT">
                                                     <rect key="frame" x="15" y="16" width="350" height="18"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -62,8 +62,8 @@
                                                         <outlet property="delegate" destination="oZF-8I-dE2" id="fYo-rE-x28"/>
                                                     </connections>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入话题描述(不能为空)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ox-wE-hsc">
-                                                    <rect key="frame" x="15" y="8" width="153.5" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ox-wE-hsc">
+                                                    <rect key="frame" x="15" y="8" width="71.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -81,7 +81,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="添加附件(可选)" footerTitle="" id="0zS-Lj-ax6">
+                            <tableViewSection headerTitle="添加图片(可选)" footerTitle="" id="0zS-Lj-ax6">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="300" id="KUI-80-Uo0" customClass="TableCellWithCollectionView" customModule="DCTT" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="222.5" width="375" height="300"/>
@@ -476,12 +476,33 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="50" id="tSQ-hL-0Yz">
+                                        <rect key="frame" x="0.0" y="95" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tSQ-hL-0Yz" id="RqJ-U7-pZk">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入标题" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s8x-7E-ha5">
+                                                    <rect key="frame" x="15" y="16" width="350" height="18"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="s8x-7E-ha5" firstAttribute="leading" secondItem="RqJ-U7-pZk" secondAttribute="leading" constant="15" id="3Do-eE-c7s"/>
+                                                <constraint firstAttribute="trailing" secondItem="s8x-7E-ha5" secondAttribute="trailing" constant="10" id="WUV-QL-TFF"/>
+                                                <constraint firstItem="s8x-7E-ha5" firstAttribute="centerY" secondItem="RqJ-U7-pZk" secondAttribute="centerY" id="jU8-Sf-Uf2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="工作描述" footerTitle="" id="OzS-i8-48q">
+                            <tableViewSection footerTitle="" id="OzS-i8-48q">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="120" id="VYu-VL-TTV" customClass="PubBaseTextViewCell" customModule="DCTT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="141.5" width="375" height="120"/>
+                                        <rect key="frame" x="0.0" y="156" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VYu-VL-TTV" id="hwU-Hi-2KL">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
@@ -497,8 +518,8 @@
                                                     </connections>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKs-b8-MkH">
-                                                    <rect key="frame" x="15" y="8" width="72" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                                    <rect key="frame" x="15" y="8" width="76.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -518,7 +539,7 @@
                             <tableViewSection footerTitle="" id="ADn-Zh-vxn">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="300" id="SRa-bq-vzp" customClass="TableCellWithCollectionView" customModule="DCTT" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="272.5" width="375" height="300"/>
+                                        <rect key="frame" x="0.0" y="287" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SRa-bq-vzp" id="adf-v2-eRc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
@@ -539,6 +560,7 @@
                     <connections>
                         <outlet property="imgagesCell" destination="SRa-bq-vzp" id="dC0-nN-vjc"/>
                         <outlet property="textCell" destination="fmE-dg-eJj" id="nlF-sq-yfO"/>
+                        <outlet property="titleTf" destination="s8x-7E-ha5" id="cgI-NB-Cig"/>
                         <outlet property="typeSeg" destination="8v1-wK-OSw" id="i1q-Y1-oOb"/>
                     </connections>
                 </tableViewController>

@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         _initShare()
         
         ///bugly
-        Bugly.start(withAppId: bugly_app_id)
+//        Bugly.start(withAppId: bugly_app_id)
         
         //...
 //        PgyManager.shared().isFeedbackEnabled = false

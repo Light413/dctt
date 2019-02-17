@@ -13,7 +13,7 @@
 		</dict>
 		<dict>
 			<key>item_title</key>
-			<string>求助</string>
+			<string>打听</string>
 			<key>item_id</key>
 			<string>id001</string>
 			<key>item_key</key>
@@ -21,7 +21,7 @@
 		</dict>
 		<dict>
 			<key>item_title</key>
-			<string>问答</string>
+			<string>吐槽</string>
 			<key>item_id</key>
 			<string>id001</string>
 			<key>item_key</key>
@@ -29,27 +29,11 @@
 		</dict>
 		<dict>
 			<key>item_title</key>
-			<string>吐槽</string>
+			<string>公告</string>
 			<key>item_id</key>
 			<string>id001</string>
 			<key>item_key</key>
 			<string>13</string>
-		</dict>
-		<dict>
-			<key>item_title</key>
-			<string>活动</string>
-			<key>item_id</key>
-			<string>id001</string>
-			<key>item_key</key>
-			<string>14</string>
-		</dict>
-		<dict>
-			<key>item_title</key>
-			<string>娱乐</string>
-			<key>item_id</key>
-			<string>id001</string>
-			<key>item_key</key>
-			<string>15</string>
 		</dict>
 	</array>
 	<array>
@@ -73,7 +57,7 @@
 			<key>item_key</key>
 			<string>22</string>
 			<key>item_title</key>
-			<string>商家主页</string>
+			<string>商家信息</string>
 			<key>item_id</key>
 			<string>id004</string>
 		</dict>

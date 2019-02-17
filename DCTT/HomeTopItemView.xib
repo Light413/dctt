@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HomeTopItemView" customModule="DCTT" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BH7-kW-BNZ">
+                    <rect key="frame" x="20" y="10" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="46m-Ce-oZ2"/>
+                        <constraint firstAttribute="width" constant="40" id="Iei-Qg-urQ"/>
+                    </constraints>
+                    <state key="normal" image="heme_top1"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLw-WT-hYr">
+                    <rect key="frame" x="82" y="10" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="fHQ-oz-avO"/>
+                        <constraint firstAttribute="width" constant="40" id="pwm-dr-g8B"/>
+                    </constraints>
+                    <state key="normal" image="heme_top1"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQq-bP-kBg">
+                    <rect key="frame" x="156" y="10" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="LXQ-W4-HV7"/>
+                        <constraint firstAttribute="width" constant="40" id="aEH-mL-KjM"/>
+                    </constraints>
+                    <state key="normal" image="heme_top1"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfX-7G-luj">
+                    <rect key="frame" x="230" y="10" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Uck-nv-osI"/>
+                        <constraint firstAttribute="width" constant="40" id="ZQw-cD-VbA"/>
+                    </constraints>
+                    <state key="normal" image="heme_top1"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="PQq-bP-kBg" firstAttribute="centerY" secondItem="BH7-kW-BNZ" secondAttribute="centerY" id="Isu-8J-ZND"/>
+                <constraint firstItem="BH7-kW-BNZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="UaL-LC-ewb"/>
+                <constraint firstItem="BH7-kW-BNZ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="VuG-Yt-7i2"/>
+                <constraint firstItem="xfX-7G-luj" firstAttribute="centerY" secondItem="BH7-kW-BNZ" secondAttribute="centerY" id="b7e-b4-TrJ"/>
+                <constraint firstItem="KLw-WT-hYr" firstAttribute="centerY" secondItem="BH7-kW-BNZ" secondAttribute="centerY" id="sUg-Yd-b3u"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-9" y="167"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="heme_top1" width="100" height="100"/>
+    </resources>
+</document>

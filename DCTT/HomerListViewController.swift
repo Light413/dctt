@@ -41,6 +41,11 @@ class HomerListViewController: BaseTableViewController {
         tableView.register(UINib (nibName: "HomeCellWithImages", bundle: nil), forCellReuseIdentifier: "HomeCellWithImagesIdentifierId")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCellReuseIdentifier")
         
+        ///生活服务-分类列表
+        if _category == kCategory_life {
+          tableView.register(UINib (nibName: "LifeListViewCell", bundle: nil), forCellReuseIdentifier: "LifeListViewCelIdentifier")
+        }
+
         //refresh
         let header = TTRefreshHeader.init(refreshingBlock: {[weak self] in
             guard let strongSelf = self else{return}
@@ -62,6 +67,7 @@ class HomerListViewController: BaseTableViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+        tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0)
         
         if let delegate = UIApplication.shared.delegate as? AppDelegate{
             guard delegate._networkReachabilityManager.isReachable else {
@@ -166,17 +172,26 @@ class HomerListViewController: BaseTableViewController {
         let igNum =  Int(String.isNullOrEmpty(d["imageNum"])) ?? 0
         var identifier :String = "HomeCellReuseIdentifierId"
 
+        if _category == kCategory_life {
+            identifier = "LifeListViewCelIdentifier"
+            let cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath) as! LifeListViewCell
+//            cell.type = _category
+            cell.fill(d)
+            cell.dislikeBlock = {[weak self] in
+                guard let ss = self else {return}
+                ss._dislike(indexPath)
+            }
+            
+            cell.selectionStyle = .default
+            return cell
+        }
+        
+        ///首页列表
         switch igNum {
-        case 0: identifier = "HomeCellReuseIdentifierId";break
-            
-        case let n where n < 3:
-            identifier = "HomeCellWithImageIdentifierId"
-            break
-            
-        case let n where n >= 3:
-            identifier = "HomeCellWithImagesIdentifierId"; break
-            
-        default:break
+            case 0: identifier = "HomeCellReuseIdentifierId";break
+            case let n where n < 3: identifier = "HomeCellWithImageIdentifierId"; break
+            case let n where n >= 3: identifier = "HomeCellWithImagesIdentifierId"; break
+            default:break
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath) as! HomeListBaseCell

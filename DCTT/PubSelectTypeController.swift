@@ -27,15 +27,12 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         automaticallyAdjustsScrollViewInsets = false;
 
         let tv = UILabel (frame: CGRect (x: 0, y: 0, width: 100, height: 44))
-        tv.text = "选择发布类型"
+        tv.text = "发布动态"
         tv.textAlignment = .center
         tv.font = UIFont.systemFont(ofSize: 16)
         tv.textColor = UIColor.darkGray
         navigationItem.titleView = tv
-        
-        //let dt = ["新鲜事","朋友圈","提问","吐槽","搞笑段子","校园"]
-        //dataArray.append(dt)
-        
+   
         let path = Bundle.main.path(forResource: "all_category_item", ofType: "plist")
         let _arr = NSArray.init(contentsOfFile: path!) as? [[[String:String]]]
         if let arr = _arr {
@@ -54,12 +51,12 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         collectionview.delegate = self
         collectionview.dataSource = self
         
-        let offset:CGFloat = 10
-        let _width = (kCurrentScreenWidth - offset *  2 - 10) / 2.0
+        let offset:CGFloat = 30
+        let _width = (kCurrentScreenWidth - offset *  2 - 15) / 2.0
         
         let _layout = UICollectionViewFlowLayout()
-        _layout.itemSize = CGSize (width: _width, height: 60)
-        _layout.minimumInteritemSpacing = 2
+        _layout.itemSize = CGSize (width: _width, height: _width * 0.4)
+        _layout.minimumInteritemSpacing = 5
         _layout.minimumLineSpacing = 10
         _layout.scrollDirection = .vertical        
         collectionview.collectionViewLayout = _layout;
@@ -81,7 +78,7 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         self.dismiss(animated: true, completion: nil)
     }
     
-    func _dismiss(completionHandler : ((Void) -> Void)? = nil) {
+    func _dismiss(completionHandler : (() -> Void)? = nil) {
         HUD.show()
         
         self.dismiss(animated: false) {
@@ -121,8 +118,6 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         _t.text = str
         _t.textAlignment = .center
         _t.font = UIFont.systemFont(ofSize: 15)
-        //_t.textColor = UIColorFromHex(rgbValue: 0x483D8B)
-        
         cell.layer.borderWidth = 1
         cell.layer.borderColor = kTableviewBackgroundColor.cgColor
         cell.layer.masksToBounds = true
@@ -140,40 +135,44 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
             var vc : UIViewController
             
             switch item_id {
-            case "id001"://发布新鲜事
+            case "id001" , "id004"://发布新鲜事
 
-                vc = PublishViewController.init(info:d)
+                if indexPath.section == 0 {
+                   vc = PublishViewController.init(info:d)
+                }else{
+                    vc = strongSelf.controllerWith(identifierId: "pub_zt_id")
+                }
+                
                 break;
                 
 //            case "id002"://朋友圈
 //                vc = PublishFriendViewController(); break;
                 
-            case "id003"://房屋信息 - 问答
-                vc =  //BaseVCWithTableView() //
-                strongSelf.controllerWith(identifierId: "pub_fangwu_id")
-                break
+//            case "id003"://房屋信息 - 问答
+//                vc =  //BaseVCWithTableView() //
+//                strongSelf.controllerWith(identifierId: "pub_fangwu_id")
+//                break
                 
-            case "id004"://商家信息
-                vc = strongSelf.controllerWith(identifierId: "pub_shangjia_id")
-                break
+//            case "id004"://商家信息
+//                vc = strongSelf.controllerWith(identifierId: "pub_shangjia_id")
+//                break
                 
-            case "id005"://交友
-                vc = strongSelf.controllerWith(identifierId: "pub_jiaoyou_id")
-                break
+//            case "id005"://交友
+//                vc = strongSelf.controllerWith(identifierId: "pub_jiaoyou_id")
+//                break
                 
-            case "id006"://求职招聘
+            case "id003" ,"id005" ,  "id006" , "id007"://求职招聘
                 vc = strongSelf.controllerWith(identifierId: "pub_qiuzhi_id")
                 break
                 
-            case "id007"://打车出行
-                vc = strongSelf.controllerWith(identifierId: "pub_dache_id")
-                break
+//            case "id007"://打车出行
+//                vc = strongSelf.controllerWith(identifierId: "pub_dache_id")
+//                break
 
             default:return
             }
             
             if vc .isKind(of: PubBaseTableViewController.self){
-                print(".....")
                 (vc as! PubBaseTableViewController).typeInfo = d
             }
             
@@ -202,7 +201,7 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize (width: collectionview.frame.width, height: section == 0 ? 0 : 50)
+        return CGSize (width: collectionview.frame.width, height: section == 0 ? 50 : 50)
     }
     
     //MARK: - 

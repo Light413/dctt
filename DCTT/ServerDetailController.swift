@@ -21,25 +21,25 @@ class ServerDetailController: BaseDetailController {
         title = kPublishTypeInfo[_type]
         
         switch _type! {
-        case "6"://专题
+        case "6" ,"20","26","22","27" ://专题,吃喝玩乐、二手交易、便民信息
             _cellReuseIdentifier = "ZTDetailCellIdentifier"
             _tableview.register(UINib (nibName: "ZTDetailCell", bundle: nil), forCellReuseIdentifier: "ZTDetailCellIdentifier")
             break
             
-        case "21","24","25"://求职、房屋、打车
+        case "21","24","25", "23"://求职、房屋、打车、交友
             _cellReuseIdentifier = "QiuzhiCellIdentifier"
             _tableview.register(UINib (nibName: "QiuzhiCell", bundle: nil), forCellReuseIdentifier: "QiuzhiCellIdentifier")
             break
-        case "22"://商家
-            _cellReuseIdentifier = "ShangjiaCellIdentifier"
-            _tableview.register(UINib (nibName: "ShangjiaCell", bundle: nil), forCellReuseIdentifier: "ShangjiaCellIdentifier")
-            break
+//        case "22"://商家
+//            _cellReuseIdentifier = "ShangjiaCellIdentifier"
+//            _tableview.register(UINib (nibName: "ShangjiaCell", bundle: nil), forCellReuseIdentifier: "ShangjiaCellIdentifier")
+//            break
             
-        case "23"://交友
-            _cellReuseIdentifier = "JiaoyouCellIdentifier"
-            _tableview.register(UINib (nibName: "JiaoyouCell", bundle: nil), forCellReuseIdentifier: "JiaoyouCellIdentifier")
-
-            break
+//        case "23"://交友
+//            _cellReuseIdentifier = "JiaoyouCellIdentifier"
+//            _tableview.register(UINib (nibName: "JiaoyouCell", bundle: nil), forCellReuseIdentifier: "JiaoyouCellIdentifier")
+//
+//            break
         default:
             break
         }

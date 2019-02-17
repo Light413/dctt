@@ -29,20 +29,12 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false;
-
         _init()
-        
-        ///
-        let item = getBarButtonItem(image: UIImage (named: "history2")!, action: #selector(toxiaozhishi))
-        self.navigationItem.rightBarButtonItem = item
+
+//        let item = getBarButtonItem(image: UIImage (named: "history2")!, action: #selector(toxiaozhishi))
+//        self.navigationItem.rightBarButtonItem = item
     }
-    
-    ///历史上的今天
-    func toxiaozhishi(){
-        let vc = HistoryTodayController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
+
     var _tableview:UITableView!
     
     func _init() {
@@ -61,13 +53,15 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         _tableview.rowHeight = UITableViewAutomaticDimension
         _tableview.tableFooterView = UIView();
         _tableview.showsVerticalScrollIndicator = false
-        _tableview.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
+//        _tableview.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
         
         _tableview.register(UINib (nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCellReuseIdentifierId")
         _tableview.register(UINib (nibName: "HomeCellWithImage", bundle: nil), forCellReuseIdentifier: "HomeCellWithImageIdentifierId")
         _tableview.register(UINib (nibName: "HomeCellWithImages", bundle: nil), forCellReuseIdentifier: "HomeCellWithImagesIdentifierId")
+        
         _tableview.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCellReuseIdentifier")
         
+        _tableview.register(UINib (nibName: "LifeListViewCell", bundle: nil), forCellReuseIdentifier: "LifeListViewCelIdentifier")
         
         //NotificationCenter.default.addObserver(self, selector: #selector(noti(_ :)), name: NSNotification.Name (rawValue: "superCanScrollNotification"), object: nil)
         //test  refresh
@@ -146,8 +140,6 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         }) { (error) in
             HUD.dismiss()
         }
-        
-        
     }
 
     
@@ -194,54 +186,17 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
             return cell
 
         }
-        
-        
-        
-        
-//        let identifier :String = "MeHomeSuperCellIdentifier"
-//        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MeHomeCell2
-//
-//        _cellPageController = addCellPageController()
-//        cell.addWithController(_cellPageController)
-//        cell.selectionStyle = .none
-//        cell.backgroundColor = UIColor.red
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LifeListViewCelIdentifier", for: indexPath) as! LifeListViewCell
         
         let d = dataArray[indexPath.row]
-        let type =  Int(String.isNullOrEmpty(d["imageNum"])) ?? 0
-        
-        var identifier :String = "HomeCellReuseIdentifierId"
-        
-        switch type {
-            case 0:
-                //            (cell as! HomeCell).fill(d)
-                
-                break
-            case let n where n < 3:
-                identifier = "HomeCellWithImageIdentifierId"
-                //            cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
-                //            (cell as! HomeCellWithImage).fill(d)
-                break
-            case let n where n >= 3:
-                
-                identifier = "HomeCellWithImagesIdentifierId"
-                //            cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath)
-                //            (cell as! HomeCellWithImages).fill(d)
-                
-                break
-        default:break
-        }
-
-        let cell = tableView.dequeueReusableCell(withIdentifier:  identifier, for: indexPath) as! HomeListBaseCell
-        
         cell.fill(d)
         
         cell.dislikeBlock = {[weak self] in
             guard let ss = self else {return}
             ss._dislike(indexPath)
         }
-        
         return cell
-        
     }
     
     func _dislike(_ index:IndexPath) {
@@ -256,17 +211,11 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         
     }
 
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if indexPath.section == 0 {
-//            return 180;
-//        }
-//
-//        return kCurrentScreenHeight - 49 - sectionHeight
-//    }
-    
+
+    //MARK: -
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard section > 0 else {return nil}
+        return nil
+        //guard section > 0 else {return nil}
         
         /*let bg = UIView (frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: sectionHeight))
         
@@ -293,7 +242,7 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section > 0 ? sectionHeight : 0.01
+        return 2;
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

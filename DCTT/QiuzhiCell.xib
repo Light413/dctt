@@ -20,13 +20,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="找工作" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsi-gb-Jy2">
-                        <rect key="frame" x="10" y="11" width="80" height="30"/>
+                        <rect key="frame" x="10" y="11" width="80" height="20"/>
                         <color key="backgroundColor" red="0.91568359369999996" green="0.17537690410000001" blue="0.073229244619999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="Vna-Bf-cWt"/>
+                            <constraint firstAttribute="height" constant="20" id="Vna-Bf-cWt"/>
                             <constraint firstAttribute="width" constant="80" id="yjZ-Fm-Pug"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
@@ -36,14 +36,9 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="详细描述" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K61-8X-DoQ">
-                        <rect key="frame" x="10" y="56" width="80" height="35"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="35" id="GJy-jr-mt0"/>
-                            <constraint firstAttribute="width" constant="80" id="H2Q-MA-6KM"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K61-8X-DoQ">
+                        <rect key="frame" x="10" y="56" width="280" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -53,25 +48,27 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是一个帅气的，努力向上的男生，不抽烟喝酒，工作积极，热爱生活。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7s-Ry-B0p">
-                        <rect key="frame" x="10" y="101" width="300" height="41"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="10" y="97.5" width="300" height="38.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="rsi-gb-Jy2" firstAttribute="top" secondItem="dxT-9J-Hgy" secondAttribute="top" constant="11" id="10k-9j-NBJ"/>
                     <constraint firstItem="y7s-Ry-B0p" firstAttribute="leading" secondItem="rsi-gb-Jy2" secondAttribute="leading" id="N7r-gc-uD2"/>
-                    <constraint firstItem="K61-8X-DoQ" firstAttribute="top" secondItem="rsi-gb-Jy2" secondAttribute="bottom" constant="15" id="P5X-l1-S5H"/>
+                    <constraint firstItem="K61-8X-DoQ" firstAttribute="top" secondItem="rsi-gb-Jy2" secondAttribute="bottom" constant="25" id="P5X-l1-S5H"/>
                     <constraint firstAttribute="trailing" secondItem="y7s-Ry-B0p" secondAttribute="trailing" constant="10" id="PNH-MV-F6L"/>
                     <constraint firstItem="rsi-gb-Jy2" firstAttribute="leading" secondItem="dxT-9J-Hgy" secondAttribute="leading" constant="10" id="UfI-Cy-xEK"/>
                     <constraint firstItem="K61-8X-DoQ" firstAttribute="leading" secondItem="rsi-gb-Jy2" secondAttribute="leading" id="iLZ-sI-Yir"/>
                     <constraint firstAttribute="bottom" secondItem="y7s-Ry-B0p" secondAttribute="bottom" priority="250" constant="15" id="iQz-JI-f8d"/>
-                    <constraint firstItem="y7s-Ry-B0p" firstAttribute="top" secondItem="K61-8X-DoQ" secondAttribute="bottom" constant="10" id="ofe-kr-zuM"/>
+                    <constraint firstAttribute="trailing" secondItem="K61-8X-DoQ" secondAttribute="trailing" constant="30" id="iq9-SU-QVh"/>
+                    <constraint firstItem="y7s-Ry-B0p" firstAttribute="top" secondItem="K61-8X-DoQ" secondAttribute="bottom" constant="20" id="ofe-kr-zuM"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="6VE-hl-iSp"/>
             <connections>
+                <outlet property="desTitle" destination="K61-8X-DoQ" id="lkq-HB-f7q"/>
                 <outlet property="detailDes" destination="y7s-Ry-B0p" id="yah-Kp-IAD"/>
                 <outlet property="subType" destination="rsi-gb-Jy2" id="AE3-gU-eQy"/>
             </connections>

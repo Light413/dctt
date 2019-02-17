@@ -47,6 +47,7 @@ class MessageCell: UITableViewCell {
         
         time.text = Date.dateFormatterWithString(String.isNullOrEmpty(d["date"]))
         
+        
         ///type
         let type = String.isNullOrEmpty(d["type"])
         switch type {
@@ -104,7 +105,8 @@ class MessageCell: UITableViewCell {
                 print(error.localizedDescription)
             }
             
-            let attri = NSMutableAttributedString.init(string: str, attributes: [NSBackgroundColorAttributeName:kTableviewBackgroundColor])
+            let attri = NSMutableAttributedString.init(string: str, attributes: [:])//[NSBackgroundColorAttributeName:kTableviewBackgroundColor]
+            
             content.attributedText = attri
         }
 

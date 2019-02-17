@@ -100,7 +100,11 @@ extension Date {
             let h = Int(hour) % 24
             return "\(h)小时前"
         }
-        
+    
+        dateformatter.dateFormat = "yyyy-MM-dd"
+        return dateformatter.string(from: date!);
+    
+        /*
         let month = day / 30
         if month < 1 {
             let d = Int(day) % 30
@@ -114,9 +118,8 @@ extension Date {
         }
         
         let y = Int(year)
-        return "\(y)年前"
+        return "\(y)年前"*/
     }
-    
-    
-    
 }
+
+
