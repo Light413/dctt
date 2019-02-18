@@ -261,7 +261,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
                 if let uid = User.uid() {
                     (vc as! MeHomePageController).uid = uid;
                 }
-                
+                //vc = MeHomePageControllerNew()
                 break
             case 1:
                 vc = MessageViewController()
@@ -323,10 +323,10 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             
             // 1.创建分享参数
             let shareParames = NSMutableDictionary()
-            shareParames.ssdkSetupShareParams(byText: "专注郸城生活信息动态,服务老家生活,展现郸城魅力。了解老家的大事小情，把握身边的点点滴滴，就赶快上咱们郸城人自己的头条吧。",
+            shareParames.ssdkSetupShareParams(byText: "专注老家生活信息服务，关注分享家乡身边新动态，赶快告诉身边的小伙伴吧!",
                                               images : UIImage(named: "app_logo"),
-                                              url : URL.init(string: "http://dancheng0394.com"),
-                                              title : "对不起我来晚了,赶快把我介绍给家里的小伙伴吧",
+                                              url : URL.init(string: "http://dancheng0394.com/a/d/downloadapk.html"),
+                                              title : "咱郸城人自己的手中APP",
                                               type : SSDKContentType.auto)
 
             let platType = [SSDKPlatformType.subTypeWechatTimeline , SSDKPlatformType.subTypeWechatSession , SSDKPlatformType.subTypeQQFriend,SSDKPlatformType.subTypeQZone]

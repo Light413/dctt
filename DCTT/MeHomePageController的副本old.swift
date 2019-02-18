@@ -33,18 +33,41 @@ class MeHomePageController: MeBaseTableViewController {
     var _cellSectionHeadView:TTHeadView!
     let sectionHeadTitles = ["动态"]
     var _meInfoView:MeHomeHeadView!
-    
-    var viewM:MeHomeViewM!
     private var kuserName:String = ""
     
     //MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
         _initSubview()
-        
-        loadProfile()
     }
 
+    func addCellPageController() -> TTPageViewController {
+        ////pagevc
+        var vcArr = [UIViewController]()
+        let rec = CGRect (x: 0, y: 0, width: UIScreen.main.bounds.size.width > 320 ? kCurrentScreenWidth - 80 : kCurrentScreenWidth, height:kCurrentScreenHeight - 44 - sectionHeight)
+        
+        for _ in 0..<sectionHeadTitles.count {
+            let v = MeHomeListController();
+            v.uid = uid
+            vcArr.append(v)
+        }
+        
+        ////....待完善
+
+        let pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)
+        
+        self.addChildViewController(pagevc)
+        
+        return pagevc
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        navigationController?.navigationBar.setBackgroundImage(UIImage (named: "back_bg@2x"), for: .default)
+        //navigationController?.navigationBar.isTranslucent = true
+    }
+ 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
@@ -65,27 +88,27 @@ class MeHomePageController: MeBaseTableViewController {
         bg.addSubview(meinfo)
         _meInfoView = meinfo;
         
-        viewM = MeHomeViewM.init(self)
-        viewM.user_id = uid
-        viewM.isFromHomePage = true
-        viewM.noDataTipMsg = "还没有发布过动态"
-        
-        viewM._scrollViewDidScroll = { [weak self] scrollView in
-            guard let ss = self else {return}
-            let _y = scrollView.contentOffset.y + 0
-            if _y <= 0 {
-                ss.title = "";
-            }else{
-                ss.title = ss.kuserName
-            }
-        }
-        
-        tableView = viewM.tableview
-        
+        tableView = MeInfoTableView.init(frame: tableView.frame, style: .grouped)
         tableView.separatorStyle = .none
         tableView.tableHeaderView = bg
         tableView.tableFooterView = UIView()
         bg.backgroundColor = UIColor.clear
+        
+        
+        
+        //navigationController?.navigationBar.setBackgroundImage(imgWithColor(UIColor (red: 250/255.0, green: 251/255.0, blue: 253/255.0, alpha: 0).withAlphaComponent(0)), for: UIBarPosition.top, barMetrics: .default)
+        
+        //tableView.register(UINib (nibName: "MeHomeCell", bundle: nil), forCellReuseIdentifier: "MeHomeCellIdentifier")
+//        tableView.estimatedRowHeight = 80;
+//        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        
+        //tableView.register(UINib (nibName: "MeHomeSuperCell", bundle: nil), forCellReuseIdentifier: "MeHomeSuperCellIdentifier")
+        tableView.register(MeHomeCell2.self, forCellReuseIdentifier: "MeHomeSuperCellIdentifier")
+        tableView.rowHeight = kCurrentScreenHeight - 44 - sectionHeight
+        tableView.showsVerticalScrollIndicator = false
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(noti(_ :)), name: NSNotification.Name (rawValue: "superCanScrollNotification"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateProfile(_ :)), name: NSNotification.Name.init("updateProfileNotification"), object: nil)
         
@@ -126,33 +149,34 @@ class MeHomePageController: MeBaseTableViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let _y = scrollView.contentOffset.y + 0
         if _y <= 0 {
+            /*//navigationController?.navigationBar.isTranslucent = true
+            let s  = -_y / _kTableViewHeaderHeight
+            let w = scrollView.frame.width * (1 + s)
+            let h = _kTableViewHeaderHeight * (1 + s)
+            imgv.frame = CGRect (x: -scrollView.frame.size.width * s * 0.5, y: _y - 0, width: w, height: h)
+        */
             title = "";
         }else{
             title = kuserName
         }
         
-    }
-    
-    func loadProfile() {
-        guard let u = uid else {return}
-        let d:[String:Any] = ["uid":u, "type":3]
-        
-        AlamofireHelper.post(url: update_profile_url, parameters: d, successHandler: { [weak self](res) in
-            guard String.isNullOrEmpty(res["status"]) == "200" else { return;}
-            guard let user = res["body"] as? [String:Any] else {return}
-            //guard let ss = self else {return}
-            //let uid = String.isNullOrEmpty(user["user_id"])
-            //            ss.vm(uid)
-            
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: NSNotification.Name.init("updateProfileNotification"), object: nil, userInfo: user)
+        if _y >= _kTableViewHeaderHeight - _offset_y {
+            if canScroll {
+                canScroll = false
+                scrollView.contentOffset = CGPoint (x: 0, y: _kTableViewHeaderHeight - _offset_y)
+                
+                NotificationCenter.default.post(name: NSNotification.Name (rawValue: "childCanScrollNotification"), object: nil)
+                kchildViewCanScroll = true
+            }else {
+                scrollView.contentOffset = CGPoint (x: 0, y: _kTableViewHeaderHeight - _offset_y)
             }
-        }) { [weak self] (err) in
-            HUD.showText("加载用户资料失败")
-            guard let ss = self else {return}
-            ss.loadProfile()
+        } else {
+            if !canScroll {
+               scrollView.contentOffset = CGPoint (x: 0, y: _kTableViewHeaderHeight - _offset_y)
+            }
         }
     }
+    
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -169,6 +193,53 @@ class MeHomePageController: MeBaseTableViewController {
 }
 
 // MARK: - Table view data source
+extension MeHomePageController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let identifier :String = "MeHomeSuperCellIdentifier"
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MeHomeCell2
+        
+        _cellPageController = addCellPageController()
+        cell.addWithController(_cellPageController)
+        cell.selectionStyle = .none
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return sectionHeight
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let bg = UIView (frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: sectionHeight))
+        bg.backgroundColor = UIColor.white
+
+        var attri = TTHeadTextAttribute()
+        attri.itemWidth = 60
+        attri.selectedFontSize  = 15
+        attri.selectedTextColor = UIColor.darkGray
+        attri.bottomLineColor = tt_themeColor
+        
+        let topview  = TTHeadView (frame: CGRect (x: 0, y: 5, width: tableView.frame.width - 20, height: 35), titles: sectionHeadTitles, delegate: self ,textAttributes:attri)
+        bg.addSubview(topview)
+        _cellSectionHeadView = topview
+        return bg
+    }
+}
+
+extension MeHomePageController:TTHeadViewDelegate,TTPageViewControllerDelegate {
+    func tt_headViewSelectedAt(_ index: Int) {
+        _cellPageController.scrollToPageAtIndex(index)
+    }
+    
+    func tt_pageControllerSelectedAt(_ index: Int) {
+        _cellSectionHeadView.scrollToItemAtIndex(index)
+    }
+    
+}
 class MeInfoTableView: UITableView ,UIGestureRecognizerDelegate{
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return true

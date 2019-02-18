@@ -199,6 +199,7 @@
 		ADD7CE1B211C8C4800A33F3B /* MeHomeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7CE1A211C8C4800A33F3B /* MeHomeListController.swift */; };
 		ADDAF3802146B61A00B70EBB /* TableCellWithCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDAF37E2146B61A00B70EBB /* TableCellWithCollectionView.swift */; };
 		ADDAF3812146B61A00B70EBB /* TableCellWithCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADDAF37F2146B61A00B70EBB /* TableCellWithCollectionView.xib */; };
+		ADDD628D221A75C8002BFAB2 /* MeHomePageControllerNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDD628C221A75C8002BFAB2 /* MeHomePageControllerNew.swift */; };
 		ADDEA990210F630D007C1CBA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDEA98F210F630D007C1CBA /* Notification.swift */; };
 		ADE989512120710D004DAAC5 /* FriendRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE989502120710D004DAAC5 /* FriendRootController.swift */; };
 		ADE9C710212930DF00884E8A /* TTImagePreviewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE9C70E212930DE00884E8A /* TTImagePreviewController2.swift */; };
@@ -423,6 +424,7 @@
 		ADD7CE1A211C8C4800A33F3B /* MeHomeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeListController.swift; sourceTree = "<group>"; };
 		ADDAF37E2146B61A00B70EBB /* TableCellWithCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellWithCollectionView.swift; sourceTree = "<group>"; };
 		ADDAF37F2146B61A00B70EBB /* TableCellWithCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCellWithCollectionView.xib; sourceTree = "<group>"; };
+		ADDD628C221A75C8002BFAB2 /* MeHomePageControllerNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomePageControllerNew.swift; sourceTree = "<group>"; };
 		ADDEA98F210F630D007C1CBA /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		ADE989502120710D004DAAC5 /* FriendRootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRootController.swift; sourceTree = "<group>"; };
 		ADE9C70E212930DE00884E8A /* TTImagePreviewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTImagePreviewController2.swift; sourceTree = "<group>"; };
@@ -625,6 +627,7 @@
 				ADD7CE1A211C8C4800A33F3B /* MeHomeListController.swift */,
 				AD20F3BF2067DC6B003BDE17 /* MessageViewController.swift */,
 				AD20F3C12067DD57003BDE17 /* MeCollectController.swift */,
+				ADDD628C221A75C8002BFAB2 /* MeHomePageControllerNew.swift */,
 				AD20F3C92067EDE1003BDE17 /* FackBackViewController.swift */,
 				AD2E956F207E657D009C675B /* FensiBaseController.swift */,
 				AD2E9571207E65D2009C675B /* GuanzhuController.swift */,
@@ -1181,6 +1184,7 @@
 				A148A2AF1FD687DD0052DDF3 /* PublishImageCell.swift in Sources */,
 				ADEAE5061FB6C8F50048F876 /* ViewController.swift in Sources */,
 				AD1033401FB6CD920017E81C /* BaseTableViewController.swift in Sources */,
+				ADDD628D221A75C8002BFAB2 /* MeHomePageControllerNew.swift in Sources */,
 				AD69FA4E2149079D00465F21 /* TTImagePicker.swift in Sources */,
 				ADDEA990210F630D007C1CBA /* Notification.swift in Sources */,
 				AD202753204C388100E538CD /* PubJiaoYouController.swift in Sources */,

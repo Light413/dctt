@@ -13,7 +13,7 @@ class MeHomeListController: UITableViewController  , ShowAlertControllerAble {
     
     private var canScroll:Bool = false;
     private var dataArray = [[String:Any]]()
-    var viewM:MeHomeViewM!
+    var viewM:MeHomeViewM!//必须定义为全局变量
     
     override func viewDidLoad() {
         super.viewDidLoad()
