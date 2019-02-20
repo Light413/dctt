@@ -177,7 +177,7 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
                 
                 let rightItem = ss.getBarButtonItem(image: UIImage (named: "tabbar_icon_more")!, action: #selector(ss.publishAction))
                 
-                v.navigationItem.rightBarButtonItem = rightItem
+                //v.navigationItem.rightBarButtonItem = rightItem
                 
                 ss.navigationController?.pushViewController(v, animated: true)
                 

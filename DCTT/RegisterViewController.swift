@@ -22,19 +22,15 @@ class RegisterViewController: UITableViewController {
     
     ///注册或修改密码(默认注册操作)
     var isRegisterAction:Bool = true
-    
     let getCodeBtnBgColorDefault = UIColorFromHex(rgbValue: 0xC70F2B)
     let getCodeBtnBgColorSelected = UIColor.darkGray;
     var _timer:Timer!
-
     var _cnt = seconds
-    
     let disposeBag = DisposeBag.init();
     
     ///选中同意用户协议
     @IBOutlet weak var selectedBtn: UIButton!
-    
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         title = isRegisterAction ? "用户注册" : "修改密码";
@@ -57,8 +53,7 @@ class RegisterViewController: UITableViewController {
                 ss.registerBtn.backgroundColor = b ?  UIColorFromHex(rgbValue: 0xC70F2B) : kTableviewBackgroundColor
             }
         }.addDisposableTo(disposeBag)
-        
-        
+
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -68,7 +63,6 @@ class RegisterViewController: UITableViewController {
     
     deinit {
         _timer = nil
-//        print(self.description)
     }
     
     func timerAction()  {
@@ -102,18 +96,6 @@ class RegisterViewController: UITableViewController {
             AlamofireRequest(get_checkcode_url, parameter: ["phoneNumber":String.isNullOrEmpty(phone.text)]) { (res) in
                 HUD.showText("已发送验证码", view: UIApplication.shared.keyWindow!)
             }
-            
-            
-//            SMSSDK.getVerificationCode(by: .SMS, phoneNumber: String.isNullOrEmpty(phone.text), zone: "86", template: nil) { (error) in
-//                if let er = error {
-//                    print(er.localizedDescription)
-//                    HUD.showText("获取验证码失败,请稍后重试", view: _keyWindow)
-//                }else{
-//                    print("get code success")
-//                }
-//
-//            }
-            
             break
             
         case 2://注册/修改密码
@@ -122,33 +104,17 @@ class RegisterViewController: UITableViewController {
             }
             
             guard String.isNullOrEmpty(code.text).lengthOfBytes(using: String.Encoding.utf8) == 4 else {
-                HUD.showText("请输入正确的验证码", view: kAPPKeyWindow!)
-                return;
+                HUD.showText("请输入正确的验证码", view: kAPPKeyWindow!); return;
             }
             
             ///注册操作,是否同意用户协议
             if isRegisterAction {
                 guard selectedBtn.isSelected else {
-                    HUD.showText("请阅读并同意用户协议", view: kAPPKeyWindow!)
-                    return
+                    HUD.showText("请阅读并同意用户协议", view: kAPPKeyWindow!);return
                 }
             }
-            
-            SMSSDK.enableAppContactFriends(false)
-            HUD.show();
-            
-//            SMSSDK.commitVerificationCode(String.isNullOrEmpty(code.text), phoneNumber: String.isNullOrEmpty(phone.text), zone: "86") { (error) in
-//                if let er = error {
-//                    print(er.localizedDescription)
-//                    HUD.showText("验证失败,请稍后重试", view: _keyWindow)
-//                    HUD.dismiss()
-//                }else{
-//                    print("verification")
-//                    _submint()
-//                }
-//
-//            }
-           
+
+           HUD.show();
             var d = ["phone_number":String.isNullOrEmpty(phone.text),
                      "pwd":String.isNullOrEmpty(pwd.text),
                      "code":String.isNullOrEmpty(code.text)
@@ -164,17 +130,12 @@ class RegisterViewController: UITableViewController {
                 
                 guard let ss = self else {return}
                 ss.navigationController?.popViewController(animated: true)
-            })
-            
-            
-            break
+            });break
             
         case 3:
             let vc = BaseWebViewController(baseUrl:user_agreement_url)
             vc.title = "用户协议"
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-            break
+            self.navigationController?.pushViewController(vc, animated: true); break
             
         case 4:
             let vc = BaseWebViewController(baseUrl:privacy_agreement_url)
@@ -183,18 +144,10 @@ class RegisterViewController: UITableViewController {
             
             break
             
-        case 5:
-            sender.isSelected = !sender.isSelected
-            break
+        case 5: sender.isSelected = !sender.isSelected; break
         default:break
         }
-
-        
-        
     }
-    
-    
-    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2

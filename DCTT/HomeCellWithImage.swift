@@ -17,6 +17,10 @@ class HomeCellWithImage: HomeListBaseCell {
     
     @IBOutlet weak var igv: UIImageView!
     
+    @IBOutlet weak var igv_w: NSLayoutConstraint!
+    
+    @IBOutlet weak var igv_h: NSLayoutConstraint!
+    
     @IBOutlet weak var name: UILabel!
     
     @IBOutlet weak var time: UILabel!
@@ -41,6 +45,10 @@ class HomeCellWithImage: HomeListBaseCell {
         super.awakeFromNib()
         // Initialization code
         disLikeBtnSetStyle(dislikeBtn)
+        
+        let w = kCurrentScreenWidth / 3.0;
+        igv_w.constant = w;
+        igv_h.constant = w
     }
 
     

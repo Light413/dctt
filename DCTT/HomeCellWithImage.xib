@@ -84,7 +84,7 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OSy-t7-zuj">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OSy-t7-zuj">
                         <rect key="frame" x="21" y="92.5" width="80" height="80"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="80" id="2dD-9J-NJz"/>
@@ -118,6 +118,8 @@
                 <outlet property="avatarImg" destination="rci-bo-HfT" id="ktB-y7-Plq"/>
                 <outlet property="dislikeBtn" destination="1qq-A2-AcH" id="pBG-xx-lph"/>
                 <outlet property="igv" destination="OSy-t7-zuj" id="Qsl-VV-rzj"/>
+                <outlet property="igv_h" destination="2dD-9J-NJz" id="LZS-2C-hV5"/>
+                <outlet property="igv_w" destination="NbU-gE-lZb" id="0PF-Lm-mjJ"/>
                 <outlet property="itemType" destination="bLZ-tx-gcA" id="YCe-ou-MUY"/>
                 <outlet property="msg" destination="f9r-6y-Lon" id="Ijs-PU-G7F"/>
                 <outlet property="name" destination="roy-3a-mZO" id="fCf-cf-fXT"/>

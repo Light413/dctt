@@ -20,7 +20,7 @@ pod 'SwiftTTPageController'
 ###第三方平台
 pod 'Bugly'
 
-pod 'mob_smssdk'
+#pod 'mob_smssdk'
 ###sharesdk MOBFoundation (3.1.9),mob_sharesdk (4.1.4)
 pod 'mob_sharesdk'
 pod 'mob_sharesdk/ShareSDKUI'
