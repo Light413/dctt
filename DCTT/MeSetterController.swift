@@ -131,19 +131,13 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
             break
 
         case (2,_):
-            showMsg("将要删除登录信息", title: "退出", handler: { [unowned self] in
+            showMsg("\n此操作会清除用户相关信息,确定退出？", title: "确定", handler: { [unowned self] in
                 self._logout()
             })
 
             break
             
-        case (3,_):
-//            showMsg("将要删除用户全部信息及发布内容", title: "注销", handler: { [unowned self] in
-//
-//            })
-
-            break
-            
+        case (3,_): break
         default: break
         }
         if indexPath.section == 2 {

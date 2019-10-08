@@ -44,7 +44,7 @@ class SimplePrivacyController: BaseViewController , UITextViewDelegate {
         
         attri.addAttribute(NSLinkAttributeName, value:NSURL.init(string: "dctt:p/userPrivacy.html")!, range: NSRange.init(location: s.count - 4, length: 4) )
         
-        msg.linkTextAttributes = [NSForegroundColorAttributeName:UIColor.blue ]
+        msg.linkTextAttributes = [NSForegroundColorAttributeName:UIColorFromHex(rgbValue: 0xff4500) ]
         
         msg.attributedText = attri;
         msg.delegate = self

@@ -15,7 +15,7 @@ class AboutUsViewController: MeBaseTableViewController {
         super.viewDidLoad()
 
         if let info = Bundle.main.infoDictionary {
-            appversion.text = "当前版本" + String.isNullOrEmpty(info["CFBundleShortVersionString"]) + "(\(String.isNullOrEmpty(info["CFBundleVersion"])))"
+            appversion.text = "郸城头条" + String.isNullOrEmpty(info["CFBundleShortVersionString"]) + "(\(String.isNullOrEmpty(info["CFBundleVersion"])))"
         }
         
     }

@@ -55,7 +55,7 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         let _width = (kCurrentScreenWidth - offset *  2 - 15) / 2.0
         
         let _layout = UICollectionViewFlowLayout()
-        _layout.itemSize = CGSize (width: _width, height: _width * 0.4)
+        _layout.itemSize = CGSize (width: _width, height: _width * 0.5)
         _layout.minimumInteritemSpacing = 5
         _layout.minimumLineSpacing = 10
         _layout.scrollDirection = .vertical        
@@ -118,6 +118,8 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         _t.text = str
         _t.textAlignment = .center
         _t.font = UIFont.systemFont(ofSize: 15)
+        _t.textColor = UIColorFromHex(rgbValue: 0x444444);
+        
         cell.layer.borderWidth = 1
         cell.layer.borderColor = kTableviewBackgroundColor.cgColor
         cell.layer.masksToBounds = true
@@ -127,59 +129,7 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let d = dataArray[indexPath.section][indexPath.row]
-        let item_id = d["item_id"]!
-
-        _dismiss { [weak self]  in
-            guard let strongSelf = self else {return }
-            var vc : UIViewController
-            
-            switch item_id {
-            case "id001" , "id004"://发布新鲜事
-
-                if indexPath.section == 0 {
-                   vc = PublishViewController.init(info:d)
-                }else{
-                    vc = strongSelf.controllerWith(identifierId: "pub_zt_id")
-                }
-                
-                break;
-                
-//            case "id002"://朋友圈
-//                vc = PublishFriendViewController(); break;
-                
-//            case "id003"://房屋信息 - 问答
-//                vc =  //BaseVCWithTableView() //
-//                strongSelf.controllerWith(identifierId: "pub_fangwu_id")
-//                break
-                
-//            case "id004"://商家信息
-//                vc = strongSelf.controllerWith(identifierId: "pub_shangjia_id")
-//                break
-                
-//            case "id005"://交友
-//                vc = strongSelf.controllerWith(identifierId: "pub_jiaoyou_id")
-//                break
-                
-            case "id003" ,"id005" ,  "id006" , "id007"://求职招聘
-                vc = strongSelf.controllerWith(identifierId: "pub_qiuzhi_id")
-                break
-                
-//            case "id007"://打车出行
-//                vc = strongSelf.controllerWith(identifierId: "pub_dache_id")
-//                break
-
-            default:return
-            }
-            
-            if vc .isKind(of: PubBaseTableViewController.self){
-                (vc as! PubBaseTableViewController).typeInfo = d
-            }
-            
-            
-            let nav = BaseNavigationController (rootViewController:vc)
-            UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
-        }
+        _showAlert(indexPath);
     }
     
     
@@ -212,9 +162,79 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
     }
     
     
+    func _showAlert(_ indexPath: IndexPath) {
+        let _v = UIAlertController.init(title: "提示", message: "请发布真实有效信息，否则审核无法通过。", preferredStyle: .alert);
+        let action1 = UIAlertAction.init(title: "知道了", style: .default) {[weak self] (action)  in
+            guard let ss = self else {return}
+            ss._toPublish(indexPath);
+        }
+        let action2 = UIAlertAction.init(title: "发布须知", style: .default) {[weak self] (action)  in
+            guard let ss = self else {return}
+            let vc = BaseWebViewController(baseUrl:publish_note_url)
+            vc.title = "发布须知"
+            ss.navigationController?.pushViewController(vc, animated: true);
+        }
+        
+        _v.addAction(action1);
+        _v.addAction(action2);
+        self.navigationController?.present(_v, animated: true, completion: nil);
+    }
+    
+    func _toPublish(_ indexPath: IndexPath) {
+        let d = dataArray[indexPath.section][indexPath.row]
+        let item_id = d["item_id"]!
+        
+        _dismiss { [weak self]  in
+            guard let strongSelf = self else {return }
+            var vc : UIViewController
+            
+            switch item_id {
+            case "id001" , "id004"://发布新鲜事
+                if indexPath.section == 0 {
+                    vc = PublishViewController.init(info:d)
+                }else{
+                    vc = strongSelf.controllerWith(identifierId: "pub_zt_id")
+                }
+                
+                break;
+                
+                //            case "id002"://朋友圈
+                //                vc = PublishFriendViewController(); break;
+                
+                //            case "id003"://房屋信息 - 问答
+                //                vc =  //BaseVCWithTableView() //
+                //                strongSelf.controllerWith(identifierId: "pub_fangwu_id")
+                //                break
+                
+                //            case "id004"://商家信息
+                //                vc = strongSelf.controllerWith(identifierId: "pub_shangjia_id")
+                //                break
+                
+                //            case "id005"://交友
+                //                vc = strongSelf.controllerWith(identifierId: "pub_jiaoyou_id")
+                //                break
+                
+            case "id003" ,"id005" ,  "id006" , "id007"://求职招聘
+                vc = strongSelf.controllerWith(identifierId: "pub_qiuzhi_id")
+                break;
+            default:return
+            }
+            
+            if vc .isKind(of: PubBaseTableViewController.self){
+                (vc as! PubBaseTableViewController).typeInfo = d
+            }
+            
+            
+            let nav = BaseNavigationController (rootViewController:vc)
+            UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
 }
+
+extension PubSelectTypeController:ShowAlertControllerAble{}

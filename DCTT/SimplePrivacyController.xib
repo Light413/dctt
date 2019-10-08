@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,35 +22,37 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXG-AA-1g2">
-                    <rect key="frame" x="16" y="91" width="343" height="516"/>
+                    <rect key="frame" x="16" y="81.5" width="343" height="525.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <dataDetectorType key="dataDetectorTypes" link="YES"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dcd-6k-lC8">
-                    <rect key="frame" x="0.0" y="617" width="187" height="50"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <rect key="frame" x="0.0" y="617" width="187.5" height="50"/>
+                    <color key="backgroundColor" red="0.88235294117647056" green="0.8901960784313725" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="iya-zp-FZZ"/>
                     </constraints>
                     <state key="normal" title="仅浏览">
-                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="userOperationAction:" destination="-1" eventType="touchUpInside" id="z7u-dm-2Rk"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRN-Zg-DNm">
-                    <rect key="frame" x="188" y="617" width="187" height="50"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                    <state key="normal" title="同意"/>
+                    <rect key="frame" x="187.5" y="617" width="187.5" height="50"/>
+                    <color key="backgroundColor" red="0.91347789115646261" green="0.5" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="同意">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <connections>
                         <action selector="userOperationAction:" destination="-1" eventType="touchUpInside" id="w3E-bK-LFZ"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户隐私政策概要" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4u-48-GeG">
-                    <rect key="frame" x="118" y="60" width="139" height="21"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <rect key="frame" x="122" y="50" width="131" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -60,11 +62,11 @@
                 <constraint firstItem="WXG-AA-1g2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="1UJ-cL-Gy1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JRN-Zg-DNm" secondAttribute="trailing" id="6Ka-o8-At2"/>
                 <constraint firstItem="s4u-48-GeG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EVF-gU-MOM"/>
-                <constraint firstItem="JRN-Zg-DNm" firstAttribute="leading" secondItem="Dcd-6k-lC8" secondAttribute="trailing" constant="1" id="LeT-2H-dBz"/>
+                <constraint firstItem="JRN-Zg-DNm" firstAttribute="leading" secondItem="Dcd-6k-lC8" secondAttribute="trailing" id="LeT-2H-dBz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Dcd-6k-lC8" secondAttribute="bottom" id="MKr-74-eBt"/>
                 <constraint firstItem="Dcd-6k-lC8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Nq7-HT-knp"/>
-                <constraint firstItem="WXG-AA-1g2" firstAttribute="top" secondItem="s4u-48-GeG" secondAttribute="bottom" constant="10" id="QId-8Y-Lb5"/>
-                <constraint firstItem="s4u-48-GeG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="S9T-hl-Umx"/>
+                <constraint firstItem="WXG-AA-1g2" firstAttribute="top" secondItem="s4u-48-GeG" secondAttribute="bottom" constant="12" id="QId-8Y-Lb5"/>
+                <constraint firstItem="s4u-48-GeG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="S9T-hl-Umx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WXG-AA-1g2" secondAttribute="trailing" constant="16" id="Xda-3J-t1s"/>
                 <constraint firstItem="JRN-Zg-DNm" firstAttribute="centerY" secondItem="Dcd-6k-lC8" secondAttribute="centerY" id="bOO-gr-9cM"/>
                 <constraint firstItem="JRN-Zg-DNm" firstAttribute="height" secondItem="Dcd-6k-lC8" secondAttribute="height" id="jcU-rs-vFS"/>

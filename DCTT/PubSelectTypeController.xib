@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Sxm-jg-Al5">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="562"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="622"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hwF-QO-bh6">
                         <size key="itemSize" width="50" height="50"/>
@@ -31,10 +31,10 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V85-7X-qST">
-                    <rect key="frame" x="0.0" y="622" width="414" height="50"/>
-                    <color key="backgroundColor" red="1" green="0.27058823529411763" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="0.0" y="627" width="414" height="45"/>
+                    <color key="backgroundColor" red="0.96064519557823125" green="0.55229591836734693" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="uEC-R5-kbL"/>
+                        <constraint firstAttribute="height" constant="45" id="uEC-R5-kbL"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="取消">
@@ -60,30 +60,6 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zKi-G9-2yz">
-                    <rect key="frame" x="30" y="562" width="354" height="50"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="· 发布请选择合适的分类，便于阅读推广" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beg-Zy-e01">
-                            <rect key="frame" x="8" y="5" width="233" height="16"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="· 违规不合理的内容一旦发现会自动被删除" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4x-6M-dI7">
-                            <rect key="frame" x="8.0000000000000142" y="27" width="246.33333333333337" height="16"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="z4x-6M-dI7" firstAttribute="leading" secondItem="beg-Zy-e01" secondAttribute="leading" id="MLP-Zl-XQd"/>
-                        <constraint firstItem="beg-Zy-e01" firstAttribute="top" secondItem="zKi-G9-2yz" secondAttribute="top" constant="5" id="XQf-Zu-57e"/>
-                        <constraint firstItem="z4x-6M-dI7" firstAttribute="top" secondItem="beg-Zy-e01" secondAttribute="bottom" constant="6" id="YEw-Wy-xlv"/>
-                        <constraint firstItem="beg-Zy-e01" firstAttribute="leading" secondItem="zKi-G9-2yz" secondAttribute="leading" constant="8" id="qox-fY-K2h"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -92,16 +68,12 @@
                 <constraint firstAttribute="trailing" secondItem="Sxm-jg-Al5" secondAttribute="trailing" id="BVh-NQ-Kjk"/>
                 <constraint firstItem="Sxm-jg-Al5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Dly-R9-gr7"/>
                 <constraint firstItem="V85-7X-qST" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="EnP-9U-Mzx"/>
-                <constraint firstItem="V85-7X-qST" firstAttribute="top" secondItem="zKi-G9-2yz" secondAttribute="bottom" constant="10" id="SBM-Wo-UGd"/>
                 <constraint firstItem="Gvr-4M-cf4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="W7h-sh-7Ux"/>
                 <constraint firstAttribute="bottom" secondItem="V85-7X-qST" secondAttribute="bottom" id="Wil-fu-Ccc"/>
                 <constraint firstItem="Sxm-jg-Al5" firstAttribute="top" secondItem="Gvr-4M-cf4" secondAttribute="bottom" id="XCg-Rf-WVp"/>
                 <constraint firstItem="V85-7X-qST" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Y7y-2j-Nuu"/>
-                <constraint firstItem="zKi-G9-2yz" firstAttribute="top" secondItem="Sxm-jg-Al5" secondAttribute="bottom" id="eCd-6i-U5a"/>
-                <constraint firstItem="zKi-G9-2yz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="fVO-DX-wAE"/>
                 <constraint firstItem="Sxm-jg-Al5" firstAttribute="top" secondItem="KHr-Fc-SKN" secondAttribute="bottom" id="jbG-wl-ZCE"/>
-                <constraint firstItem="V85-7X-qST" firstAttribute="top" secondItem="Sxm-jg-Al5" secondAttribute="bottom" constant="60" id="ltX-jT-6ap"/>
-                <constraint firstAttribute="trailing" secondItem="zKi-G9-2yz" secondAttribute="trailing" constant="30" id="qR3-h1-faS"/>
+                <constraint firstItem="V85-7X-qST" firstAttribute="top" secondItem="Sxm-jg-Al5" secondAttribute="bottom" constant="5" id="ltX-jT-6ap"/>
                 <constraint firstItem="KHr-Fc-SKN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zgK-8k-7fd"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

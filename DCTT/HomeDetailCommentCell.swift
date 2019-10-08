@@ -136,13 +136,11 @@ class HomeDetailCommentCell: UITableViewCell {
     
     func _deleteMyComment() {
         ///删除自己的评论
-        let d = ["type":"delete","id":commentId!]
+        let d = ["type":"delete","id":commentId! , "uid":User.uid()!]
         
         AlamofireHelper.post(url: comment_url, parameters: d, successHandler: { (res) in
             HUD.show(successInfo: "删除成功")
-            
             NotificationCenter.default.post(name: kDeleteCommentNotification, object: nil)
-            
         }) { (err) in
             HUD.show(info: "删除失败,请稍后重试")
         }

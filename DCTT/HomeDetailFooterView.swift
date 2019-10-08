@@ -74,7 +74,7 @@ class HomeDetailFooterView: UIView {
             ss.zanBtn.isSelected = true
             HUD.show(successInfo: "点赞成功")
         }) { (error) in
-           HUD.show(info: "点赞失败,请稍后重试")
+           HUD.show(info: error?.localizedDescription ?? "点赞失败,请稍后重试")
         }
 
     }

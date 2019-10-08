@@ -33,12 +33,16 @@ class AlamofireHelper: NSObject {
         
         
         guard withUrl.lengthOfBytes(using: String.Encoding.utf8) > 0 else { return}
-        var header:HTTPHeaders = [:]
-        if let token = UserDefaults.standard.value(forKey: "user-token") as? String {
-            header["Authorization"] = token;
+        var header:HTTPHeaders = [:];
+        var _pars:[String:Any] = parameters ?? [:];
+        if let token = User.token() {
+            header["Authorization"] = token; _pars["t"] = token;
+            if User.isLogined() {
+                _pars["uid"] = User.uid()!
+            }
         }
         
-        Alamofire.request(base_url + withUrl, method: method, parameters: parameters, encoding:encoding, headers: header)
+        Alamofire.request(base_url + withUrl, method: method, parameters: _pars, encoding:encoding, headers: header)
             .validate()
             .responseJSON { (dataResponse) in
                 DispatchQueue.main.async {
@@ -95,12 +99,7 @@ class AlamofireHelper: NSObject {
                 successHandler:(([String:Any]) -> Void)? = nil,
                 failureHandler:(() -> Void)? = nil)
     {
-        var header:HTTPHeaders = [:]
-        if let token = UserDefaults.standard.value(forKey: "user-token") as? String {
-            header["Authorization"] = token;
-            header["content-type"] = "multipart/form-data"
-        }
-        
+        let header:HTTPHeaders = ["content-type":"multipart/form-data"];
         Alamofire.upload(multipartFormData: { (multipartData) in
             if let fils = uploadFiles {
                 for obj in fils {
@@ -140,12 +139,19 @@ class AlamofireHelper: NSObject {
                         multipartData.append(d, withName: k)
                     }
                 }
+                
+                if let token = User.token() {
+                    if let data = token.data(using: String.Encoding.utf8){
+                        multipartData.append(data, withName: "t");
+                    }
+                }
+                
             }
         }, to: base_url + to, headers: header) { (encodingResult) in
             switch encodingResult {
             case .success(request: let upload, streamingFromDisk: _, streamFileURL:_):
                 upload.validate().responseJSON(completionHandler: {  (res) in
-                    print("111");//判断返回的code-200
+                    print("post success");//判断返回的code-200
                     if let success = successHandler , let value = res.result.value as? [String:Any] {
                         success(value);
                     }
@@ -153,7 +159,7 @@ class AlamofireHelper: NSObject {
                 break;
                 
             case .failure(let error):
-                print("2222")
+                print("post error")
                 if let fail = failureHandler {
                     fail();
                 }

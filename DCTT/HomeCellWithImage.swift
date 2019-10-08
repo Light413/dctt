@@ -67,6 +67,8 @@ class HomeCellWithImage: HomeListBaseCell {
         if let u = d["user"] as? [String:Any]{
             if let u_avatar = u["avatar_thumb"] as? String{
                 avatarImg.kf.setImage(with: URL.init(string: u_avatar));
+            }else{
+                avatarImg.image = UIImage.init(named: "avatar_default")
             }
         }
         

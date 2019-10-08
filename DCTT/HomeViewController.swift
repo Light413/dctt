@@ -71,11 +71,11 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
             "公告":"13",
         ]
         
-        let _w :CGFloat = 50.0 * CGFloat(titles.count) < kCurrentScreenWidth ? 60 : 55
+        let _w :CGFloat = 50.0 * CGFloat(titles.count) < kCurrentScreenWidth ? 55 : 50
         var attri = TTHeadTextAttribute()
         attri.itemWidth = _w
-        attri.defaultFontSize = 18
-        attri.selectedFontSize = 18
+        attri.defaultFontSize = 16
+        attri.selectedFontSize = 16
         attri.selectedTextColor = UIColorFromHex(rgbValue: 0xff4500)
         attri.bottomLineColor = UIColorFromHex(rgbValue: 0xff4500)
         attri.bottomLineHeight = 2

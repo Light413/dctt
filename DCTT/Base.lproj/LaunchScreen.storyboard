@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,35 +21,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lanuch_icon" translatesAutoresizingMaskIntoConstraints="NO" id="izD-Ua-XTX">
-                                <rect key="frame" x="117.5" y="183.5" width="140" height="140"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="nA0-As-iXk"/>
-                                    <constraint firstAttribute="height" constant="140" id="qY5-gM-W8U"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1080x1882.png" translatesAutoresizingMaskIntoConstraints="NO" id="izD-Ua-XTX">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="咱郸城人自己的头条APP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Net-lD-8xM">
-                                <rect key="frame" x="104.5" y="641" width="166.5" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Net-lD-8xM" secondAttribute="bottom" constant="8" id="Nck-pb-xVy"/>
-                            <constraint firstItem="izD-Ua-XTX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-80" id="T0H-Iy-e0E"/>
-                            <constraint firstItem="izD-Ua-XTX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="YGL-eE-Sow"/>
-                            <constraint firstItem="Net-lD-8xM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="muD-7L-dij"/>
+                            <constraint firstAttribute="trailing" secondItem="izD-Ua-XTX" secondAttribute="trailing" id="JyY-6f-tI6"/>
+                            <constraint firstItem="izD-Ua-XTX" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="X6K-Wt-iUO"/>
+                            <constraint firstItem="izD-Ua-XTX" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="cYE-yD-CWm"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="izD-Ua-XTX" secondAttribute="bottom" id="fqg-2B-7Vq"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>
-        <image name="lanuch_icon" width="60" height="60"/>
+        <image name="1080x1882.png" width="1080" height="1882"/>
     </resources>
 </document>

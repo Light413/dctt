@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-let kIsIPhoneX = UIScreen.main.bounds.size.equalTo(CGSize (width: 375, height: 812))
+let kIsIPhoneX = UIScreen.main.bounds.size.equalTo(CGSize (width: 375, height: 812)) || UIScreen.main.bounds.size.equalTo(CGSize (width: 414, height: 896))
+
 let kNavigationBarHeight:CGFloat = kIsIPhoneX ? 88 : 64
-let kBottomToolBarHeight:CGFloat = kIsIPhoneX ? 80 : 49
+let kBottomToolBarHeight:CGFloat = kIsIPhoneX ? 83 : 49
 
 
 ///
@@ -54,7 +55,7 @@ let disclaimer_url = "p/disclaimer.html"
 let usehelp_url = "p/usehelp.html"
 let privacy_agreement_url = "p/userPrivacy.html"
 let feedbackList_url = "p/feedbackList.html"
-
+let publish_note_url = "p/publishNotes.html"//发布须知
 
 ///
 let Loading = {HUD.show()}

@@ -223,6 +223,7 @@ extension MeHomeViewM:UITableViewDelegate,UITableViewDataSource{
             ss.tableview.reloadData()
             HUD.show(successInfo: "删除成功")
         }) { (error) in
+            print(error)
             HUD.show(info: "删除失败,请重试")
         }
     }

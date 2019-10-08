@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -38,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dr-GD-2fH">
-                        <rect key="frame" x="262" y="13" width="30" height="20"/>
+                        <rect key="frame" x="266" y="13" width="30" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="5Yc-LX-yeP"/>
                             <constraint firstAttribute="height" constant="20" id="stI-hg-Rs1"/>
@@ -63,18 +62,18 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阅读0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wd-HX-BtT">
-                        <rect key="frame" x="21" y="99" width="35" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <rect key="frame" x="21" y="99" width="32.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新鲜事" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eih-8B-5ey">
-                        <rect key="frame" x="76" y="96.5" width="34" height="20"/>
-                        <color key="backgroundColor" red="1" green="0.27058823529411763" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="73.5" y="97.5" width="31" height="18"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.44313725490196076" blue="0.027450980392156862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="cDQ-SD-Prv"/>
+                            <constraint firstAttribute="height" constant="18" id="cDQ-SD-Prv"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
@@ -89,7 +88,7 @@
                     <constraint firstItem="2SM-ei-zK7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="0Mq-PQ-PHJ"/>
                     <constraint firstItem="XM8-0M-xRV" firstAttribute="leading" secondItem="2SM-ei-zK7" secondAttribute="leading" id="6a4-EQ-UnW"/>
                     <constraint firstItem="FsJ-uz-DoU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="6bj-ix-AQ1"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="3dr-GD-2fH" secondAttribute="trailing" constant="12" id="6eT-ms-f5w"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="3dr-GD-2fH" secondAttribute="trailing" constant="8" id="6eT-ms-f5w"/>
                     <constraint firstItem="4Wd-HX-BtT" firstAttribute="leading" secondItem="Wjc-oY-JMp" secondAttribute="leading" id="BtF-S4-JVG"/>
                     <constraint firstItem="Wjc-oY-JMp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="ECs-8O-1Te"/>
                     <constraint firstItem="eih-8B-5ey" firstAttribute="leading" secondItem="4Wd-HX-BtT" secondAttribute="trailing" constant="20" id="IJC-dR-xUw"/>

@@ -33,6 +33,7 @@ class PublishViewController: BasePublishController,ShowAlertControllerAble {
         AlamofireHelper.upload(to: publish_url, parameters: d, uploadFiles: ig, successHandler: { [weak self] (res) in
             HUD.show(successInfo: "发布成功!");
             guard let ss = self else {return}
+            print(res)
             
             let vc = UIAlertController.init(title: "发布成功",message: "感谢你的参与，系统24小时内进行审核通过后才会显示", preferredStyle: .alert);
             let action2 = UIAlertAction.init(title: "我知道了", style: .default) { (action) in

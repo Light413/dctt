@@ -43,6 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         
         _initSys()
         
+        let local = Locale.current
+        let n = local.localizedString(forRegionCode: local.regionCode!);
+        print(n!);
+        
         return true
     }
 

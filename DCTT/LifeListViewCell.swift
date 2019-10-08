@@ -99,6 +99,8 @@ class LifeListViewCell: UITableViewCell,HomeCellFillDateAble , DisLikeButtonStyl
         if let igurl = dic["avatar"] as? String {
             let url = URL.init(string: igurl)
             user_avatar.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
+        }else{
+            user_avatar.image = UIImage.init(named: "avatar_default")
         }
     }
     

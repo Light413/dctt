@@ -36,7 +36,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
         _init()
 
-        _topBgView = topView()
+//        _topBgView = topView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(loginSuccessNoti(_ :)), name: userLoginedSuccessNotification, object: nil)
         
@@ -50,7 +50,8 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     ///获取用户最新信息
     func loadUserInfo()  {
         guard let uid = User.uid() else {
-            _tableView.reloadData();  return
+            _tableView.reloadData();
+            _tableView.selectRow(at: IndexPath.init(row: 0, section: 0), animated: false, scrollPosition: .top); return
         }
         
         let d = ["uid":uid, "type":"3"]
@@ -107,7 +108,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func topView() -> UIView {
         let _l = UILabel .init(frame: CGRect (x: 0, y: 20, width: kCurrentScreenWidth, height: 44))
-        _l.text = "正儿八经的程序员GG"
+        _l.text = "用户GG"
         _l.textAlignment = .center
         _l.font = UIFont.systemFont(ofSize: 17)
         
@@ -143,11 +144,11 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         _tableView.register(UINib (nibName: "MeNotRegisterCell", bundle: nil), forCellReuseIdentifier: "MeNotRegisterCellIdentifier")
         
         _tableView.sectionHeaderHeight = 0
-        _tableView.sectionFooterHeight = 10
+        _tableView.sectionFooterHeight = 6
         _tableView.tableHeaderView = UIView (frame: CGRect (x: 0, y: 0, width: 0, height: CGFloat.leastNormalMagnitude))
         view.addSubview(_tableView)
         _tableView.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
-        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0)
+        _tableView.contentInset = UIEdgeInsetsMake(-20, 0, 10, 0)
         _tableView.showsVerticalScrollIndicator = false
         
         //_tableView.backgroundColor = UIColor.white
@@ -165,7 +166,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let _y = scrollView.contentOffset.y
         
-        _topBgView.alpha = _y > 64 ? 1 : 0
+//        _topBgView.alpha = _y > 64 ? 1 : 0
     }
 
     
@@ -186,7 +187,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0:return user_has_logined ? 200 : 180
+        case 0:return user_has_logined ? 200 : 120
             default:return 60
         }
     }
@@ -326,7 +327,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
             shareParames.ssdkSetupShareParams(byText: "专注老家生活信息服务，关注分享家乡身边新动态，赶快告诉身边的小伙伴吧!",
                                               images : UIImage(named: "app_logo"),
                                               url : URL.init(string: "http://dancheng0394.com/a/d/downloadapk.html"),
-                                              title : "咱郸城人自己的手中APP",
+                                              title : "咱郸城人自己的APP",
                                               type : SSDKContentType.auto)
 
             let platType = [SSDKPlatformType.subTypeWechatTimeline , SSDKPlatformType.subTypeWechatSession , SSDKPlatformType.subTypeQQFriend,SSDKPlatformType.subTypeQZone]
