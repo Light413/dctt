@@ -5,7 +5,7 @@
 
 ### 正在Swift5.0改写，感谢关注
 
-* Swift3.0不在维护更新[https://github.com/Light413/dctt/tree/swift3.0](https://github.com/Light413/dctt/tree/swift3.0）
+* Swift3.0版本： [https://github.com/Light413/dctt/tree/swift3.0](https://github.com/Light413/dctt/tree/swift3.0) 不在维护更新
 
 * 网站APP主页：[http://dancheng0394.com](http://dancheng0394.com)
 
