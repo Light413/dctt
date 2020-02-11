@@ -3,9 +3,10 @@
 >郸城人自己的手中APP，本地生活服务信息发布交流平台。
 一款专注郸城老家本地生活服务APP，集信息发布、商家品牌推广、相亲交友、求职招聘、找同学、吃喝玩乐等便民信息，旨在促进本地信息流通、分享快乐，方便百姓生活、弘扬社会正能量。
 
-###正在Swift5.0改写，感谢关注
+### 正在Swift5.0改写，感谢关注
 
-* [Swift3.0代码分支](https://github.com/Light413/dctt/tree/swift3.0）不在维护更新。
+* Swift3.0不在维护更新[https://github.com/Light413/dctt/tree/swift3.0](https://github.com/Light413/dctt/tree/swift3.0）
+
 * 网站APP主页：[http://dancheng0394.com](http://dancheng0394.com)
 
 * 必须：`git pull` , `pod install`, ok!
