@@ -64,11 +64,11 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
         
         collectionview.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCellIdentifier")
         
-        collectionview.register(UINib (nibName: "PubTypeCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PubTypeCollectionReusableViewIdentifier")
+        collectionview.register(UINib (nibName: "PubTypeCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PubTypeCollectionReusableViewIdentifier")
         
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = false
-        collectionview.contentInset = UIEdgeInsetsMake(5, offset, 10, offset)
+        collectionview.contentInset = UIEdgeInsets.init(top: 5, left: offset, bottom: 10, right: offset)
         
     }
     
@@ -136,8 +136,8 @@ class PubSelectTypeController: BaseViewController ,UICollectionViewDelegate,UICo
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        if kind == UICollectionElementKindSectionHeader {
-            let v = collectionview.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "PubTypeCollectionReusableViewIdentifier", for: indexPath) as! PubTypeCollectionReusableView
+        if kind == UICollectionView.elementKindSectionHeader {
+            let v = collectionview.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PubTypeCollectionReusableViewIdentifier", for: indexPath) as! PubTypeCollectionReusableView
             
             v.backgroundColor = UIColor.white
             v.title.text = _head_section_titles[indexPath.section]

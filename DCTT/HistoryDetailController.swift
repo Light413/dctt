@@ -19,7 +19,7 @@ class HistoryDetailController: MeBaseTableViewController {
 
         tableView.register(UINib (nibName: "_TodayDetailCell", bundle: nil), forCellReuseIdentifier: "_TodayViewCellIdentifier")
         tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
 
         
         if let d = info {

@@ -25,7 +25,7 @@ class TTRefreshFooter: MJRefreshAutoFooter {
         self.addSubview(_l)
         self.title = _l
         
-        let _loading = UIActivityIndicatorView.init(activityIndicatorStyle: .gray)
+        let _loading = UIActivityIndicatorView.init(style: .gray)
         self.addSubview(_loading)
         self.loading = _loading
     }

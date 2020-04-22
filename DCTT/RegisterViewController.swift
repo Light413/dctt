@@ -37,7 +37,7 @@ class RegisterViewController: UITableViewController {
         registerBtn.setTitle(isRegisterAction ? "注册" : "修改", for: .normal)
         
         _timer = Timer.init(timeInterval: 1, target: self, selector:  #selector(timerAction), userInfo: nil, repeats: true)
-        RunLoop.current.add(_timer, forMode: .commonModes)
+        RunLoop.current.add(_timer, forMode: RunLoop.Mode.common)
         _timer.fireDate = Date.distantFuture
         
         ///////
@@ -65,7 +65,7 @@ class RegisterViewController: UITableViewController {
         _timer = nil
     }
     
-    func timerAction()  {
+    @objc func timerAction()  {
         guard _cnt > 0 else {
             _cnt = seconds
             _timer.fireDate = Date.distantFuture

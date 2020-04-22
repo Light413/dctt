@@ -51,7 +51,7 @@ class ServerDetailController: BaseDetailController {
         loadComment()
     }
     
-    func postCommentSuccessAction(_ noti:NSNotification) {
+    @objc func postCommentSuccessAction(_ noti:NSNotification) {
         loadComment()
     }
     

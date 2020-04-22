@@ -39,12 +39,12 @@ class TableViewCellTextView: UITableViewCell,UITextViewDelegate {
         //paragraphStyle.firstLineHeadIndent = 0
         
         let dic:[String:Any] = [
-            NSFontAttributeName:UIFont.systemFont(ofSize: 16) ,
-            NSParagraphStyleAttributeName:paragraphStyle,
-            NSKernAttributeName:1
+            convertFromNSAttributedStringKey(NSAttributedString.Key.font):UIFont.systemFont(ofSize: 16) ,
+            convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle):paragraphStyle,
+            convertFromNSAttributedStringKey(NSAttributedString.Key.kern):1
         ]
         
-        let attriStr = NSAttributedString.init(string: textView.text, attributes: dic)
+        let attriStr = NSAttributedString.init(string: textView.text, attributes: convertToOptionalNSAttributedStringKeyDictionary(dic))
         textView.attributedText = attriStr
         
         
@@ -58,4 +58,15 @@ class TableViewCellTextView: UITableViewCell,UITextViewDelegate {
         // Configure the view for the selected state
     }
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

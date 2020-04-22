@@ -21,13 +21,13 @@ class MeHomeSuperCell: UITableViewCell {
         tableview.tableFooterView = UIView()
         tableview.register(UINib (nibName: "MeHomeCell", bundle: nil), forCellReuseIdentifier: "MeHomeCellIdentifier")
         tableview.estimatedRowHeight = 80;
-        tableview.rowHeight = UITableViewAutomaticDimension
+        tableview.rowHeight = UITableView.automaticDimension
         tableview.showsVerticalScrollIndicator = false;
         
         NotificationCenter.default.addObserver(self, selector: #selector(noti(_ :)), name: NSNotification.Name (rawValue: "childCanScrollNotification"), object: nil)
     }
 
-    func noti(_ noti:NSNotification) {
+    @objc func noti(_ noti:NSNotification) {
         canScroll = true
         print("child can")
     }

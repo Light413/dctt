@@ -28,7 +28,7 @@ class HomeDetailController: BaseDetailController{
         loadComment()
     }
 
-    func postCommentSuccessAction(_ noti:NSNotification) {
+    @objc func postCommentSuccessAction(_ noti:NSNotification) {
         loadComment()
     }
     
@@ -67,7 +67,7 @@ class HomeDetailController: BaseDetailController{
         return _bgview
     }
     
-    func watchBtnAction() {
+    @objc func watchBtnAction() {
         //关注
         
     }

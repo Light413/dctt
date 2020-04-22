@@ -62,7 +62,7 @@ class CategorySectionHeaderView: UIView {
     }
     
     
-    func clickedAction(_ button:UIButton) {
+    @objc func clickedAction(_ button:UIButton) {
         guard _selectedBtn != button else { return }
         
         _selectedBtn.isSelected = false

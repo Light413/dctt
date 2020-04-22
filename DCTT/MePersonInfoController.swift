@@ -79,7 +79,7 @@ class MePersonInfoController: MeBaseTableViewController {
     
     
     
-    func changeAvatar(_ tap:UITapGestureRecognizer)  {
+    @objc func changeAvatar(_ tap:UITapGestureRecognizer)  {
         show()
     }
     
@@ -97,7 +97,7 @@ class MePersonInfoController: MeBaseTableViewController {
     }
     
     //MARK: - save
-    func saveAction()  {
+    @objc func saveAction()  {
         guard let userInfo = User.default.userInfo() else {return}
         guard let uid = User.uid() else {return}
         var image:[UIImage]? = nil
@@ -216,7 +216,10 @@ extension MePersonInfoController:TTPickerImageAble{
         picker.dismiss(animated: true, completion: nil)
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         if let img = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             icon.image = img
             //u_avatar_image = img
@@ -231,3 +234,8 @@ extension MePersonInfoController:TTPickerImageAble{
 
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}

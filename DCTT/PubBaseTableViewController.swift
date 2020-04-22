@@ -88,7 +88,7 @@ class PubBaseTableViewController: UITableViewController,ShowAlertControllerAble{
     
     
     //MARK: - Actions
-    func submintBtnAction(){
+    @objc func submintBtnAction(){
         willPost()
         guard imgDataArr.count > 0 else {startPost(); return}
         
@@ -164,7 +164,7 @@ class PubBaseTableViewController: UITableViewController,ShowAlertControllerAble{
     }
     
     
-    func navigationBackButtonAction() {
+    @objc func navigationBackButtonAction() {
         self.dismiss(animated: true, completion: nil)
     }
     

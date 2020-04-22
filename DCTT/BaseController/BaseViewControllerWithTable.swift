@@ -74,8 +74,8 @@ class BaseViewControllerWithTable: BaseViewController,UITableViewDelegate,UITabl
         button.setImage(UIImage (named: "cheveron-normal_gry"), for: .highlighted)
         //        button.imageView?.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
         button.addTarget(self, action: #selector(popPresentControllerButtonAction(_:)), for: .touchUpInside)
-        button.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 20)
-        button.imageEdgeInsets = UIEdgeInsetsMake(18, button.frame.width - 20 , 12, 5)
+        button.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 20)
+        button.imageEdgeInsets = UIEdgeInsets.init(top: 18, left: button.frame.width - 20 , bottom: 12, right: 5)
         //setTitleViewBtn(title: kAIRPLANE_SORTEDOPTION_KEY,button: button)
         
         return button
@@ -142,7 +142,7 @@ class BaseViewControllerWithTable: BaseViewController,UITableViewDelegate,UITabl
     
     
     //MARK:-
-    func popPresentControllerButtonAction(_ button:UIButton){
+    @objc func popPresentControllerButtonAction(_ button:UIButton){
         /*let rect = CGRect (x: 0, y: 0, width: 320, height: 160)
         let vc = PopViewController.init(nibName: "PopViewController", bundle: nil)
         vc.view.frame = rect
@@ -248,11 +248,11 @@ class BaseViewControllerWithTable: BaseViewController,UITableViewDelegate,UITabl
         return false
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
     

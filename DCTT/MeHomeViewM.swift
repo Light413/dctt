@@ -73,7 +73,7 @@ class MeHomeViewM: NSObject {
         
         _tableview.mj_footer = footer
         _tableview.mj_footer.isHidden = true
-        _tableview.rowHeight = UITableViewAutomaticDimension
+        _tableview.rowHeight = UITableView.automaticDimension
         _tableview.estimatedRowHeight = 80
         _tableview.tableFooterView = UIView()
         _tableview.mj_header.beginRefreshing()

@@ -60,15 +60,15 @@ class TTPostCommentView: UIView {
         
         _textView.becomeFirstResponder()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_ :)), name: Notification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_ :)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_ :)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_ :)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
     
-    func keyboardWillShow(_ noti:Notification) {
+    @objc func keyboardWillShow(_ noti:Notification) {
         guard let info = noti.userInfo else {return}//UIKeyboardAnimationDurationUserInfoKey
-        guard let rect = info[UIKeyboardFrameEndUserInfoKey] as? CGRect else{
+        guard let rect = info[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else{
             return
         }
        
@@ -81,7 +81,7 @@ class TTPostCommentView: UIView {
         //print("\(info["UIKeyboardAnimationDurationUserInfoKey"])")
     }
     
-    func keyboardWillHide(_ noti:Notification)  {
+    @objc func keyboardWillHide(_ noti:Notification)  {
 
         dismiss()
     }
@@ -91,7 +91,7 @@ class TTPostCommentView: UIView {
     }
     
     
-    func dismiss() {
+    @objc func dismiss() {
         _textView.resignFirstResponder()
         
         UIView.animate(withDuration: 0.25, animations: {
@@ -111,12 +111,12 @@ class TTPostCommentView: UIView {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        IQKeyboardManager.sharedManager().enable = true
-        IQKeyboardManager.sharedManager().enableAutoToolbar = true
+//        IQKeyboardManager.sharedManager().enable = true
+//        IQKeyboardManager.sharedManager().enableAutoToolbar = true
     }
     
     
-    func postAction() {
+    @objc func postAction() {
         guard String.isNullOrEmpty(_textView.text).lengthOfBytes(using: String.Encoding.utf8) > 0 else {
             HUD.showText("输入内容不能为空", view: kAPPKeyWindow)
             return

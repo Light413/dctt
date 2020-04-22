@@ -47,11 +47,11 @@ class BaseVCWithTableView: BaseViewController,UITableViewDelegate,UITableViewDat
     }
     
     //MARK: - Actions
-    func navigationBackButtonAction() {
+    @objc func navigationBackButtonAction() {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func previewAction() {}
+    @objc func previewAction() {}
     func submintBtnAction(){}
     
     
@@ -136,9 +136,9 @@ class BaseVCWithTableView: BaseViewController,UITableViewDelegate,UITableViewDat
             return
         }
         
-        TTDatePickerView.show { (age) in
-            print(age)
-        }
+//        TTDatePickerView.show { (age) in
+//            print(age)
+//        }
         
     }
     

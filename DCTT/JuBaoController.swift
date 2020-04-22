@@ -57,7 +57,7 @@ class JuBaoController: MeBaseTableViewController {
         
     }
     
-    func submintBtnAction() {
+    @objc func submintBtnAction() {
         guard String.isNullOrEmpty(cell._text).lengthOfBytes(using: String.Encoding.utf8) > 0 else {
             HUD.showText("输入内容不能为空", view: kAPPKeyWindow)
             return
@@ -92,7 +92,7 @@ class JuBaoController: MeBaseTableViewController {
     
     
     //MARK: - Actions
-    func navigationBackButtonAction() {
+    @objc func navigationBackButtonAction() {
         self.dismiss(animated: true, completion: nil)
     }
 

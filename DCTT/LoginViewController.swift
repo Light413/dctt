@@ -29,7 +29,7 @@ class LoginViewController: UITableViewController{
         
         let backbtn = UIButton (frame: CGRect (x: 15, y: 20, width: 30, height: 30))
         backbtn.setImage(UIImage (named: "leftbackicon_sdk_login"), for: .normal)
-        backbtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10)
+        backbtn.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 10)
         _topBg.addSubview(backbtn)
         backbtn.addTarget(self, action: #selector(navigationBackButtonAction), for: .touchUpInside)
         
@@ -60,7 +60,7 @@ class LoginViewController: UITableViewController{
         
     }
 
-    func dimissKeyboar(_ gesture:UITapGestureRecognizer)  {
+    @objc func dimissKeyboar(_ gesture:UITapGestureRecognizer)  {
         phoneNumber.resignFirstResponder()
         pwd.resignFirstResponder()
     }
@@ -134,7 +134,7 @@ class LoginViewController: UITableViewController{
     }
     
     
-    func navigationBackButtonAction() {
+    @objc func navigationBackButtonAction() {
         self.dismiss(animated: true, completion: nil)
     }
     

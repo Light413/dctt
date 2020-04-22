@@ -75,7 +75,7 @@ class FriendRootController: BaseViewController {
         
         view.backgroundColor = UIColor.red
         
-        self.addChildViewController(pagevc)
+        self.addChild(pagevc)
         self.view.addSubview(pagevc.view)
         
         return pagevc
@@ -102,7 +102,7 @@ extension FriendRootController:TTHeadViewDelegate,TTPageViewControllerDelegate {
 }
 
 extension FriendRootController:AddButtonItemProtocol {
-    func publishZtAction() {
+    @objc func publishZtAction() {
         
         guard User.isLogined() else {
             HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)

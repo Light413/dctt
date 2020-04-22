@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SwiftyJSON
+//import SwiftyJSON
 @objc protocol HomeCellFillDateAble {
     ///内容类型
     @objc optional var category:String? {get}
@@ -83,10 +83,10 @@ extension HomeCellFillDateAble {
         let attributes = [//NSForegroundColorAttributeName:UIColor.white,
                           //NSBackgroundColorAttributeName: tt_themeColor,//tt_HomeBarColor
             //NSFontAttributeName:UIFont.systemFont(ofSize: 14),
-            NSParagraphStyleAttributeName:paragraphStyle,
+            convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle):paragraphStyle,
         ]
 
-        let attri = NSMutableAttributedString.init(string: s, attributes: attributes)
+        let attri = NSMutableAttributedString.init(string: s, attributes: convertToOptionalNSAttributedStringKeyDictionary(attributes))
         return  attri
 
     }
@@ -107,10 +107,10 @@ extension HomeCellFillDateAble {
 //        paragraphStyle.tailIndent = 5
          paragraphStyle.firstLineHeadIndent = 2
  
-        let attributes = [NSForegroundColorAttributeName:UIColor.white,
-                          NSBackgroundColorAttributeName: tt_themeColor,//tt_HomeBarColor
-                          NSFontAttributeName:UIFont.systemFont(ofSize: 13),
-                          NSParagraphStyleAttributeName:paragraphStyle,
+        let attributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor):UIColor.white,
+                          convertFromNSAttributedStringKey(NSAttributedString.Key.backgroundColor): tt_themeColor,//tt_HomeBarColor
+                          convertFromNSAttributedStringKey(NSAttributedString.Key.font):UIFont.systemFont(ofSize: 13),
+                          convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle):paragraphStyle,
                           //NSShadowAttributeName:shade
                           ]
         
@@ -123,7 +123,7 @@ extension HomeCellFillDateAble {
         let des = headTitle + " " + s;
         
         let attri = NSMutableAttributedString.init(string: des)
-        attri.addAttributes(attributes, range: NSRange.init(location: 0, length: _len))
+        attri.addAttributes(convertToNSAttributedStringKeyDictionary(attributes), range: NSRange.init(location: 0, length: _len))
         return (String.isNullOrEmpty(category ?? "") == "life") ? nil : attri
     }
     
@@ -137,3 +137,19 @@ extension HomeListBaseCell:HomeCellFillDateAble {
 
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}

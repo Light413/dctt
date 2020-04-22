@@ -19,7 +19,7 @@ class ServerListController: UITableViewController {
         
         tableView.register(UINib (nibName: "MeHomeCell", bundle: nil), forCellReuseIdentifier: "MeHomeCellIdentifier")
         tableView.estimatedRowHeight = 80;
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView();
         tableView.showsVerticalScrollIndicator = false
 
@@ -71,7 +71,7 @@ class ServerListController: UITableViewController {
     
     
     //MARK:- 控制滑动
-    func noti(_ noti:NSNotification) {
+    @objc func noti(_ noti:NSNotification) {
         canScroll = true
 
     }

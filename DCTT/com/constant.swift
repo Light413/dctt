@@ -18,7 +18,8 @@ let kBottomToolBarHeight:CGFloat = kIsIPhoneX ? 83 : 49
 ///
 let kBartintColor =  UIColor (red: 54/255.0, green:  54/255.0, blue:  54/255.0, alpha: 1)
 //let kTableviewHeadViewBgColor = UIColor(red: 84/255.0, green:  150/255.0, blue:  194/255.0, alpha: 1)
-let kTableviewBackgroundColor = UIColor.init(colorLiteralRed: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha: 1)
+let kTableviewBackgroundColor = UIColor.init(red: 231/255.0, green: 231/255.0, blue: 231/255.0, alpha: 1)
+
 let kCellDefaultBgColor = UIColor (red: 236/255.0, green: 236/255.0, blue: 236/255.0, alpha: 1)
 let kCellSelectedBgColor = UIColor.white
 let kCurrentScreenWidth = UIScreen.main.bounds.width

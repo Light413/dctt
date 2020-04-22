@@ -24,7 +24,7 @@ class BaseViewController: UIViewController {
                 
                 let backbtn = UIButton (frame: CGRect (x: 15, y: 27, width: 30, height: 30))
                 backbtn.setImage(UIImage (named: "leftbackicon_sdk_login"), for: .normal)
-                backbtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10)
+                backbtn.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 10)
                 
                 _topBg.addSubview(backbtn)
                 //backbtn.addTarget(self, action: #selector(navigationBackButtonAction), for: .touchUpInside)
@@ -40,13 +40,13 @@ class BaseViewController: UIViewController {
      func addRightNavigationItem()  {
         let backbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 40, height: 30))
         backbtn.setImage(UIImage (named: "more_toolbar_press"), for: .normal)
-        backbtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        backbtn.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         backbtn.addTarget(self, action: #selector(_rightItemAction) , for: .touchUpInside)
         let leftitem = UIBarButtonItem.init(customView: backbtn)
         navigationItem.rightBarButtonItem = leftitem
     }
     
-    func _rightItemAction()  {
+    @objc func _rightItemAction()  {
 //        let alertViewContronller = UIAlertController.init(title: "是否举报该作者发布的这条动态?", message: nil, preferredStyle: .actionSheet)
 //
 //        

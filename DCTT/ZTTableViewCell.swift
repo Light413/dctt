@@ -98,15 +98,15 @@ class ZTTableViewCell: UITableViewCell ,HomeCellFillDateAble , DisLikeButtonStyl
         paragraphStyle.firstLineHeadIndent = 0
         
         let attri:[String:Any] = [
-            NSFontAttributeName:UIFont.systemFont(ofSize: 16) ,
-            NSParagraphStyleAttributeName:paragraphStyle,
+            convertFromNSAttributedStringKey(NSAttributedString.Key.font):UIFont.systemFont(ofSize: 16) ,
+            convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle):paragraphStyle,
             //NSKernAttributeName:1
         ]
         
         let str = content.text 
         content.text = nil
         
-        let attriStr = NSAttributedString.init(string: str!, attributes: attri)
+        let attriStr = NSAttributedString.init(string: str!, attributes: convertToOptionalNSAttributedStringKeyDictionary(attri))
         content.attributedText = attriStr
         
         
@@ -127,3 +127,14 @@ class ZTTableViewCell: UITableViewCell ,HomeCellFillDateAble , DisLikeButtonStyl
 extension ZTTableViewCell:CellParseJsonAble{}
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}

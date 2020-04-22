@@ -130,7 +130,7 @@ func netHelper_upload(to:String,
             parameters:[String:Any]? = nil,
             uploadFiles:[Any]? = nil,
             successHandler:((Any) -> Void)? = nil,
-            failureHandler:((Void) -> Void)? = nil)
+            failureHandler:(() -> Void)? = nil)
 {
     var header:HTTPHeaders = [:]
     if let token = UserDefaults.standard.value(forKey: "user-token") as? String {
@@ -143,7 +143,7 @@ func netHelper_upload(to:String,
             for obj in fils {
                 if obj is UIImage {
                     let ig = obj as! UIImage
-                    let data  = UIImageJPEGRepresentation(ig, 0.5);
+                    let data  = ig.jpegData(compressionQuality: 0.5);
                     if let d = data {
                         let fileName = Tools.dateToString(Date(), formatter: "yyyyMMddHHmmss").appending("\(arc4random()%10000)")
                         multipartData.append(d, withName: "files[]", fileName: "\(fileName).jpg", mimeType: "image/jpeg");//image/jpeg ，image/png

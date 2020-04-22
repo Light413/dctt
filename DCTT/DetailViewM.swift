@@ -42,7 +42,7 @@ class DetailViewM: NSObject {
         targetAction = #selector(toolBarButtonClicked(_:))
         
         _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - kNavigationBarHeight - kBottomToolBarHeight), style: .grouped)
-        _tableview.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        _tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         _tableview.showsVerticalScrollIndicator = false
         _tableview.separatorStyle = .none
         _tableview.backgroundColor = UIColor.white
@@ -57,7 +57,7 @@ class DetailViewM: NSObject {
         
         //计算Cell高度
         _tableview.estimatedRowHeight = 70
-        _tableview.rowHeight = UITableViewAutomaticDimension
+        _tableview.rowHeight = UITableView.automaticDimension
         
         //HeadView
         let headview = Bundle.main.loadNibNamed("HomeDetailHeadView", owner: nil, options: nil)?.last as! HomeDetailHeadView
@@ -98,8 +98,8 @@ class DetailViewM: NSObject {
         writeBtn.layer.masksToBounds = true
         writeBtn.backgroundColor = UIColor.white
         writeBtn.setImage(UIImage (named: "writeicon_review_dynamic"), for: .normal);
-        writeBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 50)
-        writeBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0)
+        writeBtn.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 50)
+        writeBtn.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
         writeBtn.tag = 100
         writeBtn.addTarget(self, action: targetAction, for: .touchUpInside)
         let writeItem = UIBarButtonItem (customView: writeBtn)
@@ -110,7 +110,7 @@ class DetailViewM: NSObject {
         commentNumber.layer.cornerRadius = 5
         commentNumber.layer.masksToBounds = true
         commentNumber.setImage(UIImage (named: "tab_comment"), for: .normal);
-        commentNumber.imageEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0)
+        commentNumber.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 5, bottom: 0, right: 0)
         commentNumber.tag = 101
         //commentNumber.addTarget(self, action: targetAction, for: .touchUpInside)
         
@@ -131,8 +131,8 @@ class DetailViewM: NSObject {
         let scBtn = UIButton (frame: CGRect (x: 0, y: 5, width: 80, height: 35))
         scBtn.setImage(UIImage (named: "likeicon_actionbar_details"), for: .normal)
         scBtn.setImage(UIImage (named: "likeicon_actionbar_details_press"), for: .selected)
-        scBtn.imageEdgeInsets = UIEdgeInsetsMake(5, 10, 5, 45)
-        scBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 2, 0, 0)
+        scBtn.imageEdgeInsets = UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 45)
+        scBtn.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: 2, bottom: 0, right: 0)
         scBtn.setTitle("收藏", for: .normal)
         scBtn.setTitle("已收藏", for: .selected)
         scBtn.setTitleColor(UIColor.darkGray, for: .normal)
@@ -150,7 +150,7 @@ class DetailViewM: NSObject {
         superController?.view.addSubview(toolBar)
     }
     
-    func toolBarButtonClicked(_ button:UIButton) {
+    @objc func toolBarButtonClicked(_ button:UIButton) {
         guard User.isLogined() else {
             HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
             return
@@ -158,8 +158,8 @@ class DetailViewM: NSObject {
 
         switch button.tag {
         case 100://写评论
-            IQKeyboardManager.sharedManager().enable = false
-            IQKeyboardManager.sharedManager().enableAutoToolbar = false
+//            IQKeyboardManager.sharedManager().enable = false
+//            IQKeyboardManager.sharedManager().enableAutoToolbar = false
             let post_v = TTPostCommentView.init(frame:UIScreen.main.bounds)
             post_v.pid = pid
             post_v.category = category

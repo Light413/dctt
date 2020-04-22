@@ -76,7 +76,7 @@ class TTImagePreviewController: UIViewController{
         _topBar = UIToolbar.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 60))
         _topBar.barStyle = .black
         _topBar.isTranslucent = true
-        _topBar.setBackgroundImage(imageWithColor(UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: _alpha)), forToolbarPosition: .any , barMetrics: .default)
+        _topBar.setBackgroundImage(imageWithColor(UIColor.init(red: 0, green: 0, blue: 0, alpha: CGFloat(_alpha))), forToolbarPosition: .any , barMetrics: .default)
         view.addSubview(_topBar)
         _imgNumber = UILabel.init(frame: CGRect (x: (_topBar.frame.width - 120)/2, y: (_topBar.frame.height - 40)/2, width: 120, height: 40))
         _imgNumber.textAlignment = .center
@@ -87,7 +87,7 @@ class TTImagePreviewController: UIViewController{
         
         let backbtn = UIButton (frame: CGRect (x: 15, y: 10 + (_topBar.frame.height - 60)/2, width: 50, height: 50))
         backbtn.setImage(UIImage (named: "photo_detail_titlebar_close"), for: .normal)
-        backbtn.imageEdgeInsets = UIEdgeInsetsMake(-5, -10, 5, 10)
+        backbtn.imageEdgeInsets = UIEdgeInsets.init(top: -5, left: -10, bottom: 5, right: 10)
         backbtn.addTarget(self, action: #selector(_dismiss), for: .touchUpInside)
         _topBar.addSubview(backbtn)
         
@@ -96,14 +96,14 @@ class TTImagePreviewController: UIViewController{
         _bottomBar.barStyle = .black
         _bottomBar.isTranslucent = true
         _bottomBar.setShadowImage(UIImage(), forToolbarPosition: .bottom)
-        _bottomBar.setBackgroundImage(imageWithColor(UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: _alpha)), forToolbarPosition: .any , barMetrics: .default)
+        _bottomBar.setBackgroundImage(imageWithColor(UIColor.init(red: 0, green: 0, blue: 0, alpha: CGFloat(_alpha))), forToolbarPosition: .any , barMetrics: .default)
         view.addSubview(_bottomBar)
         
         let selectbtn = UIButton (frame: CGRect (x: kCurrentScreenWidth - 50, y: 0, width: 40, height: 40))
         selectbtn.setImage(UIImage (named: "ImgPic_select_preview-1"), for: .normal)
         selectbtn.setImage(UIImage (named: "ImgPic_select_ok_preview"), for: .selected)
         
-        selectbtn.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
+        selectbtn.imageEdgeInsets = UIEdgeInsets.init(top: 5, left: 5, bottom: 5, right: 5)
         selectbtn.addTarget(self, action: #selector(selectImageAction(_:)), for: .touchUpInside)
         _bottomBar.addSubview(selectbtn)
         _selectButton = selectbtn
@@ -118,7 +118,7 @@ class TTImagePreviewController: UIViewController{
     
     
     //MARK: - Toolbar  EVENT
-    func _dismiss() {
+    @objc func _dismiss() {
         if let handler = self.closeHandler {
             handler(self.selectedDataArr);
         }
@@ -126,13 +126,13 @@ class TTImagePreviewController: UIViewController{
         _ = self.navigationController?.popViewController(animated: false)
     }
     
-    func selectImageAction(_ btn:UIButton) {
+    @objc func selectImageAction(_ btn:UIButton) {
         guard let _index = _colloectionview.indexPathsForVisibleItems.last?.row else {return}
         let asset = dataArry[_index]
         
         let _b = selectedDataArr.contains(asset);
         if _b {
-            selectedDataArr.remove(at: selectedDataArr.index(of: asset)!);
+            selectedDataArr.remove(at: selectedDataArr.firstIndex(of: asset)!);
         }else{
             guard selectedDataArr.count < maxImagesNumber else {
                 HUD.show(info: "最多只能选择 \(self.maxImagesNumber) 张图片!");
@@ -146,7 +146,7 @@ class TTImagePreviewController: UIViewController{
         btn.isSelected = !btn.isSelected
     }
     
-    func finished()  {
+    @objc func finished()  {
         NotificationCenter.default.post(name: NSNotification.Name (rawValue: "notification_selectedimage_completion"), object: nil, userInfo: ["images":selectedDataArr])
     }
     

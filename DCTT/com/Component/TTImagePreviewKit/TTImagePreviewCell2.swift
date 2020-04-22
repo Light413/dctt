@@ -41,7 +41,7 @@ class TTImagePreviewCell2: UICollectionViewCell,UIScrollViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func imageTapAction() {
+    @objc func imageTapAction() {
         if let tap = imageClickedHandler {
             tap();
         }

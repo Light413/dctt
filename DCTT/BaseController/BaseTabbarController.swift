@@ -60,10 +60,10 @@ class BaseTabbarController: UITabBarController {
             let barItem = UITabBarItem (title: itemtitleArr[i], image: UIImage (named: icon_normal[i])?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage (named: icon_selected[i])?.withRenderingMode(.alwaysOriginal))
             barItem.tag = i
             if i == 2 {
-                barItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0)
+                barItem.imageInsets = UIEdgeInsets.init(top: 5, left: 0, bottom: -5, right: 0)
             }
             
-            barItem.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.black], for: .selected)
+            barItem.setTitleTextAttributes(convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor):UIColor.black]), for: .selected)
             vc.tabBarItem = barItem
             vc.title = itemtitleArr[i]
             
@@ -82,4 +82,15 @@ class BaseTabbarController: UITabBarController {
     }
 
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

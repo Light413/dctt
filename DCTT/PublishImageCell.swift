@@ -75,7 +75,7 @@ class PublishImageCell: UICollectionViewCell {
         } else if type == .publish {
             btn.setImage(UIImage (named: "revoke_icon"), for: .normal);
             btn.setImage(UIImage (named: "revoke_icon"), for: .selected)
-            btn.imageEdgeInsets = UIEdgeInsetsMake(3, 15, 15, 3)
+            btn.imageEdgeInsets = UIEdgeInsets.init(top: 3, left: 15, bottom: 15, right: 3)
         }else {
             btn.isHidden = true
         }

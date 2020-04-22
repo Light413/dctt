@@ -117,16 +117,16 @@ class TTPublishView: UIView {
     
     
     //MARK: - CLICK
-    func tapClick() {
+    @objc func tapClick() {
         dismiss()
     }
     
-    func cancleBtnClick() {
+    @objc func cancleBtnClick() {
         dismiss()
     }
     
     
-    func ditributeClick(_ btn:UIButton) {
+    @objc func ditributeClick(_ btn:UIButton) {
         dismiss()
 
         if let complete = completeHandler {

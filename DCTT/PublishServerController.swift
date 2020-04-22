@@ -40,7 +40,7 @@ class PublishServerController: BaseViewController {
         
     }
     
-    func navigationBackButtonAction() {
+    @objc func navigationBackButtonAction() {
         self.dismiss(animated: true, completion: nil)
     }
 

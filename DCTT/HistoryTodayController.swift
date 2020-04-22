@@ -21,7 +21,7 @@ class HistoryTodayController: MeBaseTableViewController {
         
         tableView.register(UINib (nibName: "TodayViewCell", bundle: nil), forCellReuseIdentifier: "TodayViewCellIdentifier")
         tableView.estimatedRowHeight = 60
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         
         load()
     }

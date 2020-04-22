@@ -49,7 +49,7 @@ class TTSearchBarView: UIView ,UITextFieldDelegate{
         cancleBtn.addTarget(self, action: #selector(cancleBtnAction), for: .touchUpInside)
         self.addSubview(cancleBtn)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(textDidChanged(_ :)), name: Notification.Name.UITextFieldTextDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(textDidChanged(_ :)), name: UITextField.textDidChangeNotification, object: nil)
     }
     
     
@@ -61,7 +61,7 @@ class TTSearchBarView: UIView ,UITextFieldDelegate{
     }
     
     //MARK:
-    func cancleBtnAction() {
+    @objc func cancleBtnAction() {
         delegate?.cancle()
     }
 
@@ -71,7 +71,7 @@ class TTSearchBarView: UIView ,UITextFieldDelegate{
         return true
     }
     
-    func textDidChanged(_ noti:Notification)  {
+    @objc func textDidChanged(_ noti:Notification)  {
         if let textfield = noti.object as? UITextField {
             delegate?.textFieldDidEndEditing(textfield)
         }

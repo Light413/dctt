@@ -105,7 +105,7 @@ class AlamofireHelper: NSObject {
                 for obj in fils {
                     if obj is UIImage {
                         let ig = obj as! UIImage
-                        let data  = UIImageJPEGRepresentation(ig, 0.4);
+                        let data  = ig.jpegData(compressionQuality: 0.4);
                         if let d = data {
                             let fileName = Tools.dateToString(Date(), formatter: "yyyyMMddHHmmss").appending("\(arc4random()%10000)")
                             multipartData.append(d, withName: "files[]", fileName: "\(fileName).jpg", mimeType: "image/jpeg");//image/jpeg ，image/png

@@ -99,7 +99,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         let rec = CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 50)
         pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)
         
-        self.addChildViewController(pagevc)
+        self.addChild(pagevc)
         view.addSubview(pagevc.view)
         
         //navigationbar item

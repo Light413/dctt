@@ -31,7 +31,7 @@ class FackBackViewController: MeBaseTableViewController {
         self.view.addSubview(btn)
     }
 
-    func jump() {
+    @objc func jump() {
         let v = BaseWebViewController(baseUrl:feedbackList_url)
         v.title = "最新留言"
         self.navigationController?.pushViewController(v, animated: true)
@@ -50,7 +50,7 @@ class FackBackViewController: MeBaseTableViewController {
     }
 
     
-    func submintBtnAction() {
+    @objc func submintBtnAction() {
         guard let s = cell._text else {HUD.showText("输入内容不能为空", view: UIApplication.shared.keyWindow!); return}
         var d = ["content" : s , "type":"add"]
         

@@ -26,7 +26,7 @@ class HomeDetailHeadView: UIView {
         iconImg.addGestureRecognizer(tapGesture)
     }
     
-    func tapIconAction()  {
+    @objc func tapIconAction()  {
         if let iconAction = avatarClickedAction {
             iconAction()
         }

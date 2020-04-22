@@ -20,7 +20,7 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
         super.viewDidLoad()
 
         navigationBar.isTranslucent = false
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black,NSFontAttributeName:UIFont.systemFont(ofSize: 17)]
+        navigationBar.titleTextAttributes = convertToOptionalNSAttributedStringKeyDictionary([NSAttributedString.Key.foregroundColor.rawValue:UIColor.black,NSAttributedString.Key.font.rawValue:UIFont.systemFont(ofSize: 17)])
 
 //        navigationBar.setBackgroundImage(UIImage (named: "navigationbar_bg"), for: .default)
 
@@ -50,7 +50,7 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
     func leftBarButtonItem() -> UIBarButtonItem {
         let backbtn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30))
         backbtn.setImage(UIImage (named: "leftbackicon_sdk_login"), for: .normal)
-        backbtn.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 10)
+        backbtn.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 10)
         backbtn.addTarget(self, action: #selector(navigationBackButtonAction), for: .touchUpInside)
         let leftitem = UIBarButtonItem.init(customView: backbtn)
 
@@ -90,7 +90,7 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
     }
     
     
-    func navigationBackButtonAction() {
+    @objc func navigationBackButtonAction() {
        _ = self.popViewController(animated: true)
     }
     
@@ -102,4 +102,10 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
     
 
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

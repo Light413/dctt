@@ -84,7 +84,7 @@ class MeHomePageControllerNew: MeBaseTableViewController {
         }
     }
     
-    func updateProfile(_ noti:Notification) {
+    @objc func updateProfile(_ noti:Notification) {
         if let d = noti.userInfo as? [String:Any] {
             _meInfoView.fill(d)
             _meInfoView.avatarClickerAction = {[weak self] in

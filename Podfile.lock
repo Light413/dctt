@@ -1,8 +1,8 @@
 PODS:
-  - Alamofire (4.5.0)
+  - Alamofire (4.9.1)
   - Bugly (2.5.0)
-  - IQKeyboardManagerSwift (5.0.0)
-  - Kingfisher (3.13.0)
+  - IQKeyboardManagerSwift (6.0.5)
+  - Kingfisher (4.10.1)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.1.12)
   - mob_sharesdk (4.1.4):
@@ -23,21 +23,21 @@ PODS:
     - mob_sharesdk/ShareSDK
     - MOBFoundation
   - MOBFoundation (3.1.9)
-  - RxCocoa (3.0.0):
-    - RxSwift (~> 3.0)
-  - RxDataSources (1.0.4):
-    - RxCocoa (~> 3.0)
-    - RxSwift (~> 3.0)
-  - RxSwift (3.0.0)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
   - SVProgressHUD (2.1.2)
-  - SwiftTTPageController (0.0.5)
-  - SwiftyJSON (4.2.0)
+  - SwiftTTPageController (0.0.6)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
-  - Alamofire (= 4.5)
+  - Alamofire (~> 4.9)
   - Bugly
-  - IQKeyboardManagerSwift (= 5.0.0)
-  - Kingfisher (= 3.13.0)
+  - IQKeyboardManagerSwift (~> 6.0.0)
+  - Kingfisher (~> 4.10)
   - MBProgressHUD (~> 1.1.0)
   - MJRefresh (= 3.1.12)
   - mob_sharesdk
@@ -45,15 +45,14 @@ DEPENDENCIES:
   - mob_sharesdk/ShareSDKPlatforms/QQ
   - mob_sharesdk/ShareSDKPlatforms/WeChat
   - mob_sharesdk/ShareSDKUI
-  - RxCocoa (= 3.0)
-  - RxDataSources (~> 1.0.4)
-  - RxSwift (= 3.0)
+  - RxCocoa (~> 5)
+  - RxSwift (~> 5)
   - SVProgressHUD (~> 2.1.2)
   - SwiftTTPageController
-  - SwiftyJSON
+  - SwiftyJSON (~> 5.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Bugly
     - IQKeyboardManagerSwift
@@ -63,28 +62,28 @@ SPEC REPOS:
     - mob_sharesdk
     - MOBFoundation
     - RxCocoa
-    - RxDataSources
+    - RxRelay
     - RxSwift
     - SVProgressHUD
     - SwiftTTPageController
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
-  IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
-  Kingfisher: 7eebf6000ac64401839f10da37f21eefa7d88970
+  IQKeyboardManagerSwift: c14eca30f6001457d6ddf25e313f23fb6578c41c
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   mob_sharesdk: 765cc2fd2fac0a6fd7c3e6c2b10d729ad006c608
   MOBFoundation: 11500153c10d83e4ac341f6ad6301b3998ce6db2
-  RxCocoa: 0a2f3ae381cf16f4021a4cee7a4420f83058a965
-  RxDataSources: b3389acc5fe2eefb8fcd81a2b76a876ad08bc82a
-  RxSwift: a930cd662f5b4a7ca9dc3518585dba91dadf497c
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
-  SwiftTTPageController: c98152e5c656a8df2198317e86023d0390989254
-  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  SwiftTTPageController: a6430ed29b939a01d86c60320547b49cef1eac8f
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 8c53e3e858a27c053d2f66955b365744293995e4
+PODFILE CHECKSUM: c8f6bfe5f5fc27a68acecd829cfc72f3d7ae35ee
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.9.1

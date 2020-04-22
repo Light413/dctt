@@ -73,7 +73,7 @@ class TTImagePreviewController2: UIViewController{
         _topBar = UIToolbar.init(frame: CGRect (x: 0, y: kIsIPhoneX ? 44 : 0, width: kCurrentScreenWidth, height: 60))
         _topBar.barStyle = .default
         _topBar.isTranslucent = true
-        _topBar.setBackgroundImage(imageWithColor(UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: _alpha)), forToolbarPosition: .any , barMetrics: .default)
+        _topBar.setBackgroundImage(imageWithColor(UIColor.init(red: 0, green: 0, blue: 0, alpha: CGFloat(_alpha))), forToolbarPosition: .any , barMetrics: .default)
         view.addSubview(_topBar)
         _topBar.layoutIfNeeded()
         
@@ -86,7 +86,7 @@ class TTImagePreviewController2: UIViewController{
         
         let backbtn = UIButton (frame: CGRect (x: 15, y: 10 + (_topBar.frame.height - 60)/2, width: 50, height: 50))
         backbtn.setImage(UIImage (named: "photo_detail_titlebar_close"), for: .normal)
-        backbtn.imageEdgeInsets = UIEdgeInsetsMake(-5, -10, 5, 10)
+        backbtn.imageEdgeInsets = UIEdgeInsets.init(top: -5, left: -10, bottom: 5, right: 10)
         backbtn.addTarget(self, action: #selector(_dismiss), for: .touchUpInside)
         _topBar.addSubview(backbtn)
         
@@ -95,7 +95,7 @@ class TTImagePreviewController2: UIViewController{
         _bottomBar.barStyle = .black
         _bottomBar.isTranslucent = true
         _bottomBar.setShadowImage(UIImage(), forToolbarPosition: .bottom)
-        _bottomBar.setBackgroundImage(imageWithColor(UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: _alpha)), forToolbarPosition: .any , barMetrics: .default)
+        _bottomBar.setBackgroundImage(imageWithColor(UIColor.init(red: 0, green: 0, blue: 0, alpha: CGFloat(_alpha))), forToolbarPosition: .any , barMetrics: .default)
         view.addSubview(_bottomBar)
         
         _bottomBar.layoutIfNeeded()
@@ -110,13 +110,13 @@ class TTImagePreviewController2: UIViewController{
     
     
     //MARK: - Toolbar  EVENT
-    func _dismiss() {
+    @objc func _dismiss() {
 
         self.dismiss(animated: false, completion: nil)
     }
     
 
-    func saveImageAction(_ btn:UIButton)  {
+    @objc func saveImageAction(_ btn:UIButton)  {
         if let cell = _colloectionview.cellForItem(at: IndexPath.init(item: index, section: 0)) as? TTImagePreviewCell2 {
             if let ig = cell.igv.image {
                 UIImageWriteToSavedPhotosAlbum(ig, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
@@ -126,7 +126,7 @@ class TTImagePreviewController2: UIViewController{
         
     }
     
-    func image(image:UIImage,didFinishSavingWithError error:NSError?,contextInfo:AnyObject) {
+    @objc func image(image:UIImage,didFinishSavingWithError error:NSError?,contextInfo:AnyObject) {
         HUD.show(successInfo: "已保存到相册")
     }
     

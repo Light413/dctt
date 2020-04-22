@@ -18,7 +18,7 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
     @IBOutlet weak var sw: UISwitch!
     
     @IBAction func pushSwitch(_ sender: UISwitch) {
-        guard let url = URL.init(string: UIApplicationOpenSettingsURLString) else {return}
+        guard let url = URL.init(string: UIApplication.openSettingsURLString) else {return}
         guard UIApplication.shared.canOpenURL(url) else {return}
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [:]) {[weak self] (res) in
@@ -54,7 +54,7 @@ class MeSetterController: MeBaseTableViewController , ShowAlertControllerAble {
         
     }
 
-    func setter_notification(_ noti:Notification)  {
+    @objc func setter_notification(_ noti:Notification)  {
         if let u  = noti.userInfo!["is"] as? Bool {
             _displayNotificationStatus(u)
         }

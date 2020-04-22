@@ -30,7 +30,7 @@ class ZTTableViewController: BaseTableViewController {
         tableView.register(UINib (nibName: "ZTTableViewCell", bundle: nil), forCellReuseIdentifier: "ZTTableViewCellIdentifier")
         
         tableView.estimatedRowHeight = 60
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         
         let header = TTRefreshHeader.init(refreshingBlock: {[weak self] in

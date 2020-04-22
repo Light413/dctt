@@ -29,7 +29,7 @@ extension AddButtonItemProtocol {
         rightbtn.setTitle(title, for: .normal)
         rightbtn.setTitleColor(UIColor.darkGray , for: .normal)
         rightbtn.setImage(image, for: .normal)
-        rightbtn.imageEdgeInsets = UIEdgeInsetsMake(5, 30, 5, 10)
+        rightbtn.imageEdgeInsets = UIEdgeInsets.init(top: 5, left: 30, bottom: 5, right: 10)
         
         rightbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         rightbtn.addTarget(self, action: action , for: .touchUpInside)

@@ -13,7 +13,7 @@ protocol ShowAlertControllerAble {}
 
 extension ShowAlertControllerAble where Self : UIViewController {
     
-    func showMsg( _ msg:String , title:String , handler:@escaping ((Void) -> Void)) {
+    func showMsg( _ msg:String , title:String , handler:@escaping (() -> Void)) {
         
         let vc = UIAlertController.init(title: "提示",message: msg, preferredStyle: .alert)
         let action = UIAlertAction.init(title:"取消", style: .default)

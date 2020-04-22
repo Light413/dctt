@@ -105,7 +105,7 @@ class MessageCell: UITableViewCell {
                 print(error.localizedDescription)
             }
             
-            let attri = NSMutableAttributedString.init(string: str, attributes: [:])//[NSBackgroundColorAttributeName:kTableviewBackgroundColor]
+            let attri = NSMutableAttributedString.init(string: str, attributes: convertToOptionalNSAttributedStringKeyDictionary([:]))//[NSBackgroundColorAttributeName:kTableviewBackgroundColor]
             
             content.attributedText = attri
         }
@@ -116,4 +116,10 @@ class MessageCell: UITableViewCell {
     override func prepareForReuse() {
         msgType.text = nil
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

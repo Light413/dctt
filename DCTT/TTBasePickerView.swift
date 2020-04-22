@@ -16,7 +16,7 @@ class TTBasePickerView: UIView {
     private let kContentViewHeight:CGFloat = 220
     private let kAnimateDuration = 0.25
     
-    typealias completeHandlerType = ((Void)->())
+    typealias completeHandlerType = (()->())
     var completeHandler:completeHandlerType?
     
     override init(frame: CGRect = UIScreen.main.bounds) {
@@ -79,11 +79,11 @@ class TTBasePickerView: UIView {
     
     
     //MARK: - CLICK
-    func tapClick() {
+    @objc func tapClick() {
         dismiss()
     }
     
-    func contentBtnClick( _ button:UIButton) {
+    @objc func contentBtnClick( _ button:UIButton) {
         if button.tag == 101 {
             finishedButtonClicked()
         }

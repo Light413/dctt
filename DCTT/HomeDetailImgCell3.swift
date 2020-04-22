@@ -31,7 +31,7 @@ class HomeDetailImgCell3: UITableViewCell {
 
     }
     
-    func tapAction(_ tap:UITapGestureRecognizer)  {
+    @objc func tapAction(_ tap:UITapGestureRecognizer)  {
         guard let tag = tap.view?.tag else {return}
         guard let handler = tapActionHandler else { return}
         handler(tag)

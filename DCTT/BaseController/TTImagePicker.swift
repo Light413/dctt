@@ -27,7 +27,7 @@ class TTImagePicker: NSObject {
 
     }
     
-    func selectImageCompletionNotification(_ noti:Notification)  {
+    @objc func selectImageCompletionNotification(_ noti:Notification)  {
         self.presentViewController.dismiss(animated: true, completion: nil)
         
         print("notification_selectedimage_completion")
@@ -110,8 +110,8 @@ class TTImagePicker: NSObject {
         vc.allowsEditing = true
         
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {HUD.show(info: "NO Camera Available");return}
-        guard AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == .authorized else {
-            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (b) in
+        guard AVCaptureDevice.authorizationStatus(for: AVMediaType(rawValue: convertFromAVMediaType(AVMediaType.video))) == .authorized else {
+            AVCaptureDevice.requestAccess(for: AVMediaType(rawValue: convertFromAVMediaType(AVMediaType.video)), completionHandler: { (b) in
                 DispatchQueue.main.async {
                     if b {
                         print("Allow");
@@ -139,7 +139,10 @@ extension TTImagePicker:UIImagePickerControllerDelegate ,UINavigationControllerD
         picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         if let img = info["UIImagePickerControllerOriginalImage"] as? UIImage {
 
             NotificationCenter.default.post(name: self.selectedCompletionNotificationName, object: nil, userInfo: ["images":[img]])
@@ -154,3 +157,13 @@ extension TTImagePicker:UIImagePickerControllerDelegate ,UINavigationControllerD
 
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVMediaType(_ input: AVMediaType) -> String {
+	return input.rawValue
+}

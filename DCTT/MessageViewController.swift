@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftyJSON
+//import SwiftyJSON
 
 class MessageViewController: MeBaseTableViewController ,ShowAlertControllerAble{
     var pageNumber:Int = 1;
@@ -27,7 +27,7 @@ class MessageViewController: MeBaseTableViewController ,ShowAlertControllerAble{
         tableView.register(UINib (nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCellIdentifier")
         
         tableView.estimatedRowHeight = 60;
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.sectionHeaderHeight = 20
         
         //refresh
@@ -64,7 +64,7 @@ class MessageViewController: MeBaseTableViewController ,ShowAlertControllerAble{
         rightbtn.setTitleColor(UIColor.darkGray , for: .normal)
         rightbtn.setImage(image, for: .normal)
         rightbtn.setImage(image, for: .highlighted)
-        rightbtn.imageEdgeInsets = UIEdgeInsetsMake(10, 15, 10, 5)
+        rightbtn.imageEdgeInsets = UIEdgeInsets.init(top: 10, left: 15, bottom: 10, right: 5)
         
         rightbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         rightbtn.addTarget(self, action: action , for: .touchUpInside)
@@ -76,7 +76,7 @@ class MessageViewController: MeBaseTableViewController ,ShowAlertControllerAble{
     }
     
     
-    func deleteAction() {
+    @objc func deleteAction() {
         guard dataArray.count > 0 else {return}
         showMsg("清空消息列表?", title: "清空") { [weak self] in
             guard let ss = self else {return}

@@ -38,7 +38,7 @@ class HomeDetailCommentCell: UITableViewCell {
 //        zanBtn.layer.masksToBounds = true
     }
     
-    func tapIconAction()  {
+    @objc func tapIconAction()  {
         if let iconAction = avatarClickedAction {
             iconAction()
         }
@@ -54,12 +54,12 @@ class HomeDetailCommentCell: UITableViewCell {
         paragraphStyle.firstLineHeadIndent = 0
         
         let attriDic:[String:Any] = [
-            NSFontAttributeName:UIFont.systemFont(ofSize: 15) ,
-            NSParagraphStyleAttributeName:paragraphStyle,
-            NSKernAttributeName:1
+            convertFromNSAttributedStringKey(NSAttributedString.Key.font):UIFont.systemFont(ofSize: 15) ,
+            convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle):paragraphStyle,
+            convertFromNSAttributedStringKey(NSAttributedString.Key.kern):1
         ]
         
-        let attriStr = NSAttributedString.init(string: text, attributes: attriDic)
+        let attriStr = NSAttributedString.init(string: text, attributes: convertToOptionalNSAttributedStringKeyDictionary(attriDic))
         msgText.attributedText = attriStr
         
         //name
@@ -146,4 +146,15 @@ class HomeDetailCommentCell: UITableViewCell {
         }
 
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

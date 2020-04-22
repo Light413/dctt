@@ -35,7 +35,7 @@ class MeCollectController: MeBaseTableViewController ,AddButtonItemProtocol,Show
         rightbtn.setTitleColor(UIColor.darkGray , for: .normal)
         rightbtn.setImage(image, for: .normal)
         rightbtn.setImage(image, for: .highlighted)
-        rightbtn.imageEdgeInsets = UIEdgeInsetsMake(10, 15, 10, 5)
+        rightbtn.imageEdgeInsets = UIEdgeInsets.init(top: 10, left: 15, bottom: 10, right: 5)
         
         rightbtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         rightbtn.addTarget(self, action: action , for: .touchUpInside)
@@ -47,7 +47,7 @@ class MeCollectController: MeBaseTableViewController ,AddButtonItemProtocol,Show
     }
 
     
-    func deleteAction() {
+    @objc func deleteAction() {
         guard viewM.dataArray.count > 0 else {return}
         showMsg("删除所有收藏?", title: "删除") { [weak self] in
             guard let ss = self else {return}

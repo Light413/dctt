@@ -41,7 +41,7 @@ class Tools: NSObject {
     }
     
    
-    static func showMsg( _ msg:String , title:String , handler:@escaping ((Void) -> Void)) {
+    static func showMsg( _ msg:String , title:String , handler:@escaping (() -> Void)) {
         
         let vc = UIAlertController.init(title: msg,message: nil, preferredStyle: .alert)
         let action = UIAlertAction.init(title:"取消", style: .default)

@@ -67,7 +67,7 @@ class FriendsDetailController: BaseDetailController{
         let btn = UIButton(frame: CGRect (x: 0, y: 0, width: 100, height: 25))
         btn.setTitle(username, for: .normal)
         btn.setTitleColor(UIColor.darkGray, for: .normal)
-        btn.titleEdgeInsets = UIEdgeInsetsMake(0, 30, 0, 0)
+        btn.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: 30, bottom: 0, right: 0)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         btn.layer.cornerRadius = 5
         btn.layer.masksToBounds = true
@@ -87,7 +87,7 @@ class FriendsDetailController: BaseDetailController{
         return _bgview
     }
     
-    func watchBtnAction()  {
+    @objc func watchBtnAction()  {
         
     }
     

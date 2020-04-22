@@ -53,7 +53,7 @@ class FensiBaseController: UIViewController,TTPageViewControllerDelegate,TTHeadV
         let rec = CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 0)
         pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)
         
-        self.addChildViewController(pagevc)
+        self.addChild(pagevc)
         view.addSubview(pagevc.view)
     }
     

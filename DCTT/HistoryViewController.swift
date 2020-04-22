@@ -19,7 +19,7 @@ class HistoryViewController: BaseViewController {
 
         vc.view.frame = CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 0)
         
-        self.addChildViewController(vc)
+        self.addChild(vc)
         self.view.addSubview(vc.view)
 
     }

@@ -40,11 +40,11 @@ class SimplePrivacyController: BaseViewController , UITextViewDelegate {
         
 //        attri.addAttributes([NSForegroundColorAttributeName:UIColor.red ], range: NSRange.init(location: s.count - 4, length: 4))
         
-        attri.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: 15), range: NSRange.init(location: 0, length: s.count))
+        attri.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 15), range: NSRange.init(location: 0, length: s.count))
         
-        attri.addAttribute(NSLinkAttributeName, value:NSURL.init(string: "dctt:p/userPrivacy.html")!, range: NSRange.init(location: s.count - 4, length: 4) )
+        attri.addAttribute(NSAttributedString.Key.link, value:NSURL.init(string: "dctt:p/userPrivacy.html")!, range: NSRange.init(location: s.count - 4, length: 4) )
         
-        msg.linkTextAttributes = [NSForegroundColorAttributeName:UIColorFromHex(rgbValue: 0xff4500) ]
+        msg.linkTextAttributes = convertToOptionalNSAttributedStringKeyDictionary([NSAttributedString.Key.foregroundColor.rawValue:UIColorFromHex(rgbValue: 0xff4500) ])
         
         msg.attributedText = attri;
         msg.delegate = self
@@ -67,4 +67,10 @@ class SimplePrivacyController: BaseViewController , UITextViewDelegate {
         
         return true
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

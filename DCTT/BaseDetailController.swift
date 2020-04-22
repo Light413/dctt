@@ -49,7 +49,7 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
             let num:NSString = NSString.init(string: "\(newValue)")
             _commentNumber.text = String.init(num)
             
-            let size = num.boundingRect(with: CGSize.init(width: 50, height: 10), options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName:_commentNumber.font], context: nil)
+            let size = num.boundingRect(with: CGSize.init(width: 50, height: 10), options: .usesLineFragmentOrigin, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font):_commentNumber.font]), context: nil)
             _commentNumber.frame = CGRect (x: 30, y: 2, width: size.width + 10, height: 10)
         }
     }
@@ -160,7 +160,7 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         NotificationCenter.default.addObserver(self, selector: #selector(refreshComment), name: kDeleteCommentNotification, object: nil)
     }
 
-    func refreshComment()  {
+    @objc func refreshComment()  {
         pageNumber = 1
         
         loadComment()
@@ -239,8 +239,8 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         paragraphStyle.lineBreakMode = .byCharWrapping
         paragraphStyle.firstLineHeadIndent = 30
         
-        let dic:[String:Any] = [NSFontAttributeName:UIFont.systemFont(ofSize: 17) , NSParagraphStyleAttributeName:paragraphStyle,NSKernAttributeName:1]
-        let attriStr = NSAttributedString.init(string: _text, attributes: dic)
+        let dic:[String:Any] = [convertFromNSAttributedStringKey(NSAttributedString.Key.font):UIFont.systemFont(ofSize: 17) , convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle):paragraphStyle,convertFromNSAttributedStringKey(NSAttributedString.Key.kern):1]
+        let attriStr = NSAttributedString.init(string: _text, attributes: convertToOptionalNSAttributedStringKeyDictionary(dic))
         cell.textLabel?.attributedText = attriStr
         
         return cell
@@ -470,4 +470,15 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
     }
     
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

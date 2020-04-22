@@ -24,10 +24,10 @@ class PubWriteCell: UITableViewCell,UITextFieldDelegate {
         write_tf.inputAccessoryView = tv
         
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: Notification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardDidShowNotification, object: nil)
     }
 
-    func keyboardAppear()  {
+    @objc func keyboardAppear()  {
         tv.becomeFirstResponder()
     }
     

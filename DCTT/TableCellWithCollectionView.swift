@@ -58,7 +58,7 @@ class TableCellWithCollectionView: UITableViewCell {
         print("TableCellWithCollectionView:deinit")
     }
 
-    func selectImageNoti(_ noti:Notification)  {
+    @objc func selectImageNoti(_ noti:Notification)  {
         print("selectedCompletionNotificationName")
         
         if let u = noti.userInfo!["images"] as? [Any]{
@@ -100,7 +100,7 @@ extension TableCellWithCollectionView:UICollectionViewDelegate,UICollectionViewD
                 let igv = UIImageView (frame: CGRect (x: (cell.frame.width - 30)/2, y: (cell.frame.height - 30)/2, width: 30, height: 30))
                 igv.image = UIImage (named: "addicon_repost")
                 cell.contentView.addSubview(igv)
-                cell.backgroundColor = UIColor (colorLiteralRed: 244/255.0, green: 245/255.0, blue: 246/255.0, alpha: 1)
+                cell.backgroundColor = UIColor.init(red: 244/255.0, green: 245/255.0, blue: 246/255.0, alpha: 1) 
             }
         
 

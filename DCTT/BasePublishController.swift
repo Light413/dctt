@@ -62,7 +62,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         
         let frame = CGRect (x: 0, y: 0, width: view.frame.width, height: kCurrentScreenHeight - 64 - 0);
         _colloectionview = colleciontView(frame)
-        _colloectionview.contentInset = UIEdgeInsetsMake(0, 0, 20, 0)
+        _colloectionview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 20, right: 0)
         view.addSubview(_colloectionview)
         //view.backgroundColor = UIColor.red
         
@@ -100,7 +100,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         NotificationCenter.default.removeObserver(self)
     }
     
-    func selectImageCompletionNotification(_ notification:Notification)  {
+    @objc func selectImageCompletionNotification(_ notification:Notification)  {
         presentViewController.dismiss(animated: true) {
             
         }
@@ -153,8 +153,8 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
         collectionview.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "PublishAddIconCellIdentifier")
         
         
-        collectionview.register(UINib (nibName: "PublishCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: "PublishCollectionReusableViewIdentifier")
-        collectionview.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: String (describing: UICollectionReusableView.self))
+        collectionview.register(UINib (nibName: "PublishCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "PublishCollectionReusableViewIdentifier")
+        collectionview.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: String (describing: UICollectionReusableView.self))
         
         collectionview.backgroundColor  = UIColor.white
         collectionview.showsHorizontalScrollIndicator = false
@@ -209,12 +209,12 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
     }
     
     //MARK: - Actions
-    func navigationBackButtonAction() {
+    @objc func navigationBackButtonAction() {
         self.dismiss(animated: true, completion: nil)
     }
 
     func previewAction() {}
-    func submintBtnAction(){
+    @objc func submintBtnAction(){
         guard imgDataArr.count > 0 else {
             _post();
             return
@@ -302,7 +302,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
                 let igv = UIImageView (frame: CGRect (x: (cell.frame.width - 30)/2, y: (cell.frame.height - 30)/2, width: 30, height: 30))
                 igv.image = UIImage (named: "addicon_repost")
                 cell.contentView.addSubview(igv)
-                cell.backgroundColor = UIColor (colorLiteralRed: 244/255.0, green: 245/255.0, blue: 246/255.0, alpha: 1)
+                cell.backgroundColor = UIColor.init(red: 244/255.0, green: 245/255.0, blue: 246/255.0, alpha: 1)
             }
         }else{
             cell.backgroundColor = UIColor.white;
@@ -340,10 +340,10 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionElementKindSectionFooter {
+        if kind == UICollectionView.elementKindSectionFooter {
             let identifier = indexPath.section < 2 ? String (describing: UICollectionReusableView.self):"PublishCollectionReusableViewIdentifier"
             
-            let _v = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: identifier, for: indexPath)
+            let _v = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: identifier, for: indexPath)
             
             var _c:UIColor!
             switch indexPath.section {
@@ -386,7 +386,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section < 2 {
-            return UIEdgeInsetsMake(5, 10, 5, 10)
+            return UIEdgeInsets.init(top: 5, left: 10, bottom: 5, right: 10)
         }
         
         return UIEdgeInsets.zero
@@ -405,8 +405,8 @@ extension BasePublishController:UIImagePickerControllerDelegate ,UINavigationCon
     func showCarema() {
         
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {HUD.show(info: "NO Camera Available");return}
-        guard AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) == .authorized else {
-            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { [weak self](b) in
+        guard AVCaptureDevice.authorizationStatus(for: AVMediaType(rawValue: convertFromAVMediaType(AVMediaType.video))) == .authorized else {
+            AVCaptureDevice.requestAccess(for: AVMediaType(rawValue: convertFromAVMediaType(AVMediaType.video)), completionHandler: { [weak self](b) in
                 
                 guard let ss = self else {return}
                 
@@ -440,7 +440,10 @@ extension BasePublishController:UIImagePickerControllerDelegate ,UINavigationCon
         picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         if let img = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             imgDataArr.append(img)
             _colloectionview.reloadSections(IndexSet.init(integer: 1))
@@ -452,3 +455,13 @@ extension BasePublishController:UIImagePickerControllerDelegate ,UINavigationCon
     
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVMediaType(_ input: AVMediaType) -> String {
+	return input.rawValue
+}

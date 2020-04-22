@@ -80,7 +80,7 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
         collectionview.showsHorizontalScrollIndicator = false
         collectionview.showsVerticalScrollIndicator = true
         collectionview.alwaysBounceVertical = true
-        collectionview.contentInset = UIEdgeInsetsMake(5, 0, 0, 0)
+        collectionview.contentInset = UIEdgeInsets.init(top: 5, left: 0, bottom: 0, right: 0)
         return collectionview
     }
     
@@ -111,7 +111,7 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
         hasSelectNumber.isHidden = true
     }
     
-    func navigationBackButtonAction() {
+    @objc func navigationBackButtonAction() {
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -142,11 +142,11 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
         return (previewbtn,okbutton)
     }
     
-    func previewBtnAction( _ button:UIButton) {
+    @objc func previewBtnAction( _ button:UIButton) {
         showPreviewController(0)
     }
     
-    func finished()  {
+    @objc func finished()  {
         if let handler = imageSelectedCompletionHandler {
             handler(hasSelectedImageAsset)
         }
@@ -204,7 +204,7 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
             guard let strongSelf = self else {return false}
             let _b = strongSelf.hasSelectedImageAsset.contains(asset);
             if _b {
-                strongSelf.hasSelectedImageAsset.remove(at: strongSelf.hasSelectedImageAsset.index(of: asset)!);
+                strongSelf.hasSelectedImageAsset.remove(at: strongSelf.hasSelectedImageAsset.firstIndex(of: asset)!);
             }else{
                 if strongSelf.hasSelectedImageAsset.count < strongSelf.maxImagesNumber {
                     strongSelf.hasSelectedImageAsset.append(asset);

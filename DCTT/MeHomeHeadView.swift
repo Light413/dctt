@@ -47,7 +47,7 @@ class MeHomeHeadView: UIView {
         blackOperation = OPerationObject.init(opType: 0, obj: blackBtn, url: blackList_url, msg: "加载完成")
     }
     
-    func iconTap(_ gesture:UITapGestureRecognizer)  {
+    @objc func iconTap(_ gesture:UITapGestureRecognizer)  {
         if let action = avatarClickerAction {
             action()
         }
@@ -118,7 +118,7 @@ class MeHomeHeadView: UIView {
 //        let dic:[String:Any] = [NSFontAttributeName:UIFont.systemFont(ofSize: 17) , NSParagraphStyleAttributeName:paragraphStyle,NSKernAttributeName:1]
         
         let attriStr = NSMutableAttributedString.init(string: notesStr)
-        attriStr.addAttributes([NSFontAttributeName:UIFont.systemFont(ofSize: 13) , NSForegroundColorAttributeName:UIColor.darkGray], range: NSRange.init(location: 0, length: 3));
+        attriStr.addAttributes(convertToNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font):UIFont.systemFont(ofSize: 13) , convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor):UIColor.darkGray]), range: NSRange.init(location: 0, length: 3));
         
         mark.attributedText = attriStr
         
@@ -237,3 +237,13 @@ struct OPerationObject {
 
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}

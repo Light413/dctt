@@ -65,7 +65,7 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
         _collectionView.backgroundColor  = UIColor.white
         _collectionView.showsHorizontalScrollIndicator = false
         _collectionView.showsVerticalScrollIndicator = true
-        _collectionView.contentInset = UIEdgeInsetsMake(0, offset, 0, offset)
+        _collectionView.contentInset = UIEdgeInsets.init(top: 0, left: offset, bottom: 0, right: offset)
         _collectionView.isPagingEnabled = true
         
         
@@ -102,7 +102,7 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
         pageCtr.currentPage = Int.init(n)
     }
     
-    func itemClickedAction(_ button:UIButton){
+    @objc func itemClickedAction(_ button:UIButton){
         if let handler = cellSelectedAction {
             let d = dataArray[button.tag];
             handler(d)
@@ -142,8 +142,8 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
             btn.setImage(UIImage.init(named: "item_new_0\(i + 1)"), for: .normal)
             btn.setImage(UIImage.init(named: "item_new_0\(i + 1)"), for: .highlighted)
             
-            btn.imageEdgeInsets = UIEdgeInsetsMake((h - icon_w) / 2.0, (w - icon_w) / 2.0, (h - icon_w) / 2.0, (w - icon_w) / 2.0)
-            btn.titleEdgeInsets = UIEdgeInsetsMake(h - 20, -50, 0, 0)
+            btn.imageEdgeInsets = UIEdgeInsets.init(top: (h - icon_w) / 2.0, left: (w - icon_w) / 2.0, bottom: (h - icon_w) / 2.0, right: (w - icon_w) / 2.0)
+            btn.titleEdgeInsets = UIEdgeInsets.init(top: h - 20, left: -50, bottom: 0, right: 0)
             
             cell.contentView.addSubview(btn)
             

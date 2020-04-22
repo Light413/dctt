@@ -50,7 +50,7 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         //_tableview.register(MeHomeCell2.self, forCellReuseIdentifier: "MeHomeSuperCellIdentifier")
 
         _tableview.estimatedRowHeight = 80;
-        _tableview.rowHeight = UITableViewAutomaticDimension
+        _tableview.rowHeight = UITableView.automaticDimension
         _tableview.tableFooterView = UIView();
         _tableview.showsVerticalScrollIndicator = false
 //        _tableview.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
@@ -93,7 +93,7 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
     }
     
     ///发布成功，更新对应的列表
-    func hasPublishSuccessNoti(_ noti:Notification) {
+    @objc func hasPublishSuccessNoti(_ noti:Notification) {
         if let info = noti.userInfo , let type = info["type"] as? String{
             guard let i = Int(type) , i >= 20 else {return}
             _tableview.mj_header.beginRefreshing()
@@ -323,7 +323,7 @@ extension AllViewController:TTHeadViewDelegate,TTPageViewControllerDelegate {
 ///在分类中跳转发布
 extension AllViewController : AddButtonItemProtocol {
 
-    func publishAction() {
+    @objc func publishAction() {
         guard User.isLogined() else {
             HUD.showText(kPleaseToLogin, view: UIApplication.shared.keyWindow!)
             return

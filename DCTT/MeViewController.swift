@@ -48,7 +48,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
 
     
     ///获取用户最新信息
-    func loadUserInfo()  {
+    @objc func loadUserInfo()  {
         guard let uid = User.uid() else {
             _tableView.reloadData();
             _tableView.selectRow(at: IndexPath.init(row: 0, section: 0), animated: false, scrollPosition: .top); return
@@ -93,7 +93,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     
-    func loginSuccessNoti(_ noti:Notification) {
+    @objc func loginSuccessNoti(_ noti:Notification) {
         user_has_logined = User.isLogined()
         
         //print("name: \(User.name()) , token: \(User.token()) , uid: \(User.uid())")
@@ -148,7 +148,7 @@ class MeViewController: BaseViewController,UITableViewDelegate,UITableViewDataSo
         _tableView.tableHeaderView = UIView (frame: CGRect (x: 0, y: 0, width: 0, height: CGFloat.leastNormalMagnitude))
         view.addSubview(_tableView)
         _tableView.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
-        _tableView.contentInset = UIEdgeInsetsMake(-20, 0, 10, 0)
+        _tableView.contentInset = UIEdgeInsets.init(top: -20, left: 0, bottom: 10, right: 0)
         _tableView.showsVerticalScrollIndicator = false
         
         //_tableView.backgroundColor = UIColor.white

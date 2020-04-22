@@ -65,9 +65,9 @@ class HomerListViewController: BaseTableViewController {
         tableView.mj_footer = footer
         tableView.mj_footer.isHidden = true
         
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
-        tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0)
+        tableView.contentInset = UIEdgeInsets.init(top: 10, left: 0, bottom: 0, right: 0)
         
         if let delegate = UIApplication.shared.delegate as? AppDelegate{
             guard delegate._networkReachabilityManager.isReachable else {
@@ -79,7 +79,7 @@ class HomerListViewController: BaseTableViewController {
     }
 
     ///发布成功，更新对应的列表
-    func hasPublishSuccessNoti(_ noti:Notification) {
+    @objc func hasPublishSuccessNoti(_ noti:Notification) {
         if let info = noti.userInfo , let type = info["type"] as? String{
             if _type! == type || _type! == "0" {
                 tableView.mj_header.beginRefreshing()
