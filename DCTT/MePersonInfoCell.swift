@@ -37,7 +37,7 @@ class MePersonInfoCell: UITableViewCell {
 
         if let igurl = dic["avatar"] as? String {
              let url = URL.init(string: igurl)
-            avatar.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
+            avatar.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"))
         }
 
         praiseCnt.text = String.isNullOrEmpty(dic["zanCnt"])

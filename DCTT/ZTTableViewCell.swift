@@ -83,7 +83,7 @@ class ZTTableViewCell: UITableViewCell ,HomeCellFillDateAble , DisLikeButtonStyl
             contentImg_w.constant = contentImg_h.constant;
             
             let url = URL.init(string: arr.first!)
-            contentImg.kf.setImage(with: url, placeholder: UIImage (named: "default_image2"), options: nil, progressBlock: nil, completionHandler:nil)
+            contentImg.kf.setImage(with: url, placeholder: UIImage (named: "default_image2"), options: nil, progressBlock: nil)
         }else{
             contentImg_h.constant = 0
         }
@@ -113,7 +113,7 @@ class ZTTableViewCell: UITableViewCell ,HomeCellFillDateAble , DisLikeButtonStyl
         guard let dic = d["user"] as? [String:Any] else {return}
         if let igurl = dic["avatar"] as? String {
             let url = URL.init(string: igurl)
-            user_avatar.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
+            user_avatar.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil)
         }
     }
     

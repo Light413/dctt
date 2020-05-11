@@ -42,7 +42,7 @@ class MessageCell: UITableViewCell {
         //avatar
         if let igurl = d["u_avatar"] as? String {
             let url = URL.init(string: igurl)
-            avatar.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
+            avatar.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"))
         }
         
         time.text = Date.dateFormatterWithString(String.isNullOrEmpty(d["date"]))

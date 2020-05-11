@@ -42,7 +42,7 @@ class AlamofireHelper: NSObject {
             }
         }
         
-        Alamofire.request(base_url + withUrl, method: method, parameters: _pars, encoding:encoding, headers: header)
+        AF.request(base_url + withUrl, method: method, parameters: _pars, encoding:encoding, headers: header)
             .validate()
             .responseJSON { (dataResponse) in
                 DispatchQueue.main.async {
@@ -100,7 +100,7 @@ class AlamofireHelper: NSObject {
                 failureHandler:(() -> Void)? = nil)
     {
         let header:HTTPHeaders = ["content-type":"multipart/form-data"];
-        Alamofire.upload(multipartFormData: { (multipartData) in
+        AF.upload(multipartFormData: { (multipartData) in
             if let fils = uploadFiles {
                 for obj in fils {
                     if obj is UIImage {
@@ -147,7 +147,12 @@ class AlamofireHelper: NSObject {
                 }
                 
             }
-        }, to: base_url + to, headers: header) { (encodingResult) in
+        }, to: base_url + to, headers: header)
+            .responseJSON { (response) in
+                print(response)
+        }
+        
+        /*{ (encodingResult) in
             switch encodingResult {
             case .success(request: let upload, streamingFromDisk: _, streamFileURL:_):
                 upload.validate().responseJSON(completionHandler: {  (res) in
@@ -166,7 +171,7 @@ class AlamofireHelper: NSObject {
                 
                 print(error.localizedDescription);break
             }
-        }
+        }*/
     }
     
     //convenience methods

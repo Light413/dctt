@@ -1,10 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios ,'9.0'
+platform :ios ,'10.0'
 use_frameworks!
 
 target 'DCTT' do
-pod 'Alamofire', '~> 4.9'
+pod 'Alamofire', '~> 5.0.0'
 pod 'SwiftyJSON','~> 5.0'
 pod 'SVProgressHUD', '~> 2.1.2'
 pod 'MBProgressHUD', '~> 1.1.0'
@@ -12,9 +12,11 @@ pod 'MBProgressHUD', '~> 1.1.0'
 pod 'RxSwift', '~> 5'
 pod 'RxCocoa', '~> 5'
 #pod 'RxDataSources', '~> 1.0.4'
+pod 'SnapKit', '~> 5.0.0'
+
 
 pod 'MJRefresh','3.1.12'
-pod 'Kingfisher', '~> 4.10'
+pod 'Kingfisher', '~> 5.10'
 pod 'IQKeyboardManagerSwift', '~> 6.0.0'
 pod 'SwiftTTPageController'
 

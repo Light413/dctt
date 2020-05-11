@@ -79,7 +79,7 @@ class HomeDetailCommentCell: UITableViewCell {
         //avatar
         if let igurl = d["u_avatar"] as? String {
             let url = URL.init(string: igurl)
-            icon.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
+            icon.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"))
         }
         
         timeLable.text = "发布于 " + Date.dateFormatterWithString(String.isNullOrEmpty(d["date"]))

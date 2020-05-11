@@ -1,6 +1,8 @@
 ### dctt-本地生活服务APP（已上架，仅供学习交流）
 
-` 已更新至Swift5.0 ， Xcode 11.4 `
+![dctt_logo](https://raw.githubusercontent.com/Light413/dctt/master/DCTT/app_logo/3057x760.png)
+
+### `已更新至Swift5.0 ， Xcode 11.4 `
 
 > 郸城人自己的手中APP，本地生活服务信息发布交流平台。
 一款专注郸城老家本地生活服务APP，集信息发布、商家品牌推广、相亲交友、求职招聘、找同学、吃喝玩乐等便民信息，旨在促进本地信息流通、分享快乐，方便百姓生活、弘扬社会正能量。

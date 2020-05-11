@@ -198,7 +198,6 @@
 		ADC8EBF3215150B2008E5696 /* ShangjiaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC8EBF1215150B2008E5696 /* ShangjiaCell.swift */; };
 		ADC8EBF4215150B2008E5696 /* ShangjiaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADC8EBF2215150B2008E5696 /* ShangjiaCell.xib */; };
 		ADC8EBFE215158CC008E5696 /* CellParseJsonAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC8EBFD215158CC008E5696 /* CellParseJsonAble.swift */; };
-		ADCA97862100DADD00DA0950 /* NetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97852100DADC00DA0950 /* NetHelper.swift */; };
 		ADCA97882100DB4500DA0950 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA97872100DB4500DA0950 /* Tools.swift */; };
 		ADD7CE19211C88DF00A33F3B /* MeHomeCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7CE18211C88DF00A33F3B /* MeHomeCell2.swift */; };
 		ADD7CE1B211C8C4800A33F3B /* MeHomeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD7CE1A211C8C4800A33F3B /* MeHomeListController.swift */; };
@@ -428,7 +427,6 @@
 		ADC8EBF1215150B2008E5696 /* ShangjiaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShangjiaCell.swift; sourceTree = "<group>"; };
 		ADC8EBF2215150B2008E5696 /* ShangjiaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShangjiaCell.xib; sourceTree = "<group>"; };
 		ADC8EBFD215158CC008E5696 /* CellParseJsonAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellParseJsonAble.swift; sourceTree = "<group>"; };
-		ADCA97852100DADC00DA0950 /* NetHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetHelper.swift; sourceTree = "<group>"; };
 		ADCA97872100DB4500DA0950 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		ADD7CE18211C88DF00A33F3B /* MeHomeCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeCell2.swift; sourceTree = "<group>"; };
 		ADD7CE1A211C8C4800A33F3B /* MeHomeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeHomeListController.swift; sourceTree = "<group>"; };
@@ -689,7 +687,6 @@
 				AD10331F1FB6CD4E0017E81C /* Extension.swift */,
 				AD10332A1FB6CD4E0017E81C /* themeColor.swift */,
 				ADCA97872100DB4500DA0950 /* Tools.swift */,
-				ADCA97852100DADC00DA0950 /* NetHelper.swift */,
 				AD10332B1FB6CD4E0017E81C /* url.swift */,
 				A1E853D21FC6924100E8DB85 /* DCTT-Bridging-Header.h */,
 			);
@@ -1126,6 +1123,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTTPageController/SwiftTTPageController.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -1140,6 +1138,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTTPageController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -1325,7 +1324,6 @@
 				A19C4B631FCD2AD600E9DE59 /* TTSearchBarView.swift in Sources */,
 				AD3CB6CA211206DC00681E65 /* AlamofireHelper.swift in Sources */,
 				A1CE83991FC3F6AA00DAF90F /* HomeDetailController.swift in Sources */,
-				ADCA97862100DADD00DA0950 /* NetHelper.swift in Sources */,
 				AD2FC96A22017E94004DA297 /* LifeListViewCell.swift in Sources */,
 				ADEF0DB5212DB117007BF6AE /* ServerListController.swift in Sources */,
 				AD2894DF2211571800CA9225 /* MeHomeListCell.swift in Sources */,
@@ -1472,7 +1470,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8R29X3H9MY;
 				INFOPLIST_FILE = DCTT/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gener-tech.d4";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1480,7 +1478,7 @@
 				SWIFT_ENABLE_BATCH_MODE = "";
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DCTT/BaseController/KLTAnimateNav/DCTT-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1493,11 +1491,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DCTT/DCTT.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: yongguang wang (NZC7MW7CH8)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8R29X3H9MY;
 				INFOPLIST_FILE = DCTT/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gener-tech.d4";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1505,7 +1502,7 @@
 				SWIFT_ENABLE_BATCH_MODE = "";
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DCTT/BaseController/KLTAnimateNav/DCTT-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

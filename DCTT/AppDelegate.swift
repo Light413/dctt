@@ -55,12 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,UITabBarControllerDelegat
         HUD.config()
 
         _networkReachabilityManager = NetworkReachabilityManager(host: "www.baidu.com")
-        _networkReachabilityManager.listener = { status in
-            //print("Network Status Changed: \(status)")
+        _networkReachabilityManager.startListening{ status in
+            print("Network Status Changed: \(status)")
         }
-        
-        _networkReachabilityManager.startListening()
-        
+    
 //        IQKeyboardManager.sharedManager().enable = true
 //        IQKeyboardManager.sharedManager().enable = true
         UIApplication.shared.applicationIconBadgeNumber = 0

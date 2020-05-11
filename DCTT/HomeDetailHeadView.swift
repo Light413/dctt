@@ -43,7 +43,7 @@ class HomeDetailHeadView: UIView {
         guard let dic = d["user"] as? [String:Any] else {return}
         if let igurl = dic["avatar"] as? String {
             let url = URL.init(string: igurl)
-            iconImg.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
+            iconImg.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil)
         }
         
         var s = ""

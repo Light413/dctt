@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import WebKit
 
-class BaseWebViewController: BaseViewController,UIWebViewDelegate,UIGestureRecognizerDelegate {
+class BaseWebViewController: BaseViewController,WKNavigationDelegate,UIGestureRecognizerDelegate {
 
-    private var webview: UIWebView!
+    private var webview: WKWebView!
     private var _url:String!
     private var _isFullUrl:Bool = false
     
@@ -37,9 +38,9 @@ class BaseWebViewController: BaseViewController,UIWebViewDelegate,UIGestureRecog
 
         // Do any additional setup after loading the view.
         _addNavigationItems()
+        webview = WKWebView (frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64));
         
-        webview = UIWebView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 64))
-        webview.delegate = self
+        webview.navigationDelegate = self
         //webview.scrollView.bounces = false
         webview.backgroundColor = UIColor.white //kTableviewBackgroundColor;
         view.addSubview(webview)
@@ -53,7 +54,7 @@ class BaseWebViewController: BaseViewController,UIWebViewDelegate,UIGestureRecog
         var req = URLRequest.init(url: URL.init(string: _isFullUrl ? _url! : BASE_URL + _url!)!)
         req.cachePolicy = .reloadIgnoringLocalCacheData
         HUD.show()
-        webview.loadRequest(req)
+        webview.load(req)
     }
 
     private func _addNavigationItems() {
@@ -86,7 +87,24 @@ class BaseWebViewController: BaseViewController,UIWebViewDelegate,UIGestureRecog
         return false
     }
     
-    //MARK:
+    
+    //MARK:WKNavigationDelegate
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+//        print("%s" , #function);
+        webView.evaluateJavaScript("document.documentElement.style.webkitUserSelect='none';", completionHandler: nil);
+        webView.evaluateJavaScript("document.documentElement.style.webkitTouchCallout='none';", completionHandler: nil);
+        
+        HUD.dismiss()
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        print(error.localizedDescription)
+        HUD.show(info: error.localizedDescription)
+    }
+    
+    
+    
+    //MARK:-- uiwebviewdelegate
     func webViewDidFinishLoad(_ webView: UIWebView) {
         // 禁用用户选择
         webView.stringByEvaluatingJavaScript(from: "document.documentElement.style.webkitUserSelect='none';")
@@ -101,6 +119,7 @@ class BaseWebViewController: BaseViewController,UIWebViewDelegate,UIGestureRecog
         print(error.localizedDescription)
         HUD.show(info: error.localizedDescription)
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -87,7 +87,8 @@ class MeHomeHeadView: UIView {
     func fill(_ dic:[String:Any]) {
         if let igurl = dic["avatar"] as? String {
             let url = URL.init(string: igurl)
-            avatar.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
+            avatar.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil);
+//            avatar.setImage(path:url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
         }
         
         var s = ""

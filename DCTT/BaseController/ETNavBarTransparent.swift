@@ -39,7 +39,7 @@ extension UINavigationController {
     }
     
     open override func viewDidLoad() {
-        UINavigationController.swizzle()
+//        UINavigationController.swizzle()
         super.viewDidLoad()
     }
     
@@ -127,6 +127,7 @@ extension UINavigationController {
         return et_popToRootViewControllerAnimated(animated)
     }
     
+    //ios10此以后私有属性不能使用了，直接闪退！！！
     fileprivate func setNeedsNavigationBackground(alpha: CGFloat) {
         if let barBackgroundView = navigationBar.subviews.first {
             let valueForKey = barBackgroundView.value(forKey:)
@@ -157,7 +158,7 @@ extension UINavigationController {
     }
 }
 
-extension UINavigationController: UINavigationBarDelegate {
+/*extension UINavigationController: UINavigationBarDelegate {
     
     public func navigationBar(_ navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool {
         if let topVC = topViewController, let coor = topVC.transitionCoordinator, coor.initiallyInteractive {
@@ -208,6 +209,7 @@ extension UINavigationController: UINavigationBarDelegate {
         }
     }
 }
+*/
 
 extension UIViewController {
     

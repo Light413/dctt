@@ -50,7 +50,7 @@ class MePersonInfoController: MeBaseTableViewController {
         func fillData() {
             if let avatar = User.avatar() {
                 let url = URL.init(string: avatar)
-                icon.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil);
+                icon.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"));
             }
             
             name.text = String.isNullOrEmpty(userinfo["name"])

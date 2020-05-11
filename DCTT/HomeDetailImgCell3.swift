@@ -52,7 +52,7 @@ class HomeDetailImgCell3: UITableViewCell {
             let url = URL.init(string: s)
             if let igv = self.contentView.viewWithTag(i) as? UIImageView {
                 igv.isUserInteractionEnabled = true;
-                igv.kf.setImage(with: url, placeholder: UIImage (named: "default_image2"), options: nil, progressBlock: nil, completionHandler:nil)
+                igv.kf.setImage(with: url, placeholder: UIImage (named: "default_image2"))
             }
         }
     }

@@ -68,7 +68,7 @@ class FensiCell: UITableViewCell {
         
         if let igurl = dic["avatar"] as? String {
             let url = URL.init(string: igurl)
-            avantar.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
+            avantar.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"))
         }
         
         var s = ""

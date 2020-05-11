@@ -23,7 +23,7 @@ extension UIButton{
 extension UIImageView {
     
     func setImage(path:URL)  {
-        self.kf.setImage(with: path, placeholder: UIImage (named: "default_image2"), options: nil, progressBlock: nil, completionHandler:nil)
+        self.kf.setImage(with: path, placeholder: UIImage (named: "default_image2"), options: nil, progressBlock: nil)
 
     }
     

@@ -29,25 +29,26 @@ class HistoryTodayController: MeBaseTableViewController {
     func load() {
         HUD.show(withStatus: "数据加载中")
         let date = Tools.dateToString(Date(), formatter: "MMdd")
-        Alamofire.request(url, parameters: ["key":"2803e9fa0ba26" , "day":date]).responseJSON {[weak self] (res) in
-            if let dic = res.result.value as? [String:Any]{
-                DispatchQueue.main.async {
-                    HUD.dismiss()
-                    
-                    if String.isNullOrEmpty(dic["retCode"]) == "200" {
-                        if let arr = dic["result"] as? [[String:Any]]{
-                            guard let ss = self else {return}
-                            
-                            ss.dataArray = ss.dataArray + arr
-                            ss.tableView.reloadData()
-                        }
-                    }else{
-                        HUD.showText("服务器返回错误", view: kAPPKeyWindow)
-                    }
-                }
-                
-            }
-        }
+        
+//        Alamofire.request(url, parameters: ["key":"2803e9fa0ba26" , "day":date]).responseJSON {[weak self] (res) in
+//            if let dic = res.result.value as? [String:Any]{
+//                DispatchQueue.main.async {
+//                    HUD.dismiss()
+//                    
+//                    if String.isNullOrEmpty(dic["retCode"]) == "200" {
+//                        if let arr = dic["result"] as? [[String:Any]]{
+//                            guard let ss = self else {return}
+//                            
+//                            ss.dataArray = ss.dataArray + arr
+//                            ss.tableView.reloadData()
+//                        }
+//                    }else{
+//                        HUD.showText("服务器返回错误", view: kAPPKeyWindow)
+//                    }
+//                }
+//                
+//            }
+//        }
     }
 
     override func didReceiveMemoryWarning() {

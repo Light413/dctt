@@ -49,7 +49,7 @@ class HomeDetailController: BaseDetailController{
         if let dic = data["user"] as? [String:Any]{
             if let igurl = dic["avatar"] as? String {
                 let url = URL.init(string: igurl)
-                icon.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"), options: nil, progressBlock: nil, completionHandler: nil)
+                icon.kf.setImage(with: url, placeholder: UIImage (named: "avatar_default"))
             }
         }
 
