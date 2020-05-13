@@ -1,6 +1,6 @@
 ### dctt-本地生活服务APP（已上架，仅供学习交流）
 
-![dctt_logo](https://raw.githubusercontent.com/Light413/dctt/master/DCTT/app_logo/3057x760.png)
+<img src="https://raw.githubusercontent.com/Light413/dctt/master/DCTT/app_logo/3057x760.png" width = "50%" alt="dctt_logo" />
 
 ### `已更新至Swift5.0 ， Xcode 11.4 `
 

@@ -92,7 +92,7 @@ class AlamofireHelper: NSObject {
     }
     
     //MARK: - upload
-    //上传多张图片
+    ///上传多张图片
    public func upload(to:String,
                 parameters:[String:Any]? = nil,
                 uploadFiles:[Any]? = nil,
@@ -147,31 +147,39 @@ class AlamofireHelper: NSObject {
                 }
                 
             }
-        }, to: base_url + to, headers: header)
-            .responseJSON { (response) in
-                print(response)
-        }
-        
-        /*{ (encodingResult) in
-            switch encodingResult {
-            case .success(request: let upload, streamingFromDisk: _, streamFileURL:_):
-                upload.validate().responseJSON(completionHandler: {  (res) in
-                    print("post success");//判断返回的code-200
-                    if let success = successHandler , let value = res.result.value as? [String:Any] {
-                        success(value);
-                    }
-                })
-                break;
-                
-            case .failure(let error):
-                print("post error")
-                if let fail = failureHandler {
-                    fail();
-                }
-                
-                print(error.localizedDescription);break
-            }
-        }*/
+        }, to: base_url + to, headers: header).responseJSON(completionHandler: { (dataResponse) in
+            print(dataResponse.result)
+            DispatchQueue.main.async {
+                 switch dataResponse.result {
+                     case .success(let value):
+                         if let dic = value as? [String:Any] ,let status = dic["status"] as? Int {
+                             if "\(status)" == "200" {
+                                 if let success = successHandler {
+                                     success(dic);
+                                 }
+                             }else{
+                                 if let failure = failureHandler {
+                                     let err = NSError.init(domain: "\(dic["msg"] ?? "")", code:status, userInfo: nil)
+                                    
+                                    print(err.localizedDescription);
+                                    
+                                     failure()
+                                 }
+                             }
+                         }
+                         break
+                     
+                     case .failure(let error):
+                         if let failure = failureHandler {
+                             failure()
+                         }
+                         
+                         print(error.localizedDescription);
+                         break
+                 }
+             }
+            
+        });
     }
     
     //convenience methods

@@ -117,7 +117,7 @@ class TTImagePickerViewController: BaseViewController ,UICollectionViewDelegate,
 
     func addBottomBar() -> (preview:UIButton,finished:UIButton) {
         //bottomBar
-        let _bottomBar = UIToolbar.init(frame: CGRect (x: 0, y: kCurrentScreenHeight - kBottomBarHeight, width: kCurrentScreenWidth, height: kBottomBarHeight))
+        let _bottomBar = UIToolbar.init(frame: CGRect (x: 0, y: kCurrentScreenHeight - kBottomBarHeight - 100, width: kCurrentScreenWidth, height: kBottomBarHeight))
         _bottomBar.barStyle = .default
         _bottomBar.isTranslucent = true
         _bottomBar.setShadowImage(UIImage(), forToolbarPosition: .bottom)

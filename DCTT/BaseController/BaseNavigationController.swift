@@ -14,6 +14,16 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
             return .default
         }
     }
+
+    override var modalPresentationStyle: UIModalPresentationStyle{
+        get{
+            return .fullScreen
+        }
+        
+        set{
+            
+        }
+    }
     
     
     override func viewDidLoad() {

@@ -202,7 +202,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
             strongSelf._colloectionview.reloadSections(IndexSet.init(integer: 1))
         }
         
-        presentViewController = UINavigationController(rootViewController:vc)
+        presentViewController = BaseNavigationController(rootViewController:vc)
         self.navigationController?.present(presentViewController, animated: true, completion: nil)
 
         
