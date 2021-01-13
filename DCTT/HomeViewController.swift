@@ -83,7 +83,7 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         let bg = UIView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 35));
         
         topview  = TTHeadView (frame: CGRect (x: 0, y: 0, width: _w * CGFloat(titles.count) , height: 35), titles: titles, delegate: self ,textAttributes:attri)
-        topview.backgroundColor = UIColorFromHex(rgbValue: 0xff4500)
+//        topview.backgroundColor = UIColorFromHex(rgbValue: 0xff4500)
         bg.addSubview(topview);
         self.navigationItem.titleView = bg
         

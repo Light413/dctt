@@ -74,7 +74,7 @@ class LifeListViewCell: UITableViewCell,HomeCellFillDateAble , DisLikeButtonStyl
             let url = URL.init(string: arr.first!)
             contentImg.kf.setImage(with: url, placeholder: UIImage (named: "default_image2"))
         }else{
-            contentImg_h.constant = 0
+            contentImg_h.constant = 0;
         }
         
         

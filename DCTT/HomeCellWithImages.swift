@@ -42,7 +42,9 @@ class HomeCellWithImages: HomeListBaseCell {
         
         let w = (kCurrentScreenWidth - 20) / 3.0
         image_h.constant = w;
-        
+        ig1.clipsToBounds = true;
+        ig2.clipsToBounds = true;
+        ig3.clipsToBounds = true;
         disLikeBtnSetStyle(dislikeBtn)
     }
 

@@ -509,8 +509,8 @@
 		A1C46D752005E14A00E02635 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				ADFC9E012053EDCC00449767 /* Login.storyboard */,
 				ADFB5378213044F600C45441 /* HomeCellFillDateAble.swift */,
-				AD1DB7AF215230DB004BFF76 /* HomeListBaseCell.swift */,
 				A1CE83911FC3C0AC00DAF90F /* HomeCell.swift */,
 				A1CE83921FC3C0AC00DAF90F /* HomeCell.xib */,
 				AD14CC5D1FE8027A003FBE0B /* HomeCellWithImage.swift */,
@@ -521,8 +521,9 @@
 				A1B8E4932006066F001E156E /* HomeDetailHeadView.xib */,
 				AD42001F2007AFCA00096CF7 /* HomeDetailCommentCell.swift */,
 				AD4200202007AFCA00096CF7 /* HomeDetailCommentCell.xib */,
-				AD0BD4EB2009FE980088D5E7 /* HomeDetailImgCell.swift */,
+				AD1DB7AF215230DB004BFF76 /* HomeListBaseCell.swift */,
 				AD0BD4EC2009FE980088D5E7 /* HomeDetailImgCell.xib */,
+				AD0BD4EB2009FE980088D5E7 /* HomeDetailImgCell.swift */,
 				ADED555F2121D294005C8EE6 /* HomeDetailImgCell3.swift */,
 				ADED55602121D294005C8EE6 /* HomeDetailImgCell3.xib */,
 				AD6A9839201A12B700E7C5AE /* HomeDetailFooterView.swift */,
@@ -822,7 +823,6 @@
 			isa = PBXGroup;
 			children = (
 				A1FD182F2112A908000F0E91 /* model */,
-				ADFC9E012053EDCC00449767 /* Login.storyboard */,
 				ADFC9E032053F72500449767 /* LoginViewController.swift */,
 				ADFC9E052053F73D00449767 /* RegisterViewController.swift */,
 				ADFC9E072053F75B00449767 /* FindPwdController.swift */,
@@ -1122,6 +1122,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTTPageController/SwiftTTPageController.framework",
@@ -1137,6 +1138,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTTPageController.framework",

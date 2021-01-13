@@ -49,6 +49,7 @@ class HomeCellWithImage: HomeListBaseCell {
         let w = kCurrentScreenWidth / 3.0;
         igv_w.constant = w;
         igv_h.constant = w
+        igv.clipsToBounds = true;
     }
 
     

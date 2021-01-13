@@ -9,6 +9,7 @@
 import UIKit
 import MJRefresh
 import Alamofire
+import SDWebImage
 
 class HomerListViewController: BaseTableViewController {
     var pageNumber:Int = 1;
@@ -88,6 +89,19 @@ class HomerListViewController: BaseTableViewController {
     }
     
     func loadData() {
+//        var ig = UIImage (named: "")
+//        ig?.draw(in: <#T##CGRect#>)
+//        var igv = UIImageView.init();
+//        igv.image = UIImage.init(named: "")
+//        igv.sd_setImage(with: URL(string: "")) { (ig, err, type, url) in
+//
+//        }
+//        var app = UIApplication.shared;
+//        var taskIdentifer = app.beginBackgroundTask {
+//
+//        };
+        
+        
         //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
         var subType = 0
         switch _type! {

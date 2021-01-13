@@ -13,7 +13,7 @@ pod 'RxSwift', '~> 5'
 pod 'RxCocoa', '~> 5'
 #pod 'RxDataSources', '~> 1.0.4'
 pod 'SnapKit', '~> 5.0.0'
-
+pod 'SDWebImage'
 
 pod 'MJRefresh','3.1.12'
 pod 'Kingfisher', '~> 5.10'

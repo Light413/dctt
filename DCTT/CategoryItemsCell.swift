@@ -73,8 +73,8 @@ class CategoryItemsCell: UITableViewCell, UICollectionViewDelegate,UICollectionV
         numberOfItem = Int(ceilf(Float.init(dataArray.count) / 8.0))
         
         ////pageCtr
-        pageCtr.numberOfPages = numberOfItem
-        pageCtr.currentPage = 0
+//        pageCtr.numberOfPages = numberOfItem
+//        pageCtr.currentPage = 0
 
     }
     

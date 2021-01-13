@@ -31,6 +31,9 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
+  - SDWebImage (5.7.3):
+    - SDWebImage/Core (= 5.7.3)
+  - SDWebImage/Core (5.7.3)
   - SnapKit (5.0.1)
   - SVProgressHUD (2.1.2)
   - SwiftTTPageController (0.0.6)
@@ -50,6 +53,7 @@ DEPENDENCIES:
   - mob_sharesdk/ShareSDKUI
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
+  - SDWebImage
   - SnapKit (~> 5.0.0)
   - SVProgressHUD (~> 2.1.2)
   - SwiftTTPageController
@@ -68,6 +72,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SDWebImage
     - SnapKit
     - SVProgressHUD
     - SwiftTTPageController
@@ -85,11 +90,12 @@ SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SDWebImage: 97351f6582ceca541ea294ba66a1fcb342a331c2
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SwiftTTPageController: a6430ed29b939a01d86c60320547b49cef1eac8f
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: d76f3fc429fad13d2d2ea4e1f8cc6a590a02d753
+PODFILE CHECKSUM: 4337039802deb57b358c60ff7c64d1e81951601a
 
 COCOAPODS: 1.9.1
