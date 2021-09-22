@@ -46,6 +46,8 @@ class HomeCellWithImages: HomeListBaseCell {
         ig2.clipsToBounds = true;
         ig3.clipsToBounds = true;
         disLikeBtnSetStyle(dislikeBtn)
+        NSObject.cancelPreviousPerformRequests(withTarget: self)
+        Itemtype.textColor = UIColorFromHex(rgbValue: 0xff4500);
     }
 
     
@@ -74,7 +76,7 @@ class HomeCellWithImages: HomeListBaseCell {
             let url = URL.init(string: arr[i])
             
             if let igv = self.contentView.viewWithTag(10 + i) as? UIImageView {
-                igv.kf.setImage(with: url, placeholder: UIImage (named: "default_image2"))
+                igv.kf.setImage(with: url, placeholder: UIImage (named: "default_dctt"))
             }
             
         }

@@ -21,6 +21,7 @@ class TTRefreshHeader: MJRefreshHeader {
         let _l = UILabel()
         _l.font = UIFont.systemFont(ofSize: 13)
         _l.textColor = UIColor.darkGray
+        _l.backgroundColor = UIColor.white;
         _l.textAlignment = .center
         self.addSubview(_l)
         self.title = _l

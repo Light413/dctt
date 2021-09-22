@@ -17,31 +17,34 @@ class BaseTabbarController: UITabBarController {
 
     func initTabar() {
         tabBar.barTintColor = UIColor.white //kBartintColor
+        let blankView = UIView (frame: CGRect (x: 0, y: -0.5, width: kCurrentScreenWidth, height: 0.5))
+        blankView.backgroundColor = UIColorFromHex(rgbValue: 0xE6E6E6);
+        tabBar.addSubview(blankView);
         
         let itemtitleArr = [
             "首页",
             "话题",
-            "",
+//            "",
             "生活",
             "个人中心"]
 
         let icon_normal:Array = [
             "tabbar_icon_home",
             "tabbar_icon_friend",
-            "tabbar_icon_publish" ,
+//            "tabbar_icon_publish" ,
             "tabbar_icon_all",
             "tabbar_icon_me" ]
         let icon_selected = [
             "tabbar_icon_home_selected",
             "tabbar_icon_friend_selected",
-            "tabbar_icon_publish" ,
+//            "tabbar_icon_publish" ,
             "tabbar_icon_all_selected",
             "tabbar_icon_me_selected" ]
         
         let vcname = [
-                "HomeViewController",
+                "HomeViewController",//HomeListController，HomeViewController
                 "FriendRootController",
-                "BaseViewController",
+//                "BaseViewController",
                 "AllViewController",
                 "MeViewController"]
         

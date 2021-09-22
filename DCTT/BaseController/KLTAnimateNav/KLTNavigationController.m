@@ -100,9 +100,9 @@
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated
 {
     NSInteger index = self.viewControllers.count;
-    NSString * className = nil;
+//    NSString * className = nil;
     if (index >= 2) {
-        className = NSStringFromClass([self.viewControllers[index -2] class]);
+//        className = NSStringFromClass([self.viewControllers[index -2] class]);
     }
     
     if (_screenshotImgs.count >= index - 1) {

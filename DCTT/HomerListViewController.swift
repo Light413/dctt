@@ -65,9 +65,10 @@ class HomerListViewController: BaseTableViewController {
         
         tableView.mj_footer = footer
         tableView.mj_footer.isHidden = true
-        
+        tableView.separatorColor = UIColorFromHex(rgbValue: 0xE6E6E6);
+        tableView.separatorInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 80
         tableView.contentInset = UIEdgeInsets.init(top: 10, left: 0, bottom: 0, right: 0)
         
         if let delegate = UIApplication.shared.delegate as? AppDelegate{
@@ -101,6 +102,25 @@ class HomerListViewController: BaseTableViewController {
 //
 //        };
         
+        func largestNumber(_ nums: [Int]) -> String {
+            let sort = nums.map {"\($0)"}.sorted { (lStr, rStr) -> Bool in
+                print("lStr:\(lStr) ,rStr: \(rStr)");
+//                return lStr > rStr;
+                return lStr + rStr > rStr + lStr
+            }
+            
+            print(sort);
+            let result = sort.joined()
+            if result.prefix(1) == "0" {
+                return "0"
+            } else {
+                return result
+            }
+        }
+
+            
+          var s =  largestNumber([3,30,34,5,9]);
+           print(s)
         
         //HUD.show(withStatus: NSLocalizedString("Loading", comment: ""))
         var subType = 0
@@ -216,7 +236,7 @@ class HomerListViewController: BaseTableViewController {
             ss._dislike(indexPath)
         }
         
-        cell.selectionStyle = .default
+        cell.selectionStyle = .none
         return cell
     }
     

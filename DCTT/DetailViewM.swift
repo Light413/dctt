@@ -41,7 +41,10 @@ class DetailViewM: NSObject {
         pid = vc?.pid
         targetAction = #selector(toolBarButtonClicked(_:))
         
-        _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - kNavigationBarHeight - kBottomToolBarHeight), style: .grouped)
+        let _h = kCurrentScreenHeight - kNavigationBarHeight - kBottomToolBarHeight;
+        print(UIScreen.main.bounds)
+        
+        _tableview = UITableView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h), style: .grouped)
         _tableview.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         _tableview.showsVerticalScrollIndicator = false
         _tableview.separatorStyle = .none
@@ -87,7 +90,16 @@ class DetailViewM: NSObject {
     //toolBar
     func addBottomBar()  {
         let toolBar = UIToolbar.init(frame: CGRect (x: 0, y: _tableview.frame.maxY, width: kCurrentScreenWidth, height: 49))
-        toolBar.barTintColor = tt_defafault_barColor //UIColor.white
+//        toolBar.barTintColor = tt_defafault_barColor
+        toolBar.barTintColor =  UIColor.white
+        //添加后不起作用？？？？？？？
+//        toolBar.setShadowImage(UIImage(), forToolbarPosition: .top);
+//        toolBar.setBackgroundImage(UIImage(), forToolbarPosition: .top, barMetrics: .default);
+        
+        ///覆盖分割线
+        let blankView = UIView (frame: CGRect (x: 0, y: -0.5, width: kCurrentScreenWidth, height: 0.5));
+        blankView.backgroundColor = UIColorFromHex(rgbValue: 0xeeeeee);
+        toolBar.addSubview(blankView)
         
         let btn_frame = CGRect (x: 0, y: 10, width: 120, height: 30)
         let writeBtn = UIButton (frame: btn_frame)
@@ -96,7 +108,7 @@ class DetailViewM: NSObject {
         writeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         writeBtn.layer.cornerRadius = 5
         writeBtn.layer.masksToBounds = true
-        writeBtn.backgroundColor = UIColor.white
+//        writeBtn.backgroundColor = UIColor.white
         writeBtn.setImage(UIImage (named: "writeicon_review_dynamic"), for: .normal);
         writeBtn.imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 50)
         writeBtn.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: -10, bottom: 0, right: 0)
@@ -145,8 +157,7 @@ class DetailViewM: NSObject {
         
         let flex = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
-        toolBar.items = [writeItem,commentNumberItem,flex,scItem]
-        
+        toolBar.items = [writeItem,flex,flex,commentNumberItem,flex,scItem]
         superController?.view.addSubview(toolBar)
     }
     
@@ -167,8 +178,7 @@ class DetailViewM: NSObject {
             UIApplication.shared.keyWindow?.addSubview(post_v)
             break
         case 102://收藏
-            HUD.show()
-            
+            HUD.show();
             let d = ["pid":pid! ,
                      "type": button.isSelected ? "3" : "2" ,
                      "uid":User.uid()!,

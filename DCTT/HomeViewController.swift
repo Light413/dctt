@@ -11,7 +11,7 @@ import RxSwift
 import SwiftTTPageController
 
 class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHeadViewDelegate,UITextFieldDelegate{
-    var vcArr = [BaseTableViewController]()
+    var vcArr = [HomeListController]()
     var pagevc :TTPageViewController!
     var topview : TTHeadView!
     let _logo_title = "郸城头条"
@@ -23,11 +23,13 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = ""
         view.backgroundColor = UIColor.white
         automaticallyAdjustsScrollViewInsets = false;
 //        t_barTintColor = UIColor.red;
-
         _init()
+        
+        print(UIFont.familyNames)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -59,12 +61,10 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
     
     func _init() {
         //head
-        let titles = ["最新","热门",
-//                      "新鲜事",
-                      "打听","吐槽","公告"]
+        let titles = ["推荐","热门话题"]
         let titlesId = [
             "最新":"0",
-            "热门":"1",
+            "热门话题":"1",
 //            "新鲜事":"10",
             "打听":"11",
             "吐槽":"12",
@@ -78,28 +78,29 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         attri.selectedFontSize = 16
         attri.selectedTextColor = UIColorFromHex(rgbValue: 0xff4500)
         attri.bottomLineColor = UIColorFromHex(rgbValue: 0xff4500)
-        attri.bottomLineHeight = 2
-        
-        let bg = UIView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 35));
-        
-        topview  = TTHeadView (frame: CGRect (x: 0, y: 0, width: _w * CGFloat(titles.count) , height: 35), titles: titles, delegate: self ,textAttributes:attri)
-//        topview.backgroundColor = UIColorFromHex(rgbValue: 0xff4500)
+        attri.bottomLineHeight = 2;
+        let bg = UIView.init(frame: CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: 45));
+        topview  = TTHeadView (frame: CGRect (x: 10, y: 8, width: kCurrentScreenWidth - 20, height: 32), titles: titles, delegate: self ,textAttributes:attri)
         bg.addSubview(topview);
-        self.navigationItem.titleView = bg
+        let lineView = UIView (frame: CGRect (x: 0, y: bg.frame.maxY - 0.5, width: kCurrentScreenWidth, height: 0.5));
+        lineView.backgroundColor = UIColor.defatultSeparatorColor;
+        //bg.addSubview(lineView);
+//        bg.backgroundColor = UIColor.red;
+//        topview.backgroundColor = UIColor.blue;
         
         ////pagevc
         for i in 0..<titles.count {
             let t = titles[i]
-            
-            let v = HomerListViewController(String.isNullOrEmpty(titlesId[t]));
+            let v = HomeListController(String.isNullOrEmpty(titlesId[t]));
             //v.view.frame =  CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: _h - 49)
             vcArr.append(v)
         }
         
-        let rec = CGRect (x: 0, y: 0, width: kCurrentScreenWidth, height: kCurrentScreenHeight - 50)
+        let rec = CGRect (x: 0, y: bg.frame.height, width: kCurrentScreenWidth, height: kCurrentScreenHeight - bg.frame.height - 49 - 50)
         pagevc = TTPageViewController(controllers:vcArr, frame: rec, delegate:self)
         
         self.addChild(pagevc)
+        view.addSubview(bg)
         view.addSubview(pagevc.view)
         
         //navigationbar item
@@ -130,42 +131,49 @@ class HomeViewController: BaseViewController ,TTPageViewControllerDelegate,TTHea
         tf.leftView = leftview
         
         //navigationItem.titleView = logo_lable*/
+        self.addLeftItem();
+        addRigthItem()
     }
     
+    func addLeftItem(){
+        let ig = Tools.scaleImage(UIImage (named: "home_logo")!, toSize: CGSize (width: 150, height: 30));
+        let igv = UIImageView.init(image: UIImage (named: "home_logo")!);
+        igv.frame = CGRect (x: 0, y: 0, width: 150, height: 30);
+        let leftItem = UIBarButtonItem.init(customView: igv)
+        
+        self.navigationItem.leftBarButtonItem = leftItem;
+    }
     
+    func addRigthItem(){
+        let btn = UIButton (frame: CGRect (x: 0, y: 0, width: 30, height: 30));
+        btn.setTitle("发布", for: .normal);
+        btn.setTitleColor(UIColorFromHex(rgbValue: 0x444444), for: .normal)
+        btn.titleLabel?.font = UIFont .boldSystemFont(ofSize: 16);
+//        btn.setBackgroundImage(UIImage (named: "icon_publish"), for: .normal)
+        
+        btn.addTarget(self, action: #selector(btnAction), for: .touchUpInside);
+        let item = UIBarButtonItem.init(customView: btn)
+        self.navigationItem.rightBarButtonItem = item;
+    }
+    
+    @objc func btnAction(){
+            print(111)
+        let v = ViewController();
+        self.navigationController?.pushViewController(v, animated: true);
+    }
     //MARK: -
     func tt_headViewSelectedAt(_ index: Int) {
         pagevc.scrollToPageAtIndex(index)
     }
     
     func tt_pageControllerSelectedAt(_ index: Int) {
-        
         topview.scrollToItemAtIndex(index);
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         let vc = HomeSearchViewController()
-
         self.navigationController?.pushViewController(vc, animated: true)
-        
         return false
     }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

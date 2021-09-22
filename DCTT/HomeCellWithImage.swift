@@ -50,6 +50,12 @@ class HomeCellWithImage: HomeListBaseCell {
         igv_w.constant = w;
         igv_h.constant = w
         igv.clipsToBounds = true;
+        
+        itemType.textColor = UIColorFromHex(rgbValue: 0xff4500);
+        itemType.layer.backgroundColor = UIColor.orange.cgColor;
+//        itemType.layer.borderWidth = 1;
+//        itemType.layer.borderColor = UIColor.red.cgColor;
+        itemType.layer.cornerRadius = 5
     }
 
     

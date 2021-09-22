@@ -19,6 +19,7 @@ pod 'MJRefresh','3.1.12'
 pod 'Kingfisher', '~> 5.10'
 pod 'IQKeyboardManagerSwift', '~> 6.0.0'
 pod 'SwiftTTPageController'
+pod 'SkeletonView'
 
 ###第三方平台
 pod 'Bugly'

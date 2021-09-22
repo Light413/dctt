@@ -31,7 +31,8 @@ class ZTTableViewController: BaseTableViewController {
         
         tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.separatorStyle = .none
+//        tableView.separatorStyle = .none
+        tableView.separatorColor = UIColorFromHex(rgbValue: 0xE6E6E6);
         
         let header = TTRefreshHeader.init(refreshingBlock: {[weak self] in
             guard let strongSelf = self else{return}

@@ -34,19 +34,18 @@ class BaseNavigationController: KLTNavigationController,UINavigationControllerDe
 
 //        navigationBar.setBackgroundImage(UIImage (named: "navigationbar_bg"), for: .default)
 
-        //navigationBar.shadowImage = UIImage();
+        navigationBar.shadowImage = imageWithColor(UIColorFromHex(rgbValue: 0xE6E6E6))//UIImage();
 //        navigationBar.setBackgroundImage(imageWithColor(tt_defafault_barColor), for: .default)
     }
     
     func imageWithColor(_ color:UIColor) -> UIImage? {
-        let rect = CGRect (x: 0, y: 0, width: 1, height: 1)
+        let rect = CGRect (x: 0, y: 0, width: 1, height: 0.5)
         
         UIGraphicsBeginImageContext(rect.size)
         
         let ctx = UIGraphicsGetCurrentContext()
         
         ctx?.setFillColor(color.cgColor)
-        
         ctx?.fill(rect)
         
         let ig = UIGraphicsGetImageFromCurrentImageContext()

@@ -22,10 +22,12 @@ class TTRefreshFooter: MJRefreshAutoFooter {
         _l.font = UIFont.systemFont(ofSize: 13)
         _l.textColor = UIColor.darkGray
         _l.textAlignment = .center
+        _l.backgroundColor = .white;
         self.addSubview(_l)
         self.title = _l
         
         let _loading = UIActivityIndicatorView.init(style: .gray)
+        _loading.backgroundColor = .white;
         self.addSubview(_loading)
         self.loading = _loading
     }

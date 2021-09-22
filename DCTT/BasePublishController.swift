@@ -236,6 +236,7 @@ class BasePublishController: BaseViewController,UICollectionViewDelegate,UIColle
             group.enter()
             if obj is PHAsset {
                 PHImageManager.default().requestImage(for: obj as! PHAsset, targetSize: PHImageManagerMaximumSize, contentMode: .aspectFit, options: requestOption, resultHandler: {(img, dic) in
+                    //。。。。。。。图片压缩处理
                         if let ig = img{
                             images.append(ig)
                         }

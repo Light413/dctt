@@ -12,7 +12,17 @@ class Tools: NSObject {
 
     static let `default` = Tools()
     
-   //MARK:-
+   //MARK: -
+    static func scaleImage(_ image:UIImage , toSize:CGSize) -> UIImage?{
+       UIGraphicsBeginImageContext(toSize);
+        image.draw(in: CGRect (x: 0, y: 0, width: toSize.width, height: toSize.height));
+        let ig = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return ig;
+    }
+    
+    
+   //MARK: - 日期处理
    static func stringToDate(_ dateStr:String, formatter:String = "yyyy") -> Date {
         let dateFormatter = DateFormatter.init()
         dateFormatter.dateFormat = formatter
@@ -30,17 +40,12 @@ class Tools: NSObject {
 
     //时间戳 -> Date
     static func date(_ s:String) -> Date? {
-        guard let sec = TimeInterval.init(s)  else {
-            return nil
-        }
-        
+        guard let sec = TimeInterval.init(s)  else { return nil}
         let date = Date.init(timeIntervalSince1970: sec / 1000.0)
-        
         return date
-        
     }
     
-   
+   //MARK:-
     static func showMsg( _ msg:String , title:String , handler:@escaping (() -> Void)) {
         
         let vc = UIAlertController.init(title: msg,message: nil, preferredStyle: .alert)

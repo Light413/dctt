@@ -29,14 +29,14 @@ class HomeCell: HomeListBaseCell {
             _type = kPublishTypeInfo["\(t)"]!;
         }
         
-        readCnt.text = "阅读" +  String.isNullOrEmpty(d["readCnt"]);
-        itemType.text = _type
+//        readCnt.text = "阅读" +  String.isNullOrEmpty(d["readCnt"]);
+//        itemType.text = _type
         
-        if let u = d["user"] as? [String:Any]{
-            if let u_avatar = u["avatar_thumb"] as? String{
-                avatarImg.kf.setImage(with: URL.init(string: u_avatar));
-            }
-        }
+//        if let u = d["user"] as? [String:Any]{
+//            if let u_avatar = u["avatar_thumb"] as? String{
+//                avatarImg.kf.setImage(with: URL.init(string: u_avatar));
+//            }
+//        }
     }
     
     @IBAction func dislikeAction(_ sender: Any) {
@@ -52,7 +52,13 @@ class HomeCell: HomeListBaseCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+//        msg.layer.masksToBounds = true;
+        msg.backgroundColor = UIColor.white
+//        msg.isOpaque = true;
         
+        msg.layer.cornerRadius = 3;
+        
+        //separatorInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10);
         disLikeBtnSetStyle(dislikeBtn)
     }
     

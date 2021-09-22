@@ -51,8 +51,10 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
 
         _tableview.estimatedRowHeight = 80;
         _tableview.rowHeight = UITableView.automaticDimension
-        _tableview.tableFooterView = UIView();
-        _tableview.showsVerticalScrollIndicator = false
+//        _tableview.tableHeaderView = UIView()
+//        _tableview.tableFooterView = UIView();
+        _tableview.showsVerticalScrollIndicator = false;
+        _tableview.separatorColor = UIColorFromHex(rgbValue: 0xE6E6E6);
 //        _tableview.separatorColor = UIColor (red: 232/255.0, green: 232/255.0, blue: 232/255.0, alpha: 1)
         
         _tableview.register(UINib (nibName: "HomeCell", bundle: nil), forCellReuseIdentifier: "HomeCellReuseIdentifierId")
@@ -214,6 +216,7 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
 
     //MARK: -
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section > 0 else {return UIView()}
         return nil
         //guard section > 0 else {return nil}
         
@@ -236,15 +239,15 @@ class AllViewController: BaseViewController,UITableViewDelegate,UITableViewDataS
         
         return bg*/
         
-        let v = CategorySectionHeaderView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: 40))
-
-        return v
+//        let v = CategorySectionHeaderView (frame: CGRect (x: 0, y: 0, width: tableView.frame.width, height: 40))
+//
+//        return v
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 2;
+        return 0.001;
     }
-    
+
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return  0.01
     }

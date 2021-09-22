@@ -40,7 +40,9 @@ class LifeListViewCell: UITableViewCell,HomeCellFillDateAble , DisLikeButtonStyl
         
         title.text = nil
         content.text = nil
-
+        contentImg.clipsToBounds = true;
+        contentImg.layer.cornerRadius = 5;
+        
         disLikeBtnSetStyle(dislikeBtn)
         
         contentImg_h.constant = 0

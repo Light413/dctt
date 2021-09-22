@@ -9,7 +9,15 @@
 import Foundation
 import UIKit
 
-let kIsIPhoneX = UIScreen.main.bounds.size.equalTo(CGSize (width: 375, height: 812)) || UIScreen.main.bounds.size.equalTo(CGSize (width: 414, height: 896))
+let kIsIPhoneX =
+    //iPhone 12 mini,iPhone 11 Pro,iPhone XS,iPhone X;@3x
+    UIScreen.main.bounds.size.equalTo(CGSize (width: 375, height: 812)) ||
+    //iPhone 11 Pro Max@3x,iPhone 11@2x,iPhone XR@2x
+    UIScreen.main.bounds.size.equalTo(CGSize (width: 414, height: 896)) ||
+    //iPhone 12,iPhone 12pro;@3x
+    UIScreen.main.bounds.size.equalTo(CGSize (width: 390, height: 844)) ||
+    //iPhone 12 Pro Max;@3x
+    UIScreen.main.bounds.size.equalTo(CGSize (width: 428, height: 926))
 
 let kNavigationBarHeight:CGFloat = kIsIPhoneX ? 88 : 64
 let kBottomToolBarHeight:CGFloat = kIsIPhoneX ? 83 : 49

@@ -237,7 +237,7 @@ class BaseDetailController: BaseViewController ,UITableViewDelegate,UITableViewD
         let paragraphStyle = NSMutableParagraphStyle.init()
         paragraphStyle.lineSpacing = 5
         paragraphStyle.lineBreakMode = .byCharWrapping
-        paragraphStyle.firstLineHeadIndent = 30
+        paragraphStyle.firstLineHeadIndent = 0
         
         let dic:[String:Any] = [convertFromNSAttributedStringKey(NSAttributedString.Key.font):UIFont.systemFont(ofSize: 17) , convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle):paragraphStyle,convertFromNSAttributedStringKey(NSAttributedString.Key.kern):1]
         let attriStr = NSAttributedString.init(string: _text, attributes: convertToOptionalNSAttributedStringKeyDictionary(dic))

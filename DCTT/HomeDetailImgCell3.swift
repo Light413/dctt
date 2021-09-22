@@ -19,10 +19,12 @@ class HomeDetailImgCell3: UITableViewCell {
         // Initialization code
         
         let _w = kCurrentScreenWidth / 3.0 - 10
-        img_h.constant = 1.2 * _w
+        img_h.constant = _w
         
         for i in 1...3{
             if let igv = self.contentView.viewWithTag(i) as? UIImageView {
+                igv.clipsToBounds = true;
+                igv.contentMode = .scaleToFill
                 let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapAction(_ :)))
                 
                 igv.addGestureRecognizer(tap)

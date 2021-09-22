@@ -48,6 +48,7 @@ class AlamofireHelper: NSObject {
                 DispatchQueue.main.async {
                     switch dataResponse.result {
                         case .success(let value):
+                            //print("接口返回>>>>>>>\(value)")
                             if let dic = value as? [String:Any] ,let status = dic["status"] as? Int {
                                 if "\(status)" == "200" {
                                     if let success = successHandler {

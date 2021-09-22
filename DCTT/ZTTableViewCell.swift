@@ -52,13 +52,14 @@ class ZTTableViewCell: UITableViewCell ,HomeCellFillDateAble , DisLikeButtonStyl
         // Initialization code
         
         bg.layer.borderColor = kTableviewBackgroundColor.cgColor
-        bg.layer.borderWidth = 1
-        bg.layer.cornerRadius = 5        
-        bg.layer.masksToBounds = true
+//        bg.layer.borderWidth = 1
+//        bg.layer.cornerRadius = 5        
+//        bg.layer.masksToBounds = true
         
         disLikeBtnSetStyle(dislikeBtn)
         
         contentImg_h.constant = 0
+        contentImg.clipsToBounds = true;
     }
 
     func fill(_ d:[String:Any]) {
